@@ -401,6 +401,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -413,6 +414,7 @@
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
               },
               {
@@ -425,6 +427,68 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 1000,
+                "c": 0,
+                "e": 18,
+                "description": "if (Bank[2][0] == 1000) (else goto 776);",
+                "raw": "16 20 00 00 e8 03 00 12"
+              },
+              {
+                "op": "WAIT",
+                "a": 4,
+                "description": "wait({numFrames:4});",
+                "raw": "24 04 00"
+              },
+              {
+                "op": "REQ",
+                "e": 5,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteAsync({entity:5, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 05 c3"
+              },
+              {
+                "op": "REQ",
+                "e": 2,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteAsync({entity:2, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 02 c3"
+              },
+              {
+                "op": "WAIT",
+                "a": 10,
+                "description": "wait({numFrames:10});",
+                "raw": "24 0a 00"
+              },
+              {
+                "op": "SETWORD",
+                "bd": 2,
+                "bs": 0,
+                "a": 0,
+                "v": 1001,
+                "description": "Bank[2][0] = 1001;",
+                "raw": "81 20 00 e9 03"
+              },
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 776;",
+                "raw": "12 00"
               }
             ]
           },
@@ -462,6 +526,18 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 784;",
+                "raw": "12 00"
               }
             ]
           },
@@ -552,6 +628,18 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 820;",
+                "raw": "12 00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -635,6 +723,18 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 847;",
+                "raw": "12 00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -681,6 +781,7 @@
                 "s": 1,
                 "i": 0,
                 "description": "setAnimationId({animationId:3, speed:1, actionId:Action.Stand});",
+                "pres": "<This> <Animation>.",
                 "raw": "dc 03 01 00"
               },
               {
@@ -689,6 +790,7 @@
                 "s": 1,
                 "i": 1,
                 "description": "setAnimationId({animationId:4, speed:1, actionId:Action.Walk});",
+                "pres": "<This> <Animation>.",
                 "raw": "dc 04 01 01"
               },
               {
@@ -697,12 +799,25 @@
                 "s": 1,
                 "i": 2,
                 "description": "setAnimationId({animationId:5, speed:1, actionId:Action.Run});",
+                "pres": "<This> <Animation>.",
                 "raw": "dc 05 01 02"
               },
               {
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 875;",
+                "raw": "12 00"
               }
             ]
           },
@@ -794,6 +909,18 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 912;",
+                "raw": "12 00"
               }
             ]
           },
@@ -894,6 +1021,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -922,6 +1060,17 @@
                 "description": "createLineTrigger({x1:-414, y1:-307, z1:447, x2:-335, y2:-368, z2:447});",
                 "raw": "d0 62 fe cd fe bf 01 b1 fe 90 fe bf 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1069,8 +1218,20 @@
                 "b": 0,
                 "a": 1,
                 "description": "clearBackground({area:1});",
+                "pres": "<Area:1> clears.",
                 "raw": "e4 00 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1088,6 +1249,7 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
               {
@@ -1107,6 +1269,7 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOff({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> disappears.",
                 "raw": "e1 00 01 00"
               },
               {

@@ -219,6 +219,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -231,6 +232,92 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 1020,
+                "c": 3,
+                "e": 27,
+                "description": "if (Bank[2][0] < 1020) (else goto 423);",
+                "raw": "16 20 00 00 fc 03 03 1b"
+              },
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 10,
+                "description": "wait({numFrames:10});",
+                "raw": "24 0a 00"
+              },
+              {
+                "op": "REQEW",
+                "e": 2,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteSync({entity:2, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 02 c3"
+              },
+              {
+                "op": "SCRLA",
+                "b": 0,
+                "s": 0,
+                "e": 2,
+                "t": 1,
+                "description": "scrollToEntity({speedInFrame:0, entityId:2, scrollType:1});",
+                "pres": "The camera pans to <E2>.",
+                "raw": "63 00 00 00 02 01"
+              },
+              {
+                "op": "SCRCC",
+                "description": "scrollToCurrentPlayableCharacter();",
+                "raw": "65"
+              },
+              {
+                "op": "SETWORD",
+                "bd": 2,
+                "bs": 0,
+                "a": 0,
+                "v": 1020,
+                "description": "Bank[2][0] = 1020;",
+                "raw": "81 20 00 fc 03"
+              },
+              {
+                "op": "UC",
+                "s": 0,
+                "description": "setPlayableCharacterMovability(M.Movable);",
+                "raw": "33 00"
+              },
+              {
+                "op": "MENU2",
+                "s": 0,
+                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "raw": "4a 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 423;",
+                "raw": "12 00"
               }
             ]
           },
@@ -272,6 +359,18 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 431;",
+                "raw": "12 00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -305,6 +404,18 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 439;",
+                "raw": "12 00"
               }
             ]
           },
@@ -428,6 +539,18 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 493;",
+                "raw": "12 00"
               }
             ]
           },

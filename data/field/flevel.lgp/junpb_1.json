@@ -704,6 +704,178 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "STPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 6,
+                "a": 0,
+                "description": "storePalette({paletteId:6, paletteArrayId:0, size:255});",
+                "raw": "e5 00 06 00 ff"
+              },
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 1,
+                "description": "set8bit(Bank[5][1], Math.floor(Math.random() * 256));",
+                "raw": "99 05 01"
+              },
+              {
+                "op": "MOD",
+                "bd": 5,
+                "bs": 0,
+                "d": 1,
+                "s": 4,
+                "description": "Bank[5][1] = Bank[5][1] % 4;",
+                "raw": "8d 50 01 04"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 1,
+                "v": 1,
+                "c": 5,
+                "e": 6,
+                "description": "if (Bank[5][1] <= 1) (else goto 1334);",
+                "raw": "14 50 01 01 05 06"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "JMPF",
+                "a": 15,
+                "description": "goto 1348;",
+                "raw": "10 0f"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 1,
+                "v": 2,
+                "c": 0,
+                "e": 6,
+                "description": "if (Bank[5][1] == 2) (else goto 1345);",
+                "raw": "14 50 01 02 00 06"
+              },
+              {
+                "op": "WAIT",
+                "a": 3,
+                "description": "wait({numFrames:3});",
+                "raw": "24 03 00"
+              },
+              {
+                "op": "JMPF",
+                "a": 4,
+                "description": "goto 1348;",
+                "raw": "10 04"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 2,
+                "v": 0,
+                "c": 0,
+                "e": 11,
+                "description": "if (Bank[5][2] == 0) (else goto 1364);",
+                "raw": "14 50 02 00 00 0b"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 0,
+                "v": 48,
+                "description": "Bank[5][0] = 48;",
+                "raw": "80 50 00 30"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 2,
+                "v": 1,
+                "description": "Bank[5][2] = 1;",
+                "raw": "80 50 02 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 9,
+                "description": "goto 1372;",
+                "raw": "10 09"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 0,
+                "v": 128,
+                "description": "Bank[5][0] = 128;",
+                "raw": "80 50 00 80"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 2,
+                "v": 0,
+                "description": "Bank[5][2] = 0;",
+                "raw": "80 50 02 00"
+              },
+              {
+                "op": "MPPAL2",
+                "b1": 0,
+                "b2": 0,
+                "b3": 5,
+                "b4": 5,
+                "b5": 0,
+                "s": 0,
+                "d": 16,
+                "b": 0,
+                "g": 0,
+                "r": 0,
+                "size": 255,
+                "description": "multiplyPaletteColors2({sourcePaletteId:0, targetPaletteId:16, r:0, g:Bank[5][0], b:Bank[5][0], size:255});",
+                "raw": "ea 00 55 50 00 10 00 00 00 ff"
+              },
+              {
+                "op": "LDPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 16,
+                "a": 6,
+                "description": "loadPalette({paletteId:16, paletteArrayId:6, size:255});",
+                "raw": "e6 00 10 06 ff"
+              },
+              {
+                "op": "JMPB",
+                "a": 71,
+                "description": "goto 1316;",
+                "raw": "12 47"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -728,6 +900,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -741,8 +914,20 @@
                 "i": 51,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:51});",
+                "pres": "The <I51> blocks",
                 "raw": "6d 33 00 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -764,6 +949,46 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 406,
+                "c": 0,
+                "e": 7,
+                "description": "if (Bank[2][0] == 406) (else goto 1423);",
+                "raw": "16 20 00 00 96 01 00 07"
+              },
+              {
+                "op": "REQEW",
+                "e": 5,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteSync({entity:5, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 05 c3"
+              },
+              {
+                "op": "REQSW",
+                "e": 8,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteAsyncGuaranteed({entity:8, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 08 c3"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -779,6 +1004,17 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -787,6 +1023,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -883,6 +1130,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -958,6 +1216,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -997,6 +1266,17 @@
                 "description": "thisIsAPlayableCharacter(C.Cid);",
                 "raw": "a0 08"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1097,6 +1377,17 @@
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1209,6 +1500,36 @@
                 "s": 0,
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "ANIME1",
+                "a": 1,
+                "s": 1,
+                "description": "playAnimationSync({animation:1, slowness:1});",
+                "raw": "a3 01 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 6,
+                "description": "goto 1532;",
+                "raw": "12 06"
               },
               {
                 "op": "RET",
@@ -1373,6 +1694,42 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "ANIME1",
+                "a": 1,
+                "s": 1,
+                "description": "playAnimationSync({animation:1, slowness:1});",
+                "raw": "a3 01 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 9,
+                "description": "goto 1607;",
+                "raw": "12 09"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1519,6 +1876,42 @@
                 "s": 0,
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "ANIME1",
+                "a": 1,
+                "s": 1,
+                "description": "playAnimationSync({animation:1, slowness:1});",
+                "raw": "a3 01 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 9,
+                "description": "goto 1685;",
+                "raw": "12 09"
               },
               {
                 "op": "RET",
@@ -1710,6 +2103,17 @@
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1915,6 +2319,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2112,6 +2527,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2210,6 +2636,117 @@
                 "r": 255,
                 "description": "setInteractibilityRadius({radius:255});",
                 "raw": "c5 00 ff"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 77,
+                "y": 130,
+                "z": 0,
+                "i": 26,
+                "description": "placeObject({x:77, y:130, z:0, walkmeshTriangle:26});",
+                "raw": "a5 00 00 4d 00 82 00 00 00 1a 00"
+              },
+              {
+                "op": "OFST",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 0,
+                "y": 0,
+                "z": 16,
+                "s": 0,
+                "description": "transposeObjectDisplayOnly({x:0, y:0, z:16, speed:0});",
+                "raw": "c3 00 00 00 00 00 00 00 10 00 00 00"
+              },
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 0,
+                "description": "setFacingDirection({direction:0});",
+                "raw": "b3 00 00"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": -57,
+                "y": 148,
+                "description": "walkObjectTo({x:-57, y:148});",
+                "raw": "a8 00 c7 ff 94 00"
+              },
+              {
+                "op": "ANIME1",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationSync({animation:2, slowness:1});",
+                "raw": "a3 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": 77,
+                "y": 130,
+                "description": "walkObjectTo({x:77, y:130});",
+                "raw": "a8 00 4d 00 82 00"
+              },
+              {
+                "op": "TURNGEN",
+                "b": 0,
+                "r": 0,
+                "d": 2,
+                "s": 10,
+                "t": 1,
+                "description": "rotateModel({rotation:0, direction:2, steps:10, stepType:1});",
+                "raw": "b4 00 00 02 0a 01"
+              },
+              {
+                "op": "ANIME1",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationSync({animation:2, slowness:1});",
+                "raw": "a3 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 30,
+                "description": "goto 2020;",
+                "raw": "12 1e"
               },
               {
                 "op": "RET",
@@ -2455,6 +2992,17 @@
                 "description": "setCollisionRadius({radius:0});",
                 "raw": "c6 00 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",

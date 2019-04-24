@@ -466,12 +466,57 @@
                 "b": 0,
                 "a": 1,
                 "description": "clearBackground({area:1});",
+                "pres": "<Area:1> clears.",
                 "raw": "e4 00 01"
               },
               {
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "WAIT",
+                "a": 30,
+                "description": "wait({numFrames:30});",
+                "raw": "24 1e 00"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 0,
+                "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
+                "raw": "e0 00 01 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 30,
+                "description": "wait({numFrames:30});",
+                "raw": "24 1e 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 0,
+                "description": "backgroundOff({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> disappears.",
+                "raw": "e1 00 01 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 14,
+                "description": "goto 878;",
+                "raw": "12 0e"
               }
             ]
           }
@@ -493,8 +538,20 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -538,6 +595,17 @@
                 "description": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -679,6 +747,17 @@
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1083,6 +1162,17 @@
                 "description": "thisIsAPlayableCharacter(C.Tifa);",
                 "raw": "a0 02"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1538,6 +1628,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1563,6 +1664,87 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFUB",
+                "b1": 3,
+                "b2": 0,
+                "a": 163,
+                "v": 32,
+                "c": 6,
+                "e": 3,
+                "description": "if (Bank[3][163] & 32) (else goto 1386);",
+                "raw": "14 30 a3 20 06 03"
+              },
+              {
+                "op": "JMPF",
+                "a": 21,
+                "description": "goto 1406;",
+                "raw": "10 15"
+              },
+              {
+                "op": "IFUB",
+                "b1": 3,
+                "b2": 0,
+                "a": 165,
+                "v": 64,
+                "c": 6,
+                "e": 9,
+                "description": "if (Bank[3][165] & 64) (else goto 1400);",
+                "raw": "14 30 a5 40 06 09"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 5,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:5});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c5"
+              },
+              {
+                "op": "REQ",
+                "e": 4,
+                "p": 6,
+                "f": 5,
+                "description": "entityExecuteAsync({entity:4, priority:6, function:5});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 04 c5"
+              },
+              {
+                "op": "JMPF",
+                "a": 7,
+                "description": "goto 1406;",
+                "raw": "10 07"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c3"
+              },
+              {
+                "op": "REQ",
+                "e": 4,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteAsync({entity:4, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 04 c3"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1579,6 +1761,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -1670,6 +1863,17 @@
                 "description": "createLineTrigger({x1:68, y1:483, z1:-27, x2:67, y2:332, z2:-26});",
                 "raw": "d0 44 00 e3 01 e5 ff 43 00 4c 01 e6 ff"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1809,6 +2013,17 @@
                 "description": "disableAllLineTriggers();",
                 "raw": "d1 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -2023,6 +2238,17 @@
                 "description": "createLineTrigger({x1:563, y1:111, z1:2043, x2:563, y2:203, z2:2041});",
                 "raw": "d0 33 02 6f 00 fb 07 33 02 cb 00 f9 07"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",

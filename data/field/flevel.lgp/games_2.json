@@ -1047,6 +1047,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -1059,6 +1060,7 @@
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
               },
               {
@@ -1081,6 +1083,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:63, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 3f 00 00 00 00 00 00 00 00"
               },
               {
@@ -1097,6 +1100,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_29({p1:63, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 29 3f 00 00 00 00 00 00 00 00"
               },
               {
@@ -1113,6 +1117,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:63, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 3f 00 00 00 00 00 00 00 00"
               },
               {
@@ -1129,6 +1134,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2b({p1:63, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2b 3f 00 00 00 00 00 00 00 00"
               },
               {
@@ -1145,6 +1151,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_c0({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 c0 7f 00 00 00 00 00 00 00 00"
               },
               {
@@ -1161,6 +1168,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_a0({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 a0 7f 00 00 00 00 00 00 00 00"
               },
               {
@@ -1177,6 +1185,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_a1({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 a1 7f 00 00 00 00 00 00 00 00"
               },
               {
@@ -1193,6 +1202,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_a2({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 a2 7f 00 00 00 00 00 00 00 00"
               },
               {
@@ -1209,6 +1219,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_a3({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 a3 7f 00 00 00 00 00 00 00 00"
               },
               {
@@ -1225,7 +1236,190 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_da_e4({p1:0, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Musical event...",
                 "raw": "da 00 00 00 e4 00 00 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFUB",
+                "b1": 11,
+                "b2": 0,
+                "a": 147,
+                "v": 1,
+                "c": 0,
+                "e": 150,
+                "description": "if (Bank[11][147] == 1) (else goto 2271);",
+                "raw": "14 b0 93 01 00 96"
+              },
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 11,
+                "bs": 0,
+                "a": 147,
+                "v": 0,
+                "description": "Bank[11][147] = 0;",
+                "raw": "80 b0 93 00"
+              },
+              {
+                "op": "IFSW",
+                "b1": 12,
+                "b2": 0,
+                "a": 107,
+                "v": 10000,
+                "c": 4,
+                "e": 79,
+                "description": "if (Bank[12][107] >= 10000) (else goto 2216);",
+                "raw": "16 c0 6b 00 10 27 04 4f"
+              },
+              {
+                "op": "MPARA",
+                "b": 0,
+                "w": 0,
+                "i": 0,
+                "v": 10,
+                "description": "setMessageParam({windowId:0, varId:0, value:10});",
+                "raw": "41 00 00 00 0a"
+              },
+              {
+                "op": "SOUND",
+                "b1": 0,
+                "b2": 0,
+                "i": 491,
+                "d": 63,
+                "description": "playSound({sound:491, direction:63});",
+                "raw": "f1 00 eb 01 3f"
+              },
+              {
+                "op": "WINDOW",
+                "n": 0,
+                "x": 75,
+                "y": 99,
+                "w": 154,
+                "h": 25,
+                "description": "createWindow({window:0, x:75, y:99, width:154, height:25});",
+                "raw": "50 00 4b 00 63 00 9a 00 19 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 0,
+                "d": 7,
+                "description": "showWindowWithDialog({window:0, dialog:7}); // Received <fe>{MEM1} GP!!",
+                "raw": "40 00 07"
+              },
+              {
+                "op": "IFSW",
+                "b1": 4,
+                "b2": 0,
+                "a": 74,
+                "v": 9990,
+                "c": 4,
+                "e": 8,
+                "description": "if (Bank[4][74] >= 9990) (else goto 2176);",
+                "raw": "16 40 4a 00 06 27 04 08"
+              },
+              {
+                "op": "SETWORD",
+                "bd": 4,
+                "bs": 0,
+                "a": 74,
+                "v": 10000,
+                "description": "Bank[4][74] = 10000;",
+                "raw": "81 40 4a 10 27"
+              },
+              {
+                "op": "JMPF",
+                "a": 6,
+                "description": "goto 2181;",
+                "raw": "10 06"
+              },
+              {
+                "op": "PLUS2",
+                "bd": 4,
+                "bs": 0,
+                "d": 74,
+                "s": 10,
+                "description": "Bank[4][74] = add16bit(Bank[4][74], 10);",
+                "raw": "86 40 4a 0a 00"
+              },
+              {
+                "op": "IFUB",
+                "b1": 11,
+                "b2": 0,
+                "a": 148,
+                "v": 3,
+                "c": 10,
+                "e": 28,
+                "description": "if (!((Bank[11][148] & (1<<3)))) (else goto 2214);",
+                "raw": "14 b0 94 03 0a 1c"
+              },
+              {
+                "op": "BITON",
+                "bd": 11,
+                "bs": 0,
+                "d": 148,
+                "bit": 3,
+                "description": "setBit({destination:Bank[11][148], bit:3});",
+                "raw": "82 b0 94 03"
+              },
+              {
+                "op": "WINDOW",
+                "n": 1,
+                "x": 63,
+                "y": 99,
+                "w": 178,
+                "h": 25,
+                "description": "createWindow({window:1, x:63, y:99, width:178, height:25});",
+                "raw": "50 01 3f 00 63 00 b2 00 19 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 1,
+                "d": 42,
+                "description": "showWindowWithDialog({window:1, dialog:42}); // Received \"Speed Source\"!",
+                "raw": "40 01 2a"
+              },
+              {
+                "op": "STITM",
+                "b1": 0,
+                "b2": 0,
+                "t": 75,
+                "a": 1,
+                "description": "addItem({item:75, amount:1});",
+                "raw": "58 00 4b 00 01"
+              },
+              {
+                "op": "UC",
+                "s": 0,
+                "description": "setPlayableCharacterMovability(M.Movable);",
+                "raw": "33 00"
+              },
+              {
+                "op": "MENU2",
+                "s": 0,
+                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "raw": "4a 00"
               },
               {
                 "op": "RET",
@@ -3395,6 +3589,7 @@
                 "p3": 0,
                 "p4": 2,
                 "description": "scrollOp0x62({param1:0, param2:15, param3:0, param4:2});",
+                "pres": "The camera scrolls...",
                 "raw": "62 00 0f 00 02"
               },
               {
@@ -3450,6 +3645,24 @@
                 "c": 0,
                 "description": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 30,
+                "description": "setCollisionRadius({radius:30});",
+                "raw": "c6 00 1e"
               },
               {
                 "op": "RET",
@@ -3751,6 +3964,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -3794,6 +4018,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -3910,6 +4145,118 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "CANM!2",
+                "a": 1,
+                "f": 0,
+                "l": 0,
+                "s": 1,
+                "description": "playPartialAnimation({animation:1, firstFrame:0, lastFrame:0, slowness:1});",
+                "raw": "bc 01 00 00 01"
+              },
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 24,
+                "description": "set8bit(Bank[5][24], Math.floor(Math.random() * 256));",
+                "raw": "99 05 18"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 24,
+                "v": 230,
+                "c": 2,
+                "e": 6,
+                "description": "if (Bank[5][24] > 230) (else goto 3991);",
+                "raw": "14 50 18 e6 02 06"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 1,
+                "s": 1,
+                "description": "playAnimationHoldLastFrameSync({animation:1, slowness:1});",
+                "raw": "ba 01 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 25,
+                "description": "goto 4015;",
+                "raw": "10 19"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 24,
+                "v": 215,
+                "c": 2,
+                "e": 16,
+                "description": "if (Bank[5][24] > 215) (else goto 4012);",
+                "raw": "14 50 18 d7 02 10"
+              },
+              {
+                "op": "CANM!2",
+                "a": 2,
+                "f": 14,
+                "l": 29,
+                "s": 1,
+                "description": "playPartialAnimation({animation:2, firstFrame:14, lastFrame:29, slowness:1});",
+                "raw": "bc 02 0e 1d 01"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "raw": "ba 03 01"
+              },
+              {
+                "op": "CANM!2",
+                "a": 2,
+                "f": 0,
+                "l": 14,
+                "s": 1,
+                "description": "playPartialAnimation({animation:2, firstFrame:0, lastFrame:14, slowness:1});",
+                "raw": "bc 02 00 0e 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 4,
+                "description": "goto 4015;",
+                "raw": "10 04"
+              },
+              {
+                "op": "WAIT",
+                "a": 15,
+                "description": "wait({numFrames:15});",
+                "raw": "24 0f 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 38,
+                "description": "goto 3977;",
+                "raw": "12 26"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -3952,11 +4299,6 @@
                 "s": 0,
                 "description": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -4003,6 +4345,118 @@
                 "d": 32,
                 "description": "setFacingDirection({direction:32});",
                 "raw": "b3 00 20"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "CANM!2",
+                "a": 1,
+                "f": 0,
+                "l": 0,
+                "s": 1,
+                "description": "playPartialAnimation({animation:1, firstFrame:0, lastFrame:0, slowness:1});",
+                "raw": "bc 01 00 00 01"
+              },
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 25,
+                "description": "set8bit(Bank[5][25], Math.floor(Math.random() * 256));",
+                "raw": "99 05 19"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 25,
+                "v": 230,
+                "c": 2,
+                "e": 6,
+                "description": "if (Bank[5][25] > 230) (else goto 4079);",
+                "raw": "14 50 19 e6 02 06"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 1,
+                "s": 1,
+                "description": "playAnimationHoldLastFrameSync({animation:1, slowness:1});",
+                "raw": "ba 01 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 25,
+                "description": "goto 4103;",
+                "raw": "10 19"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 25,
+                "v": 215,
+                "c": 2,
+                "e": 16,
+                "description": "if (Bank[5][25] > 215) (else goto 4100);",
+                "raw": "14 50 19 d7 02 10"
+              },
+              {
+                "op": "CANM!2",
+                "a": 2,
+                "f": 14,
+                "l": 29,
+                "s": 1,
+                "description": "playPartialAnimation({animation:2, firstFrame:14, lastFrame:29, slowness:1});",
+                "raw": "bc 02 0e 1d 01"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "raw": "ba 03 01"
+              },
+              {
+                "op": "CANM!2",
+                "a": 2,
+                "f": 0,
+                "l": 14,
+                "s": 1,
+                "description": "playPartialAnimation({animation:2, firstFrame:0, lastFrame:14, slowness:1});",
+                "raw": "bc 02 00 0e 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 4,
+                "description": "goto 4103;",
+                "raw": "10 04"
+              },
+              {
+                "op": "WAIT",
+                "a": 15,
+                "description": "wait({numFrames:15});",
+                "raw": "24 0f 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 38,
+                "description": "goto 4065;",
+                "raw": "12 26"
               },
               {
                 "op": "RET",
@@ -4088,11 +4542,6 @@
                 "s": 0,
                 "description": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -4148,6 +4597,181 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "OFST",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": -42,
+                "y": 0,
+                "z": 0,
+                "s": 0,
+                "description": "transposeObjectDisplayOnly({x:-42, y:0, z:0, speed:0});",
+                "raw": "c3 00 00 00 d6 ff 00 00 00 00 00 00"
+              },
+              {
+                "op": "CANM!2",
+                "a": 1,
+                "f": 0,
+                "l": 14,
+                "s": 1,
+                "description": "playPartialAnimation({animation:1, firstFrame:0, lastFrame:14, slowness:1});",
+                "raw": "bc 01 00 0e 01"
+              },
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 26,
+                "description": "set8bit(Bank[5][26], Math.floor(Math.random() * 256));",
+                "raw": "99 05 1a"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 26,
+                "v": 64,
+                "c": 3,
+                "e": 11,
+                "description": "if (Bank[5][26] < 64) (else goto 4206);",
+                "raw": "14 50 1a 40 03 0b"
+              },
+              {
+                "op": "REQSW",
+                "e": 7,
+                "p": 2,
+                "f": 3,
+                "description": "entityExecuteAsyncGuaranteed({entity:7, priority:2, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 07 43"
+              },
+              {
+                "op": "CANM!2",
+                "a": 1,
+                "f": 0,
+                "l": 14,
+                "s": 1,
+                "description": "playPartialAnimation({animation:1, firstFrame:0, lastFrame:14, slowness:1});",
+                "raw": "bc 01 00 0e 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 41,
+                "description": "goto 4246;",
+                "raw": "10 29"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 26,
+                "v": 128,
+                "c": 3,
+                "e": 11,
+                "description": "if (Bank[5][26] < 128) (else goto 4222);",
+                "raw": "14 50 1a 80 03 0b"
+              },
+              {
+                "op": "REQSW",
+                "e": 7,
+                "p": 2,
+                "f": 4,
+                "description": "entityExecuteAsyncGuaranteed({entity:7, priority:2, function:4});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 07 44"
+              },
+              {
+                "op": "CANM!2",
+                "a": 1,
+                "f": 15,
+                "l": 44,
+                "s": 1,
+                "description": "playPartialAnimation({animation:1, firstFrame:15, lastFrame:44, slowness:1});",
+                "raw": "bc 01 0f 2c 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 25,
+                "description": "goto 4246;",
+                "raw": "10 19"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 26,
+                "v": 192,
+                "c": 3,
+                "e": 11,
+                "description": "if (Bank[5][26] < 192) (else goto 4238);",
+                "raw": "14 50 1a c0 03 0b"
+              },
+              {
+                "op": "REQSW",
+                "e": 7,
+                "p": 2,
+                "f": 5,
+                "description": "entityExecuteAsyncGuaranteed({entity:7, priority:2, function:5});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 07 45"
+              },
+              {
+                "op": "CANM!2",
+                "a": 1,
+                "f": 45,
+                "l": 74,
+                "s": 1,
+                "description": "playPartialAnimation({animation:1, firstFrame:45, lastFrame:74, slowness:1});",
+                "raw": "bc 01 2d 4a 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 9,
+                "description": "goto 4246;",
+                "raw": "10 09"
+              },
+              {
+                "op": "REQSW",
+                "e": 7,
+                "p": 2,
+                "f": 6,
+                "description": "entityExecuteAsyncGuaranteed({entity:7, priority:2, function:6});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 07 46"
+              },
+              {
+                "op": "CANM!2",
+                "a": 1,
+                "f": 75,
+                "l": 89,
+                "s": 1,
+                "description": "playPartialAnimation({animation:1, firstFrame:75, lastFrame:89, slowness:1});",
+                "raw": "bc 01 4b 59 01"
+              },
+              {
+                "op": "JMPB",
+                "a": 59,
+                "description": "goto 4187;",
+                "raw": "12 3b"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -4190,6 +4814,36 @@
                 "d": 112,
                 "description": "setFacingDirection({direction:112});",
                 "raw": "b3 00 70"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "OFST",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": -42,
+                "y": 0,
+                "z": 0,
+                "s": 0,
+                "description": "transposeObjectDisplayOnly({x:-42, y:0, z:0, speed:0});",
+                "raw": "c3 00 00 00 d6 ff 00 00 00 00 00 00"
               },
               {
                 "op": "RET",
@@ -4361,6 +5015,30 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "OFST",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 38,
+                "y": 36,
+                "z": 46,
+                "s": 0,
+                "description": "transposeObjectDisplayOnly({x:38, y:36, z:46, speed:0});",
+                "raw": "c3 00 00 00 26 00 24 00 2e 00 00 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -4441,6 +5119,24 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "DFANM",
+                "a": 0,
+                "s": 1,
+                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "raw": "a2 00 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -4483,11 +5179,6 @@
                 "s": 0,
                 "description": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -4520,6 +5211,17 @@
                 "description": "createLineTrigger({x1:-152, y1:-121, z1:32, x2:-181, y2:-168, z2:32});",
                 "raw": "d0 68 ff 87 ff 20 00 4b ff 58 ff 20 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -4684,6 +5386,17 @@
                 "description": "createLineTrigger({x1:-99, y1:-174, z1:32, x2:-121, y2:-228, z2:32});",
                 "raw": "d0 9d ff 52 ff 20 00 87 ff 1c ff 20 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -4880,6 +5593,30 @@
                 "s": 0,
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "OFST",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 62,
+                "y": 56,
+                "z": 0,
+                "s": 0,
+                "description": "transposeObjectDisplayOnly({x:62, y:56, z:0, speed:0});",
+                "raw": "c3 00 00 00 3e 00 38 00 00 00 00 00"
               },
               {
                 "op": "RET",
@@ -5899,6 +6636,30 @@
                 "s": 0,
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "OFST",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 62,
+                "y": 56,
+                "z": 0,
+                "s": 0,
+                "description": "transposeObjectDisplayOnly({x:62, y:56, z:0, speed:0});",
+                "raw": "c3 00 00 00 3e 00 38 00 00 00 00 00"
               },
               {
                 "op": "RET",
@@ -7364,6 +8125,30 @@
                 "s": 0,
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "OFST",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 62,
+                "y": 56,
+                "z": 0,
+                "s": 0,
+                "description": "transposeObjectDisplayOnly({x:62, y:56, z:0, speed:0});",
+                "raw": "c3 00 00 00 3e 00 38 00 00 00 00 00"
               },
               {
                 "op": "RET",
@@ -8859,6 +9644,30 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "OFST",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 62,
+                "y": 56,
+                "z": 0,
+                "s": 0,
+                "description": "transposeObjectDisplayOnly({x:62, y:56, z:0, speed:0});",
+                "raw": "c3 00 00 00 3e 00 38 00 00 00 00 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -10324,6 +11133,30 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "OFST",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 62,
+                "y": 56,
+                "z": 0,
+                "s": 0,
+                "description": "transposeObjectDisplayOnly({x:62, y:56, z:0, speed:0});",
+                "raw": "c3 00 00 00 3e 00 38 00 00 00 00 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -11670,7 +12503,28 @@
                 "i": 80,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:80});",
+                "pres": "The <I80> blocks",
                 "raw": "6d 50 00 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "CANM!2",
+                "a": 1,
+                "f": 14,
+                "l": 14,
+                "s": 1,
+                "description": "playPartialAnimation({animation:1, firstFrame:14, lastFrame:14, slowness:1});",
+                "raw": "bc 01 0e 0e 01"
               },
               {
                 "op": "RET",
@@ -11736,6 +12590,83 @@
                 "z2": 0,
                 "description": "createLineTrigger({x1:12, y1:-233, z1:0, x2:-6, y2:-271, z2:0});",
                 "raw": "d0 0c 00 17 ff 00 00 fa ff f1 fe 00 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "PGTDR",
+                "b": 5,
+                "p": 0,
+                "d": 37,
+                "description": "Bank[5][37] = getPartyMemberDirection({partyId:0});",
+                "raw": "73 05 00 25"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 37,
+                "v": 0,
+                "c": 4,
+                "e": 15,
+                "description": "if (Bank[5][37] >= 0) (else goto 7742);",
+                "raw": "14 50 25 00 04 0f"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 37,
+                "v": 64,
+                "c": 4,
+                "e": 5,
+                "description": "if (Bank[5][37] >= 64) (else goto 7738);",
+                "raw": "14 50 25 40 04 05"
+              },
+              {
+                "op": "SLIP",
+                "s": 1,
+                "description": "slipOff();",
+                "raw": "2b 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 3,
+                "description": "goto 7740;",
+                "raw": "10 03"
+              },
+              {
+                "op": "SLIP",
+                "s": 0,
+                "description": "slipOn();",
+                "raw": "2b 00"
+              },
+              {
+                "op": "JMPF",
+                "a": 3,
+                "description": "goto 7744;",
+                "raw": "10 03"
+              },
+              {
+                "op": "SLIP",
+                "s": 0,
+                "description": "slipOn();",
+                "raw": "2b 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 26,
+                "description": "goto 7718;",
+                "raw": "12 1a"
               },
               {
                 "op": "RET",
@@ -11873,6 +12804,23 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIP",
+                "s": 1,
+                "description": "slipOff();",
+                "raw": "2b 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -12001,6 +12949,23 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIP",
+                "s": 1,
+                "description": "slipOff();",
+                "raw": "2b 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -12120,6 +13085,23 @@
                 "z2": 0,
                 "description": "createLineTrigger({x1:-71, y1:330, z1:0, x2:-40, y2:226, z2:0});",
                 "raw": "d0 b9 ff 4a 01 00 00 d8 ff e2 00 00 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIP",
+                "s": 1,
+                "description": "slipOff();",
+                "raw": "2b 01"
               },
               {
                 "op": "RET",
@@ -12332,6 +13314,23 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIP",
+                "s": 1,
+                "description": "slipOff();",
+                "raw": "2b 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -12535,6 +13534,23 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIP",
+                "s": 1,
+                "description": "slipOff();",
+                "raw": "2b 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -12654,6 +13670,23 @@
                 "z2": 0,
                 "description": "createLineTrigger({x1:291, y1:171, z1:0, x2:307, y2:135, z2:0});",
                 "raw": "d0 23 01 ab 00 00 00 33 01 87 00 00 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIP",
+                "s": 1,
+                "description": "slipOff();",
+                "raw": "2b 01"
               },
               {
                 "op": "RET",
@@ -12791,6 +13824,23 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIP",
+                "s": 1,
+                "description": "slipOff();",
+                "raw": "2b 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -12833,11 +13883,6 @@
                 "s": 0,
                 "description": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },

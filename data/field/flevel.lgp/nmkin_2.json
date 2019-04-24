@@ -392,6 +392,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_29({p1:64, p2:60, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 29 40 3c 00 00 00 00 00 00 00"
               },
               {
@@ -399,6 +400,7 @@
                 "bits1": 34,
                 "bits2": 0,
                 "description": "setBattleModeOptions(DisableVictoryMusic, TimedBattleWithoutRewardScreen);",
+                "pres": "DisableVictoryMusic, TimedBattleWithoutRewardScreen",
                 "raw": "72 22 00"
               },
               {
@@ -427,12 +429,14 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:38, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 26 00 00 00 00 00 00 00"
               },
               {
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
               },
               {
@@ -484,6 +488,46 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 27,
+                "c": 0,
+                "e": 4,
+                "description": "if (Bank[2][0] == 27) (else goto 751);",
+                "raw": "16 20 00 00 1b 00 00 04"
+              },
+              {
+                "op": "REQ",
+                "e": 1,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteAsync({entity:1, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 01 c3"
+              },
+              {
+                "op": "GETAI",
+                "b": 6,
+                "e": 3,
+                "a": 0,
+                "description": "Bank[6][0] = getTriangleIdUnderEntity({entity:3});",
+                "raw": "b9 06 03 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 4,
+                "description": "goto 751;",
+                "raw": "12 04"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -500,6 +544,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -578,6 +633,81 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 27,
+                "c": 0,
+                "e": 33,
+                "description": "if (Bank[2][0] == 27) (else goto 825);",
+                "raw": "16 20 00 00 1b 00 00 21"
+              },
+              {
+                "op": "IFUB",
+                "b1": 1,
+                "b2": 0,
+                "a": 21,
+                "v": 0,
+                "c": 0,
+                "e": 27,
+                "description": "if (Bank[1][21] == 0) (else goto 825);",
+                "raw": "14 10 15 00 00 1b"
+              },
+              {
+                "op": "IFUB",
+                "b1": 1,
+                "b2": 0,
+                "a": 22,
+                "v": 0,
+                "c": 0,
+                "e": 21,
+                "description": "if (Bank[1][22] == 0) (else goto 825);",
+                "raw": "14 10 16 00 00 15"
+              },
+              {
+                "op": "IFUB",
+                "b1": 1,
+                "b2": 0,
+                "a": 23,
+                "v": 0,
+                "c": 0,
+                "e": 15,
+                "description": "if (Bank[1][23] == 0) (else goto 825);",
+                "raw": "14 10 17 00 00 0f"
+              },
+              {
+                "op": "BITON",
+                "bd": 1,
+                "bs": 0,
+                "d": 225,
+                "bit": 7,
+                "description": "setBit({destination:Bank[1][225], bit:7});",
+                "raw": "82 10 e1 07"
+              },
+              {
+                "op": "MAPJUMP",
+                "f": 119,
+                "x": 18,
+                "y": -1164,
+                "i": 1,
+                "d": 0,
+                "description": "mapJump({fieldId:119, x:18, y:-1164, triangleId:1, direction:0});",
+                "raw": "60 77 00 12 00 74 fb 01 00 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 40,
+                "description": "goto 785;",
+                "raw": "12 28"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -611,6 +741,18 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 833;",
+                "raw": "12 00"
               }
             ]
           },
@@ -962,6 +1104,122 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 13,
+                "c": 3,
+                "e": 54,
+                "description": "if (Bank[2][0] < 13) (else goto 1065);",
+                "raw": "16 20 00 00 0d 00 03 36"
+              },
+              {
+                "op": "MSPED",
+                "b": 0,
+                "d": 3072,
+                "description": "setMovementSpeed({speed:3072});",
+                "raw": "b2 00 00 0c"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": 381,
+                "y": -33,
+                "description": "walkObjectTo({x:381, y:-33});",
+                "raw": "a8 00 7d 01 df ff"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": 663,
+                "y": 773,
+                "description": "walkObjectTo({x:663, y:773});",
+                "raw": "a8 00 97 02 05 03"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": 786,
+                "y": 818,
+                "description": "walkObjectTo({x:786, y:818});",
+                "raw": "a8 00 12 03 32 03"
+              },
+              {
+                "op": "MSPED",
+                "b": 0,
+                "d": 4096,
+                "description": "setMovementSpeed({speed:4096});",
+                "raw": "b2 00 00 10"
+              },
+              {
+                "op": "SETWORD",
+                "bd": 2,
+                "bs": 0,
+                "a": 0,
+                "v": 13,
+                "description": "Bank[2][0] = 13;",
+                "raw": "81 20 00 0d 00"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": 794,
+                "y": -128,
+                "description": "walkObjectTo({x:794, y:-128});",
+                "raw": "a8 00 1a 03 80 ff"
+              },
+              {
+                "op": "MSPED",
+                "b": 0,
+                "d": 3072,
+                "description": "setMovementSpeed({speed:3072});",
+                "raw": "b2 00 00 0c"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": -816,
+                "y": -252,
+                "description": "walkObjectTo({x:-816, y:-252});",
+                "raw": "a8 00 d0 fc 04 ff"
+              },
+              {
+                "op": "TLKON",
+                "s": 1,
+                "description": "interactibilityOff();",
+                "raw": "7e 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "VISI",
+                "s": 0,
+                "description": "setVisibilityMode(V.NotVisible);",
+                "raw": "a4 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 1065;",
+                "raw": "12 00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -998,6 +1256,18 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 1082;",
+                "raw": "12 00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1025,11 +1295,6 @@
                 "description": "entityExecuteSync({entity:3, priority:6, function:3});",
                 "pres": "Tells <E> to <F>",
                 "raw": "03 03 c3"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -1070,6 +1335,18 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 1107;",
+                "raw": "12 00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1097,11 +1374,6 @@
                 "description": "entityExecuteSync({entity:3, priority:6, function:4});",
                 "pres": "Tells <E> to <F>",
                 "raw": "03 03 c4"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -1138,6 +1410,18 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 1132;",
+                "raw": "12 00"
               }
             ]
           },

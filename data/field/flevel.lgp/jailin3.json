@@ -276,6 +276,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -289,6 +290,176 @@
                 "s": 1,
                 "description": "setMainMenuAccessibility(MM.Inaccessible);",
                 "raw": "4a 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "FADEW",
+                "description": "waitForFade();",
+                "pres": "...",
+                "raw": "6c"
+              },
+              {
+                "op": "WSIZW",
+                "i": 1,
+                "x": 18,
+                "y": 0,
+                "w": 267,
+                "h": 73,
+                "description": "resizeWindow({windowId:1, x:18, y:0, width:267, height:73});",
+                "raw": "2f 01 12 00 00 00 0b 01 49 00"
+              },
+              {
+                "op": "ASK",
+                "ba": 5,
+                "w": 1,
+                "d": 0,
+                "f": 2,
+                "l": 3,
+                "a": 0,
+                "description": "Bank[5][0] = askQuestion({window:1, dialog:0, firstChoice:2, lastChoice:3});",
+                "raw": "48 05 01 00 02 03 00"
+              },
+              {
+                "op": "FADE",
+                "b1": 0,
+                "b2": 0,
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "s": 12,
+                "t": 2,
+                "a": 0,
+                "description": "fade({r:0, g:0, b:0, speed:12, type:2, adjust:0});",
+                "pres": "The screen fades...",
+                "raw": "6b 00 00 00 00 00 0c 02 00"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 0,
+                "v": 2,
+                "c": 0,
+                "e": 39,
+                "description": "if (Bank[5][0] == 2) (else goto 596);",
+                "raw": "14 50 00 02 00 27"
+              },
+              {
+                "op": "HMPMAX2",
+                "description": "restoreHPMPMax({ver:0x3f});",
+                "raw": "3f"
+              },
+              {
+                "op": "FADEW",
+                "description": "waitForFade();",
+                "pres": "...",
+                "raw": "6c"
+              },
+              {
+                "op": "CMUSC",
+                "i": 1,
+                "p1": 0,
+                "p2": 20,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "p6": 0,
+                "description": "musicC(1, 0, 20, 0, 0, 0, 0);",
+                "raw": "fd 01 00 14 00 00 00 00"
+              },
+              {
+                "op": "CHMST",
+                "b": 5,
+                "a": 1,
+                "description": "Bank[5][1] = isMusicPlaying();",
+                "raw": "fe 05 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 1,
+                "v": 0,
+                "c": 0,
+                "e": 6,
+                "description": "if (Bank[5][1] == 0) (else goto 582);",
+                "raw": "14 50 01 00 00 06"
+              },
+              {
+                "op": "CHMST",
+                "b": 5,
+                "a": 1,
+                "description": "Bank[5][1] = isMusicPlaying();",
+                "raw": "fe 05 01"
+              },
+              {
+                "op": "JMPB",
+                "a": 9,
+                "description": "goto 571;",
+                "raw": "12 09"
+              },
+              {
+                "op": "CHMST",
+                "b": 5,
+                "a": 1,
+                "description": "Bank[5][1] = isMusicPlaying();",
+                "raw": "fe 05 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 1,
+                "v": 0,
+                "c": 1,
+                "e": 6,
+                "description": "if (Bank[5][1] != 0) (else goto 596);",
+                "raw": "14 50 01 00 01 06"
+              },
+              {
+                "op": "CHMST",
+                "b": 5,
+                "a": 1,
+                "description": "Bank[5][1] = isMusicPlaying();",
+                "raw": "fe 05 01"
+              },
+              {
+                "op": "JMPB",
+                "a": 9,
+                "description": "goto 585;",
+                "raw": "12 09"
+              },
+              {
+                "op": "WAIT",
+                "a": 15,
+                "description": "wait({numFrames:15});",
+                "raw": "24 0f 00"
+              },
+              {
+                "op": "FADEW",
+                "description": "waitForFade();",
+                "pres": "...",
+                "raw": "6c"
+              },
+              {
+                "op": "MAPJUMP",
+                "f": 473,
+                "x": -180,
+                "y": -1270,
+                "i": 329,
+                "d": 232,
+                "description": "mapJump({fieldId:473, x:-180, y:-1270, triangleId:329, direction:232});",
+                "raw": "60 d9 01 4c ff 0a fb 49 01 e8"
               },
               {
                 "op": "RET",
@@ -348,6 +519,24 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 192,
+                "description": "setFacingDirection({direction:192});",
+                "raw": "b3 00 c0"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -377,6 +566,17 @@
                 "description": "thisIsAPlayableCharacter(C.Tifa);",
                 "raw": "a0 02"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -422,6 +622,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -446,8 +657,20 @@
                 "a": 2,
                 "l": 0,
                 "description": "backgroundOn({area:2, layer:0});",
+                "pres": "<Area:2> <Layer:0> appears.",
                 "raw": "e0 00 02 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -463,6 +686,7 @@
                 "b": 0,
                 "a": 2,
                 "description": "clearBackground({area:2});",
+                "pres": "<Area:2> clears.",
                 "raw": "e4 00 02"
               },
               {
@@ -472,6 +696,7 @@
                 "a": 2,
                 "l": 1,
                 "description": "backgroundOn({area:2, layer:1});",
+                "pres": "<Area:2> <Layer:1> appears.",
                 "raw": "e0 00 02 01"
               },
               {
@@ -489,6 +714,7 @@
                 "b": 0,
                 "a": 2,
                 "description": "clearBackground({area:2});",
+                "pres": "<Area:2> clears.",
                 "raw": "e4 00 02"
               },
               {
@@ -498,6 +724,7 @@
                 "a": 2,
                 "l": 2,
                 "description": "backgroundOn({area:2, layer:2});",
+                "pres": "<Area:2> <Layer:2> appears.",
                 "raw": "e0 00 02 02"
               },
               {
@@ -515,6 +742,7 @@
                 "b": 0,
                 "a": 2,
                 "description": "clearBackground({area:2});",
+                "pres": "<Area:2> clears.",
                 "raw": "e4 00 02"
               },
               {
@@ -524,6 +752,7 @@
                 "a": 2,
                 "l": 0,
                 "description": "backgroundOn({area:2, layer:0});",
+                "pres": "<Area:2> <Layer:0> appears.",
                 "raw": "e0 00 02 00"
               },
               {
@@ -548,8 +777,20 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -567,6 +808,7 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOff({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> disappears.",
                 "raw": "e1 00 01 00"
               },
               {
@@ -576,6 +818,7 @@
                 "a": 1,
                 "l": 1,
                 "description": "backgroundOn({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> appears.",
                 "raw": "e0 00 01 01"
               },
               {
@@ -595,6 +838,7 @@
                 "a": 1,
                 "l": 1,
                 "description": "backgroundOff({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> disappears.",
                 "raw": "e1 00 01 01"
               },
               {
@@ -604,6 +848,7 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
               {

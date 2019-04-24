@@ -594,6 +594,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -606,6 +607,7 @@
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
               },
               {
@@ -620,6 +622,17 @@
                 "description": "setMapName({dialog:1});",
                 "raw": "43 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -656,6 +669,17 @@
                 "description": "createLineTrigger({x1:215, y1:-585, z1:-24, x2:354, y2:-410, z2:-24});",
                 "raw": "d0 d7 00 b7 fd e8 ff 62 01 66 fe e8 ff"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -763,6 +787,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -829,6 +864,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_c1({p1:80, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 c1 50 00 00 00 00 00 00 00 00"
               },
               {
@@ -852,6 +888,7 @@
                 "op": "MUSIC",
                 "id": 3,
                 "description": "playMusic({song:3});",
+                "pres": "Song starts: <Song:3>",
                 "raw": "f0 03"
               },
               {
@@ -868,6 +905,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_c1({p1:1, p2:127, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 c1 01 7f 00 00 00 00 00 00 00"
               },
               {
@@ -880,6 +918,7 @@
                 "op": "MUSIC",
                 "id": 4,
                 "description": "playMusic({song:4});",
+                "pres": "Song starts: <Song:4>",
                 "raw": "f0 04"
               },
               {
@@ -930,6 +969,7 @@
                 "p3": 0,
                 "p4": 2,
                 "description": "scrollOp0x62({param1:0, param2:40, param3:0, param4:2});",
+                "pres": "The camera scrolls...",
                 "raw": "62 00 28 00 02"
               },
               {
@@ -1166,6 +1206,7 @@
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
               },
               {
@@ -1185,11 +1226,13 @@
                 "t": 1,
                 "a": 255,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:1, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 01 ff"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -1321,6 +1364,30 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1426,6 +1493,50 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFPRTYQ",
+                "c": 0,
+                "a": 8,
+                "description": "if (isCharacterInParty(C.Cloud) (else goto 1584);",
+                "raw": "cb 00 08"
+              },
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 4,
+                "description": "goto 1587;",
+                "raw": "10 04"
+              },
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 30,
+                "description": "setCollisionRadius({radius:30});",
+                "raw": "c6 00 1e"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1522,6 +1633,30 @@
                 "c": 3,
                 "description": "thisIsAPlayableCharacter(C.Aeris);",
                 "raw": "a0 03"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
               },
               {
                 "op": "RET",
@@ -1645,6 +1780,30 @@
                 "s": 0,
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
               },
               {
                 "op": "RET",
@@ -1827,6 +1986,24 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 36,
+                "description": "setCollisionRadius({radius:36});",
+                "raw": "c6 00 24"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1923,6 +2100,24 @@
                 "c": 5,
                 "description": "thisIsAPlayableCharacter(C.Yuffie);",
                 "raw": "a0 05"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 36,
+                "description": "setCollisionRadius({radius:36});",
+                "raw": "c6 00 24"
               },
               {
                 "op": "RET",
@@ -2037,6 +2232,30 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2133,6 +2352,30 @@
                 "c": 7,
                 "description": "thisIsAPlayableCharacter(C.Vincent);",
                 "raw": "a0 07"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
               },
               {
                 "op": "RET",
@@ -2302,6 +2545,37 @@
                 "s": 0,
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "DFANM",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "raw": "a2 03 01"
               },
               {
                 "op": "RET",
@@ -2880,6 +3154,7 @@
                 "op": "MUSIC",
                 "id": 3,
                 "description": "playMusic({song:3});",
+                "pres": "Song starts: <Song:3>",
                 "raw": "f0 03"
               },
               {
@@ -2900,6 +3175,7 @@
                 "t": 4,
                 "a": 0,
                 "description": "fade({r:0, g:0, b:0, speed:1, type:4, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 01 04 00"
               },
               {
@@ -3042,6 +3318,30 @@
                 "s": 0,
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
               },
               {
                 "op": "RET",
@@ -3419,6 +3719,37 @@
                 "s": 0,
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "DFANM",
+                "a": 0,
+                "s": 1,
+                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "raw": "a2 00 01"
               },
               {
                 "op": "RET",

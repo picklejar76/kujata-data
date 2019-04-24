@@ -395,8 +395,20 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -440,6 +452,17 @@
                 "description": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1726,6 +1749,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1758,11 +1792,6 @@
                 "s": 0,
                 "description": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -2213,6 +2242,38 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "REQSW",
+                "e": 1,
+                "p": 2,
+                "f": 3,
+                "description": "entityExecuteAsyncGuaranteed({entity:1, priority:2, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 01 43"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2424,6 +2485,7 @@
                 "i": 14,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:14});",
+                "pres": "The <I14> blocks",
                 "raw": "6d 0e 00 01"
               },
               {
@@ -2431,6 +2493,7 @@
                 "i": 15,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:15});",
+                "pres": "The <I15> blocks",
                 "raw": "6d 0f 00 01"
               },
               {
@@ -2452,6 +2515,123 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "GETAXY",
+                "bx": 6,
+                "by": 6,
+                "e": 1,
+                "x": 4,
+                "y": 6,
+                "description": "Bank[6][4] = getEntityX({entityIndex:1}); Bank[6][6] = getEntityY({entityIndex:1})",
+                "raw": "b8 66 01 04 06"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 4,
+                "v": 789,
+                "c": 3,
+                "e": 16,
+                "description": "if (Bank[6][4] < 789) (else goto 1668);",
+                "raw": "16 60 04 00 15 03 03 10"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 4,
+                "v": 768,
+                "c": 2,
+                "e": 8,
+                "description": "if (Bank[6][4] > 768) (else goto 1668);",
+                "raw": "16 60 04 00 00 03 02 08"
+              },
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "REQEW",
+                "e": 7,
+                "p": 2,
+                "f": 3,
+                "description": "entityExecuteSync({entity:7, priority:2, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 07 43"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 4,
+                "v": 159,
+                "c": 3,
+                "e": 20,
+                "description": "if (Bank[6][4] < 159) (else goto 1695);",
+                "raw": "16 60 04 00 9f 00 03 14"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 4,
+                "v": 96,
+                "c": 2,
+                "e": 12,
+                "description": "if (Bank[6][4] > 96) (else goto 1695);",
+                "raw": "16 60 04 00 60 00 02 0c"
+              },
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 13,
+                "v": 6,
+                "description": "Bank[5][13] = 6;",
+                "raw": "80 50 0d 06"
+              },
+              {
+                "op": "REQEW",
+                "e": 7,
+                "p": 2,
+                "f": 4,
+                "description": "entityExecuteSync({entity:7, priority:2, function:4});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 07 44"
+              },
+              {
+                "op": "JMPB",
+                "a": 55,
+                "description": "goto 1640;",
+                "raw": "12 37"
               }
             ]
           },
@@ -2481,6 +2661,61 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "GETAI",
+                "b": 6,
+                "e": 1,
+                "a": 8,
+                "description": "Bank[6][8] = getTriangleIdUnderEntity({entity:1});",
+                "raw": "b9 06 01 08"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 8,
+                "v": 0,
+                "c": 0,
+                "e": 15,
+                "description": "if (Bank[6][8] == 0) (else goto 1725);",
+                "raw": "16 60 08 00 00 00 00 0f"
+              },
+              {
+                "op": "BITOFF",
+                "bd": 3,
+                "bs": 0,
+                "d": 160,
+                "bit": 4,
+                "description": "unsetBit({destination:Bank[3][160], bit:4});",
+                "raw": "83 30 a0 04"
+              },
+              {
+                "op": "MAPJUMP",
+                "f": 173,
+                "x": 732,
+                "y": 396,
+                "i": 93,
+                "d": 128,
+                "description": "mapJump({fieldId:173, x:732, y:396, triangleId:93, direction:128});",
+                "raw": "60 ad 00 dc 02 8c 01 5d 00 80"
+              },
+              {
+                "op": "JMPB",
+                "a": 26,
+                "description": "goto 1699;",
+                "raw": "12 1a"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2497,6 +2732,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -2799,6 +3045,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2876,6 +3133,82 @@
           {
             "index": 0,
             "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "GETAXY",
+                "bx": 6,
+                "by": 6,
+                "e": 1,
+                "x": 0,
+                "y": 2,
+                "description": "Bank[6][0] = getEntityX({entityIndex:1}); Bank[6][2] = getEntityY({entityIndex:1})",
+                "raw": "b8 66 01 00 02"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 0,
+                "v": -32,
+                "c": 4,
+                "e": 21,
+                "description": "if (Bank[6][0] >= -32) (else goto 2011);",
+                "raw": "16 60 00 00 e0 ff 04 15"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 0,
+                "v": -16,
+                "c": 5,
+                "e": 13,
+                "description": "if (Bank[6][0] <= -16) (else goto 2011);",
+                "raw": "16 60 00 00 f0 ff 05 0d"
+              },
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "REQEW",
+                "e": 3,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteSync({entity:3, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 03 c3"
+              },
+              {
+                "op": "UC",
+                "s": 0,
+                "description": "setPlayableCharacterMovability(M.Movable);",
+                "raw": "33 00"
+              },
+              {
+                "op": "MENU2",
+                "s": 0,
+                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "raw": "4a 00"
+              },
               {
                 "op": "RET",
                 "description": "return;",

@@ -298,12 +298,14 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_c2({p1:10, p2:0, p3:127, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 c2 0a 00 00 7f 00 00 00 00 00"
               },
               {
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -320,6 +322,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_a0({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 a0 7f 00 00 00 00 00 00 00 00"
               },
               {
@@ -336,6 +339,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_a1({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 a1 7f 00 00 00 00 00 00 00 00"
               },
               {
@@ -352,6 +356,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_a2({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 a2 7f 00 00 00 00 00 00 00 00"
               },
               {
@@ -368,6 +373,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_a3({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 a3 7f 00 00 00 00 00 00 00 00"
               },
               {
@@ -375,6 +381,111 @@
                 "subOp": 245,
                 "description": "specialOp({subOpName:'ARROW', params:[1]});",
                 "raw": "0f f5 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "FADE",
+                "b1": 0,
+                "b2": 0,
+                "r": 255,
+                "g": 255,
+                "b": 255,
+                "s": 8,
+                "t": 5,
+                "a": 255,
+                "description": "fade({r:255, g:255, b:255, speed:8, type:5, adjust:255});",
+                "pres": "The screen fades...",
+                "raw": "6b 00 00 ff ff ff 08 05 ff"
+              },
+              {
+                "op": "FADEW",
+                "description": "waitForFade();",
+                "pres": "...",
+                "raw": "6c"
+              },
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 1126,
+                "c": 0,
+                "e": 17,
+                "description": "if (Bank[2][0] == 1126) (else goto 635);",
+                "raw": "16 20 00 00 66 04 00 11"
+              },
+              {
+                "op": "REQEW",
+                "e": 4,
+                "p": 5,
+                "f": 3,
+                "description": "entityExecuteSync({entity:4, priority:5, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 04 a3"
+              },
+              {
+                "op": "REQEW",
+                "e": 5,
+                "p": 5,
+                "f": 3,
+                "description": "entityExecuteSync({entity:5, priority:5, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 05 a3"
+              },
+              {
+                "op": "REQEW",
+                "e": 4,
+                "p": 5,
+                "f": 4,
+                "description": "entityExecuteSync({entity:4, priority:5, function:4});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 04 a4"
+              },
+              {
+                "op": "UC",
+                "s": 0,
+                "description": "setPlayableCharacterMovability(M.Movable);",
+                "raw": "33 00"
+              },
+              {
+                "op": "MENU2",
+                "s": 0,
+                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "raw": "4a 00"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
               },
               {
                 "op": "RET",
@@ -496,6 +607,34 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "KAWAI",
+                "l": 4,
+                "s": 1,
+                "vars": [
+                  1
+                ],
+                "description": "doCharacterGraphicsOp({length:4, kawaiOp:1, vars:1});",
+                "raw": "28 04 01 01"
+              },
+              {
+                "op": "ASPED",
+                "b": 0,
+                "s": 2,
+                "description": "setAnimationSpeed({speed:2});",
+                "raw": "bd 00 02"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -542,6 +681,24 @@
                 "i": 55,
                 "description": "placeObject({x:4190, y:-4353, z:943, walkmeshTriangle:55});",
                 "raw": "a5 00 00 5e 10 ff ee af 03 37 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "ASPED",
+                "b": 0,
+                "s": 4,
+                "description": "setAnimationSpeed({speed:4});",
+                "raw": "bd 00 04"
               },
               {
                 "op": "RET",
@@ -599,11 +756,6 @@
                 "s": 1,
                 "description": "setMainMenuAccessibility(MM.Inaccessible);",
                 "raw": "4a 01"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -661,6 +813,34 @@
                 "d": 168,
                 "description": "setFacingDirection({direction:168});",
                 "raw": "b3 00 a8"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "TURNGEN",
+                "b": 0,
+                "r": 168,
+                "d": 2,
+                "s": 2,
+                "t": 1,
+                "description": "rotateModel({rotation:168, direction:2, steps:2, stepType:1});",
+                "raw": "b4 00 a8 02 02 01"
+              },
+              {
+                "op": "ASPED",
+                "b": 0,
+                "s": 6,
+                "description": "setAnimationSpeed({speed:6});",
+                "raw": "bd 00 06"
               },
               {
                 "op": "RET",
@@ -780,11 +960,6 @@
                 "t": 1,
                 "description": "rotateModel({rotation:160, direction:1, steps:20, stepType:1});",
                 "raw": "b4 00 a0 01 14 01"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -855,6 +1030,34 @@
                 "d": 224,
                 "description": "setFacingDirection({direction:224});",
                 "raw": "b3 00 e0"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "KAWAI",
+                "l": 4,
+                "s": 1,
+                "vars": [
+                  1
+                ],
+                "description": "doCharacterGraphicsOp({length:4, kawaiOp:1, vars:1});",
+                "raw": "28 04 01 01"
+              },
+              {
+                "op": "ASPED",
+                "b": 0,
+                "s": 4,
+                "description": "setAnimationSpeed({speed:4});",
+                "raw": "bd 00 04"
               },
               {
                 "op": "RET",
@@ -1040,6 +1243,41 @@
                 "r": 1,
                 "description": "setCollisionRadius({radius:1});",
                 "raw": "c6 00 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 1126,
+                "c": 0,
+                "e": 12,
+                "description": "if (Bank[2][0] == 1126) (else goto 1069);",
+                "raw": "16 20 00 00 66 04 00 0c"
+              },
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 6573,
+                "y": -312,
+                "z": 1327,
+                "i": 73,
+                "description": "placeObject({x:6573, y:-312, z:1327, walkmeshTriangle:73});",
+                "raw": "a5 00 00 ad 19 c8 fe 2f 05 49 00"
               },
               {
                 "op": "RET",

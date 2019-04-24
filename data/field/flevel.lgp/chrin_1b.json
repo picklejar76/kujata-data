@@ -617,6 +617,59 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "MUSIC",
+                "id": 0,
+                "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
+                "raw": "f0 00"
+              },
+              {
+                "op": "IFUB",
+                "b1": 3,
+                "b2": 0,
+                "a": 16,
+                "v": 0,
+                "c": 10,
+                "e": 6,
+                "description": "if (!((Bank[3][16] & (1<<0)))) (else goto 1013);",
+                "raw": "14 30 10 00 0a 06"
+              },
+              {
+                "op": "REQ",
+                "e": 1,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:1, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 01 c1"
+              },
+              {
+                "op": "JMPF",
+                "a": 4,
+                "description": "goto 1016;",
+                "raw": "10 04"
+              },
+              {
+                "op": "REQ",
+                "e": 1,
+                "p": 6,
+                "f": 2,
+                "description": "entityExecuteAsync({entity:1, priority:6, function:2});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 01 c2"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -625,6 +678,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -647,6 +711,7 @@
                 "t": 2,
                 "a": 0,
                 "description": "fade({r:0, g:0, b:0, speed:255, type:2, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 ff 02 00"
               },
               {
@@ -1031,11 +1096,13 @@
                 "t": 2,
                 "a": 0,
                 "description": "fade({r:0, g:0, b:0, speed:255, type:2, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 ff 02 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -1103,11 +1170,13 @@
                 "t": 1,
                 "a": 255,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:1, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 01 ff"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -1145,6 +1214,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -1241,6 +1321,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -1486,6 +1577,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1545,6 +1647,36 @@
                 "c": 0,
                 "description": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "DFANM",
+                "a": 0,
+                "s": 1,
+                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "raw": "a2 00 01"
               },
               {
                 "op": "RET",
@@ -2332,6 +2464,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_f0({p1:0, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 f0 00 00 00 00 00 00 00 00 00"
               },
               {
@@ -2519,6 +2652,17 @@
                 "description": "thisIsAPlayableCharacter(C.Aeris);",
                 "raw": "a0 03"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -3607,17 +3751,20 @@
                 "t": 1,
                 "a": 255,
                 "description": "fade({r:0, g:0, b:0, speed:4, type:1, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 04 01 ff"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
               },
               {
@@ -4209,6 +4356,24 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "DFANM",
+                "a": 0,
+                "s": 1,
+                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "raw": "a2 00 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -4669,6 +4834,52 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "TURNGEN",
+                "b": 0,
+                "r": 128,
+                "d": 2,
+                "s": 1,
+                "t": 1,
+                "description": "rotateModel({rotation:128, direction:2, steps:1, stepType:1});",
+                "raw": "b4 00 80 02 01 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 10,
+                "description": "wait({numFrames:10});",
+                "raw": "24 0a 00"
+              },
+              {
+                "op": "ANIME1",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationSync({animation:3, slowness:1});",
+                "raw": "a3 03 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 10,
+                "description": "wait({numFrames:10});",
+                "raw": "24 0a 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 9,
+                "description": "goto 3485;",
+                "raw": "12 09"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -4797,6 +5008,46 @@
                 "i": 47,
                 "description": "placeObject({x:-54, y:-371, z:0, walkmeshTriangle:47});",
                 "raw": "a5 00 00 ca ff 8d fe 00 00 2f 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "TURNGEN",
+                "b": 0,
+                "r": 128,
+                "d": 2,
+                "s": 1,
+                "t": 1,
+                "description": "rotateModel({rotation:128, direction:2, steps:1, stepType:1});",
+                "raw": "b4 00 80 02 01 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 10,
+                "description": "wait({numFrames:10});",
+                "raw": "24 0a 00"
+              },
+              {
+                "op": "ANIME1",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationSync({animation:3, slowness:1});",
+                "raw": "a3 03 01"
+              },
+              {
+                "op": "JMPB",
+                "a": 6,
+                "description": "goto 3547;",
+                "raw": "12 06"
               },
               {
                 "op": "RET",
@@ -4943,6 +5194,46 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "TURNGEN",
+                "b": 0,
+                "r": 128,
+                "d": 2,
+                "s": 1,
+                "t": 1,
+                "description": "rotateModel({rotation:128, direction:2, steps:1, stepType:1});",
+                "raw": "b4 00 80 02 01 01"
+              },
+              {
+                "op": "ANIME1",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationSync({animation:3, slowness:1});",
+                "raw": "a3 03 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 15,
+                "description": "wait({numFrames:15});",
+                "raw": "24 0f 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 6,
+                "description": "goto 3606;",
+                "raw": "12 06"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -5060,8 +5351,20 @@
                 "a": 1,
                 "l": 1,
                 "description": "backgroundOn({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> appears.",
                 "raw": "e0 00 01 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -5079,6 +5382,7 @@
                 "a": 1,
                 "l": 1,
                 "description": "backgroundOff({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> disappears.",
                 "raw": "e1 00 01 01"
               },
               {
@@ -5098,6 +5402,7 @@
                 "a": 1,
                 "l": 1,
                 "description": "backgroundOn({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> appears.",
                 "raw": "e0 00 01 01"
               },
               {

@@ -890,6 +890,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -906,6 +907,43 @@
                 "s": 253,
                 "description": "Bank[1][185] = Bank[1][185] & 253;",
                 "raw": "8f 10 b9 fd"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 14,
+                "b2": 0,
+                "a": 6,
+                "v": 544,
+                "c": 4,
+                "e": 4,
+                "description": "if (Bank[14][6] >= 544) (else goto 1692);",
+                "raw": "16 e0 06 00 20 02 04 04"
+              },
+              {
+                "op": "REQEW",
+                "e": 13,
+                "p": 5,
+                "f": 7,
+                "description": "entityExecuteSync({entity:13, priority:5, function:7});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 0d a7"
+              },
+              {
+                "op": "JMPB",
+                "a": 11,
+                "description": "goto 1681;",
+                "raw": "12 0b"
               },
               {
                 "op": "RET",
@@ -948,6 +986,166 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 2,
+                "v": 0,
+                "description": "Bank[5][2] = 0;",
+                "raw": "80 50 02 00"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 5,
+                "v": 0,
+                "description": "Bank[5][5] = 0;",
+                "raw": "80 50 05 00"
+              },
+              {
+                "op": "STPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 9,
+                "a": 0,
+                "description": "storePalette({paletteId:9, paletteArrayId:0, size:15});",
+                "raw": "e5 00 09 00 0f"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 0,
+                "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
+                "raw": "e0 00 01 00"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 5,
+                "v": 0,
+                "c": 0,
+                "e": 20,
+                "description": "if (Bank[5][5] == 0) (else goto 1740);",
+                "raw": "14 50 05 00 00 14"
+              },
+              {
+                "op": "MINUS",
+                "bd": 5,
+                "bs": 0,
+                "d": 2,
+                "s": 1,
+                "description": "Bank[5][2] = subtract8bit(Bank[5][2], 1);",
+                "raw": "87 50 02 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 2,
+                "v": 246,
+                "c": 0,
+                "e": 8,
+                "description": "if (Bank[5][2] == 246) (else goto 1738);",
+                "raw": "14 50 02 f6 00 08"
+              },
+              {
+                "op": "WAIT",
+                "a": 13,
+                "description": "wait({numFrames:13});",
+                "raw": "24 0d 00"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 5,
+                "v": 1,
+                "description": "Bank[5][5] = 1;",
+                "raw": "80 50 05 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 15,
+                "description": "goto 1754;",
+                "raw": "10 0f"
+              },
+              {
+                "op": "PLUS",
+                "bd": 5,
+                "bs": 0,
+                "d": 2,
+                "s": 1,
+                "description": "Bank[5][2] = add8bit(Bank[5][2], 1);",
+                "raw": "85 50 02 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 2,
+                "v": 0,
+                "c": 0,
+                "e": 5,
+                "description": "if (Bank[5][2] == 0) (else goto 1754);",
+                "raw": "14 50 02 00 00 05"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 5,
+                "v": 0,
+                "description": "Bank[5][5] = 0;",
+                "raw": "80 50 05 00"
+              },
+              {
+                "op": "ADPAL",
+                "b1": 0,
+                "b2": 0,
+                "b3": 5,
+                "b4": 5,
+                "b5": 0,
+                "s": 0,
+                "d": 4,
+                "b": 2,
+                "g": 2,
+                "r": 2,
+                "size": 15,
+                "description": "addPaletteColors_0xe9({sourcePaletteId:0, targetPaletteId:4, r:2, g:Bank[5][2], b:Bank[5][2], size:15});",
+                "raw": "e9 00 55 50 00 04 02 02 02 0f"
+              },
+              {
+                "op": "LDPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 4,
+                "a": 9,
+                "description": "loadPalette({paletteId:4, paletteArrayId:9, size:15});",
+                "raw": "e6 00 04 09 0f"
+              },
+              {
+                "op": "JMPB",
+                "a": 58,
+                "description": "goto 1711;",
+                "raw": "12 3a"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -957,6 +1155,166 @@
           {
             "index": 0,
             "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 3,
+                "v": 0,
+                "description": "Bank[5][3] = 0;",
+                "raw": "80 50 03 00"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 6,
+                "v": 0,
+                "description": "Bank[5][6] = 0;",
+                "raw": "80 50 06 00"
+              },
+              {
+                "op": "STPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 8,
+                "a": 16,
+                "description": "storePalette({paletteId:8, paletteArrayId:16, size:31});",
+                "raw": "e5 00 08 10 1f"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 2,
+                "l": 0,
+                "description": "backgroundOn({area:2, layer:0});",
+                "pres": "<Area:2> <Layer:0> appears.",
+                "raw": "e0 00 02 00"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 6,
+                "v": 0,
+                "c": 0,
+                "e": 20,
+                "description": "if (Bank[5][6] == 0) (else goto 1815);",
+                "raw": "14 50 06 00 00 14"
+              },
+              {
+                "op": "MINUS",
+                "bd": 5,
+                "bs": 0,
+                "d": 3,
+                "s": 1,
+                "description": "Bank[5][3] = subtract8bit(Bank[5][3], 1);",
+                "raw": "87 50 03 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 3,
+                "v": 246,
+                "c": 0,
+                "e": 8,
+                "description": "if (Bank[5][3] == 246) (else goto 1813);",
+                "raw": "14 50 03 f6 00 08"
+              },
+              {
+                "op": "WAIT",
+                "a": 20,
+                "description": "wait({numFrames:20});",
+                "raw": "24 14 00"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 6,
+                "v": 1,
+                "description": "Bank[5][6] = 1;",
+                "raw": "80 50 06 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 15,
+                "description": "goto 1829;",
+                "raw": "10 0f"
+              },
+              {
+                "op": "PLUS",
+                "bd": 5,
+                "bs": 0,
+                "d": 3,
+                "s": 1,
+                "description": "Bank[5][3] = add8bit(Bank[5][3], 1);",
+                "raw": "85 50 03 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 3,
+                "v": 0,
+                "c": 0,
+                "e": 5,
+                "description": "if (Bank[5][3] == 0) (else goto 1829);",
+                "raw": "14 50 03 00 00 05"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 6,
+                "v": 0,
+                "description": "Bank[5][6] = 0;",
+                "raw": "80 50 06 00"
+              },
+              {
+                "op": "ADPAL",
+                "b1": 0,
+                "b2": 0,
+                "b3": 5,
+                "b4": 5,
+                "b5": 0,
+                "s": 0,
+                "d": 4,
+                "b": 3,
+                "g": 3,
+                "r": 3,
+                "size": 15,
+                "description": "addPaletteColors_0xe9({sourcePaletteId:0, targetPaletteId:4, r:3, g:Bank[5][3], b:Bank[5][3], size:15});",
+                "raw": "e9 00 55 50 00 04 03 03 03 0f"
+              },
+              {
+                "op": "LDPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 4,
+                "a": 8,
+                "description": "loadPalette({paletteId:4, paletteArrayId:8, size:15});",
+                "raw": "e6 00 04 08 0f"
+              },
+              {
+                "op": "JMPB",
+                "a": 58,
+                "description": "goto 1786;",
+                "raw": "12 3a"
+              },
               {
                 "op": "RET",
                 "description": "return;",
@@ -978,6 +1336,166 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 4,
+                "v": 0,
+                "description": "Bank[5][4] = 0;",
+                "raw": "80 50 04 00"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 7,
+                "v": 0,
+                "description": "Bank[5][7] = 0;",
+                "raw": "80 50 07 00"
+              },
+              {
+                "op": "STPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 8,
+                "a": 32,
+                "description": "storePalette({paletteId:8, paletteArrayId:32, size:47});",
+                "raw": "e5 00 08 20 2f"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 3,
+                "l": 0,
+                "description": "backgroundOn({area:3, layer:0});",
+                "pres": "<Area:3> <Layer:0> appears.",
+                "raw": "e0 00 03 00"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 7,
+                "v": 0,
+                "c": 0,
+                "e": 20,
+                "description": "if (Bank[5][7] == 0) (else goto 1890);",
+                "raw": "14 50 07 00 00 14"
+              },
+              {
+                "op": "MINUS",
+                "bd": 5,
+                "bs": 0,
+                "d": 4,
+                "s": 1,
+                "description": "Bank[5][4] = subtract8bit(Bank[5][4], 1);",
+                "raw": "87 50 04 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 4,
+                "v": 246,
+                "c": 0,
+                "e": 8,
+                "description": "if (Bank[5][4] == 246) (else goto 1888);",
+                "raw": "14 50 04 f6 00 08"
+              },
+              {
+                "op": "WAIT",
+                "a": 10,
+                "description": "wait({numFrames:10});",
+                "raw": "24 0a 00"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 7,
+                "v": 1,
+                "description": "Bank[5][7] = 1;",
+                "raw": "80 50 07 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 15,
+                "description": "goto 1904;",
+                "raw": "10 0f"
+              },
+              {
+                "op": "PLUS",
+                "bd": 5,
+                "bs": 0,
+                "d": 4,
+                "s": 1,
+                "description": "Bank[5][4] = add8bit(Bank[5][4], 1);",
+                "raw": "85 50 04 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 4,
+                "v": 0,
+                "c": 0,
+                "e": 5,
+                "description": "if (Bank[5][4] == 0) (else goto 1904);",
+                "raw": "14 50 04 00 00 05"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 7,
+                "v": 0,
+                "description": "Bank[5][7] = 0;",
+                "raw": "80 50 07 00"
+              },
+              {
+                "op": "ADPAL",
+                "b1": 0,
+                "b2": 0,
+                "b3": 5,
+                "b4": 5,
+                "b5": 0,
+                "s": 0,
+                "d": 4,
+                "b": 4,
+                "g": 4,
+                "r": 4,
+                "size": 15,
+                "description": "addPaletteColors_0xe9({sourcePaletteId:0, targetPaletteId:4, r:4, g:Bank[5][4], b:Bank[5][4], size:15});",
+                "raw": "e9 00 55 50 00 04 04 04 04 0f"
+              },
+              {
+                "op": "LDPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 4,
+                "a": 10,
+                "description": "loadPalette({paletteId:4, paletteArrayId:10, size:15});",
+                "raw": "e6 00 04 0a 0f"
+              },
+              {
+                "op": "JMPB",
+                "a": 58,
+                "description": "goto 1861;",
+                "raw": "12 3a"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -986,6 +1504,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -1053,6 +1582,17 @@
                 "description": "createLineTrigger({x1:-677, y1:-487, z1:320, x2:-760, y2:-605, z2:320});",
                 "raw": "d0 5b fd 19 fe 40 01 08 fd a3 fd 40 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1156,6 +1696,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1243,6 +1794,17 @@
                 "description": "createLineTrigger({x1:1144, y1:259, z1:846, x2:989, y2:30, z2:846});",
                 "raw": "d0 78 04 03 01 4e 03 dd 03 1e 00 4e 03"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1346,6 +1908,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1433,6 +2006,17 @@
                 "description": "createLineTrigger({x1:325, y1:274, z1:493, x2:280, y2:194, z2:496});",
                 "raw": "d0 45 01 12 01 ed 01 18 01 c2 00 f0 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1536,6 +2120,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1631,6 +2226,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1708,6 +2314,17 @@
                 "description": "createLineTrigger({x1:-360, y1:153, z1:621, x2:-421, y2:-61, z2:621});",
                 "raw": "d0 98 fe 99 00 6d 02 5b fe c3 ff 6d 02"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1794,6 +2411,17 @@
                 "description": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -2284,6 +2912,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2323,6 +2962,17 @@
                 "description": "thisIsAPlayableCharacter(C.Barret);",
                 "raw": "a0 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -2378,6 +3028,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2417,6 +3078,17 @@
                 "description": "thisIsAPlayableCharacter(C.RedXIII);",
                 "raw": "a0 04"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -2472,6 +3144,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2511,6 +3194,17 @@
                 "description": "thisIsAPlayableCharacter(C.Yuffie);",
                 "raw": "a0 05"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -2566,6 +3260,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2605,6 +3310,17 @@
                 "description": "thisIsAPlayableCharacter(C.Vincent);",
                 "raw": "a0 07"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",

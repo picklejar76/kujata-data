@@ -1308,6 +1308,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -1333,6 +1334,147 @@
                 "v": 0,
                 "description": "Bank[5][2] = 0;",
                 "raw": "80 50 02 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 1,
+                "b2": 0,
+                "a": 185,
+                "v": 2,
+                "c": 6,
+                "e": 8,
+                "description": "if (Bank[1][185] & 2) (else goto 2495);",
+                "raw": "14 10 b9 02 06 08"
+              },
+              {
+                "op": "AND",
+                "bd": 1,
+                "bs": 0,
+                "d": 185,
+                "s": 253,
+                "description": "Bank[1][185] = Bank[1][185] & 253;",
+                "raw": "8f 10 b9 fd"
+              },
+              {
+                "op": "REQEW",
+                "e": 24,
+                "p": 5,
+                "f": 3,
+                "description": "entityExecuteSync({entity:24, priority:5, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 18 a3"
+              },
+              {
+                "op": "UC",
+                "s": 0,
+                "description": "setPlayableCharacterMovability(M.Movable);",
+                "raw": "33 00"
+              },
+              {
+                "op": "MENU2",
+                "s": 0,
+                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "raw": "4a 00"
+              },
+              {
+                "op": "IFKEYON",
+                "b": 128,
+                "a": 29,
+                "description": "if keyPressedJustPressed({inputKeyBitField:128) (else goto 2531);",
+                "raw": "31 80 00 1d"
+              },
+              {
+                "op": "AXYZI",
+                "b1": 2,
+                "b2": 2,
+                "b3": 2,
+                "b4": 2,
+                "a": 24,
+                "x": 188,
+                "y": 190,
+                "z": 192,
+                "i": 194,
+                "description": "{ let pos = getEntityPosition({entityId:24}); Bank[2][188] = pos.x; Bank[2][190] = pos.y; Bank[2][192] = pos.z; Bank[2][194] = pos.triangleId; }",
+                "raw": "c1 22 22 18 bc be c0 c2"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "GETDIR",
+                "b": 1,
+                "e": 24,
+                "a": 196,
+                "description": "Bank[1][196] = getEntityDirection({entityIndex:24});",
+                "raw": "b7 01 18 c4"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "MAPJUMP",
+                "f": 669,
+                "x": 0,
+                "y": 0,
+                "i": 1,
+                "d": 0,
+                "description": "mapJump({fieldId:669, x:0, y:0, triangleId:1, direction:0});",
+                "raw": "60 9d 02 00 00 00 00 01 00 00"
+              },
+              {
+                "op": "IFSW",
+                "b1": 14,
+                "b2": 0,
+                "a": 6,
+                "v": 544,
+                "c": 4,
+                "e": 4,
+                "description": "if (Bank[14][6] >= 544) (else goto 2542);",
+                "raw": "16 e0 06 00 20 02 04 04"
+              },
+              {
+                "op": "REQEW",
+                "e": 24,
+                "p": 5,
+                "f": 6,
+                "description": "entityExecuteSync({entity:24, priority:5, function:6});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 18 a6"
+              },
+              {
+                "op": "JMPB",
+                "a": 43,
+                "description": "goto 2499;",
+                "raw": "12 2b"
               },
               {
                 "op": "RET",
@@ -1374,6 +1516,7 @@
                 "b": 0,
                 "a": 1,
                 "description": "clearBackground({area:1});",
+                "pres": "<Area:1> clears.",
                 "raw": "e4 00 01"
               },
               {
@@ -1383,12 +1526,103 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
               {
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "WAIT",
+                "a": 4,
+                "description": "wait({numFrames:4});",
+                "raw": "24 04 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 0,
+                "description": "backgroundOff({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> disappears.",
+                "raw": "e1 00 01 00"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 1,
+                "description": "backgroundOn({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> appears.",
+                "raw": "e0 00 01 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 1,
+                "description": "backgroundOff({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> disappears.",
+                "raw": "e1 00 01 01"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 2,
+                "description": "backgroundOn({area:1, layer:2});",
+                "pres": "<Area:1> <Layer:2> appears.",
+                "raw": "e0 00 01 02"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 2,
+                "description": "backgroundOff({area:1, layer:2});",
+                "pres": "<Area:1> <Layer:2> disappears.",
+                "raw": "e1 00 01 02"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 0,
+                "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
+                "raw": "e0 00 01 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 33,
+                "description": "goto 2555;",
+                "raw": "12 21"
               }
             ]
           }
@@ -1406,6 +1640,28 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "BGSCR",
+                "bx": 0,
+                "by": 0,
+                "l": 3,
+                "x": -320,
+                "y": -80,
+                "description": "scrollBackgroundLayer({layerId:3, xSpeed:-320, ySpeed:-80});",
+                "pres": "The background scrolls...",
+                "raw": "2d 00 03 c0 fe b0 ff"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -1414,6 +1670,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -1685,6 +1952,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1760,6 +2038,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1767,6 +2056,7 @@
                 "i": 200,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:200});",
+                "pres": "The <I200> blocks",
                 "raw": "6d c8 00 01"
               },
               {
@@ -1774,6 +2064,7 @@
                 "i": 201,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:201});",
+                "pres": "The <I201> blocks",
                 "raw": "6d c9 00 01"
               },
               {
@@ -1781,6 +2072,7 @@
                 "i": 202,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:202});",
+                "pres": "The <I202> blocks",
                 "raw": "6d ca 00 01"
               },
               {
@@ -1788,6 +2080,7 @@
                 "i": 180,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:180});",
+                "pres": "The <I180> blocks",
                 "raw": "6d b4 00 01"
               },
               {
@@ -1795,6 +2088,7 @@
                 "i": 196,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:196});",
+                "pres": "The <I196> blocks",
                 "raw": "6d c4 00 01"
               },
               {
@@ -1802,6 +2096,7 @@
                 "i": 197,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:197});",
+                "pres": "The <I197> blocks",
                 "raw": "6d c5 00 01"
               },
               {
@@ -1809,6 +2104,7 @@
                 "i": 119,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:119});",
+                "pres": "The <I119> blocks",
                 "raw": "6d 77 00 01"
               },
               {
@@ -1816,6 +2112,7 @@
                 "i": 56,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:56});",
+                "pres": "The <I56> blocks",
                 "raw": "6d 38 00 01"
               },
               {
@@ -1844,6 +2141,17 @@
                 "description": "createLineTrigger({x1:-1104, y1:1108, z1:247, x2:-844, y2:1111, z2:252});",
                 "raw": "d0 b0 fb 54 04 f7 00 b4 fc 57 04 fc 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1947,6 +2255,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2034,6 +2353,17 @@
                 "description": "createLineTrigger({x1:-684, y1:1111, z1:258, x2:-564, y2:1111, z2:257});",
                 "raw": "d0 54 fd 57 04 02 01 cc fd 57 04 01 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -2137,6 +2467,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2224,6 +2565,17 @@
                 "description": "createLineTrigger({x1:-484, y1:1111, z1:254, x2:-324, y2:1111, z2:255});",
                 "raw": "d0 1c fe 57 04 fe 00 bc fe 57 04 ff 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -2327,6 +2679,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2414,6 +2777,17 @@
                 "description": "createLineTrigger({x1:754, y1:99, z1:206, x2:674, y2:-125, z2:230});",
                 "raw": "d0 f2 02 63 00 ce 00 a2 02 83 ff e6 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -2517,6 +2891,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2604,6 +2989,17 @@
                 "description": "createLineTrigger({x1:-27, y1:-601, z1:246, x2:115, y2:-635, z2:221});",
                 "raw": "d0 e5 ff a7 fd f6 00 73 00 85 fd dd 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -2707,6 +3103,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2794,6 +3201,17 @@
                 "description": "createLineTrigger({x1:235, y1:-635, z1:239, x2:353, y2:-635, z2:240});",
                 "raw": "d0 eb 00 85 fd ef 00 61 01 85 fd f0 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -2897,6 +3315,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2984,6 +3413,17 @@
                 "description": "createLineTrigger({x1:508, y1:-624, z1:243, x2:541, y2:-518, z2:260});",
                 "raw": "d0 fc 01 90 fd f3 00 1d 02 fa fd 04 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -3087,6 +3527,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -3174,6 +3625,17 @@
                 "description": "createLineTrigger({x1:-353, y1:108, z1:99, x2:-437, y2:110, z2:99});",
                 "raw": "d0 9f fe 6c 00 63 00 4b fe 6e 00 63 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -3293,6 +3755,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -3396,6 +3869,17 @@
                 "description": "createLineTrigger({x1:-266, y1:-8, z1:95, x2:-197, y2:-19, z2:95});",
                 "raw": "d0 f6 fe f8 ff 5f 00 3b ff ed ff 5f 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -3515,6 +3999,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -3619,6 +4114,17 @@
                 "description": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -3940,6 +4446,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -3979,6 +4496,17 @@
                 "description": "thisIsAPlayableCharacter(C.Barret);",
                 "raw": "a0 01"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -4034,6 +4562,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -4073,6 +4612,17 @@
                 "description": "thisIsAPlayableCharacter(C.RedXIII);",
                 "raw": "a0 04"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -4128,6 +4678,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -4167,6 +4728,17 @@
                 "description": "thisIsAPlayableCharacter(C.Yuffie);",
                 "raw": "a0 05"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -4222,6 +4794,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -4261,6 +4844,17 @@
                 "description": "thisIsAPlayableCharacter(C.Vincent);",
                 "raw": "a0 07"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",

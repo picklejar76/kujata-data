@@ -552,6 +552,17 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -571,6 +582,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -578,6 +590,173 @@
                 "id": 1,
                 "description": "setBattleMusic({song:1});",
                 "raw": "f6 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFUB",
+                "b1": 1,
+                "b2": 0,
+                "a": 132,
+                "v": 7,
+                "c": 10,
+                "e": 88,
+                "description": "if (!((Bank[1][132] & (1<<7)))) (else goto 1129);",
+                "raw": "14 10 84 07 0a 58"
+              },
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "BITON",
+                "bd": 1,
+                "bs": 0,
+                "d": 132,
+                "bit": 7,
+                "description": "setBit({destination:Bank[1][132], bit:7});",
+                "raw": "82 10 84 07"
+              },
+              {
+                "op": "REQEW",
+                "e": 4,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteSync({entity:4, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 04 c3"
+              },
+              {
+                "op": "SPLIT",
+                "bx1": 0,
+                "by1": 0,
+                "bd1": 0,
+                "bx2": 0,
+                "by2": 0,
+                "bd2": 0,
+                "x1": 1029,
+                "y1": -321,
+                "d1": 128,
+                "x2": 1155,
+                "y2": -321,
+                "d2": 128,
+                "s": 32,
+                "description": "splitParty({c1: {x:1029, y:-321, d:128}, c2: {x:1155, y:-321, d:128}, slowness:32});",
+                "pres": "The party spreads out.",
+                "raw": "09 00 00 00 05 04 bf fe 80 83 04 bf fe 80 20"
+              },
+              {
+                "op": "WINDOW",
+                "n": 0,
+                "x": 100,
+                "y": 160,
+                "w": 137,
+                "h": 41,
+                "description": "createWindow({window:0, x:100, y:160, width:137, height:41});",
+                "raw": "50 00 64 00 a0 00 89 00 29 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 0,
+                "d": 1,
+                "description": "showWindowWithDialog({window:0, dialog:1}); // {Cloud}<br/>“An old crater…”",
+                "raw": "40 00 01"
+              },
+              {
+                "op": "WINDOW",
+                "n": 0,
+                "x": 100,
+                "y": 160,
+                "w": 194,
+                "h": 57,
+                "description": "createWindow({window:0, x:100, y:160, width:194, height:57});",
+                "raw": "50 00 64 00 a0 00 c2 00 39 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 0,
+                "d": 2,
+                "description": "showWindowWithDialog({window:0, dialog:2}); // {Cloud}<br/>“Something fell out of the sky<br/>\tand crashed down here…”",
+                "raw": "40 00 02"
+              },
+              {
+                "op": "WINDOW",
+                "n": 0,
+                "x": 100,
+                "y": 160,
+                "w": 201,
+                "h": 41,
+                "description": "createWindow({window:0, x:100, y:160, width:201, height:41});",
+                "raw": "50 00 64 00 a0 00 c9 00 29 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 0,
+                "d": 3,
+                "description": "showWindowWithDialog({window:0, dialog:3}); // {Cloud}<br/>“Leaving a scar on the Planet.”",
+                "raw": "40 00 03"
+              },
+              {
+                "op": "REQEW",
+                "e": 2,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteSync({entity:2, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 02 c3"
+              },
+              {
+                "op": "WINDOW",
+                "n": 0,
+                "x": 100,
+                "y": 160,
+                "w": 210,
+                "h": 57,
+                "description": "createWindow({window:0, x:100, y:160, width:210, height:57});",
+                "raw": "50 00 64 00 a0 00 d2 00 39 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 0,
+                "d": 4,
+                "description": "showWindowWithDialog({window:0, dialog:4}); // {Cloud}<br/>“Sephiroth took that energy and<br/>\tis trying to use Meteor.”{PAUSE}“Next time<br/>\tthe wound won't be so small.”",
+                "raw": "40 00 04"
+              },
+              {
+                "op": "JOIN",
+                "s": 32,
+                "description": "joinParty({slowness:32});",
+                "pres": "The party gathers.",
+                "raw": "08 20"
+              },
+              {
+                "op": "UC",
+                "s": 0,
+                "description": "setPlayableCharacterMovability(M.Movable);",
+                "raw": "33 00"
+              },
+              {
+                "op": "MENU2",
+                "s": 0,
+                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "raw": "4a 00"
               },
               {
                 "op": "RET",
@@ -613,6 +792,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -818,6 +1008,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -958,6 +1159,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1072,6 +1284,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1138,6 +1361,17 @@
                 "description": "thisIsAPlayableCharacter(C.Tifa);",
                 "raw": "a0 02"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1220,6 +1454,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1286,6 +1531,17 @@
                 "description": "thisIsAPlayableCharacter(C.Cid);",
                 "raw": "a0 08"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1368,6 +1624,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1442,6 +1709,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1508,6 +1786,17 @@
                 "description": "thisIsAPlayableCharacter(C.Vincent);",
                 "raw": "a0 07"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1638,6 +1927,17 @@
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",

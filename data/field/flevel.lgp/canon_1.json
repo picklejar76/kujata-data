@@ -244,6 +244,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -261,6 +262,17 @@
                 "description": "playSound({sound:95, direction:64});",
                 "raw": "f1 00 5f 00 40"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -297,6 +309,24 @@
                 "c": 0,
                 "description": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 34,
+                "description": "setCollisionRadius({radius:34});",
+                "raw": "c6 00 22"
               },
               {
                 "op": "RET",
@@ -413,6 +443,31 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "DFANM",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "raw": "a2 03 01"
+              },
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 44,
+                "description": "setCollisionRadius({radius:44});",
+                "raw": "c6 00 2c"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -455,11 +510,6 @@
                 "s": 0,
                 "description": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -492,6 +542,17 @@
                 "description": "createLineTrigger({x1:-84, y1:-1281, z1:12, x2:76, y2:-1277, z2:12});",
                 "raw": "d0 ac ff ff fa 0c 00 4c 00 03 fb 0c 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -623,6 +684,79 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFUB",
+                "b1": 15,
+                "b2": 0,
+                "a": 146,
+                "v": 4,
+                "c": 10,
+                "e": 20,
+                "description": "if (!((Bank[15][146] & (1<<4)))) (else goto 619);",
+                "raw": "14 f0 92 04 0a 14"
+              },
+              {
+                "op": "KAWAI",
+                "l": 5,
+                "s": 13,
+                "vars": [
+                  0,
+                  0
+                ],
+                "description": "doCharacterGraphicsOp({length:5, kawaiOp:13, vars:0,0});",
+                "raw": "28 05 0d 00 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "KAWAI",
+                "l": 4,
+                "s": 13,
+                "vars": [
+                  1
+                ],
+                "description": "doCharacterGraphicsOp({length:4, kawaiOp:13, vars:1});",
+                "raw": "28 04 0d 01"
+              },
+              {
+                "op": "CANM!2",
+                "a": 0,
+                "f": 0,
+                "l": 0,
+                "s": 1,
+                "description": "playPartialAnimation({animation:0, firstFrame:0, lastFrame:0, slowness:1});",
+                "raw": "bc 00 00 00 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 6,
+                "description": "goto 624;",
+                "raw": "10 06"
+              },
+              {
+                "op": "CANM!2",
+                "a": 0,
+                "f": 29,
+                "l": 29,
+                "s": 1,
+                "description": "playPartialAnimation({animation:0, firstFrame:29, lastFrame:29, slowness:1});",
+                "raw": "bc 00 1d 1d 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -662,6 +796,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_29({p1:64, p2:256, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 29 40 00 01 00 00 00 00 00 00"
               },
               {
@@ -772,6 +907,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_29({p1:64, p2:360, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 29 40 68 01 00 00 00 00 00 00"
               },
               {
@@ -844,11 +980,6 @@
                 "s": 0,
                 "description": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },

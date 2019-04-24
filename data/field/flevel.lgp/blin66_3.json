@@ -209,6 +209,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -227,6 +228,46 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "GETAI",
+                "b": 6,
+                "e": 1,
+                "a": 0,
+                "description": "Bank[6][0] = getTriangleIdUnderEntity({entity:1});",
+                "raw": "b9 06 01 00"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 6,
+                "a": 0,
+                "v": 2,
+                "c": 0,
+                "e": 4,
+                "description": "if (Bank[6][0] == Bank[6][2]) (else goto 401);",
+                "raw": "16 66 00 00 02 00 00 04"
+              },
+              {
+                "op": "REQ",
+                "e": 1,
+                "p": 6,
+                "f": 4,
+                "description": "entityExecuteAsync({entity:1, priority:6, function:4});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 01 c4"
+              },
+              {
+                "op": "JMPB",
+                "a": 15,
+                "description": "goto 386;",
+                "raw": "12 0f"
               }
             ]
           },
@@ -264,6 +305,18 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 409;",
+                "raw": "12 00"
               }
             ]
           },
@@ -577,6 +630,18 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "JMPB",
+                "a": 0,
+                "description": "goto 554;",
+                "raw": "12 00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -678,11 +743,6 @@
                 "description": "entityExecuteSync({entity:1, priority:6, function:5});",
                 "pres": "Tells <E> to <F>",
                 "raw": "03 01 c5"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -709,6 +769,7 @@
                 "b": 0,
                 "a": 1,
                 "description": "clearBackground({area:1});",
+                "pres": "<Area:1> clears.",
                 "raw": "e4 00 01"
               },
               {
@@ -718,8 +779,20 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -737,6 +810,7 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOff({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> disappears.",
                 "raw": "e1 00 01 00"
               },
               {
@@ -756,6 +830,7 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
               {

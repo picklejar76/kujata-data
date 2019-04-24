@@ -472,6 +472,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -479,6 +480,154 @@
                 "id": 1,
                 "description": "setBattleMusic({song:1});",
                 "raw": "f6 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFUB",
+                "b1": 3,
+                "b2": 0,
+                "a": 168,
+                "v": 32,
+                "c": 6,
+                "e": 17,
+                "description": "if (Bank[3][168] & 32) (else goto 907);",
+                "raw": "14 30 a8 20 06 11"
+              },
+              {
+                "op": "LSTMP",
+                "b": 6,
+                "a": 0,
+                "description": "Bank[6][0] = getLastFieldMapId(); // wm does not count",
+                "raw": "6e 06 00"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 0,
+                "v": 736,
+                "c": 0,
+                "e": 4,
+                "description": "if (Bank[6][0] == 736) (else goto 905);",
+                "raw": "16 60 00 00 e0 02 00 04"
+              },
+              {
+                "op": "REQ",
+                "e": 1,
+                "p": 6,
+                "f": 4,
+                "description": "entityExecuteAsync({entity:1, priority:6, function:4});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 01 c4"
+              },
+              {
+                "op": "JMPF",
+                "a": 66,
+                "description": "goto 972;",
+                "raw": "10 42"
+              },
+              {
+                "op": "FADE",
+                "b1": 0,
+                "b2": 0,
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "s": 1,
+                "t": 4,
+                "a": 0,
+                "description": "fade({r:0, g:0, b:0, speed:1, type:4, adjust:0});",
+                "pres": "The screen fades...",
+                "raw": "6b 00 00 00 00 00 01 04 00"
+              },
+              {
+                "op": "BTLON",
+                "s": 1,
+                "description": "disableRandomEncounters();",
+                "pres": "Random monsters stop showing up.",
+                "raw": "71 01"
+              },
+              {
+                "op": "REQ",
+                "e": 5,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteAsync({entity:5, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 05 c3"
+              },
+              {
+                "op": "AKAO2",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 160,
+                "p1": 40,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_da_a0({p1:40, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Musical event...",
+                "raw": "da 00 00 00 a0 28 00 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 30,
+                "description": "wait({numFrames:30});",
+                "raw": "24 1e 00"
+              },
+              {
+                "op": "AKAO2",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 32,
+                "p1": 64,
+                "p2": 192,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_da_20({p1:64, p2:192, p3:0, p4:0, p5:0});",
+                "pres": "Musical event...",
+                "raw": "da 00 00 00 20 40 00 c0 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 240,
+                "description": "wait({numFrames:240});",
+                "raw": "24 f0 00"
+              },
+              {
+                "op": "AKAO2",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 164,
+                "p1": 400,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_da_a4({p1:400, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Musical event...",
+                "raw": "da 00 00 00 a4 90 01 00 00 00 00 00 00 00 00"
               },
               {
                 "op": "RET",
@@ -517,6 +666,17 @@
                 "description": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -622,6 +782,7 @@
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -771,6 +932,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -890,6 +1062,17 @@
                 "description": "thisIsAPlayableCharacter(C.Tifa);",
                 "raw": "a0 02"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1025,6 +1208,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1041,6 +1235,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -1078,6 +1283,7 @@
                 "op": "BTLON",
                 "s": 1,
                 "description": "disableRandomEncounters();",
+                "pres": "Random monsters stop showing up.",
                 "raw": "71 01"
               },
               {
@@ -1142,6 +1348,7 @@
                 "t": 1,
                 "a": 255,
                 "description": "fade({r:0, g:0, b:0, speed:4, type:1, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 04 01 ff"
               },
               {
@@ -1316,6 +1523,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1466,6 +1684,36 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "WAIT",
+                "a": 50,
+                "description": "wait({numFrames:50});",
+                "raw": "24 32 00"
+              },
+              {
+                "op": "OFST",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": -1928,
+                "y": -136,
+                "z": 9032,
+                "s": 220,
+                "description": "transposeObjectDisplayOnly({x:-1928, y:-136, z:9032, speed:220});",
+                "raw": "c3 00 00 01 78 f8 78 ff 48 23 dc 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1511,6 +1759,17 @@
                 "description": "disableAllLineTriggers();",
                 "raw": "d1 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1691,6 +1950,39 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "CANM!2",
+                "a": 0,
+                "f": 0,
+                "l": 0,
+                "s": 1,
+                "description": "playPartialAnimation({animation:0, firstFrame:0, lastFrame:0, slowness:1});",
+                "raw": "bc 00 00 00 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 20,
+                "description": "wait({numFrames:20});",
+                "raw": "24 14 00"
+              },
+              {
+                "op": "DFANM",
+                "a": 0,
+                "s": 1,
+                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "raw": "a2 00 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1752,6 +2044,48 @@
                 "s": 1,
                 "description": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "CANM!2",
+                "a": 0,
+                "f": 0,
+                "l": 0,
+                "s": 1,
+                "description": "playPartialAnimation({animation:0, firstFrame:0, lastFrame:0, slowness:1});",
+                "raw": "bc 00 00 00 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 30,
+                "description": "wait({numFrames:30});",
+                "raw": "24 1e 00"
+              },
+              {
+                "op": "CANM!2",
+                "a": 0,
+                "f": 139,
+                "l": 249,
+                "s": 1,
+                "description": "playPartialAnimation({animation:0, firstFrame:139, lastFrame:249, slowness:1});",
+                "raw": "bc 00 8b f9 01"
+              },
+              {
+                "op": "DFANM",
+                "a": 0,
+                "s": 1,
+                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "raw": "a2 00 01"
               },
               {
                 "op": "RET",

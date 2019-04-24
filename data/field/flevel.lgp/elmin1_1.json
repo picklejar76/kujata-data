@@ -391,6 +391,7 @@
                 "b": 0,
                 "a": 1,
                 "description": "clearBackground({area:1});",
+                "pres": "<Area:1> clears.",
                 "raw": "e4 00 01"
               },
               {
@@ -400,8 +401,20 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -419,6 +432,7 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOff({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> disappears.",
                 "raw": "e1 00 01 00"
               },
               {
@@ -438,6 +452,7 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
               {
@@ -459,6 +474,162 @@
                 "op": "RET",
                 "description": "return;",
                 "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "STPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 3,
+                "a": 0,
+                "description": "storePalette({paletteId:3, paletteArrayId:0, size:255});",
+                "raw": "e5 00 03 00 ff"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 10,
+                "v": 66,
+                "description": "Bank[5][10] = 66;",
+                "raw": "80 50 0a 42"
+              },
+              {
+                "op": "WAIT",
+                "a": 2,
+                "description": "wait({numFrames:2});",
+                "raw": "24 02 00"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 62,
+                "c": 3,
+                "e": 27,
+                "description": "if (Bank[5][10] < 62) (else goto 798);",
+                "raw": "14 50 0a 3e 03 1b"
+              },
+              {
+                "op": "PLUS!",
+                "bd": 5,
+                "bs": 0,
+                "d": 10,
+                "s": 16,
+                "description": "Bank[5][10] = add8bitClamped(Bank[5][10], 16);",
+                "raw": "76 50 0a 10"
+              },
+              {
+                "op": "MPPAL2",
+                "b1": 0,
+                "b2": 0,
+                "b3": 5,
+                "b4": 5,
+                "b5": 0,
+                "s": 0,
+                "d": 16,
+                "b": 10,
+                "g": 10,
+                "r": 10,
+                "size": 255,
+                "description": "multiplyPaletteColors2({sourcePaletteId:0, targetPaletteId:16, r:10, g:Bank[5][10], b:Bank[5][10], size:255});",
+                "raw": "ea 00 55 50 00 10 0a 0a 0a ff"
+              },
+              {
+                "op": "CPPAL",
+                "b1": 0,
+                "b2": 0,
+                "s": 0,
+                "d": 16,
+                "description": "copyPalette({sourceArrayId:0, targetArrayId:16, size:0});",
+                "raw": "e7 00 00 10 00"
+              },
+              {
+                "op": "LDPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 16,
+                "a": 3,
+                "description": "loadPalette({paletteId:16, paletteArrayId:3, size:255});",
+                "raw": "e6 00 10 03 ff"
+              },
+              {
+                "op": "JMPB",
+                "a": 30,
+                "description": "goto 766;",
+                "raw": "12 1e"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 48,
+                "c": 2,
+                "e": 27,
+                "description": "if (Bank[5][10] > 48) (else goto 830);",
+                "raw": "14 50 0a 30 02 1b"
+              },
+              {
+                "op": "MINUS!",
+                "bd": 5,
+                "bs": 0,
+                "d": 10,
+                "s": 16,
+                "description": "Bank[5][10] = subtract8bitClamped(Bank[5][10], 16);",
+                "raw": "78 50 0a 10"
+              },
+              {
+                "op": "MPPAL2",
+                "b1": 0,
+                "b2": 0,
+                "b3": 5,
+                "b4": 5,
+                "b5": 0,
+                "s": 0,
+                "d": 16,
+                "b": 10,
+                "g": 10,
+                "r": 10,
+                "size": 255,
+                "description": "multiplyPaletteColors2({sourcePaletteId:0, targetPaletteId:16, r:10, g:Bank[5][10], b:Bank[5][10], size:255});",
+                "raw": "ea 00 55 50 00 10 0a 0a 0a ff"
+              },
+              {
+                "op": "CPPAL",
+                "b1": 0,
+                "b2": 0,
+                "s": 0,
+                "d": 16,
+                "description": "copyPalette({sourceArrayId:0, targetArrayId:16, size:0});",
+                "raw": "e7 00 00 10 00"
+              },
+              {
+                "op": "LDPAL",
+                "b1": 0,
+                "b2": 0,
+                "p": 16,
+                "a": 3,
+                "description": "loadPalette({paletteId:16, paletteArrayId:3, size:255});",
+                "raw": "e6 00 10 03 ff"
+              },
+              {
+                "op": "JMPB",
+                "a": 30,
+                "description": "goto 798;",
+                "raw": "12 1e"
+              },
+              {
+                "op": "JMPB",
+                "a": 64,
+                "description": "goto 766;",
+                "raw": "12 40"
               }
             ]
           }
@@ -485,6 +656,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -497,6 +669,7 @@
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
               },
               {
@@ -504,6 +677,33 @@
                 "dialogId": 4,
                 "description": "setMapName({dialog:4});",
                 "raw": "43 04"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IDLCK",
+                "i": 26,
+                "s": 1,
+                "description": "enableCollisionDetection({triangleId:26});",
+                "pres": "The <I26> blocks",
+                "raw": "6d 1a 00 01"
+              },
+              {
+                "op": "IDLCK",
+                "i": 25,
+                "s": 1,
+                "description": "enableCollisionDetection({triangleId:25});",
+                "pres": "The <I25> blocks",
+                "raw": "6d 19 00 01"
               },
               {
                 "op": "RET",
@@ -540,6 +740,23 @@
                 "z2": 0,
                 "description": "createLineTrigger({x1:434, y1:81, z1:0, x2:434, y2:-15, z2:0});",
                 "raw": "d0 b2 01 51 00 00 00 b2 01 f1 ff 00 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIP",
+                "s": 1,
+                "description": "slipOff();",
+                "raw": "2b 01"
               },
               {
                 "op": "RET",
@@ -683,6 +900,30 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 34,
+                "description": "setCollisionRadius({radius:34});",
+                "raw": "c6 00 22"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -720,6 +961,30 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 30,
+                "description": "setCollisionRadius({radius:30});",
+                "raw": "c6 00 1e"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -748,6 +1013,30 @@
                 "c": 8,
                 "description": "thisIsAPlayableCharacter(C.Cid);",
                 "raw": "a0 08"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 36,
+                "description": "setCollisionRadius({radius:36});",
+                "raw": "c6 00 24"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
               },
               {
                 "op": "RET",
@@ -799,6 +1088,51 @@
                 "d": 128,
                 "description": "setFacingDirection({direction:128});",
                 "raw": "b3 00 80"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "TALKR",
+                "b": 0,
+                "r": 80,
+                "description": "setInteractibilityRadius({radius:80});",
+                "raw": "c5 00 50"
+              },
+              {
+                "op": "MSPED",
+                "b": 0,
+                "d": 768,
+                "description": "setMovementSpeed({speed:768});",
+                "raw": "b2 00 00 03"
+              },
+              {
+                "op": "WAIT",
+                "a": 128,
+                "description": "wait({numFrames:128});",
+                "raw": "24 80 00"
+              },
+              {
+                "op": "ASPED",
+                "b": 0,
+                "s": 8,
+                "description": "setAnimationSpeed({speed:8});",
+                "raw": "bd 00 08"
               },
               {
                 "op": "RET",
@@ -1167,11 +1501,6 @@
                 "s": 0,
                 "description": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -1230,6 +1559,17 @@
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1347,11 +1687,6 @@
                 "s": 0,
                 "description": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
-              },
-              {
-                "op": "RET",
-                "description": "return;",
-                "raw": "00"
               }
             ]
           },
@@ -1418,6 +1753,7 @@
                 "i": 26,
                 "s": 0,
                 "description": "disableCollisionDetection({triangleId:26});",
+                "pres": "The <I26> no longer blocks",
                 "raw": "6d 1a 00 00"
               },
               {
@@ -1425,6 +1761,7 @@
                 "i": 25,
                 "s": 0,
                 "description": "disableCollisionDetection({triangleId:25});",
+                "pres": "The <I25> no longer blocks",
                 "raw": "6d 19 00 00"
               },
               {

@@ -785,6 +785,69 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "FADE",
+                "b1": 0,
+                "b2": 0,
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "s": 1,
+                "t": 4,
+                "a": 0,
+                "description": "fade({r:0, g:0, b:0, speed:1, type:4, adjust:0});",
+                "pres": "The screen fades...",
+                "raw": "6b 00 00 00 00 00 01 04 00"
+              },
+              {
+                "op": "BITON",
+                "bd": 1,
+                "bs": 0,
+                "d": 127,
+                "bit": 4,
+                "description": "setBit({destination:Bank[1][127], bit:4});",
+                "raw": "82 10 7f 04"
+              },
+              {
+                "op": "BITON",
+                "bd": 1,
+                "bs": 0,
+                "d": 127,
+                "bit": 5,
+                "description": "setBit({destination:Bank[1][127], bit:5});",
+                "raw": "82 10 7f 05"
+              },
+              {
+                "op": "NFADE",
+                "b1": 0,
+                "b2": 0,
+                "r": 12,
+                "g": 255,
+                "b": 255,
+                "s": 255,
+                "t": 1,
+                "unused": 0,
+                "description": "fadeScreen({r:12, g:255, b:255, speed:255, type:1}); // unused=0",
+                "pres": "The screen fades...",
+                "raw": "25 00 00 0c ff ff ff 01 00"
+              },
+              {
+                "op": "FADEW",
+                "description": "waitForFade();",
+                "pres": "...",
+                "raw": "6c"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -793,6 +856,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -832,6 +906,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -845,11 +930,13 @@
                 "t": 30,
                 "unused": 0,
                 "description": "fadeScreen({r:12, g:0, b:0, speed:0, type:30}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0c 00 00 00 1e 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -863,6 +950,7 @@
                 "t": 0,
                 "unused": 0,
                 "description": "fadeScreen({r:0, g:0, b:0, speed:0, type:0}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 00 00 00 00 00 00"
               },
               {
@@ -886,11 +974,13 @@
                 "t": 10,
                 "unused": 0,
                 "description": "fadeScreen({r:11, g:200, b:0, speed:0, type:10}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0b c8 00 00 0a 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -904,11 +994,13 @@
                 "t": 5,
                 "unused": 0,
                 "description": "fadeScreen({r:11, g:0, b:0, speed:0, type:5}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0b 00 00 00 05 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -955,11 +1047,13 @@
                 "t": 150,
                 "unused": 0,
                 "description": "fadeScreen({r:11, g:255, b:255, speed:255, type:150}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0b ff ff ff 96 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -973,6 +1067,7 @@
                 "t": 1,
                 "unused": 0,
                 "description": "fadeScreen({r:11, g:255, b:255, speed:255, type:1}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0b ff ff ff 01 00"
               },
               {
@@ -990,6 +1085,107 @@
           {
             "index": 0,
             "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 1199,
+                "c": 3,
+                "e": 8,
+                "description": "if (Bank[2][0] < 1199) (else goto 1587);",
+                "raw": "16 20 00 00 af 04 03 08"
+              },
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "REQSW",
+                "e": 4,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsyncGuaranteed({entity:4, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 04 c1"
+              },
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 1614,
+                "c": 0,
+                "e": 10,
+                "description": "if (Bank[2][0] == 1614) (else goto 1604);",
+                "raw": "16 20 00 00 4e 06 00 0a"
+              },
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "REQSW",
+                "e": 4,
+                "p": 6,
+                "f": 2,
+                "description": "entityExecuteAsyncGuaranteed({entity:4, priority:6, function:2});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 04 c2"
+              },
+              {
+                "op": "JMPF",
+                "a": 12,
+                "description": "goto 1615;",
+                "raw": "10 0c"
+              },
+              {
+                "op": "FADE",
+                "b1": 0,
+                "b2": 0,
+                "r": 0,
+                "g": 0,
+                "b": 0,
+                "s": 8,
+                "t": 1,
+                "a": 255,
+                "description": "fade({r:0, g:0, b:0, speed:8, type:1, adjust:255});",
+                "pres": "The screen fades...",
+                "raw": "6b 00 00 00 00 00 08 01 ff"
+              },
+              {
+                "op": "UC",
+                "s": 0,
+                "description": "setPlayableCharacterMovability(M.Movable);",
+                "raw": "33 00"
+              },
               {
                 "op": "RET",
                 "description": "return;",
@@ -1083,6 +1279,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1096,6 +1303,7 @@
                 "t": 1,
                 "unused": 0,
                 "description": "fadeScreen({r:11, g:255, b:255, speed:255, type:1}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0b ff ff ff 01 00"
               },
               {
@@ -1178,11 +1386,13 @@
                 "t": 30,
                 "unused": 0,
                 "description": "fadeScreen({r:11, g:128, b:128, speed:128, type:30}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0b 80 80 80 1e 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -1315,11 +1525,13 @@
                 "t": 30,
                 "unused": 0,
                 "description": "fadeScreen({r:11, g:255, b:255, speed:255, type:30}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0b ff ff ff 1e 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -1491,6 +1703,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_a4({p1:180, p2:0, p3:127, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 a4 b4 00 00 7f 00 00 00 00 00"
               },
               {
@@ -1507,6 +1720,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_c2({p1:1, p2:0, p3:127, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 c2 01 00 00 7f 00 00 00 00 00"
               },
               {
@@ -1519,6 +1733,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -1687,6 +1902,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_a4({p1:1, p2:127, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 a4 01 7f 00 00 00 00 00 00 00"
               },
               {
@@ -1838,6 +2054,7 @@
                 "t": 2,
                 "a": 0,
                 "description": "fade({r:128, g:0, b:0, speed:8, type:2, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 80 00 00 08 02 00"
               },
               {
@@ -1857,6 +2074,7 @@
                 "t": 1,
                 "a": 255,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:1, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 01 ff"
               },
               {
@@ -1876,6 +2094,7 @@
                 "t": 2,
                 "a": 0,
                 "description": "fade({r:128, g:0, b:0, speed:8, type:2, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 80 00 00 08 02 00"
               },
               {
@@ -1895,6 +2114,7 @@
                 "t": 1,
                 "a": 255,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:1, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 01 ff"
               },
               {
@@ -1958,6 +2178,7 @@
                 "e": 11,
                 "t": 3,
                 "description": "scrollToEntity({speedInFrame:32, entityId:11, scrollType:3});",
+                "pres": "The camera pans to <E11>.",
                 "raw": "63 00 20 00 0b 03"
               },
               {
@@ -2209,6 +2430,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_c2({p1:120, p2:127, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 c2 78 7f 00 00 00 00 00 00 00"
               },
               {
@@ -2233,6 +2455,7 @@
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
               },
               {
@@ -2249,6 +2472,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_c2({p1:1, p2:0, p3:127, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 c2 01 00 00 7f 00 00 00 00 00"
               },
               {
@@ -2261,6 +2485,7 @@
                 "op": "MUSIC",
                 "id": 2,
                 "description": "playMusic({song:2});",
+                "pres": "Song starts: <Song:2>",
                 "raw": "f0 02"
               },
               {
@@ -2340,6 +2565,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_c2({p1:120, p2:127, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 c2 78 7f 00 00 00 00 00 00 00"
               },
               {
@@ -2391,6 +2617,7 @@
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
               },
               {
@@ -2407,6 +2634,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_c2({p1:1, p2:0, p3:127, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 c2 01 00 00 7f 00 00 00 00 00"
               },
               {
@@ -2419,6 +2647,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -2498,11 +2727,13 @@
                 "t": 45,
                 "unused": 0,
                 "description": "fadeScreen({r:12, g:255, b:255, speed:255, type:45}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0c ff ff ff 2d 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -2516,11 +2747,13 @@
                 "t": 0,
                 "unused": 0,
                 "description": "fadeScreen({r:0, g:0, b:0, speed:0, type:0}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 00 00 00 00 00 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -2534,6 +2767,7 @@
                 "t": 4,
                 "a": 0,
                 "description": "fade({r:0, g:0, b:0, speed:1, type:4, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 01 04 00"
               },
               {
@@ -2639,11 +2873,13 @@
                 "t": 4,
                 "unused": 0,
                 "description": "fadeScreen({r:11, g:255, b:255, speed:255, type:4}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0b ff ff ff 04 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -2888,11 +3124,13 @@
                 "t": 150,
                 "unused": 0,
                 "description": "fadeScreen({r:11, g:255, b:255, speed:255, type:150}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 0b ff ff ff 96 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -2915,6 +3153,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:608, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 60 02 00 00 00 00 00 00"
               },
               {
@@ -2931,6 +3170,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_29({p1:64, p2:635, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 29 40 7b 02 00 00 00 00 00 00"
               },
               {
@@ -2947,6 +3187,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:687, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 af 02 00 00 00 00 00 00"
               },
               {
@@ -2980,6 +3221,17 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -3001,6 +3253,17 @@
                 "description": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -4071,6 +4334,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -4660,6 +4934,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -5169,6 +5454,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -5611,6 +5907,24 @@
                 "c": 5,
                 "description": "thisIsAPlayableCharacter(C.Yuffie);",
                 "raw": "a0 05"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "ASPED",
+                "b": 0,
+                "s": 24,
+                "description": "setAnimationSpeed({speed:24});",
+                "raw": "bd 00 18"
               },
               {
                 "op": "RET",
@@ -6123,6 +6437,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -6217,6 +6542,7 @@
                 "t": 2,
                 "a": 0,
                 "description": "fade({r:128, g:0, b:0, speed:8, type:2, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 80 00 00 08 02 00"
               },
               {
@@ -6236,6 +6562,7 @@
                 "t": 1,
                 "a": 255,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:1, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 01 ff"
               },
               {
@@ -6249,6 +6576,7 @@
                 "t": 2,
                 "a": 0,
                 "description": "fade({r:128, g:0, b:0, speed:8, type:2, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 80 00 00 08 02 00"
               },
               {
@@ -6268,6 +6596,7 @@
                 "t": 1,
                 "a": 255,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:1, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 01 ff"
               },
               {
@@ -6573,6 +6902,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -6850,6 +7190,17 @@
                 "description": "thisIsAPlayableCharacter(C.Cid);",
                 "raw": "a0 08"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -7584,6 +7935,34 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "TURNGEN",
+                "b": 0,
+                "r": 156,
+                "d": 2,
+                "s": 1,
+                "t": 1,
+                "description": "rotateModel({rotation:156, direction:2, steps:1, stepType:1});",
+                "raw": "b4 00 9c 02 01 01"
+              },
+              {
+                "op": "DFANM",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "raw": "a2 03 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -7744,6 +8123,34 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "TURNGEN",
+                "b": 0,
+                "r": 124,
+                "d": 2,
+                "s": 1,
+                "t": 1,
+                "description": "rotateModel({rotation:124, direction:2, steps:1, stepType:1});",
+                "raw": "b4 00 7c 02 01 01"
+              },
+              {
+                "op": "DFANM",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "raw": "a2 03 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -7895,6 +8302,34 @@
                 "i": 130,
                 "description": "placeObject({x:261, y:-2870, z:-809, walkmeshTriangle:130});",
                 "raw": "a5 00 00 05 01 ca f4 d7 fc 82 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "TURNGEN",
+                "b": 0,
+                "r": 124,
+                "d": 2,
+                "s": 1,
+                "t": 1,
+                "description": "rotateModel({rotation:124, direction:2, steps:1, stepType:1});",
+                "raw": "b4 00 7c 02 01 01"
+              },
+              {
+                "op": "DFANM",
+                "a": 4,
+                "s": 1,
+                "description": "playAnimationLoop({animation:4, slowness:1});",
+                "raw": "a2 04 01"
               },
               {
                 "op": "RET",
@@ -8071,6 +8506,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -8080,6 +8526,7 @@
                 "a": 1,
                 "l": 1,
                 "description": "backgroundOn({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> appears.",
                 "raw": "e0 00 01 01"
               },
               {
@@ -8125,6 +8572,207 @@
           {
             "index": 0,
             "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 1,
+                "c": 0,
+                "e": 75,
+                "description": "if (Bank[5][10] == 1) (else goto 4880);",
+                "raw": "14 50 0a 01 00 4b"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 1,
+                "description": "backgroundOff({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> disappears.",
+                "raw": "e1 00 01 01"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 2,
+                "description": "backgroundOn({area:1, layer:2});",
+                "pres": "<Area:1> <Layer:2> appears.",
+                "raw": "e0 00 01 02"
+              },
+              {
+                "op": "WAIT",
+                "a": 2,
+                "description": "wait({numFrames:2});",
+                "raw": "24 02 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 2,
+                "description": "backgroundOff({area:1, layer:2});",
+                "pres": "<Area:1> <Layer:2> disappears.",
+                "raw": "e1 00 01 02"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 3,
+                "description": "backgroundOn({area:1, layer:3});",
+                "pres": "<Area:1> <Layer:3> appears.",
+                "raw": "e0 00 01 03"
+              },
+              {
+                "op": "WAIT",
+                "a": 2,
+                "description": "wait({numFrames:2});",
+                "raw": "24 02 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 3,
+                "description": "backgroundOff({area:1, layer:3});",
+                "pres": "<Area:1> <Layer:3> disappears.",
+                "raw": "e1 00 01 03"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 4,
+                "description": "backgroundOn({area:1, layer:4});",
+                "pres": "<Area:1> <Layer:4> appears.",
+                "raw": "e0 00 01 04"
+              },
+              {
+                "op": "WAIT",
+                "a": 2,
+                "description": "wait({numFrames:2});",
+                "raw": "24 02 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 4,
+                "description": "backgroundOff({area:1, layer:4});",
+                "pres": "<Area:1> <Layer:4> disappears.",
+                "raw": "e1 00 01 04"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 5,
+                "description": "backgroundOn({area:1, layer:5});",
+                "pres": "<Area:1> <Layer:5> appears.",
+                "raw": "e0 00 01 05"
+              },
+              {
+                "op": "WAIT",
+                "a": 2,
+                "description": "wait({numFrames:2});",
+                "raw": "24 02 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 5,
+                "description": "backgroundOff({area:1, layer:5});",
+                "pres": "<Area:1> <Layer:5> disappears.",
+                "raw": "e1 00 01 05"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 6,
+                "description": "backgroundOn({area:1, layer:6});",
+                "pres": "<Area:1> <Layer:6> appears.",
+                "raw": "e0 00 01 06"
+              },
+              {
+                "op": "WAIT",
+                "a": 2,
+                "description": "wait({numFrames:2});",
+                "raw": "24 02 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 6,
+                "description": "backgroundOff({area:1, layer:6});",
+                "pres": "<Area:1> <Layer:6> disappears.",
+                "raw": "e1 00 01 06"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 1,
+                "c": 0,
+                "e": 5,
+                "description": "if (Bank[5][10] == 1) (else goto 4878);",
+                "raw": "14 50 0a 01 00 05"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 1,
+                "description": "backgroundOn({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> appears.",
+                "raw": "e0 00 01 01"
+              },
+              {
+                "op": "JMPB",
+                "a": 78,
+                "description": "goto 4800;",
+                "raw": "12 4e"
+              },
+              {
+                "op": "JMPB",
+                "a": 80,
+                "description": "goto 4800;",
+                "raw": "12 50"
+              },
               {
                 "op": "RET",
                 "description": "return;",

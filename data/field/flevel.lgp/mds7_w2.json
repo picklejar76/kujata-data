@@ -931,6 +931,7 @@
                 "b": 0,
                 "a": 1,
                 "description": "clearBackground({area:1});",
+                "pres": "<Area:1> clears.",
                 "raw": "e4 00 01"
               },
               {
@@ -940,8 +941,20 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -959,6 +972,7 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOff({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> disappears.",
                 "raw": "e1 00 01 00"
               },
               {
@@ -968,6 +982,7 @@
                 "a": 1,
                 "l": 1,
                 "description": "backgroundOn({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> appears.",
                 "raw": "e0 00 01 01"
               },
               {
@@ -987,6 +1002,7 @@
                 "a": 1,
                 "l": 1,
                 "description": "backgroundOff({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> disappears.",
                 "raw": "e1 00 01 01"
               },
               {
@@ -996,6 +1012,7 @@
                 "a": 1,
                 "l": 0,
                 "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
               {
@@ -1044,6 +1061,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -1064,6 +1082,17 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -1073,6 +1102,25 @@
           {
             "index": 0,
             "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IDLCK",
+                "i": 6,
+                "s": 1,
+                "description": "enableCollisionDetection({triangleId:6});",
+                "pres": "The <I6> blocks",
+                "raw": "6d 06 00 01"
+              },
               {
                 "op": "RET",
                 "description": "return;",
@@ -1097,6 +1145,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:258, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 02 01 00 00 00 00 00 00"
               },
               {
@@ -1119,6 +1168,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:258, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 02 01 00 00 00 00 00 00"
               },
               {
@@ -1152,6 +1202,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -1339,6 +1400,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:13, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 0d 00 00 00 00 00 00 00"
               },
               {
@@ -1433,6 +1495,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:440, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 b8 01 00 00 00 00 00 00"
               },
               {
@@ -1532,6 +1595,7 @@
                 "p3": 0,
                 "p4": 3,
                 "description": "scrollOp0x62({param1:0, param2:30, param3:0, param4:3});",
+                "pres": "The camera scrolls...",
                 "raw": "62 00 1e 00 03"
               },
               {
@@ -1692,6 +1756,30 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 10,
+                "description": "set8bit(Bank[5][10], Math.floor(Math.random() * 256));",
+                "raw": "99 05 0a"
+              },
+              {
+                "op": "JMPB",
+                "a": 3,
+                "description": "goto 2100;",
+                "raw": "12 03"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1724,6 +1812,77 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 108,
+                "c": 4,
+                "e": 13,
+                "description": "if (Bank[2][0] >= 108) (else goto 2131);",
+                "raw": "16 20 00 00 6c 00 04 0d"
+              },
+              {
+                "op": "IDLCK",
+                "i": 64,
+                "s": 1,
+                "description": "enableCollisionDetection({triangleId:64});",
+                "pres": "The <I64> blocks",
+                "raw": "6d 40 00 01"
+              },
+              {
+                "op": "REQEW",
+                "e": 0,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteSync({entity:0, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 00 c1"
+              },
+              {
+                "op": "REQSW",
+                "e": 12,
+                "p": 6,
+                "f": 5,
+                "description": "entityExecuteAsyncGuaranteed({entity:12, priority:6, function:5});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 0c c5"
+              },
+              {
+                "op": "JMPF",
+                "a": 8,
+                "description": "goto 2138;",
+                "raw": "10 08"
+              },
+              {
+                "op": "IDLCK",
+                "i": 24,
+                "s": 1,
+                "description": "enableCollisionDetection({triangleId:24});",
+                "pres": "The <I24> blocks",
+                "raw": "6d 18 00 01"
+              },
+              {
+                "op": "REQEW",
+                "e": 0,
+                "p": 6,
+                "f": 2,
+                "description": "entityExecuteSync({entity:0, priority:6, function:2});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 00 c2"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1737,11 +1896,13 @@
                 "t": 6,
                 "a": 0,
                 "description": "fade({r:0, g:160, b:40, speed:64, type:6, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 a0 28 40 06 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -1755,11 +1916,13 @@
                 "t": 5,
                 "a": 255,
                 "description": "fade({r:0, g:160, b:40, speed:16, type:5, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 a0 28 10 05 ff"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -1788,6 +1951,37 @@
                 "c": 0,
                 "description": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": -236,
+                "y": 11,
+                "z": 0,
+                "i": 30,
+                "description": "placeObject({x:-236, y:11, z:0, walkmeshTriangle:30});",
+                "raw": "a5 00 00 14 ff 0b 00 00 00 1e 00"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 64,
+                "description": "setFacingDirection({direction:64});",
+                "raw": "b3 00 40"
               },
               {
                 "op": "RET",
@@ -2386,6 +2580,24 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "DFANM",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "raw": "a2 03 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2472,6 +2684,24 @@
                 "s": 1,
                 "description": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "DFANM",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "raw": "a2 03 01"
               },
               {
                 "op": "RET",
@@ -2570,6 +2800,78 @@
                 "d": 64,
                 "description": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 108,
+                "c": 4,
+                "e": 3,
+                "description": "if (Bank[2][0] >= 108) (else goto 2530);",
+                "raw": "16 20 00 00 6c 00 04 03"
+              },
+              {
+                "op": "JMPF",
+                "a": 21,
+                "description": "goto 2550;",
+                "raw": "10 15"
+              },
+              {
+                "op": "ANIME1",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationSync({animation:3, slowness:1});",
+                "raw": "a3 03 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "ANIME1",
+                "a": 4,
+                "s": 1,
+                "description": "playAnimationSync({animation:4, slowness:1});",
+                "raw": "a3 04 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 18,
+                "description": "goto 2530;",
+                "raw": "12 12"
               },
               {
                 "op": "RET",
@@ -2894,6 +3196,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:360, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 68 01 00 00 00 00 00 00"
               },
               {
@@ -3034,6 +3337,149 @@
                 "r": 150,
                 "description": "setInteractibilityRadius({radius:150});",
                 "raw": "c5 00 96"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 108,
+                "c": 4,
+                "e": 3,
+                "description": "if (Bank[2][0] >= 108) (else goto 3334);",
+                "raw": "16 20 00 00 6c 00 04 03"
+              },
+              {
+                "op": "JMPF",
+                "a": 61,
+                "description": "goto 3394;",
+                "raw": "10 3d"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 128,
+                "description": "setFacingDirection({direction:128});",
+                "raw": "b3 00 80"
+              },
+              {
+                "op": "DFANM",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "raw": "a2 03 01"
+              },
+              {
+                "op": "MSPED",
+                "b": 0,
+                "d": 3072,
+                "description": "setMovementSpeed({speed:3072});",
+                "raw": "b2 00 00 0c"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": 216,
+                "y": -169,
+                "description": "walkObjectTo({x:216, y:-169});",
+                "raw": "a8 00 d8 00 57 ff"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 128,
+                "description": "setFacingDirection({direction:128});",
+                "raw": "b3 00 80"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": 86,
+                "y": -165,
+                "description": "walkObjectTo({x:86, y:-165});",
+                "raw": "a8 00 56 00 5b ff"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 128,
+                "description": "setFacingDirection({direction:128});",
+                "raw": "b3 00 80"
+              },
+              {
+                "op": "WAIT",
+                "a": 30,
+                "description": "wait({numFrames:30});",
+                "raw": "24 1e 00"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": -37,
+                "y": -153,
+                "description": "walkObjectTo({x:-37, y:-153});",
+                "raw": "a8 00 db ff 67 ff"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 128,
+                "description": "setFacingDirection({direction:128});",
+                "raw": "b3 00 80"
+              },
+              {
+                "op": "WAIT",
+                "a": 30,
+                "description": "wait({numFrames:30});",
+                "raw": "24 1e 00"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": 86,
+                "y": -165,
+                "description": "walkObjectTo({x:86, y:-165});",
+                "raw": "a8 00 56 00 5b ff"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 128,
+                "description": "setFacingDirection({direction:128});",
+                "raw": "b3 00 80"
+              },
+              {
+                "op": "WAIT",
+                "a": 30,
+                "description": "wait({numFrames:30});",
+                "raw": "24 1e 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 52,
+                "description": "goto 3340;",
+                "raw": "12 34"
               },
               {
                 "op": "RET",
@@ -3217,6 +3663,1140 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSWL",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 108,
+                "c": 4,
+                "e": 33,
+                "description": "if (Bank[2][0] >= 108) (else goto 3506);",
+                "raw": "17 20 00 00 6c 00 04 21 00"
+              },
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": -250,
+                "y": 102,
+                "z": 0,
+                "i": 14,
+                "description": "placeObject({x:-250, y:102, z:0, walkmeshTriangle:14});",
+                "raw": "a5 00 00 06 ff 66 00 00 00 0e 00"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 0,
+                "description": "setFacingDirection({direction:0});",
+                "raw": "b3 00 00"
+              },
+              {
+                "op": "DFANM",
+                "a": 3,
+                "s": 1,
+                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "raw": "a2 03 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "DFANM",
+                "a": 4,
+                "s": 1,
+                "description": "playAnimationLoop({animation:4, slowness:1});",
+                "raw": "a2 04 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 12,
+                "description": "goto 3488;",
+                "raw": "12 0c"
+              },
+              {
+                "op": "JMPFL",
+                "a": 534,
+                "description": "goto 4037;",
+                "raw": "11 16 02"
+              },
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 17,
+                "y": 22,
+                "z": 0,
+                "i": 68,
+                "description": "placeObject({x:17, y:22, z:0, walkmeshTriangle:68});",
+                "raw": "a5 00 00 11 00 16 00 00 00 44 00"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 192,
+                "description": "setFacingDirection({direction:192});",
+                "raw": "b3 00 c0"
+              },
+              {
+                "op": "SETWORD",
+                "bd": 6,
+                "bs": 0,
+                "a": 16,
+                "v": 51,
+                "description": "Bank[6][16] = 51;",
+                "raw": "81 60 10 33 00"
+              },
+              {
+                "op": "SETWORD",
+                "bd": 6,
+                "bs": 0,
+                "a": 18,
+                "v": 8,
+                "description": "Bank[6][18] = 8;",
+                "raw": "81 60 12 08 00"
+              },
+              {
+                "op": "SETWORD",
+                "bd": 6,
+                "bs": 0,
+                "a": 20,
+                "v": 22,
+                "description": "Bank[6][20] = 22;",
+                "raw": "81 60 14 16 00"
+              },
+              {
+                "op": "SETWORD",
+                "bd": 6,
+                "bs": 0,
+                "a": 22,
+                "v": 2,
+                "description": "Bank[6][22] = 2;",
+                "raw": "81 60 16 02 00"
+              },
+              {
+                "op": "SETWORD",
+                "bd": 6,
+                "bs": 0,
+                "a": 24,
+                "v": 68,
+                "description": "Bank[6][24] = 68;",
+                "raw": "81 60 18 44 00"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "REQEW",
+                "e": 4,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteSync({entity:4, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 04 c1"
+              },
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 10,
+                "description": "set8bit(Bank[5][10], Math.floor(Math.random() * 256));",
+                "raw": "99 05 0a"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 85,
+                "c": 3,
+                "e": 20,
+                "description": "if (Bank[5][10] < 85) (else goto 3587);",
+                "raw": "14 50 0a 55 03 14"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 96,
+                "description": "setFacingDirection({direction:96});",
+                "raw": "b3 00 60"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 129,
+                "y": 72,
+                "i": 2,
+                "h": 10,
+                "description": "makeObjectJump({x:129, y:72, triangleId:2, height:10});",
+                "raw": "c0 00 00 81 00 48 00 02 00 0a 00"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 96,
+                "description": "setFacingDirection({direction:96});",
+                "raw": "b3 00 60"
+              },
+              {
+                "op": "JMPF",
+                "a": 43,
+                "description": "goto 3629;",
+                "raw": "10 2b"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 170,
+                "c": 3,
+                "e": 20,
+                "description": "if (Bank[5][10] < 170) (else goto 3612);",
+                "raw": "14 50 0a aa 03 14"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 128,
+                "description": "setFacingDirection({direction:128});",
+                "raw": "b3 00 80"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 57,
+                "y": 170,
+                "i": 22,
+                "h": 10,
+                "description": "makeObjectJump({x:57, y:170, triangleId:22, height:10});",
+                "raw": "c0 00 00 39 00 aa 00 16 00 0a 00"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 64,
+                "description": "setFacingDirection({direction:64});",
+                "raw": "b3 00 40"
+              },
+              {
+                "op": "JMPF",
+                "a": 18,
+                "description": "goto 3629;",
+                "raw": "10 12"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 64,
+                "description": "setFacingDirection({direction:64});",
+                "raw": "b3 00 40"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 249,
+                "y": -40,
+                "i": 8,
+                "h": 10,
+                "description": "makeObjectJump({x:249, y:-40, triangleId:8, height:10});",
+                "raw": "c0 00 00 f9 00 d8 ff 08 00 0a 00"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 128,
+                "description": "setFacingDirection({direction:128});",
+                "raw": "b3 00 80"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 231,
+                "y": 153,
+                "i": 51,
+                "h": 10,
+                "description": "makeObjectJump({x:231, y:153, triangleId:51, height:10});",
+                "raw": "c0 00 00 e7 00 99 00 33 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "REQEW",
+                "e": 4,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteSync({entity:4, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 04 c1"
+              },
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 10,
+                "description": "set8bit(Bank[5][10], Math.floor(Math.random() * 256));",
+                "raw": "99 05 0a"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 85,
+                "c": 3,
+                "e": 116,
+                "description": "if (Bank[5][10] < 85) (else goto 3775);",
+                "raw": "14 50 0a 55 03 74"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 0,
+                "description": "setFacingDirection({direction:0});",
+                "raw": "b3 00 00"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 249,
+                "y": -40,
+                "i": 8,
+                "h": 10,
+                "description": "makeObjectJump({x:249, y:-40, triangleId:8, height:10});",
+                "raw": "c0 00 00 f9 00 d8 ff 08 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 192,
+                "description": "setFacingDirection({direction:192});",
+                "raw": "b3 00 c0"
+              },
+              {
+                "op": "REQEW",
+                "e": 4,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteSync({entity:4, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 04 c1"
+              },
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 10,
+                "description": "set8bit(Bank[5][10], Math.floor(Math.random() * 256));",
+                "raw": "99 05 0a"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 85,
+                "c": 3,
+                "e": 34,
+                "description": "if (Bank[5][10] < 85) (else goto 3736);",
+                "raw": "14 50 0a 55 03 22"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 160,
+                "description": "setFacingDirection({direction:160});",
+                "raw": "b3 00 a0"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 129,
+                "y": 72,
+                "i": 2,
+                "h": 10,
+                "description": "makeObjectJump({x:129, y:72, triangleId:2, height:10});",
+                "raw": "c0 00 00 81 00 48 00 02 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 224,
+                "description": "setFacingDirection({direction:224});",
+                "raw": "b3 00 e0"
+              },
+              {
+                "op": "JMPF",
+                "a": 38,
+                "description": "goto 3773;",
+                "raw": "10 26"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 170,
+                "c": 3,
+                "e": 32,
+                "description": "if (Bank[5][10] < 170) (else goto 3773);",
+                "raw": "14 50 0a aa 03 20"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 160,
+                "description": "setFacingDirection({direction:160});",
+                "raw": "b3 00 a0"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 57,
+                "y": 170,
+                "i": 22,
+                "h": 10,
+                "description": "makeObjectJump({x:57, y:170, triangleId:22, height:10});",
+                "raw": "c0 00 00 39 00 aa 00 16 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 0,
+                "description": "setFacingDirection({direction:0});",
+                "raw": "b3 00 00"
+              },
+              {
+                "op": "JMPF",
+                "a": 235,
+                "description": "goto 4009;",
+                "raw": "10 eb"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 170,
+                "c": 3,
+                "e": 116,
+                "description": "if (Bank[5][10] < 170) (else goto 3896);",
+                "raw": "14 50 0a aa 03 74"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 224,
+                "description": "setFacingDirection({direction:224});",
+                "raw": "b3 00 e0"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 129,
+                "y": 72,
+                "i": 2,
+                "h": 10,
+                "description": "makeObjectJump({x:129, y:72, triangleId:2, height:10});",
+                "raw": "c0 00 00 81 00 48 00 02 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 224,
+                "description": "setFacingDirection({direction:224});",
+                "raw": "b3 00 e0"
+              },
+              {
+                "op": "REQEW",
+                "e": 4,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteSync({entity:4, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 04 c1"
+              },
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 10,
+                "description": "set8bit(Bank[5][10], Math.floor(Math.random() * 256));",
+                "raw": "99 05 0a"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 85,
+                "c": 3,
+                "e": 34,
+                "description": "if (Bank[5][10] < 85) (else goto 3857);",
+                "raw": "14 50 0a 55 03 22"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 32,
+                "description": "setFacingDirection({direction:32});",
+                "raw": "b3 00 20"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 249,
+                "y": -40,
+                "i": 8,
+                "h": 10,
+                "description": "makeObjectJump({x:249, y:-40, triangleId:8, height:10});",
+                "raw": "c0 00 00 f9 00 d8 ff 08 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 192,
+                "description": "setFacingDirection({direction:192});",
+                "raw": "b3 00 c0"
+              },
+              {
+                "op": "JMPF",
+                "a": 38,
+                "description": "goto 3894;",
+                "raw": "10 26"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 170,
+                "c": 3,
+                "e": 32,
+                "description": "if (Bank[5][10] < 170) (else goto 3894);",
+                "raw": "14 50 0a aa 03 20"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 160,
+                "description": "setFacingDirection({direction:160});",
+                "raw": "b3 00 a0"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 57,
+                "y": 170,
+                "i": 22,
+                "h": 10,
+                "description": "makeObjectJump({x:57, y:170, triangleId:22, height:10});",
+                "raw": "c0 00 00 39 00 aa 00 16 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 0,
+                "description": "setFacingDirection({direction:0});",
+                "raw": "b3 00 00"
+              },
+              {
+                "op": "JMPF",
+                "a": 114,
+                "description": "goto 4009;",
+                "raw": "10 72"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 192,
+                "description": "setFacingDirection({direction:192});",
+                "raw": "b3 00 c0"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 57,
+                "y": 170,
+                "i": 22,
+                "h": 10,
+                "description": "makeObjectJump({x:57, y:170, triangleId:22, height:10});",
+                "raw": "c0 00 00 39 00 aa 00 16 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 0,
+                "description": "setFacingDirection({direction:0});",
+                "raw": "b3 00 00"
+              },
+              {
+                "op": "REQEW",
+                "e": 4,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteSync({entity:4, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "03 04 c1"
+              },
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 10,
+                "description": "set8bit(Bank[5][10], Math.floor(Math.random() * 256));",
+                "raw": "99 05 0a"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 85,
+                "c": 3,
+                "e": 34,
+                "description": "if (Bank[5][10] < 85) (else goto 3972);",
+                "raw": "14 50 0a 55 03 22"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 32,
+                "description": "setFacingDirection({direction:32});",
+                "raw": "b3 00 20"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 249,
+                "y": -40,
+                "i": 8,
+                "h": 10,
+                "description": "makeObjectJump({x:249, y:-40, triangleId:8, height:10});",
+                "raw": "c0 00 00 f9 00 d8 ff 08 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 192,
+                "description": "setFacingDirection({direction:192});",
+                "raw": "b3 00 c0"
+              },
+              {
+                "op": "JMPF",
+                "a": 38,
+                "description": "goto 4009;",
+                "raw": "10 26"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 10,
+                "v": 170,
+                "c": 3,
+                "e": 32,
+                "description": "if (Bank[5][10] < 170) (else goto 4009);",
+                "raw": "14 50 0a aa 03 20"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 32,
+                "description": "setFacingDirection({direction:32});",
+                "raw": "b3 00 20"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 129,
+                "y": 72,
+                "i": 2,
+                "h": 10,
+                "description": "makeObjectJump({x:129, y:72, triangleId:2, height:10});",
+                "raw": "c0 00 00 81 00 48 00 02 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 224,
+                "description": "setFacingDirection({direction:224});",
+                "raw": "b3 00 e0"
+              },
+              {
+                "op": "DFANM",
+                "a": 2,
+                "s": 1,
+                "description": "playAnimationLoop({animation:2, slowness:1});",
+                "raw": "a2 02 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JUMP",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 17,
+                "y": 22,
+                "i": 68,
+                "h": 10,
+                "description": "makeObjectJump({x:17, y:22, triangleId:68, height:10});",
+                "raw": "c0 00 00 11 00 16 00 44 00 0a 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 1,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:1});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c1"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "description": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "JMPBL",
+                "a": 484,
+                "description": "goto 3550;",
+                "raw": "13 e4 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -3245,6 +4825,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:248, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 f8 00 00 00 00 00 00 00"
               },
               {
@@ -3357,6 +4938,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:269, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 0d 01 00 00 00 00 00 00"
               },
               {
@@ -3481,6 +5063,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:269, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 0d 01 00 00 00 00 00 00"
               },
               {
@@ -3628,6 +5211,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:269, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 0d 01 00 00 00 00 00 00"
               },
               {
@@ -3766,6 +5350,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:269, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 0d 01 00 00 00 00 00 00"
               },
               {
@@ -3889,6 +5474,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:458, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 ca 01 00 00 00 00 00 00"
               },
               {
@@ -3937,6 +5523,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:248, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 f8 00 00 00 00 00 00 00"
               },
               {
@@ -4021,6 +5608,17 @@
                 "description": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -4172,6 +5770,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:359, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 67 01 00 00 00 00 00 00"
               },
               {
@@ -4201,6 +5800,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:359, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 67 01 00 00 00 00 00 00"
               },
               {
@@ -4230,6 +5830,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:359, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 67 01 00 00 00 00 00 00"
               },
               {
@@ -4259,6 +5860,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:359, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 67 01 00 00 00 00 00 00"
               },
               {
@@ -4288,6 +5890,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:359, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 67 01 00 00 00 00 00 00"
               },
               {
@@ -4317,6 +5920,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:359, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 67 01 00 00 00 00 00 00"
               },
               {
@@ -4368,11 +5972,13 @@
                 "t": 2,
                 "a": 0,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:2, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 02 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -4428,6 +6034,7 @@
                 "t": 1,
                 "a": 255,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:1, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 01 ff"
               },
               {
@@ -4444,11 +6051,13 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:359, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 67 01 00 00 00 00 00 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -4474,6 +6083,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:359, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 67 01 00 00 00 00 00 00"
               },
               {
@@ -4529,6 +6139,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:359, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 67 01 00 00 00 00 00 00"
               },
               {
@@ -4542,11 +6153,13 @@
                 "t": 2,
                 "a": 0,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:2, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 02 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -4631,6 +6244,7 @@
                 "t": 1,
                 "a": 255,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:1, adjust:255});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 01 ff"
               },
               {
@@ -4704,6 +6318,23 @@
                 "z2": 0,
                 "description": "createLineTrigger({x1:260, y1:-208, z1:0, x2:212, y2:-169, z2:0});",
                 "raw": "d0 04 01 30 ff 00 00 d4 00 57 ff 00 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "LINON",
+                "s": 0,
+                "description": "disableAllLineTriggers();",
+                "raw": "d1 00"
               },
               {
                 "op": "RET",
@@ -4978,6 +6609,44 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "KAWAI",
+                "l": 5,
+                "s": 13,
+                "vars": [
+                  0,
+                  0
+                ],
+                "description": "doCharacterGraphicsOp({length:5, kawaiOp:13, vars:0,0});",
+                "raw": "28 05 0d 00 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "KAWAI",
+                "l": 4,
+                "s": 13,
+                "vars": [
+                  1
+                ],
+                "description": "doCharacterGraphicsOp({length:4, kawaiOp:13, vars:1});",
+                "raw": "28 04 0d 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -5073,6 +6742,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_29({p1:64, p2:490, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 29 40 ea 01 00 00 00 00 00 00"
               },
               {
@@ -5126,6 +6796,7 @@
                 "p3": 0,
                 "p4": 3,
                 "description": "scrollOp0x62({param1:0, param2:30, param3:0, param4:3});",
+                "pres": "The camera scrolls...",
                 "raw": "62 00 1e 00 03"
               },
               {
@@ -5180,6 +6851,207 @@
                 "n": 8,
                 "description": "thisIsACharacterFieldModel(8);",
                 "raw": "a1 08"
+              },
+              {
+                "op": "TLKON",
+                "s": 1,
+                "description": "interactibilityOff();",
+                "raw": "7e 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "VISI",
+                "s": 0,
+                "description": "setVisibilityMode(V.NotVisible);",
+                "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "KAWAI",
+                "l": 5,
+                "s": 13,
+                "vars": [
+                  0,
+                  0
+                ],
+                "description": "doCharacterGraphicsOp({length:5, kawaiOp:13, vars:0,0});",
+                "raw": "28 05 0d 00 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "KAWAI",
+                "l": 4,
+                "s": 13,
+                "vars": [
+                  1
+                ],
+                "description": "doCharacterGraphicsOp({length:4, kawaiOp:13, vars:1});",
+                "raw": "28 04 0d 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 3,
+                "b2": 0,
+                "a": 215,
+                "v": 4,
+                "c": 9,
+                "e": 72,
+                "description": "if (Bank[3][215] & (1<<4)) (else goto 5192);",
+                "raw": "14 30 d7 04 09 48"
+              },
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": -227,
+                "y": -111,
+                "z": 0,
+                "i": 48,
+                "description": "placeObject({x:-227, y:-111, z:0, walkmeshTriangle:48});",
+                "raw": "a5 00 00 1d ff 91 ff 00 00 30 00"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 128,
+                "description": "setFacingDirection({direction:128});",
+                "raw": "b3 00 80"
+              },
+              {
+                "op": "TLKON",
+                "s": 0,
+                "description": "interactibilityOn();",
+                "raw": "7e 00"
+              },
+              {
+                "op": "SOLID",
+                "s": 0,
+                "description": "setSolidMode(S.Solid);",
+                "raw": "c7 00"
+              },
+              {
+                "op": "VISI",
+                "s": 1,
+                "description": "setVisibilityMode(V.Visible);",
+                "raw": "a4 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 3,
+                "b2": 0,
+                "a": 215,
+                "v": 5,
+                "c": 9,
+                "e": 39,
+                "description": "if (Bank[3][215] & (1<<5)) (else goto 5185);",
+                "raw": "14 30 d7 05 09 27"
+              },
+              {
+                "op": "CANM!2",
+                "a": 0,
+                "f": 29,
+                "l": 29,
+                "s": 1,
+                "description": "playPartialAnimation({animation:0, firstFrame:29, lastFrame:29, slowness:1});",
+                "raw": "bc 00 1d 1d 01"
+              },
+              {
+                "op": "KAWAI",
+                "l": 5,
+                "s": 13,
+                "vars": [
+                  2,
+                  0
+                ],
+                "description": "doCharacterGraphicsOp({length:5, kawaiOp:13, vars:2,0});",
+                "raw": "28 05 0d 02 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "KAWAI",
+                "l": 10,
+                "s": 2,
+                "vars": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "description": "doCharacterGraphicsOp({length:10, kawaiOp:2, vars:0,0,0,0,0,0,1});",
+                "raw": "28 0a 02 00 00 00 00 00 00 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "KAWAI",
+                "l": 10,
+                "s": 2,
+                "vars": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "description": "doCharacterGraphicsOp({length:10, kawaiOp:2, vars:0,0,0,0,0,0,1});",
+                "raw": "28 0a 02 00 00 00 00 00 00 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 6,
+                "description": "goto 5190;",
+                "raw": "10 06"
+              },
+              {
+                "op": "CANM!2",
+                "a": 0,
+                "f": 0,
+                "l": 0,
+                "s": 1,
+                "description": "playPartialAnimation({animation:0, firstFrame:0, lastFrame:0, slowness:1});",
+                "raw": "bc 00 00 00 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 7,
+                "description": "goto 5198;",
+                "raw": "10 07"
               },
               {
                 "op": "TLKON",
@@ -5311,6 +7183,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:133, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 85 00 00 00 00 00 00 00"
               },
               {
@@ -5406,6 +7279,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:206, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 ce 00 00 00 00 00 00 00"
               },
               {
@@ -5535,6 +7409,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:133, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 85 00 00 00 00 00 00 00"
               },
               {
@@ -5579,6 +7454,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:206, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 ce 00 00 00 00 00 00 00"
               },
               {
@@ -5837,6 +7713,90 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 108,
+                "c": 4,
+                "e": 23,
+                "description": "if (Bank[2][0] >= 108) (else goto 5739);",
+                "raw": "16 20 00 00 6c 00 04 17"
+              },
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 137,
+                "y": -180,
+                "z": 0,
+                "i": 71,
+                "description": "placeObject({x:137, y:-180, z:0, walkmeshTriangle:71});",
+                "raw": "a5 00 00 89 00 4c ff 00 00 47 00"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 64,
+                "description": "setFacingDirection({direction:64});",
+                "raw": "b3 00 40"
+              },
+              {
+                "op": "TLKON",
+                "s": 0,
+                "description": "interactibilityOn();",
+                "raw": "7e 00"
+              },
+              {
+                "op": "SOLID",
+                "s": 0,
+                "description": "setSolidMode(S.Solid);",
+                "raw": "c7 00"
+              },
+              {
+                "op": "VISI",
+                "s": 1,
+                "description": "setVisibilityMode(V.Visible);",
+                "raw": "a4 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 7,
+                "description": "goto 5745;",
+                "raw": "10 07"
+              },
+              {
+                "op": "TLKON",
+                "s": 1,
+                "description": "interactibilityOff();",
+                "raw": "7e 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "VISI",
+                "s": 0,
+                "description": "setVisibilityMode(V.NotVisible);",
+                "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -5950,6 +7910,90 @@
                 "n": 10,
                 "description": "thisIsACharacterFieldModel(10);",
                 "raw": "a1 0a"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 108,
+                "c": 4,
+                "e": 23,
+                "description": "if (Bank[2][0] >= 108) (else goto 5820);",
+                "raw": "16 20 00 00 6c 00 04 17"
+              },
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 57,
+                "y": 171,
+                "z": 156,
+                "i": 22,
+                "description": "placeObject({x:57, y:171, z:156, walkmeshTriangle:22});",
+                "raw": "a5 00 00 39 00 ab 00 9c 00 16 00"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 64,
+                "description": "setFacingDirection({direction:64});",
+                "raw": "b3 00 40"
+              },
+              {
+                "op": "TLKON",
+                "s": 0,
+                "description": "interactibilityOn();",
+                "raw": "7e 00"
+              },
+              {
+                "op": "SOLID",
+                "s": 0,
+                "description": "setSolidMode(S.Solid);",
+                "raw": "c7 00"
+              },
+              {
+                "op": "VISI",
+                "s": 1,
+                "description": "setVisibilityMode(V.Visible);",
+                "raw": "a4 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 7,
+                "description": "goto 5826;",
+                "raw": "10 07"
+              },
+              {
+                "op": "TLKON",
+                "s": 1,
+                "description": "interactibilityOff();",
+                "raw": "7e 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "VISI",
+                "s": 0,
+                "description": "setVisibilityMode(V.NotVisible);",
+                "raw": "a4 00"
               },
               {
                 "op": "RET",
@@ -6129,6 +8173,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:233, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 e9 00 00 00 00 00 00 00"
               },
               {
@@ -6152,6 +8197,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:234, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 ea 00 00 00 00 00 00 00"
               },
               {
@@ -6329,6 +8375,90 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 108,
+                "c": 4,
+                "e": 23,
+                "description": "if (Bank[2][0] >= 108) (else goto 6024);",
+                "raw": "16 20 00 00 6c 00 04 17"
+              },
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 154,
+                "y": 173,
+                "z": 156,
+                "i": 1,
+                "description": "placeObject({x:154, y:173, z:156, walkmeshTriangle:1});",
+                "raw": "a5 00 00 9a 00 ad 00 9c 00 01 00"
+              },
+              {
+                "op": "DIR",
+                "b": 0,
+                "d": 192,
+                "description": "setFacingDirection({direction:192});",
+                "raw": "b3 00 c0"
+              },
+              {
+                "op": "TLKON",
+                "s": 0,
+                "description": "interactibilityOn();",
+                "raw": "7e 00"
+              },
+              {
+                "op": "SOLID",
+                "s": 0,
+                "description": "setSolidMode(S.Solid);",
+                "raw": "c7 00"
+              },
+              {
+                "op": "VISI",
+                "s": 1,
+                "description": "setVisibilityMode(V.Visible);",
+                "raw": "a4 01"
+              },
+              {
+                "op": "JMPF",
+                "a": 7,
+                "description": "goto 6030;",
+                "raw": "10 07"
+              },
+              {
+                "op": "TLKON",
+                "s": 1,
+                "description": "interactibilityOff();",
+                "raw": "7e 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "VISI",
+                "s": 0,
+                "description": "setVisibilityMode(V.NotVisible);",
+                "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -6463,6 +8593,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:36, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 24 00 00 00 00 00 00 00"
               },
               {
@@ -6665,6 +8796,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:13, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 0d 00 00 00 00 00 00 00"
               },
               {
@@ -6740,6 +8872,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:72, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 48 00 00 00 00 00 00 00"
               },
               {
@@ -6938,6 +9071,108 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 108,
+                "c": 4,
+                "e": 30,
+                "description": "if (Bank[2][0] >= 108) (else goto 6373);",
+                "raw": "16 20 00 00 6c 00 04 1e"
+              },
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 247,
+                "y": 177,
+                "z": 222,
+                "i": 47,
+                "description": "placeObject({x:247, y:177, z:222, walkmeshTriangle:47});",
+                "raw": "a5 00 00 f7 00 b1 00 de 00 2f 00"
+              },
+              {
+                "op": "TLKON",
+                "s": 0,
+                "description": "interactibilityOn();",
+                "raw": "7e 00"
+              },
+              {
+                "op": "SOLID",
+                "s": 0,
+                "description": "setSolidMode(S.Solid);",
+                "raw": "c7 00"
+              },
+              {
+                "op": "VISI",
+                "s": 1,
+                "description": "setVisibilityMode(V.Visible);",
+                "raw": "a4 01"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 0,
+                "s": 1,
+                "description": "playAnimationHoldLastFrameSync({animation:0, slowness:1});",
+                "raw": "ba 00 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 8,
+                "description": "goto 6361;",
+                "raw": "12 08"
+              },
+              {
+                "op": "JMPF",
+                "a": 7,
+                "description": "goto 6379;",
+                "raw": "10 07"
+              },
+              {
+                "op": "TLKON",
+                "s": 1,
+                "description": "interactibilityOff();",
+                "raw": "7e 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "VISI",
+                "s": 0,
+                "description": "setVisibilityMode(V.NotVisible);",
+                "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -7077,6 +9312,108 @@
                 "n": 13,
                 "description": "thisIsACharacterFieldModel(13);",
                 "raw": "a1 0d"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 108,
+                "c": 4,
+                "e": 30,
+                "description": "if (Bank[2][0] >= 108) (else goto 6460);",
+                "raw": "16 20 00 00 6c 00 04 1e"
+              },
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 246,
+                "y": 71,
+                "z": 156,
+                "i": 46,
+                "description": "placeObject({x:246, y:71, z:156, walkmeshTriangle:46});",
+                "raw": "a5 00 00 f6 00 47 00 9c 00 2e 00"
+              },
+              {
+                "op": "TLKON",
+                "s": 0,
+                "description": "interactibilityOn();",
+                "raw": "7e 00"
+              },
+              {
+                "op": "SOLID",
+                "s": 0,
+                "description": "setSolidMode(S.Solid);",
+                "raw": "c7 00"
+              },
+              {
+                "op": "VISI",
+                "s": 1,
+                "description": "setVisibilityMode(V.Visible);",
+                "raw": "a4 01"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 0,
+                "s": 1,
+                "description": "playAnimationHoldLastFrameSync({animation:0, slowness:1});",
+                "raw": "ba 00 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 8,
+                "description": "goto 6448;",
+                "raw": "12 08"
+              },
+              {
+                "op": "JMPF",
+                "a": 7,
+                "description": "goto 6466;",
+                "raw": "10 07"
+              },
+              {
+                "op": "TLKON",
+                "s": 1,
+                "description": "interactibilityOff();",
+                "raw": "7e 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "VISI",
+                "s": 0,
+                "description": "setVisibilityMode(V.NotVisible);",
+                "raw": "a4 00"
               },
               {
                 "op": "RET",
@@ -7234,6 +9571,108 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFSW",
+                "b1": 2,
+                "b2": 0,
+                "a": 0,
+                "v": 108,
+                "c": 4,
+                "e": 30,
+                "description": "if (Bank[2][0] >= 108) (else goto 6547);",
+                "raw": "16 20 00 00 6c 00 04 1e"
+              },
+              {
+                "op": "XYZI",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "x": 255,
+                "y": -39,
+                "z": 156,
+                "i": 9,
+                "description": "placeObject({x:255, y:-39, z:156, walkmeshTriangle:9});",
+                "raw": "a5 00 00 ff 00 d9 ff 9c 00 09 00"
+              },
+              {
+                "op": "TLKON",
+                "s": 0,
+                "description": "interactibilityOn();",
+                "raw": "7e 00"
+              },
+              {
+                "op": "SOLID",
+                "s": 0,
+                "description": "setSolidMode(S.Solid);",
+                "raw": "c7 00"
+              },
+              {
+                "op": "VISI",
+                "s": 1,
+                "description": "setVisibilityMode(V.Visible);",
+                "raw": "a4 01"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "description": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 0,
+                "s": 1,
+                "description": "playAnimationHoldLastFrameSync({animation:0, slowness:1});",
+                "raw": "ba 00 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 60,
+                "description": "wait({numFrames:60});",
+                "raw": "24 3c 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 8,
+                "description": "goto 6535;",
+                "raw": "12 08"
+              },
+              {
+                "op": "JMPF",
+                "a": 7,
+                "description": "goto 6553;",
+                "raw": "10 07"
+              },
+              {
+                "op": "TLKON",
+                "s": 1,
+                "description": "interactibilityOff();",
+                "raw": "7e 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "VISI",
+                "s": 0,
+                "description": "setVisibilityMode(V.NotVisible);",
+                "raw": "a4 00"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -7367,6 +9806,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",

@@ -467,7 +467,83 @@
                 "b": 0,
                 "a": 1,
                 "description": "clearBackground({area:1});",
+                "pres": "<Area:1> clears.",
                 "raw": "e4 00 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 1,
+                "description": "backgroundOn({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> appears.",
+                "raw": "e0 00 01 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 1,
+                "description": "backgroundOff({area:1, layer:1});",
+                "pres": "<Area:1> <Layer:1> disappears.",
+                "raw": "e1 00 01 01"
+              },
+              {
+                "op": "BGON",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 0,
+                "description": "backgroundOn({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> appears.",
+                "raw": "e0 00 01 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "BGOFF",
+                "b1": 0,
+                "b2": 0,
+                "a": 1,
+                "l": 0,
+                "description": "backgroundOff({area:1, layer:0});",
+                "pres": "<Area:1> <Layer:0> disappears.",
+                "raw": "e1 00 01 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 5,
+                "description": "wait({numFrames:5});",
+                "raw": "24 05 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 25,
+                "description": "goto 882;",
+                "raw": "12 19"
               },
               {
                 "op": "RET",
@@ -505,6 +581,7 @@
                 "op": "MUSIC",
                 "id": 0,
                 "description": "playMusic({song:0});",
+                "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
@@ -517,7 +594,337 @@
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "IFUB",
+                "b1": 3,
+                "b2": 0,
+                "a": 132,
+                "v": 4,
+                "c": 9,
+                "e": 23,
+                "description": "if (Bank[3][132] & (1<<4)) (else goto 953);",
+                "raw": "14 30 84 04 09 17"
+              },
+              {
+                "op": "REQ",
+                "e": 2,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteAsync({entity:2, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 02 c3"
+              },
+              {
+                "op": "IFUB",
+                "b1": 3,
+                "b2": 0,
+                "a": 132,
+                "v": 5,
+                "c": 10,
+                "e": 12,
+                "description": "if (!((Bank[3][132] & (1<<5)))) (else goto 951);",
+                "raw": "14 30 84 05 0a 0c"
+              },
+              {
+                "op": "BITON",
+                "bd": 3,
+                "bs": 0,
+                "d": 132,
+                "bit": 5,
+                "description": "setBit({destination:Bank[3][132], bit:5});",
+                "raw": "82 30 84 05"
+              },
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "REQ",
+                "e": 3,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteAsync({entity:3, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "01 03 c3"
+              },
+              {
+                "op": "JMPF",
+                "a": 31,
+                "description": "goto 983;",
+                "raw": "10 1f"
+              },
+              {
+                "op": "LSTMP",
+                "b": 6,
+                "a": 8,
+                "description": "Bank[6][8] = getLastFieldMapId(); // wm does not count",
+                "raw": "6e 06 08"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 8,
+                "v": 634,
+                "c": 1,
+                "e": 20,
+                "description": "if (Bank[6][8] != 634) (else goto 983);",
+                "raw": "16 60 08 00 7a 02 01 14"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 8,
+                "v": 635,
+                "c": 1,
+                "e": 12,
+                "description": "if (Bank[6][8] != 635) (else goto 983);",
+                "raw": "16 60 08 00 7b 02 01 0c"
+              },
+              {
+                "op": "IFSW",
+                "b1": 6,
+                "b2": 0,
+                "a": 8,
+                "v": 640,
+                "c": 1,
+                "e": 4,
+                "description": "if (Bank[6][8] != 640) (else goto 983);",
+                "raw": "16 60 08 00 80 02 01 04"
+              },
+              {
+                "op": "INC",
+                "b": 5,
+                "a": 10,
+                "description": "increment8bit(Bank[5][10]);",
+                "raw": "95 05 0a"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 40,
+                "p1": 64,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_28({p1:64, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 28 40 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 41,
+                "p1": 64,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_29({p1:64, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 29 40 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 42,
+                "p1": 64,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_2a({p1:64, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 2a 40 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 43,
+                "p1": 64,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_2b({p1:64, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 2b 40 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 160,
+                "p1": 127,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_a0({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 a0 7f 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 161,
+                "p1": 127,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_a1({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 a1 7f 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 162,
+                "p1": 127,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_a2({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 a2 7f 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 163,
+                "p1": 127,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_a3({p1:127, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 a3 7f 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 176,
+                "p1": 0,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_b0({p1:0, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 b0 00 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 177,
+                "p1": 0,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_b1({p1:0, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 b1 00 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 178,
+                "p1": 0,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_b2({p1:0, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 b2 00 00 00 00 00 00 00 00 00"
+              },
+              {
+                "op": "AKAO",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "b4": 0,
+                "b5": 0,
+                "akaoOp": 179,
+                "p1": 0,
+                "p2": 0,
+                "p3": 0,
+                "p4": 0,
+                "p5": 0,
+                "description": "musicOp_F2_b3({p1:0, p2:0, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
+                "raw": "f2 00 00 00 b3 00 00 00 00 00 00 00 00 00"
               },
               {
                 "op": "RET",
@@ -552,6 +959,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -575,11 +993,13 @@
                 "t": 8,
                 "a": 0,
                 "description": "fade({r:160, g:160, b:208, speed:8, type:8, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 a0 a0 d0 08 08 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -593,6 +1013,7 @@
                 "t": 8,
                 "a": 0,
                 "description": "fade({r:160, g:160, b:208, speed:255, type:8, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 a0 a0 d0 ff 08 00"
               },
               {
@@ -628,6 +1049,17 @@
                 "description": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
               },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
               {
                 "op": "RET",
                 "description": "return;",
@@ -1001,6 +1433,24 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1232,6 +1682,24 @@
                 "c": 2,
                 "description": "thisIsAPlayableCharacter(C.Tifa);",
                 "raw": "a0 02"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 30,
+                "description": "setCollisionRadius({radius:30});",
+                "raw": "c6 00 1e"
               },
               {
                 "op": "RET",
@@ -1481,6 +1949,24 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -1712,6 +2198,24 @@
                 "c": 8,
                 "description": "thisIsAPlayableCharacter(C.Cid);",
                 "raw": "a0 08"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 36,
+                "description": "setCollisionRadius({radius:36});",
+                "raw": "c6 00 24"
               },
               {
                 "op": "RET",
@@ -1961,6 +2465,24 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2201,6 +2723,30 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
+              },
+              {
+                "op": "SOLID",
+                "s": 1,
+                "description": "setSolidMode(S.NonSolid);",
+                "raw": "c7 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2432,6 +2978,24 @@
                 "c": 7,
                 "description": "thisIsAPlayableCharacter(C.Vincent);",
                 "raw": "a0 07"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "SLIDR",
+                "b": 0,
+                "r": 1,
+                "description": "setCollisionRadius({radius:1});",
+                "raw": "c6 00 01"
               },
               {
                 "op": "RET",

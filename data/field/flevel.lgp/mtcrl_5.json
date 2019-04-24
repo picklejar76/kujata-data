@@ -326,6 +326,7 @@
                 "op": "MUSIC",
                 "id": 1,
                 "description": "playMusic({song:1});",
+                "pres": "Song starts: <Song:1>",
                 "raw": "f0 01"
               },
               {
@@ -339,6 +340,7 @@
                 "t": 0,
                 "unused": 0,
                 "description": "fadeScreen({r:0, g:0, b:0, speed:0, type:0}); // unused=0",
+                "pres": "The screen fades...",
                 "raw": "25 00 00 00 00 00 00 00 00"
               },
               {
@@ -356,6 +358,7 @@
                 "i": 10,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:10});",
+                "pres": "The <I10> blocks",
                 "raw": "6d 0a 00 01"
               },
               {
@@ -363,7 +366,229 @@
                 "i": 8,
                 "s": 1,
                 "description": "enableCollisionDetection({triangleId:8});",
+                "pres": "The <I8> blocks",
                 "raw": "6d 08 00 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "UC",
+                "s": 1,
+                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "raw": "33 01"
+              },
+              {
+                "op": "MENU2",
+                "s": 1,
+                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "raw": "4a 01"
+              },
+              {
+                "op": "SCR2D",
+                "b1": 0,
+                "b2": 0,
+                "targetX": 0,
+                "targetY": 245,
+                "description": "scroll({x:0, y:245});",
+                "raw": "64 00 00 00 f5 00"
+              },
+              {
+                "op": "IFUB",
+                "b1": 15,
+                "b2": 0,
+                "a": 115,
+                "v": 1,
+                "c": 9,
+                "e": 6,
+                "description": "if (Bank[15][115] & (1<<1)) (else goto 642);",
+                "raw": "14 f0 73 01 09 06"
+              },
+              {
+                "op": "REQSW",
+                "e": 4,
+                "p": 6,
+                "f": 4,
+                "description": "entityExecuteAsyncGuaranteed({entity:4, priority:6, function:4});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 04 c4"
+              },
+              {
+                "op": "JMPF",
+                "a": 15,
+                "description": "goto 656;",
+                "raw": "10 0f"
+              },
+              {
+                "op": "IFUB",
+                "b1": 15,
+                "b2": 0,
+                "a": 115,
+                "v": 0,
+                "c": 9,
+                "e": 6,
+                "description": "if (Bank[15][115] & (1<<0)) (else goto 653);",
+                "raw": "14 f0 73 00 09 06"
+              },
+              {
+                "op": "REQSW",
+                "e": 4,
+                "p": 6,
+                "f": 5,
+                "description": "entityExecuteAsyncGuaranteed({entity:4, priority:6, function:5});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 04 c5"
+              },
+              {
+                "op": "JMPF",
+                "a": 4,
+                "description": "goto 656;",
+                "raw": "10 04"
+              },
+              {
+                "op": "REQSW",
+                "e": 4,
+                "p": 6,
+                "f": 3,
+                "description": "entityExecuteAsyncGuaranteed({entity:4, priority:6, function:3});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 04 c3"
+              },
+              {
+                "op": "WAIT",
+                "a": 30,
+                "description": "wait({numFrames:30});",
+                "raw": "24 1e 00"
+              },
+              {
+                "op": "SCR2DC",
+                "b1": 0,
+                "b2": 0,
+                "b3": 0,
+                "x": 0,
+                "y": -46,
+                "s": 60,
+                "description": "scrollSmooth({x:0, y:-46, speed:60});",
+                "raw": "66 00 00 00 00 d2 ff 3c 00"
+              },
+              {
+                "op": "SCRLW",
+                "description": "waitForScroll();",
+                "raw": "67"
+              },
+              {
+                "op": "SCRLC",
+                "p1": 0,
+                "p2": 60,
+                "p3": 0,
+                "p4": 3,
+                "description": "scrollOp0x62({param1:0, param2:60, param3:0, param4:3});",
+                "pres": "The camera scrolls...",
+                "raw": "62 00 3c 00 03"
+              },
+              {
+                "op": "SCRLW",
+                "description": "waitForScroll();",
+                "raw": "67"
+              },
+              {
+                "op": "SCRCC",
+                "description": "scrollToCurrentPlayableCharacter();",
+                "raw": "65"
+              },
+              {
+                "op": "PMJMP",
+                "i": 462,
+                "description": "setFieldJumpId({fieldId:462});",
+                "raw": "d8 ce 01"
+              },
+              {
+                "op": "IFKEYON",
+                "b": 608,
+                "a": 3,
+                "description": "if keyPressedJustPressed({inputKeyBitField:608) (else goto 685);",
+                "raw": "31 60 02 03"
+              },
+              {
+                "op": "JMPF",
+                "a": 3,
+                "description": "goto 687;",
+                "raw": "10 03"
+              },
+              {
+                "op": "JMPB",
+                "a": 6,
+                "description": "goto 679;",
+                "raw": "12 06"
+              },
+              {
+                "op": "IFUB",
+                "b1": 15,
+                "b2": 0,
+                "a": 115,
+                "v": 1,
+                "c": 9,
+                "e": 6,
+                "description": "if (Bank[15][115] & (1<<1)) (else goto 698);",
+                "raw": "14 f0 73 01 09 06"
+              },
+              {
+                "op": "REQSW",
+                "e": 4,
+                "p": 5,
+                "f": 7,
+                "description": "entityExecuteAsyncGuaranteed({entity:4, priority:5, function:7});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 04 a7"
+              },
+              {
+                "op": "JMPF",
+                "a": 15,
+                "description": "goto 712;",
+                "raw": "10 0f"
+              },
+              {
+                "op": "IFUB",
+                "b1": 15,
+                "b2": 0,
+                "a": 115,
+                "v": 0,
+                "c": 9,
+                "e": 6,
+                "description": "if (Bank[15][115] & (1<<0)) (else goto 709);",
+                "raw": "14 f0 73 00 09 06"
+              },
+              {
+                "op": "REQSW",
+                "e": 4,
+                "p": 5,
+                "f": 8,
+                "description": "entityExecuteAsyncGuaranteed({entity:4, priority:5, function:8});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 04 a8"
+              },
+              {
+                "op": "JMPF",
+                "a": 4,
+                "description": "goto 712;",
+                "raw": "10 04"
+              },
+              {
+                "op": "REQSW",
+                "e": 4,
+                "p": 5,
+                "f": 6,
+                "description": "entityExecuteAsyncGuaranteed({entity:4, priority:5, function:6});",
+                "pres": "Tells <E> to <F>",
+                "raw": "02 04 a6"
               },
               {
                 "op": "RET",
@@ -386,6 +611,17 @@
                 "raw": "00"
               }
             ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
           }
         ]
       },
@@ -394,6 +630,17 @@
         "scripts": [
           {
             "index": 0,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
+            "index": 0,
+            "isMain": true,
             "ops": [
               {
                 "op": "RET",
@@ -644,11 +891,13 @@
                 "t": 2,
                 "a": 0,
                 "description": "fade({r:0, g:0, b:0, speed:8, type:2, adjust:0});",
+                "pres": "The screen fades...",
                 "raw": "6b 00 00 00 00 00 08 02 00"
               },
               {
                 "op": "FADEW",
                 "description": "waitForFade();",
+                "pres": "...",
                 "raw": "6c"
               },
               {
@@ -864,6 +1113,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -958,6 +1218,17 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -994,6 +1265,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:133, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 85 00 00 00 00 00 00 00"
               },
               {
@@ -1065,6 +1337,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:133, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 85 00 00 00 00 00 00 00"
               },
               {
@@ -1136,6 +1409,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_2a({p1:64, p2:133, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 2a 40 85 00 00 00 00 00 00 00"
               },
               {
@@ -1241,6 +1515,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:56, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 38 00 00 00 00 00 00 00"
               },
               {
@@ -1263,6 +1538,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:203, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 cb 00 00 00 00 00 00 00"
               },
               {
@@ -1327,6 +1603,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:233, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 e9 00 00 00 00 00 00 00"
               },
               {
@@ -1362,6 +1639,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:56, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 38 00 00 00 00 00 00 00"
               },
               {
@@ -1457,6 +1735,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:233, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 e9 00 00 00 00 00 00 00"
               },
               {
@@ -1492,6 +1771,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:56, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 38 00 00 00 00 00 00 00"
               },
               {
@@ -1587,6 +1867,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:233, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 e9 00 00 00 00 00 00 00"
               },
               {
@@ -1622,6 +1903,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:56, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 38 00 00 00 00 00 00 00"
               },
               {
@@ -1957,6 +2239,44 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "KAWAI",
+                "l": 5,
+                "s": 13,
+                "vars": [
+                  0,
+                  0
+                ],
+                "description": "doCharacterGraphicsOp({length:5, kawaiOp:13, vars:0,0});",
+                "raw": "28 05 0d 00 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "KAWAI",
+                "l": 4,
+                "s": 13,
+                "vars": [
+                  1
+                ],
+                "description": "doCharacterGraphicsOp({length:4, kawaiOp:13, vars:1});",
+                "raw": "28 04 0d 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2011,6 +2331,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:360, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 68 01 00 00 00 00 00 00"
               },
               {
@@ -2148,6 +2469,44 @@
             ]
           },
           {
+            "index": 0,
+            "isMain": true,
+            "ops": [
+              {
+                "op": "KAWAI",
+                "l": 5,
+                "s": 13,
+                "vars": [
+                  0,
+                  0
+                ],
+                "description": "doCharacterGraphicsOp({length:5, kawaiOp:13, vars:0,0});",
+                "raw": "28 05 0d 00 00"
+              },
+              {
+                "op": "WAIT",
+                "a": 1,
+                "description": "wait({numFrames:1});",
+                "raw": "24 01 00"
+              },
+              {
+                "op": "KAWAI",
+                "l": 4,
+                "s": 13,
+                "vars": [
+                  1
+                ],
+                "description": "doCharacterGraphicsOp({length:4, kawaiOp:13, vars:1});",
+                "raw": "28 04 0d 01"
+              },
+              {
+                "op": "RET",
+                "description": "return;",
+                "raw": "00"
+              }
+            ]
+          },
+          {
             "index": 1,
             "ops": [
               {
@@ -2202,6 +2561,7 @@
                 "p4": 0,
                 "p5": 0,
                 "description": "musicOp_F2_28({p1:64, p2:360, p3:0, p4:0, p5:0});",
+                "pres": "Music event.",
                 "raw": "f2 00 00 00 28 40 68 01 00 00 00 00 00 00"
               },
               {
