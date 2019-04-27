@@ -920,7 +920,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -936,7 +937,7 @@
                 "l": 3,
                 "x": 240,
                 "y": 160,
-                "description": "scrollBackgroundLayer({layerId:3, xSpeed:240, ySpeed:160});",
+                "js": "scrollBackgroundLayer({layerId:3, xSpeed:240, ySpeed:160});",
                 "pres": "The background scrolls...",
                 "raw": "2d 00 03 f0 00 a0 00"
               },
@@ -945,7 +946,7 @@
                 "b1": 0,
                 "l": 3,
                 "z": 4080,
-                "description": "setBackgroundZDepth({layerId:3, z:4080});",
+                "js": "setBackgroundZDepth({layerId:3, z:4080});",
                 "raw": "2c 00 03 f0 0f"
               },
               {
@@ -954,7 +955,7 @@
                 "b2": 0,
                 "p": 5,
                 "a": 0,
-                "description": "storePalette({paletteId:5, paletteArrayId:0, size:255});",
+                "js": "storePalette({paletteId:5, paletteArrayId:0, size:255});",
                 "raw": "e5 00 05 00 ff"
               },
               {
@@ -970,7 +971,7 @@
                 "g": 241,
                 "r": 241,
                 "size": 255,
-                "description": "addPaletteColors_0xe9({sourcePaletteId:0, targetPaletteId:16, r:241, g:241, b:241, size:255});",
+                "js": "addPaletteColors_0xe9({sourcePaletteId:0, targetPaletteId:16, r:241, g:241, b:241, size:255});",
                 "raw": "e9 00 00 00 00 10 f1 f1 f1 ff"
               },
               {
@@ -979,18 +980,19 @@
                 "b2": 0,
                 "p": 16,
                 "a": 5,
-                "description": "loadPalette({paletteId:16, paletteArrayId:5, size:255});",
+                "js": "loadPalette({paletteId:16, paletteArrayId:5, size:255});",
                 "raw": "e6 00 10 05 ff"
               },
               {
                 "op": "JMPB",
                 "a": 5,
-                "description": "goto 1770;",
+                "js": "goto 27;",
                 "raw": "12 05"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1006,25 +1008,26 @@
               {
                 "op": "MPNAM",
                 "dialogId": 0,
-                "description": "setMapName({dialog:0});",
+                "js": "setMapName({dialog:0});",
                 "raw": "43 00"
               },
               {
                 "op": "MUSIC",
                 "id": 0,
-                "description": "playMusic({song:0});",
+                "js": "playMusic({song:0});",
                 "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
                 "op": "BMUSC",
                 "id": 1,
-                "description": "setBattleMusic({song:1});",
+                "js": "setBattleMusic({song:1});",
                 "raw": "f6 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1041,13 +1044,13 @@
                 "v": 4,
                 "c": 10,
                 "e": 67,
-                "description": "if (!((Bank[1][133] & (1<<4)))) (else goto 1857);",
+                "js": "if (!((Bank[1][133] & (1<<4)))) (else goto 1857);",
                 "raw": "14 10 85 04 0a 43"
               },
               {
                 "op": "SPECIAL",
                 "subOp": 245,
-                "description": "specialOp({subOpName:'ARROW', params:[1]});",
+                "js": "specialOp({subOpName:'ARROW', params:[1]});",
                 "raw": "0f f5 01"
               },
               {
@@ -1056,18 +1059,18 @@
                 "bs": 0,
                 "d": 133,
                 "bit": 4,
-                "description": "setBit({destination:Bank[1][133], bit:4});",
+                "js": "setBit({destination:Bank[1][133], bit:4});",
                 "raw": "82 10 85 04"
               },
               {
-                "op": "SCR2DC",
+                "op": "SCR2DL",
                 "b1": 0,
                 "b2": 0,
                 "b3": 0,
                 "x": -40,
                 "y": 30,
                 "s": 30,
-                "description": "scrollToCoordsLinear({x:-40, y:30, s:30, speed:30});",
+                "js": "scrollToCoordsLinear({x:-40, y:30, s:30, speed:30});",
                 "raw": "68 00 00 d8 ff 1e 00 1e 00"
               },
               {
@@ -1075,8 +1078,9 @@
                 "e": 10,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:10, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:10, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 0a c3"
               },
               {
@@ -1084,8 +1088,9 @@
                 "e": 11,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:11, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:11, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 0b c3"
               },
               {
@@ -1093,8 +1098,9 @@
                 "e": 12,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:12, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:12, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 0c c3"
               },
               {
@@ -1102,8 +1108,9 @@
                 "e": 13,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:13, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:13, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 0d c3"
               },
               {
@@ -1111,8 +1118,9 @@
                 "e": 14,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:14, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:14, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 0e c3"
               },
               {
@@ -1120,8 +1128,9 @@
                 "e": 15,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:15, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:15, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 0f c3"
               },
               {
@@ -1129,8 +1138,9 @@
                 "e": 16,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:16, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:16, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 10 c3"
               },
               {
@@ -1138,8 +1148,9 @@
                 "e": 17,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:17, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:17, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 11 c3"
               },
               {
@@ -1147,8 +1158,9 @@
                 "e": 18,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:18, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:18, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 12 c3"
               },
               {
@@ -1156,8 +1168,9 @@
                 "e": 19,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:19, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:19, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 13 c3"
               },
               {
@@ -1165,8 +1178,9 @@
                 "e": 20,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:20, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:20, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 14 c3"
               },
               {
@@ -1174,19 +1188,20 @@
                 "e": 21,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsyncGuaranteed({entity:21, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:21, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 15 c3"
               },
               {
                 "op": "SCRLW",
-                "description": "waitForScroll();",
+                "js": "waitForScroll();",
                 "raw": "67"
               },
               {
                 "op": "WAIT",
                 "a": 90,
-                "description": "wait({numFrames:90});",
+                "js": "wait({numFrames:90});",
                 "raw": "24 5a 00"
               },
               {
@@ -1195,29 +1210,30 @@
                 "p2": 30,
                 "p3": 0,
                 "p4": 3,
-                "description": "scrollOp0x62({param1:0, param2:30, param3:0, param4:3});",
+                "js": "scrollOp0x62({param1:0, param2:30, param3:0, param4:3});",
                 "pres": "The camera scrolls...",
                 "raw": "62 00 1e 00 03"
               },
               {
                 "op": "SCRLW",
-                "description": "waitForScroll();",
+                "js": "waitForScroll();",
                 "raw": "67"
               },
               {
                 "op": "SCRCC",
-                "description": "scrollToCurrentPlayableCharacter();",
+                "js": "scrollToCurrentPlayableCharacter();",
                 "raw": "65"
               },
               {
                 "op": "SPECIAL",
                 "subOp": 245,
-                "description": "specialOp({subOpName:'ARROW', params:[0]});",
+                "js": "specialOp({subOpName:'ARROW', params:[0]});",
                 "raw": "0f f5 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1227,7 +1243,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1237,7 +1254,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1252,7 +1270,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1263,7 +1282,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1273,7 +1293,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1283,7 +1304,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1304,12 +1326,13 @@
                 "x2": 25,
                 "y2": -1152,
                 "z2": 306,
-                "description": "createLineTrigger({x1:-4, y1:-1298, z1:292, x2:25, y2:-1152, z2:306});",
+                "js": "createLineTrigger({x1:-4, y1:-1298, z1:292, x2:25, y2:-1152, z2:306});",
                 "raw": "d0 fc ff ee fa 24 01 19 00 80 fb 32 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1320,7 +1343,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1330,7 +1354,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1343,13 +1368,15 @@
                 "e": 7,
                 "p": 6,
                 "f": 3,
-                "description": "entityExecuteAsync({entity:7, priority:6, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsync({entity:7, priority:6, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "01 07 c3"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1359,7 +1386,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1369,7 +1397,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1379,7 +1408,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1389,7 +1419,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1410,12 +1441,13 @@
                 "x2": -113,
                 "y2": -1244,
                 "z2": 307,
-                "description": "createLineTrigger({x1:-95, y1:-1093, z1:304, x2:-113, y2:-1244, z2:307});",
+                "js": "createLineTrigger({x1:-95, y1:-1093, z1:304, x2:-113, y2:-1244, z2:307});",
                 "raw": "d0 a1 ff bb fb 30 01 8f ff 24 fb 33 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1426,7 +1458,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1436,7 +1469,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1449,13 +1483,15 @@
                 "e": 7,
                 "p": 6,
                 "f": 4,
-                "description": "entityExecuteAsync({entity:7, priority:6, function:4});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsync({entity:7, priority:6, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "01 07 c4"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1465,7 +1501,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1475,7 +1512,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1485,7 +1523,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1495,7 +1534,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1516,12 +1556,13 @@
                 "x2": -747,
                 "y2": -474,
                 "z2": 118,
-                "description": "createLineTrigger({x1:-982, y1:-474, z1:143, x2:-747, y2:-474, z2:118});",
+                "js": "createLineTrigger({x1:-982, y1:-474, z1:143, x2:-747, y2:-474, z2:118});",
                 "raw": "d0 2a fc 26 fe 8f 00 15 fd 26 fe 76 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1532,7 +1573,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1542,7 +1584,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1555,13 +1598,15 @@
                 "e": 7,
                 "p": 6,
                 "f": 5,
-                "description": "entityExecuteAsync({entity:7, priority:6, function:5});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsync({entity:7, priority:6, function:5});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "01 07 c5"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1571,7 +1616,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1581,7 +1627,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1591,7 +1638,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1601,7 +1649,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1622,12 +1671,13 @@
                 "x2": -935,
                 "y2": -296,
                 "z2": 134,
-                "description": "createLineTrigger({x1:-715, y1:-275, z1:110, x2:-935, y2:-296, z2:134});",
+                "js": "createLineTrigger({x1:-715, y1:-275, z1:110, x2:-935, y2:-296, z2:134});",
                 "raw": "d0 35 fd ed fe 6e 00 59 fc d8 fe 86 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1638,7 +1688,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1648,7 +1699,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1661,13 +1713,15 @@
                 "e": 7,
                 "p": 6,
                 "f": 6,
-                "description": "entityExecuteAsync({entity:7, priority:6, function:6});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsync({entity:7, priority:6, function:6});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "01 07 c6"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1677,7 +1731,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1687,7 +1742,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1697,7 +1753,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1707,7 +1764,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1723,18 +1781,19 @@
               {
                 "op": "CHAR",
                 "n": 0,
-                "description": "thisIsACharacterFieldModel(0);",
+                "js": "thisIsAFieldModel(0);",
                 "raw": "a1 00"
               },
               {
                 "op": "PC",
                 "c": 0,
-                "description": "thisIsAPlayableCharacter(C.Cloud);",
+                "js": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1745,7 +1804,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1755,7 +1815,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1765,7 +1826,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1776,33 +1838,33 @@
               {
                 "op": "UC",
                 "s": 1,
-                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "js": "setPlayableCharacterMovability(M.Frozen);",
                 "raw": "33 01"
               },
               {
                 "op": "MENU2",
                 "s": 1,
-                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "js": "setMainMenuAccessibility(MM.Inaccessible);",
                 "raw": "4a 01"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 192,
-                "description": "setFacingDirection({direction:192});",
+                "js": "setFacingDirection({direction:192});",
                 "raw": "b3 00 c0"
               },
               {
                 "op": "DFANM",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "js": "playAnimationLoop({animation:3, slowness:1});",
                 "raw": "a2 03 01"
               },
               {
                 "op": "WAIT",
                 "a": 15,
-                "description": "wait({numFrames:15});",
+                "js": "wait({numFrames:15});",
                 "raw": "24 0f 00"
               },
               {
@@ -1811,7 +1873,7 @@
                 "b2": 0,
                 "i": 62,
                 "d": 64,
-                "description": "playSound({sound:62, direction:64});",
+                "js": "playSound({sound:62, direction:64});",
                 "raw": "f1 00 3e 00 40"
               },
               {
@@ -1824,37 +1886,38 @@
                 "y": -1085,
                 "i": 69,
                 "h": 17,
-                "description": "makeObjectJump({x:-134, y:-1085, triangleId:69, height:17});",
+                "js": "makeObjectJump({x:-134, y:-1085, triangleId:69, height:17});",
                 "raw": "c0 00 00 7a ff c3 fb 45 00 11 00"
               },
               {
                 "op": "WAIT",
                 "a": 20,
-                "description": "wait({numFrames:20});",
+                "js": "wait({numFrames:20});",
                 "raw": "24 14 00"
               },
               {
                 "op": "DFANM",
                 "a": 0,
                 "s": 1,
-                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "js": "playAnimationLoop({animation:0, slowness:1});",
                 "raw": "a2 00 01"
               },
               {
                 "op": "UC",
                 "s": 0,
-                "description": "setPlayableCharacterMovability(M.Movable);",
+                "js": "setPlayableCharacterMovability(M.Movable);",
                 "raw": "33 00"
               },
               {
                 "op": "MENU2",
                 "s": 0,
-                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "js": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1865,33 +1928,33 @@
               {
                 "op": "UC",
                 "s": 1,
-                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "js": "setPlayableCharacterMovability(M.Frozen);",
                 "raw": "33 01"
               },
               {
                 "op": "MENU2",
                 "s": 1,
-                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "js": "setMainMenuAccessibility(MM.Inaccessible);",
                 "raw": "4a 01"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "DFANM",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "js": "playAnimationLoop({animation:3, slowness:1});",
                 "raw": "a2 03 01"
               },
               {
                 "op": "WAIT",
                 "a": 15,
-                "description": "wait({numFrames:15});",
+                "js": "wait({numFrames:15});",
                 "raw": "24 0f 00"
               },
               {
@@ -1900,7 +1963,7 @@
                 "b2": 0,
                 "i": 62,
                 "d": 64,
-                "description": "playSound({sound:62, direction:64});",
+                "js": "playSound({sound:62, direction:64});",
                 "raw": "f1 00 3e 00 40"
               },
               {
@@ -1913,37 +1976,38 @@
                 "y": -1224,
                 "i": 67,
                 "h": 17,
-                "description": "makeObjectJump({x:64, y:-1224, triangleId:67, height:17});",
+                "js": "makeObjectJump({x:64, y:-1224, triangleId:67, height:17});",
                 "raw": "c0 00 00 40 00 38 fb 43 00 11 00"
               },
               {
                 "op": "WAIT",
                 "a": 20,
-                "description": "wait({numFrames:20});",
+                "js": "wait({numFrames:20});",
                 "raw": "24 14 00"
               },
               {
                 "op": "DFANM",
                 "a": 0,
                 "s": 1,
-                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "js": "playAnimationLoop({animation:0, slowness:1});",
                 "raw": "a2 00 01"
               },
               {
                 "op": "UC",
                 "s": 0,
-                "description": "setPlayableCharacterMovability(M.Movable);",
+                "js": "setPlayableCharacterMovability(M.Movable);",
                 "raw": "33 00"
               },
               {
                 "op": "MENU2",
                 "s": 0,
-                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "js": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1954,33 +2018,33 @@
               {
                 "op": "UC",
                 "s": 1,
-                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "js": "setPlayableCharacterMovability(M.Frozen);",
                 "raw": "33 01"
               },
               {
                 "op": "MENU2",
                 "s": 1,
-                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "js": "setMainMenuAccessibility(MM.Inaccessible);",
                 "raw": "4a 01"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 128,
-                "description": "setFacingDirection({direction:128});",
+                "js": "setFacingDirection({direction:128});",
                 "raw": "b3 00 80"
               },
               {
                 "op": "DFANM",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "js": "playAnimationLoop({animation:3, slowness:1});",
                 "raw": "a2 03 01"
               },
               {
                 "op": "WAIT",
                 "a": 15,
-                "description": "wait({numFrames:15});",
+                "js": "wait({numFrames:15});",
                 "raw": "24 0f 00"
               },
               {
@@ -1989,7 +2053,7 @@
                 "b2": 0,
                 "i": 62,
                 "d": 64,
-                "description": "playSound({sound:62, direction:64});",
+                "js": "playSound({sound:62, direction:64});",
                 "raw": "f1 00 3e 00 40"
               },
               {
@@ -2002,37 +2066,38 @@
                 "y": -224,
                 "i": 85,
                 "h": 17,
-                "description": "makeObjectJump({x:-814, y:-224, triangleId:85, height:17});",
+                "js": "makeObjectJump({x:-814, y:-224, triangleId:85, height:17});",
                 "raw": "c0 00 00 d2 fc 20 ff 55 00 11 00"
               },
               {
                 "op": "WAIT",
                 "a": 20,
-                "description": "wait({numFrames:20});",
+                "js": "wait({numFrames:20});",
                 "raw": "24 14 00"
               },
               {
                 "op": "DFANM",
                 "a": 0,
                 "s": 1,
-                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "js": "playAnimationLoop({animation:0, slowness:1});",
                 "raw": "a2 00 01"
               },
               {
                 "op": "UC",
                 "s": 0,
-                "description": "setPlayableCharacterMovability(M.Movable);",
+                "js": "setPlayableCharacterMovability(M.Movable);",
                 "raw": "33 00"
               },
               {
                 "op": "MENU2",
                 "s": 0,
-                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "js": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2043,33 +2108,33 @@
               {
                 "op": "UC",
                 "s": 1,
-                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "js": "setPlayableCharacterMovability(M.Frozen);",
                 "raw": "33 01"
               },
               {
                 "op": "MENU2",
                 "s": 1,
-                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "js": "setMainMenuAccessibility(MM.Inaccessible);",
                 "raw": "4a 01"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 0,
-                "description": "setFacingDirection({direction:0});",
+                "js": "setFacingDirection({direction:0});",
                 "raw": "b3 00 00"
               },
               {
                 "op": "DFANM",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationLoop({animation:3, slowness:1});",
+                "js": "playAnimationLoop({animation:3, slowness:1});",
                 "raw": "a2 03 01"
               },
               {
                 "op": "WAIT",
                 "a": 15,
-                "description": "wait({numFrames:15});",
+                "js": "wait({numFrames:15});",
                 "raw": "24 0f 00"
               },
               {
@@ -2078,7 +2143,7 @@
                 "b2": 0,
                 "i": 62,
                 "d": 64,
-                "description": "playSound({sound:62, direction:64});",
+                "js": "playSound({sound:62, direction:64});",
                 "raw": "f1 00 3e 00 40"
               },
               {
@@ -2091,37 +2156,38 @@
                 "y": -521,
                 "i": 80,
                 "h": 17,
-                "description": "makeObjectJump({x:-834, y:-521, triangleId:80, height:17});",
+                "js": "makeObjectJump({x:-834, y:-521, triangleId:80, height:17});",
                 "raw": "c0 00 00 be fc f7 fd 50 00 11 00"
               },
               {
                 "op": "WAIT",
                 "a": 20,
-                "description": "wait({numFrames:20});",
+                "js": "wait({numFrames:20});",
                 "raw": "24 14 00"
               },
               {
                 "op": "DFANM",
                 "a": 0,
                 "s": 1,
-                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "js": "playAnimationLoop({animation:0, slowness:1});",
                 "raw": "a2 00 01"
               },
               {
                 "op": "UC",
                 "s": 0,
-                "description": "setPlayableCharacterMovability(M.Movable);",
+                "js": "setPlayableCharacterMovability(M.Movable);",
                 "raw": "33 00"
               },
               {
                 "op": "MENU2",
                 "s": 0,
-                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "js": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2137,12 +2203,13 @@
               {
                 "op": "CHAR",
                 "n": 1,
-                "description": "thisIsACharacterFieldModel(1);",
+                "js": "thisIsAFieldModel(1);",
                 "raw": "a1 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2153,7 +2220,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2163,7 +2231,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2173,7 +2242,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2189,12 +2259,13 @@
               {
                 "op": "CHAR",
                 "n": 2,
-                "description": "thisIsACharacterFieldModel(2);",
+                "js": "thisIsAFieldModel(2);",
                 "raw": "a1 02"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2205,7 +2276,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2215,7 +2287,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2225,7 +2298,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2241,25 +2315,25 @@
               {
                 "op": "CHAR",
                 "n": 3,
-                "description": "thisIsACharacterFieldModel(3);",
+                "js": "thisIsAFieldModel(3);",
                 "raw": "a1 03"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -2272,19 +2346,20 @@
                 "y": 414,
                 "z": -113,
                 "i": 182,
-                "description": "placeObject({x:603, y:414, z:-113, walkmeshTriangle:182});",
+                "js": "placeObject({x:603, y:414, z:-113, walkmeshTriangle:182});",
                 "raw": "a5 00 00 5b 02 9e 01 8f ff b6 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2295,7 +2370,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2305,7 +2381,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2315,7 +2392,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2326,26 +2404,26 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 1280,
-                "description": "setMovementSpeed({speed:1280});",
+                "js": "setMovementSpeed({speed:1280});",
                 "raw": "b2 00 00 05"
               },
               {
@@ -2354,7 +2432,7 @@
                 "b2": 0,
                 "x": 484,
                 "y": 1054,
-                "description": "walkObjectTo({x:484, y:1054});",
+                "js": "walkObjectTo({x:484, y:1054});",
                 "raw": "a8 00 e4 01 1e 04"
               },
               {
@@ -2363,7 +2441,7 @@
                 "b2": 0,
                 "x": -14,
                 "y": 1254,
-                "description": "walkObjectTo({x:-14, y:1254});",
+                "js": "walkObjectTo({x:-14, y:1254});",
                 "raw": "a8 00 f2 ff e6 04"
               },
               {
@@ -2372,7 +2450,7 @@
                 "b2": 0,
                 "x": -384,
                 "y": 1997,
-                "description": "walkObjectTo({x:-384, y:1997});",
+                "js": "walkObjectTo({x:-384, y:1997});",
                 "raw": "a8 00 80 fe cd 07"
               },
               {
@@ -2381,7 +2459,7 @@
                 "b2": 0,
                 "x": 593,
                 "y": 3104,
-                "description": "walkObjectTo({x:593, y:3104});",
+                "js": "walkObjectTo({x:593, y:3104});",
                 "raw": "a8 00 51 02 20 0c"
               },
               {
@@ -2390,30 +2468,31 @@
                 "b2": 0,
                 "x": 491,
                 "y": 4128,
-                "description": "walkObjectTo({x:491, y:4128});",
+                "js": "walkObjectTo({x:491, y:4128});",
                 "raw": "a8 00 eb 01 20 10"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2429,25 +2508,25 @@
               {
                 "op": "CHAR",
                 "n": 4,
-                "description": "thisIsACharacterFieldModel(4);",
+                "js": "thisIsAFieldModel(4);",
                 "raw": "a1 04"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -2460,19 +2539,20 @@
                 "y": 250,
                 "z": -104,
                 "i": 98,
-                "description": "placeObject({x:487, y:250, z:-104, walkmeshTriangle:98});",
+                "js": "placeObject({x:487, y:250, z:-104, walkmeshTriangle:98});",
                 "raw": "a5 00 00 e7 01 fa 00 98 ff 62 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2483,7 +2563,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2493,7 +2574,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2503,7 +2585,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2514,26 +2597,26 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 1280,
-                "description": "setMovementSpeed({speed:1280});",
+                "js": "setMovementSpeed({speed:1280});",
                 "raw": "b2 00 00 05"
               },
               {
@@ -2542,7 +2625,7 @@
                 "b2": 0,
                 "x": 603,
                 "y": 414,
-                "description": "walkObjectTo({x:603, y:414});",
+                "js": "walkObjectTo({x:603, y:414});",
                 "raw": "a8 00 5b 02 9e 01"
               },
               {
@@ -2551,7 +2634,7 @@
                 "b2": 0,
                 "x": 484,
                 "y": 1054,
-                "description": "walkObjectTo({x:484, y:1054});",
+                "js": "walkObjectTo({x:484, y:1054});",
                 "raw": "a8 00 e4 01 1e 04"
               },
               {
@@ -2560,7 +2643,7 @@
                 "b2": 0,
                 "x": -14,
                 "y": 1254,
-                "description": "walkObjectTo({x:-14, y:1254});",
+                "js": "walkObjectTo({x:-14, y:1254});",
                 "raw": "a8 00 f2 ff e6 04"
               },
               {
@@ -2569,7 +2652,7 @@
                 "b2": 0,
                 "x": -384,
                 "y": 1997,
-                "description": "walkObjectTo({x:-384, y:1997});",
+                "js": "walkObjectTo({x:-384, y:1997});",
                 "raw": "a8 00 80 fe cd 07"
               },
               {
@@ -2578,7 +2661,7 @@
                 "b2": 0,
                 "x": 593,
                 "y": 3104,
-                "description": "walkObjectTo({x:593, y:3104});",
+                "js": "walkObjectTo({x:593, y:3104});",
                 "raw": "a8 00 51 02 20 0c"
               },
               {
@@ -2587,30 +2670,31 @@
                 "b2": 0,
                 "x": 491,
                 "y": 4128,
-                "description": "walkObjectTo({x:491, y:4128});",
+                "js": "walkObjectTo({x:491, y:4128});",
                 "raw": "a8 00 eb 01 20 10"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2626,25 +2710,25 @@
               {
                 "op": "CHAR",
                 "n": 5,
-                "description": "thisIsACharacterFieldModel(5);",
+                "js": "thisIsAFieldModel(5);",
                 "raw": "a1 05"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -2657,19 +2741,20 @@
                 "y": 184,
                 "z": -90,
                 "i": 96,
-                "description": "placeObject({x:354, y:184, z:-90, walkmeshTriangle:96});",
+                "js": "placeObject({x:354, y:184, z:-90, walkmeshTriangle:96});",
                 "raw": "a5 00 00 62 01 b8 00 a6 ff 60 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2680,7 +2765,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2690,7 +2776,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2700,7 +2787,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2711,26 +2799,26 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 1280,
-                "description": "setMovementSpeed({speed:1280});",
+                "js": "setMovementSpeed({speed:1280});",
                 "raw": "b2 00 00 05"
               },
               {
@@ -2739,7 +2827,7 @@
                 "b2": 0,
                 "x": 487,
                 "y": 250,
-                "description": "walkObjectTo({x:487, y:250});",
+                "js": "walkObjectTo({x:487, y:250});",
                 "raw": "a8 00 e7 01 fa 00"
               },
               {
@@ -2748,7 +2836,7 @@
                 "b2": 0,
                 "x": 603,
                 "y": 414,
-                "description": "walkObjectTo({x:603, y:414});",
+                "js": "walkObjectTo({x:603, y:414});",
                 "raw": "a8 00 5b 02 9e 01"
               },
               {
@@ -2757,7 +2845,7 @@
                 "b2": 0,
                 "x": 484,
                 "y": 1054,
-                "description": "walkObjectTo({x:484, y:1054});",
+                "js": "walkObjectTo({x:484, y:1054});",
                 "raw": "a8 00 e4 01 1e 04"
               },
               {
@@ -2766,7 +2854,7 @@
                 "b2": 0,
                 "x": -14,
                 "y": 1254,
-                "description": "walkObjectTo({x:-14, y:1254});",
+                "js": "walkObjectTo({x:-14, y:1254});",
                 "raw": "a8 00 f2 ff e6 04"
               },
               {
@@ -2775,7 +2863,7 @@
                 "b2": 0,
                 "x": -384,
                 "y": 1997,
-                "description": "walkObjectTo({x:-384, y:1997});",
+                "js": "walkObjectTo({x:-384, y:1997});",
                 "raw": "a8 00 80 fe cd 07"
               },
               {
@@ -2784,7 +2872,7 @@
                 "b2": 0,
                 "x": 593,
                 "y": 3104,
-                "description": "walkObjectTo({x:593, y:3104});",
+                "js": "walkObjectTo({x:593, y:3104});",
                 "raw": "a8 00 51 02 20 0c"
               },
               {
@@ -2793,30 +2881,31 @@
                 "b2": 0,
                 "x": 491,
                 "y": 4128,
-                "description": "walkObjectTo({x:491, y:4128});",
+                "js": "walkObjectTo({x:491, y:4128});",
                 "raw": "a8 00 eb 01 20 10"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2832,25 +2921,25 @@
               {
                 "op": "CHAR",
                 "n": 6,
-                "description": "thisIsACharacterFieldModel(6);",
+                "js": "thisIsAFieldModel(6);",
                 "raw": "a1 06"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -2863,19 +2952,20 @@
                 "y": 184,
                 "z": -90,
                 "i": 95,
-                "description": "placeObject({x:230, y:184, z:-90, walkmeshTriangle:95});",
+                "js": "placeObject({x:230, y:184, z:-90, walkmeshTriangle:95});",
                 "raw": "a5 00 00 e6 00 b8 00 a6 ff 5f 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2886,7 +2976,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2896,7 +2987,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2906,7 +2998,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2917,26 +3010,26 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 1280,
-                "description": "setMovementSpeed({speed:1280});",
+                "js": "setMovementSpeed({speed:1280});",
                 "raw": "b2 00 00 05"
               },
               {
@@ -2945,7 +3038,7 @@
                 "b2": 0,
                 "x": 354,
                 "y": 184,
-                "description": "walkObjectTo({x:354, y:184});",
+                "js": "walkObjectTo({x:354, y:184});",
                 "raw": "a8 00 62 01 b8 00"
               },
               {
@@ -2954,7 +3047,7 @@
                 "b2": 0,
                 "x": 487,
                 "y": 250,
-                "description": "walkObjectTo({x:487, y:250});",
+                "js": "walkObjectTo({x:487, y:250});",
                 "raw": "a8 00 e7 01 fa 00"
               },
               {
@@ -2963,7 +3056,7 @@
                 "b2": 0,
                 "x": 603,
                 "y": 414,
-                "description": "walkObjectTo({x:603, y:414});",
+                "js": "walkObjectTo({x:603, y:414});",
                 "raw": "a8 00 5b 02 9e 01"
               },
               {
@@ -2972,7 +3065,7 @@
                 "b2": 0,
                 "x": 484,
                 "y": 1054,
-                "description": "walkObjectTo({x:484, y:1054});",
+                "js": "walkObjectTo({x:484, y:1054});",
                 "raw": "a8 00 e4 01 1e 04"
               },
               {
@@ -2981,7 +3074,7 @@
                 "b2": 0,
                 "x": -14,
                 "y": 1254,
-                "description": "walkObjectTo({x:-14, y:1254});",
+                "js": "walkObjectTo({x:-14, y:1254});",
                 "raw": "a8 00 f2 ff e6 04"
               },
               {
@@ -2990,7 +3083,7 @@
                 "b2": 0,
                 "x": -384,
                 "y": 1997,
-                "description": "walkObjectTo({x:-384, y:1997});",
+                "js": "walkObjectTo({x:-384, y:1997});",
                 "raw": "a8 00 80 fe cd 07"
               },
               {
@@ -2999,7 +3092,7 @@
                 "b2": 0,
                 "x": 593,
                 "y": 3104,
-                "description": "walkObjectTo({x:593, y:3104});",
+                "js": "walkObjectTo({x:593, y:3104});",
                 "raw": "a8 00 51 02 20 0c"
               },
               {
@@ -3008,30 +3101,31 @@
                 "b2": 0,
                 "x": 491,
                 "y": 4128,
-                "description": "walkObjectTo({x:491, y:4128});",
+                "js": "walkObjectTo({x:491, y:4128});",
                 "raw": "a8 00 eb 01 20 10"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3047,25 +3141,25 @@
               {
                 "op": "CHAR",
                 "n": 7,
-                "description": "thisIsACharacterFieldModel(7);",
+                "js": "thisIsAFieldModel(7);",
                 "raw": "a1 07"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -3078,19 +3172,20 @@
                 "y": 184,
                 "z": -81,
                 "i": 94,
-                "description": "placeObject({x:111, y:184, z:-81, walkmeshTriangle:94});",
+                "js": "placeObject({x:111, y:184, z:-81, walkmeshTriangle:94});",
                 "raw": "a5 00 00 6f 00 b8 00 af ff 5e 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3101,7 +3196,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3111,7 +3207,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3121,7 +3218,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3132,26 +3230,26 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 1280,
-                "description": "setMovementSpeed({speed:1280});",
+                "js": "setMovementSpeed({speed:1280});",
                 "raw": "b2 00 00 05"
               },
               {
@@ -3160,7 +3258,7 @@
                 "b2": 0,
                 "x": 354,
                 "y": 184,
-                "description": "walkObjectTo({x:354, y:184});",
+                "js": "walkObjectTo({x:354, y:184});",
                 "raw": "a8 00 62 01 b8 00"
               },
               {
@@ -3169,7 +3267,7 @@
                 "b2": 0,
                 "x": 487,
                 "y": 250,
-                "description": "walkObjectTo({x:487, y:250});",
+                "js": "walkObjectTo({x:487, y:250});",
                 "raw": "a8 00 e7 01 fa 00"
               },
               {
@@ -3178,7 +3276,7 @@
                 "b2": 0,
                 "x": 603,
                 "y": 414,
-                "description": "walkObjectTo({x:603, y:414});",
+                "js": "walkObjectTo({x:603, y:414});",
                 "raw": "a8 00 5b 02 9e 01"
               },
               {
@@ -3187,7 +3285,7 @@
                 "b2": 0,
                 "x": 484,
                 "y": 1054,
-                "description": "walkObjectTo({x:484, y:1054});",
+                "js": "walkObjectTo({x:484, y:1054});",
                 "raw": "a8 00 e4 01 1e 04"
               },
               {
@@ -3196,7 +3294,7 @@
                 "b2": 0,
                 "x": -14,
                 "y": 1254,
-                "description": "walkObjectTo({x:-14, y:1254});",
+                "js": "walkObjectTo({x:-14, y:1254});",
                 "raw": "a8 00 f2 ff e6 04"
               },
               {
@@ -3205,7 +3303,7 @@
                 "b2": 0,
                 "x": -384,
                 "y": 1997,
-                "description": "walkObjectTo({x:-384, y:1997});",
+                "js": "walkObjectTo({x:-384, y:1997});",
                 "raw": "a8 00 80 fe cd 07"
               },
               {
@@ -3214,7 +3312,7 @@
                 "b2": 0,
                 "x": 593,
                 "y": 3104,
-                "description": "walkObjectTo({x:593, y:3104});",
+                "js": "walkObjectTo({x:593, y:3104});",
                 "raw": "a8 00 51 02 20 0c"
               },
               {
@@ -3223,30 +3321,31 @@
                 "b2": 0,
                 "x": 491,
                 "y": 4128,
-                "description": "walkObjectTo({x:491, y:4128});",
+                "js": "walkObjectTo({x:491, y:4128});",
                 "raw": "a8 00 eb 01 20 10"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3262,25 +3361,25 @@
               {
                 "op": "CHAR",
                 "n": 8,
-                "description": "thisIsACharacterFieldModel(8);",
+                "js": "thisIsAFieldModel(8);",
                 "raw": "a1 08"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -3293,19 +3392,20 @@
                 "y": 184,
                 "z": -54,
                 "i": 93,
-                "description": "placeObject({x:-15, y:184, z:-54, walkmeshTriangle:93});",
+                "js": "placeObject({x:-15, y:184, z:-54, walkmeshTriangle:93});",
                 "raw": "a5 00 00 f1 ff b8 00 ca ff 5d 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3316,7 +3416,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3326,7 +3427,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3336,7 +3438,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3347,26 +3450,26 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 1280,
-                "description": "setMovementSpeed({speed:1280});",
+                "js": "setMovementSpeed({speed:1280});",
                 "raw": "b2 00 00 05"
               },
               {
@@ -3375,7 +3478,7 @@
                 "b2": 0,
                 "x": 354,
                 "y": 184,
-                "description": "walkObjectTo({x:354, y:184});",
+                "js": "walkObjectTo({x:354, y:184});",
                 "raw": "a8 00 62 01 b8 00"
               },
               {
@@ -3384,7 +3487,7 @@
                 "b2": 0,
                 "x": 487,
                 "y": 250,
-                "description": "walkObjectTo({x:487, y:250});",
+                "js": "walkObjectTo({x:487, y:250});",
                 "raw": "a8 00 e7 01 fa 00"
               },
               {
@@ -3393,7 +3496,7 @@
                 "b2": 0,
                 "x": 603,
                 "y": 414,
-                "description": "walkObjectTo({x:603, y:414});",
+                "js": "walkObjectTo({x:603, y:414});",
                 "raw": "a8 00 5b 02 9e 01"
               },
               {
@@ -3402,7 +3505,7 @@
                 "b2": 0,
                 "x": 484,
                 "y": 1054,
-                "description": "walkObjectTo({x:484, y:1054});",
+                "js": "walkObjectTo({x:484, y:1054});",
                 "raw": "a8 00 e4 01 1e 04"
               },
               {
@@ -3411,7 +3514,7 @@
                 "b2": 0,
                 "x": -14,
                 "y": 1254,
-                "description": "walkObjectTo({x:-14, y:1254});",
+                "js": "walkObjectTo({x:-14, y:1254});",
                 "raw": "a8 00 f2 ff e6 04"
               },
               {
@@ -3420,7 +3523,7 @@
                 "b2": 0,
                 "x": -384,
                 "y": 1997,
-                "description": "walkObjectTo({x:-384, y:1997});",
+                "js": "walkObjectTo({x:-384, y:1997});",
                 "raw": "a8 00 80 fe cd 07"
               },
               {
@@ -3429,7 +3532,7 @@
                 "b2": 0,
                 "x": 593,
                 "y": 3104,
-                "description": "walkObjectTo({x:593, y:3104});",
+                "js": "walkObjectTo({x:593, y:3104});",
                 "raw": "a8 00 51 02 20 0c"
               },
               {
@@ -3438,30 +3541,31 @@
                 "b2": 0,
                 "x": 491,
                 "y": 4128,
-                "description": "walkObjectTo({x:491, y:4128});",
+                "js": "walkObjectTo({x:491, y:4128});",
                 "raw": "a8 00 eb 01 20 10"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3477,25 +3581,25 @@
               {
                 "op": "CHAR",
                 "n": 9,
-                "description": "thisIsACharacterFieldModel(9);",
+                "js": "thisIsAFieldModel(9);",
                 "raw": "a1 09"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -3508,19 +3612,20 @@
                 "y": 101,
                 "z": 13,
                 "i": 91,
-                "description": "placeObject({x:-162, y:101, z:13, walkmeshTriangle:91});",
+                "js": "placeObject({x:-162, y:101, z:13, walkmeshTriangle:91});",
                 "raw": "a5 00 00 5e ff 65 00 0d 00 5b 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3531,7 +3636,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3543,174 +3649,175 @@
                 "op": "ANIM!2",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
                 "raw": "ba 03 01"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3720,7 +3827,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3731,26 +3839,26 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 1280,
-                "description": "setMovementSpeed({speed:1280});",
+                "js": "setMovementSpeed({speed:1280});",
                 "raw": "b2 00 00 05"
               },
               {
@@ -3759,7 +3867,7 @@
                 "b2": 0,
                 "x": -15,
                 "y": 184,
-                "description": "walkObjectTo({x:-15, y:184});",
+                "js": "walkObjectTo({x:-15, y:184});",
                 "raw": "a8 00 f1 ff b8 00"
               },
               {
@@ -3768,7 +3876,7 @@
                 "b2": 0,
                 "x": 354,
                 "y": 184,
-                "description": "walkObjectTo({x:354, y:184});",
+                "js": "walkObjectTo({x:354, y:184});",
                 "raw": "a8 00 62 01 b8 00"
               },
               {
@@ -3777,7 +3885,7 @@
                 "b2": 0,
                 "x": 487,
                 "y": 250,
-                "description": "walkObjectTo({x:487, y:250});",
+                "js": "walkObjectTo({x:487, y:250});",
                 "raw": "a8 00 e7 01 fa 00"
               },
               {
@@ -3786,7 +3894,7 @@
                 "b2": 0,
                 "x": 603,
                 "y": 414,
-                "description": "walkObjectTo({x:603, y:414});",
+                "js": "walkObjectTo({x:603, y:414});",
                 "raw": "a8 00 5b 02 9e 01"
               },
               {
@@ -3795,7 +3903,7 @@
                 "b2": 0,
                 "x": 484,
                 "y": 1054,
-                "description": "walkObjectTo({x:484, y:1054});",
+                "js": "walkObjectTo({x:484, y:1054});",
                 "raw": "a8 00 e4 01 1e 04"
               },
               {
@@ -3804,7 +3912,7 @@
                 "b2": 0,
                 "x": -14,
                 "y": 1254,
-                "description": "walkObjectTo({x:-14, y:1254});",
+                "js": "walkObjectTo({x:-14, y:1254});",
                 "raw": "a8 00 f2 ff e6 04"
               },
               {
@@ -3813,7 +3921,7 @@
                 "b2": 0,
                 "x": -384,
                 "y": 1997,
-                "description": "walkObjectTo({x:-384, y:1997});",
+                "js": "walkObjectTo({x:-384, y:1997});",
                 "raw": "a8 00 80 fe cd 07"
               },
               {
@@ -3822,7 +3930,7 @@
                 "b2": 0,
                 "x": 593,
                 "y": 3104,
-                "description": "walkObjectTo({x:593, y:3104});",
+                "js": "walkObjectTo({x:593, y:3104});",
                 "raw": "a8 00 51 02 20 0c"
               },
               {
@@ -3831,30 +3939,31 @@
                 "b2": 0,
                 "x": 491,
                 "y": 4128,
-                "description": "walkObjectTo({x:491, y:4128});",
+                "js": "walkObjectTo({x:491, y:4128});",
                 "raw": "a8 00 eb 01 20 10"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3870,25 +3979,25 @@
               {
                 "op": "CHAR",
                 "n": 10,
-                "description": "thisIsACharacterFieldModel(10);",
+                "js": "thisIsAFieldModel(10);",
                 "raw": "a1 0a"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -3901,19 +4010,20 @@
                 "y": -858,
                 "z": 223,
                 "i": 73,
-                "description": "placeObject({x:-526, y:-858, z:223, walkmeshTriangle:73});",
+                "js": "placeObject({x:-526, y:-858, z:223, walkmeshTriangle:73});",
                 "raw": "a5 00 00 f2 fd a6 fc df 00 49 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3924,7 +4034,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3936,174 +4047,175 @@
                 "op": "ANIM!2",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
                 "raw": "ba 03 01"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4113,7 +4225,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4124,26 +4237,26 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 512,
-                "description": "setMovementSpeed({speed:512});",
+                "js": "setMovementSpeed({speed:512});",
                 "raw": "b2 00 00 02"
               },
               {
@@ -4152,7 +4265,7 @@
                 "b2": 0,
                 "x": -728,
                 "y": -730,
-                "description": "walkObjectTo({x:-728, y:-730});",
+                "js": "walkObjectTo({x:-728, y:-730});",
                 "raw": "a8 00 28 fd 26 fd"
               },
               {
@@ -4161,7 +4274,7 @@
                 "b2": 0,
                 "x": -921,
                 "y": -750,
-                "description": "walkObjectTo({x:-921, y:-750});",
+                "js": "walkObjectTo({x:-921, y:-750});",
                 "raw": "a8 00 67 fc 12 fd"
               },
               {
@@ -4170,19 +4283,20 @@
                 "b2": 0,
                 "x": -1037,
                 "y": -650,
-                "description": "walkObjectTo({x:-1037, y:-650});",
+                "js": "walkObjectTo({x:-1037, y:-650});",
                 "raw": "a8 00 f3 fb 76 fd"
               },
               {
                 "op": "ANIM!2",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
                 "raw": "ba 03 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4198,25 +4312,25 @@
               {
                 "op": "CHAR",
                 "n": 11,
-                "description": "thisIsACharacterFieldModel(11);",
+                "js": "thisIsAFieldModel(11);",
                 "raw": "a1 0b"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -4229,19 +4343,20 @@
                 "y": -1037,
                 "z": 286,
                 "i": 69,
-                "description": "placeObject({x:-185, y:-1037, z:286, walkmeshTriangle:69});",
+                "js": "placeObject({x:-185, y:-1037, z:286, walkmeshTriangle:69});",
                 "raw": "a5 00 00 47 ff f3 fb 1e 01 45 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4252,7 +4367,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4262,7 +4378,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4272,7 +4389,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4283,26 +4401,26 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 512,
-                "description": "setMovementSpeed({speed:512});",
+                "js": "setMovementSpeed({speed:512});",
                 "raw": "b2 00 00 02"
               },
               {
@@ -4311,14 +4429,14 @@
                 "b2": 0,
                 "x": -733,
                 "y": -1080,
-                "description": "walkObjectTo({x:-733, y:-1080});",
+                "js": "walkObjectTo({x:-733, y:-1080});",
                 "raw": "a8 00 23 fd c8 fb"
               },
               {
                 "op": "ANIM!1",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationOnceAsync({animation:3, slowness:1});",
+                "js": "playAnimationOnceAsync({animation:3, slowness:1});",
                 "raw": "af 03 01"
               },
               {
@@ -4331,35 +4449,36 @@
                 "y": -56,
                 "z": -738,
                 "s": 30,
-                "description": "transposeObjectDisplayOnly({x:-314, y:-56, z:-738, speed:30});",
+                "js": "transposeObjectDisplayOnly({x:-314, y:-56, z:-738, speed:30});",
                 "raw": "c3 00 00 02 c6 fe c8 ff 1e fd 1e 00"
               },
               {
-                "op": "OFST",
-                "description": "waitForTransposeObjectDisplayOnly();",
+                "op": "OFSTW",
+                "js": "waitForTransposeObjectDisplayOnly();",
                 "raw": "c4"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4375,25 +4494,25 @@
               {
                 "op": "CHAR",
                 "n": 12,
-                "description": "thisIsACharacterFieldModel(12);",
+                "js": "thisIsAFieldModel(12);",
                 "raw": "a1 0c"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -4406,19 +4525,20 @@
                 "y": -1308,
                 "z": 353,
                 "i": 34,
-                "description": "placeObject({x:339, y:-1308, z:353, walkmeshTriangle:34});",
+                "js": "placeObject({x:339, y:-1308, z:353, walkmeshTriangle:34});",
                 "raw": "a5 00 00 53 01 e4 fa 61 01 22 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4429,7 +4549,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4439,7 +4560,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4449,7 +4571,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4460,26 +4583,26 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 512,
-                "description": "setMovementSpeed({speed:512});",
+                "js": "setMovementSpeed({speed:512});",
                 "raw": "b2 00 00 02"
               },
               {
@@ -4488,14 +4611,14 @@
                 "b2": 0,
                 "x": 16,
                 "y": -1368,
-                "description": "walkObjectTo({x:16, y:-1368});",
+                "js": "walkObjectTo({x:16, y:-1368});",
                 "raw": "a8 00 10 00 a8 fa"
               },
               {
                 "op": "ANIM!1",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationOnceAsync({animation:3, slowness:1});",
+                "js": "playAnimationOnceAsync({animation:3, slowness:1});",
                 "raw": "af 03 01"
               },
               {
@@ -4508,35 +4631,36 @@
                 "y": 0,
                 "z": -560,
                 "s": 20,
-                "description": "transposeObjectDisplayOnly({x:-114, y:0, z:-560, speed:20});",
+                "js": "transposeObjectDisplayOnly({x:-114, y:0, z:-560, speed:20});",
                 "raw": "c3 00 00 02 8e ff 00 00 d0 fd 14 00"
               },
               {
-                "op": "OFST",
-                "description": "waitForTransposeObjectDisplayOnly();",
+                "op": "OFSTW",
+                "js": "waitForTransposeObjectDisplayOnly();",
                 "raw": "c4"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4552,25 +4676,25 @@
               {
                 "op": "CHAR",
                 "n": 13,
-                "description": "thisIsACharacterFieldModel(13);",
+                "js": "thisIsAFieldModel(13);",
                 "raw": "a1 0d"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -4583,19 +4707,20 @@
                 "y": -2076,
                 "z": 419,
                 "i": 154,
-                "description": "placeObject({x:433, y:-2076, z:419, walkmeshTriangle:154});",
+                "js": "placeObject({x:433, y:-2076, z:419, walkmeshTriangle:154});",
                 "raw": "a5 00 00 b1 01 e4 f7 a3 01 9a 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4606,7 +4731,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4618,174 +4744,175 @@
                 "op": "ANIM!2",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
                 "raw": "ba 03 01"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4795,7 +4922,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4806,19 +4934,19 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
@@ -4827,7 +4955,7 @@
                 "b2": 0,
                 "x": 757,
                 "y": -1755,
-                "description": "walkObjectTo({x:757, y:-1755});",
+                "js": "walkObjectTo({x:757, y:-1755});",
                 "raw": "a8 00 f5 02 25 f9"
               },
               {
@@ -4836,19 +4964,20 @@
                 "b2": 0,
                 "x": 673,
                 "y": -1635,
-                "description": "walkObjectTo({x:673, y:-1635});",
+                "js": "walkObjectTo({x:673, y:-1635});",
                 "raw": "a8 00 a1 02 9d f9"
               },
               {
                 "op": "ANIM!2",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
                 "raw": "ba 03 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4864,25 +4993,25 @@
               {
                 "op": "CHAR",
                 "n": 14,
-                "description": "thisIsACharacterFieldModel(14);",
+                "js": "thisIsAFieldModel(14);",
                 "raw": "a1 0e"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -4895,19 +5024,20 @@
                 "y": -2124,
                 "z": 447,
                 "i": 44,
-                "description": "placeObject({x:271, y:-2124, z:447, walkmeshTriangle:44});",
+                "js": "placeObject({x:271, y:-2124, z:447, walkmeshTriangle:44});",
                 "raw": "a5 00 00 0f 01 b4 f7 bf 01 2c 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 64,
-                "description": "setFacingDirection({direction:64});",
+                "js": "setFacingDirection({direction:64});",
                 "raw": "b3 00 40"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4918,7 +5048,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4930,174 +5061,175 @@
                 "op": "ANIM!2",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
                 "raw": "ba 03 01"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -5107,7 +5239,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -5118,19 +5251,19 @@
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
@@ -5139,19 +5272,20 @@
                 "b2": 0,
                 "x": 597,
                 "y": -2028,
-                "description": "walkObjectTo({x:597, y:-2028});",
+                "js": "walkObjectTo({x:597, y:-2028});",
                 "raw": "a8 00 55 02 14 f8"
               },
               {
                 "op": "ANIM!2",
                 "a": 3,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
                 "raw": "ba 03 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -5167,7 +5301,7 @@
               {
                 "op": "CHAR",
                 "n": 15,
-                "description": "thisIsACharacterFieldModel(15);",
+                "js": "thisIsAFieldModel(15);",
                 "raw": "a1 0f"
               },
               {
@@ -5180,19 +5314,20 @@
                 "y": -1758,
                 "z": 390,
                 "i": 170,
-                "description": "placeObject({x:1181, y:-1758, z:390, walkmeshTriangle:170});",
+                "js": "placeObject({x:1181, y:-1758, z:390, walkmeshTriangle:170});",
                 "raw": "a5 00 00 9d 04 22 f9 86 01 aa 00"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 0,
-                "description": "setFacingDirection({direction:0});",
+                "js": "setFacingDirection({direction:0});",
                 "raw": "b3 00 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -5209,7 +5344,7 @@
                 "v": 2,
                 "c": 10,
                 "e": 20,
-                "description": "if (!((Bank[15][2] & (1<<2)))) (else goto 3319);",
+                "js": "if (!((Bank[15][2] & (1<<2)))) (else goto 3319);",
                 "raw": "14 f0 02 02 0a 14"
               },
               {
@@ -5218,7 +5353,7 @@
                 "f": 0,
                 "l": 0,
                 "s": 1,
-                "description": "playPartialAnimation({animation:0, firstFrame:0, lastFrame:0, slowness:1});",
+                "js": "playPartialAnimation({animation:0, firstFrame:0, lastFrame:0, slowness:1});",
                 "raw": "bc 00 00 00 01"
               },
               {
@@ -5229,13 +5364,13 @@
                   0,
                   0
                 ],
-                "description": "doCharacterGraphicsOp({length:5, kawaiOp:13, vars:0,0});",
+                "js": "doCharacterGraphicsOp({length:5, kawaiOp:13, vars:0,0});",
                 "raw": "28 05 0d 00 00"
               },
               {
                 "op": "WAIT",
                 "a": 1,
-                "description": "wait({numFrames:1});",
+                "js": "wait({numFrames:1});",
                 "raw": "24 01 00"
               },
               {
@@ -5245,13 +5380,13 @@
                 "vars": [
                   1
                 ],
-                "description": "doCharacterGraphicsOp({length:4, kawaiOp:13, vars:1});",
+                "js": "doCharacterGraphicsOp({length:4, kawaiOp:13, vars:1});",
                 "raw": "28 04 0d 01"
               },
               {
                 "op": "JMPF",
                 "a": 6,
-                "description": "goto 3324;",
+                "js": "goto 30;",
                 "raw": "10 06"
               },
               {
@@ -5260,12 +5395,13 @@
                 "f": 29,
                 "l": 29,
                 "s": 1,
-                "description": "playPartialAnimation({animation:0, firstFrame:29, lastFrame:29, slowness:1});",
+                "js": "playPartialAnimation({animation:0, firstFrame:29, lastFrame:29, slowness:1});",
                 "raw": "bc 00 1d 1d 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -5281,19 +5417,19 @@
                 "v": 2,
                 "c": 10,
                 "e": 77,
-                "description": "if (!((Bank[15][2] & (1<<2)))) (else goto 3407);",
+                "js": "if (!((Bank[15][2] & (1<<2)))) (else goto 3407);",
                 "raw": "14 f0 02 02 0a 4d"
               },
               {
                 "op": "UC",
                 "s": 1,
-                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "js": "setPlayableCharacterMovability(M.Frozen);",
                 "raw": "33 01"
               },
               {
                 "op": "MENU2",
                 "s": 1,
-                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "js": "setMainMenuAccessibility(MM.Inaccessible);",
                 "raw": "4a 01"
               },
               {
@@ -5302,7 +5438,7 @@
                 "bs": 0,
                 "d": 2,
                 "bit": 2,
-                "description": "setBit({destination:Bank[15][2], bit:2});",
+                "js": "setBit({destination:Bank[15][2], bit:2});",
                 "raw": "82 f0 02 02"
               },
               {
@@ -5311,7 +5447,7 @@
                 "b2": 0,
                 "i": 256,
                 "d": 64,
-                "description": "playSound({sound:256, direction:64});",
+                "js": "playSound({sound:256, direction:64});",
                 "raw": "f1 00 00 01 40"
               },
               {
@@ -5320,7 +5456,7 @@
                 "f": 0,
                 "l": 29,
                 "s": 1,
-                "description": "playPartialAnimation({animation:0, firstFrame:0, lastFrame:29, slowness:1});",
+                "js": "playPartialAnimation({animation:0, firstFrame:0, lastFrame:29, slowness:1});",
                 "raw": "bc 00 00 1d 01"
               },
               {
@@ -5331,13 +5467,13 @@
                   2,
                   0
                 ],
-                "description": "doCharacterGraphicsOp({length:5, kawaiOp:13, vars:2,0});",
+                "js": "doCharacterGraphicsOp({length:5, kawaiOp:13, vars:2,0});",
                 "raw": "28 05 0d 02 00"
               },
               {
                 "op": "WAIT",
                 "a": 1,
-                "description": "wait({numFrames:1});",
+                "js": "wait({numFrames:1});",
                 "raw": "24 01 00"
               },
               {
@@ -5353,13 +5489,13 @@
                   0,
                   1
                 ],
-                "description": "doCharacterGraphicsOp({length:10, kawaiOp:2, vars:0,0,0,0,0,0,1});",
+                "js": "doCharacterGraphicsOp({length:10, kawaiOp:2, vars:0,0,0,0,0,0,1});",
                 "raw": "28 0a 02 00 00 00 00 00 00 01"
               },
               {
                 "op": "WAIT",
                 "a": 1,
-                "description": "wait({numFrames:1});",
+                "js": "wait({numFrames:1});",
                 "raw": "24 01 00"
               },
               {
@@ -5375,7 +5511,7 @@
                   0,
                   1
                 ],
-                "description": "doCharacterGraphicsOp({length:10, kawaiOp:2, vars:0,0,0,0,0,0,1});",
+                "js": "doCharacterGraphicsOp({length:10, kawaiOp:2, vars:0,0,0,0,0,0,1});",
                 "raw": "28 0a 02 00 00 00 00 00 00 01"
               },
               {
@@ -5384,7 +5520,7 @@
                 "b2": 0,
                 "i": 360,
                 "d": 64,
-                "description": "playSound({sound:360, direction:64});",
+                "js": "playSound({sound:360, direction:64});",
                 "raw": "f1 00 68 01 40"
               },
               {
@@ -5394,14 +5530,14 @@
                 "y": 100,
                 "w": 182,
                 "h": 25,
-                "description": "createWindow({window:0, x:61, y:100, width:182, height:25});",
+                "js": "createWindow({window:0, x:61, y:100, width:182, height:25});",
                 "raw": "50 00 3d 00 64 00 b6 00 19 00"
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 2,
-                "description": "showWindowWithDialog({window:0, dialog:2}); // Received \"Kaiser Knuckle\"!",
+                "js": "showWindowWithDialog({window:0, dialog:2}); // Received \"Kaiser Knuckle\"!",
                 "raw": "40 00 02"
               },
               {
@@ -5410,24 +5546,25 @@
                 "b2": 0,
                 "t": 154,
                 "a": 1,
-                "description": "addItem({item:154, amount:1});",
+                "js": "addItem({item:154, amount:1});",
                 "raw": "58 00 9a 00 01"
               },
               {
                 "op": "UC",
                 "s": 0,
-                "description": "setPlayableCharacterMovability(M.Movable);",
+                "js": "setPlayableCharacterMovability(M.Movable);",
                 "raw": "33 00"
               },
               {
                 "op": "MENU2",
                 "s": 0,
-                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "js": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -5437,7 +5574,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]

@@ -391,7 +391,7 @@
                 "b2": 0,
                 "i": 0,
                 "d": 63,
-                "description": "playSound({sound:0, direction:63});",
+                "js": "playSound({sound:0, direction:63});",
                 "raw": "f1 00 00 00 3f"
               },
               {
@@ -407,20 +407,21 @@
                 "p3": 0,
                 "p4": 0,
                 "p5": 0,
-                "description": "musicOp_F2_a0({p1:255, p2:0, p3:0, p4:0, p5:0});",
+                "js": "musicOp_F2_a0({p1:255, p2:0, p3:0, p4:0, p5:0});",
                 "pres": "Music event.",
                 "raw": "f2 00 00 00 a0 ff 00 00 00 00 00 00 00 00"
               },
               {
                 "op": "MUSIC",
                 "id": 0,
-                "description": "playMusic({song:0});",
+                "js": "playMusic({song:0});",
                 "pres": "Song starts: <Song:0>",
                 "raw": "f0 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -437,19 +438,19 @@
                 "v": 36,
                 "c": 0,
                 "e": 361,
-                "description": "if (Bank[2][0] == 36) (else goto 1121);",
+                "js": "if (Bank[2][0] == 36) (else goto 1121);",
                 "raw": "17 20 00 00 24 00 00 69 01"
               },
               {
                 "op": "UC",
                 "s": 1,
-                "description": "setPlayableCharacterMovability(M.Frozen);",
+                "js": "setPlayableCharacterMovability(M.Frozen);",
                 "raw": "33 01"
               },
               {
                 "op": "MENU2",
                 "s": 1,
-                "description": "setMainMenuAccessibility(MM.Inaccessible);",
+                "js": "setMainMenuAccessibility(MM.Inaccessible);",
                 "raw": "4a 01"
               },
               {
@@ -458,29 +459,29 @@
                 "b2": 0,
                 "targetX": 40,
                 "targetY": 131,
-                "description": "scroll({x:40, y:131});",
+                "js": "scroll({x:40, y:131});",
                 "raw": "64 00 28 00 83 00"
               },
               {
                 "op": "SCRLW",
-                "description": "waitForScroll();",
+                "js": "waitForScroll();",
                 "raw": "67"
               },
               {
                 "op": "WAIT",
                 "a": 90,
-                "description": "wait({numFrames:90});",
+                "js": "wait({numFrames:90});",
                 "raw": "24 5a 00"
               },
               {
-                "op": "SCR2DC",
+                "op": "SCR2DL",
                 "b1": 0,
                 "b2": 0,
                 "b3": 0,
                 "x": 40,
                 "y": -101,
                 "s": 150,
-                "description": "scrollToCoordsLinear({x:40, y:-101, s:150, speed:150});",
+                "js": "scrollToCoordsLinear({x:40, y:-101, s:150, speed:150});",
                 "raw": "68 00 00 28 00 9b ff 96 00"
               },
               {
@@ -489,12 +490,12 @@
                 "bs": 0,
                 "a": 4,
                 "v": 1,
-                "description": "Bank[5][4] = 1;",
+                "js": "Bank[5][4] = 1;",
                 "raw": "80 50 04 01"
               },
               {
                 "op": "SCRLW",
-                "description": "waitForScroll();",
+                "js": "waitForScroll();",
                 "raw": "67"
               },
               {
@@ -503,7 +504,7 @@
                 "bs": 0,
                 "d": 66,
                 "bit": 0,
-                "description": "setBit({destination:Bank[3][66], bit:0});",
+                "js": "setBit({destination:Bank[3][66], bit:0});",
                 "raw": "82 30 42 00"
               },
               {
@@ -512,13 +513,13 @@
                 "bs": 0,
                 "a": 0,
                 "v": 1,
-                "description": "Bank[5][0] = 1;",
+                "js": "Bank[5][0] = 1;",
                 "raw": "80 50 00 01"
               },
               {
                 "op": "WAIT",
                 "a": 36,
-                "description": "wait({numFrames:36});",
+                "js": "wait({numFrames:36});",
                 "raw": "24 24 00"
               },
               {
@@ -526,8 +527,8 @@
                 "e": 1,
                 "p": 2,
                 "f": 3,
-                "description": "entityExecuteSync({entity:1, priority:2, function:3});",
-                "pres": "Tells <E> to <F>",
+                "js": "entityExecuteSync({entity:1, priority:2, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "03 01 43"
               },
               {
@@ -536,7 +537,7 @@
                 "bs": 0,
                 "a": 2,
                 "v": 1,
-                "description": "Bank[5][2] = 1;",
+                "js": "Bank[5][2] = 1;",
                 "raw": "80 50 02 01"
               },
               {
@@ -544,8 +545,9 @@
                 "e": 2,
                 "p": 3,
                 "f": 6,
-                "description": "entityExecuteAsync({entity:2, priority:3, function:6});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsync({entity:2, priority:3, function:6});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "01 02 66"
               },
               {
@@ -555,14 +557,14 @@
                 "y": 30,
                 "w": 100,
                 "h": 41,
-                "description": "createWindow({window:2, x:60, y:30, width:100, height:41});",
+                "js": "createWindow({window:2, x:60, y:30, width:100, height:41});",
                 "raw": "50 02 3c 00 1e 00 64 00 29 00"
               },
               {
                 "op": "MESSAGE",
                 "n": 2,
                 "d": 0,
-                "description": "showWindowWithDialog({window:2, dialog:0}); // Flower girl<br/>“Excuse me.”",
+                "js": "showWindowWithDialog({window:2, dialog:0}); // Flower girl<br/>“Excuse me.”",
                 "raw": "40 02 00"
               },
               {
@@ -570,8 +572,8 @@
                 "e": 1,
                 "p": 2,
                 "f": 4,
-                "description": "entityExecuteSync({entity:1, priority:2, function:4});",
-                "pres": "Tells <E> to <F>",
+                "js": "entityExecuteSync({entity:1, priority:2, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "03 01 44"
               },
               {
@@ -579,8 +581,9 @@
                 "e": 2,
                 "p": 4,
                 "f": 4,
-                "description": "entityExecuteAsyncGuaranteed({entity:2, priority:4, function:4});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:2, priority:4, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 02 84"
               },
               {
@@ -589,7 +592,7 @@
                 "bs": 0,
                 "a": 1,
                 "v": 2,
-                "description": "Bank[5][1] = 2;",
+                "js": "Bank[5][1] = 2;",
                 "raw": "80 50 01 02"
               },
               {
@@ -599,7 +602,7 @@
                 "y": 145,
                 "w": 209,
                 "h": 73,
-                "description": "createWindow({window:2, x:60, y:145, width:209, height:73});",
+                "js": "createWindow({window:2, x:60, y:145, width:209, height:73});",
                 "raw": "50 02 3c 00 91 00 d1 00 49 00"
               },
               {
@@ -610,7 +613,7 @@
                 "f": 2,
                 "l": 3,
                 "a": 1,
-                "description": "Bank[5][1] = askQuestion({window:2, dialog:1, firstChoice:2, lastChoice:3});",
+                "js": "Bank[5][1] = askQuestion({window:2, dialog:1, firstChoice:2, lastChoice:3});",
                 "raw": "48 05 02 01 02 03 01"
               },
               {
@@ -618,8 +621,8 @@
                 "e": 2,
                 "p": 5,
                 "f": 4,
-                "description": "entityExecuteSync({entity:2, priority:5, function:4});",
-                "pres": "Tells <E> to <F>",
+                "js": "entityExecuteSync({entity:2, priority:5, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "03 02 a4"
               },
               {
@@ -628,7 +631,7 @@
                 "bs": 0,
                 "a": 5,
                 "v": 1,
-                "description": "Bank[5][5] = 1;",
+                "js": "Bank[5][5] = 1;",
                 "raw": "80 50 05 01"
               },
               {
@@ -639,7 +642,7 @@
                 "v": 2,
                 "c": 0,
                 "e": 29,
-                "description": "if (Bank[5][1] == 2) (else goto 891);",
+                "js": "if (Bank[5][1] == 2) (else goto 891);",
                 "raw": "14 50 01 02 00 1d"
               },
               {
@@ -648,7 +651,7 @@
                 "bs": 0,
                 "a": 2,
                 "v": 3,
-                "description": "Bank[5][2] = 3;",
+                "js": "Bank[5][2] = 3;",
                 "raw": "80 50 02 03"
               },
               {
@@ -656,8 +659,9 @@
                 "e": 2,
                 "p": 2,
                 "f": 4,
-                "description": "entityExecuteAsyncGuaranteed({entity:2, priority:2, function:4});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:2, priority:2, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 02 44"
               },
               {
@@ -667,14 +671,14 @@
                 "y": 145,
                 "w": 204,
                 "h": 73,
-                "description": "createWindow({window:2, x:60, y:145, width:204, height:73});",
+                "js": "createWindow({window:2, x:60, y:145, width:204, height:73});",
                 "raw": "50 02 3c 00 91 00 cc 00 49 00"
               },
               {
                 "op": "MESSAGE",
                 "n": 2,
                 "d": 2,
-                "description": "showWindowWithDialog({window:2, dialog:2}); // Flower girl<br/>“Really?<br/>\tI don't know what's going on,<br/>\tbut all right.”",
+                "js": "showWindowWithDialog({window:2, dialog:2}); // Flower girl<br/>“Really?<br/>\tI don't know what's going on,<br/>\tbut all right.”",
                 "raw": "40 02 02"
               },
               {
@@ -682,8 +686,8 @@
                 "e": 2,
                 "p": 3,
                 "f": 4,
-                "description": "entityExecuteSync({entity:2, priority:3, function:4});",
-                "pres": "Tells <E> to <F>",
+                "js": "entityExecuteSync({entity:2, priority:3, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "03 02 64"
               },
               {
@@ -691,14 +695,15 @@
                 "e": 2,
                 "p": 2,
                 "f": 3,
-                "description": "entityExecuteAsync({entity:2, priority:2, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsync({entity:2, priority:2, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "01 02 43"
               },
               {
                 "op": "JMPF",
                 "a": 213,
-                "description": "goto 1103;",
+                "js": "goto 351;",
                 "raw": "10 d5"
               },
               {
@@ -707,7 +712,7 @@
                 "bs": 0,
                 "a": 3,
                 "v": 1,
-                "description": "Bank[5][3] = 1;",
+                "js": "Bank[5][3] = 1;",
                 "raw": "80 50 03 01"
               },
               {
@@ -715,8 +720,8 @@
                 "e": 1,
                 "p": 2,
                 "f": 5,
-                "description": "entityExecuteSync({entity:1, priority:2, function:5});",
-                "pres": "Tells <E> to <F>",
+                "js": "entityExecuteSync({entity:1, priority:2, function:5});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "03 01 45"
               },
               {
@@ -725,7 +730,7 @@
                 "bs": 0,
                 "a": 1,
                 "v": 2,
-                "description": "Bank[5][1] = 2;",
+                "js": "Bank[5][1] = 2;",
                 "raw": "80 50 01 02"
               },
               {
@@ -735,7 +740,7 @@
                 "y": 145,
                 "w": 253,
                 "h": 73,
-                "description": "createWindow({window:0, x:160, y:145, width:253, height:73});",
+                "js": "createWindow({window:0, x:160, y:145, width:253, height:73});",
                 "raw": "50 00 a0 00 91 00 fd 00 49 00"
               },
               {
@@ -746,7 +751,7 @@
                 "f": 2,
                 "l": 3,
                 "a": 1,
-                "description": "Bank[5][1] = askQuestion({window:0, dialog:3, firstChoice:2, lastChoice:3});",
+                "js": "Bank[5][1] = askQuestion({window:0, dialog:3, firstChoice:2, lastChoice:3});",
                 "raw": "48 05 00 03 02 03 01"
               },
               {
@@ -754,8 +759,8 @@
                 "e": 1,
                 "p": 3,
                 "f": 5,
-                "description": "entityExecuteSync({entity:1, priority:3, function:5});",
-                "pres": "Tells <E> to <F>",
+                "js": "entityExecuteSync({entity:1, priority:3, function:5});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "03 01 65"
               },
               {
@@ -766,7 +771,7 @@
                 "v": 2,
                 "c": 0,
                 "e": 23,
-                "description": "if (Bank[5][1] == 2) (else goto 950);",
+                "js": "if (Bank[5][1] == 2) (else goto 950);",
                 "raw": "14 50 01 02 00 17"
               },
               {
@@ -775,7 +780,7 @@
                 "bs": 0,
                 "a": 2,
                 "v": 5,
-                "description": "Bank[5][2] = 5;",
+                "js": "Bank[5][2] = 5;",
                 "raw": "80 50 02 05"
               },
               {
@@ -783,8 +788,9 @@
                 "e": 2,
                 "p": 2,
                 "f": 4,
-                "description": "entityExecuteAsyncGuaranteed({entity:2, priority:2, function:4});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:2, priority:2, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 02 44"
               },
               {
@@ -794,20 +800,20 @@
                 "y": 145,
                 "w": 151,
                 "h": 73,
-                "description": "createWindow({window:2, x:60, y:145, width:151, height:73});",
+                "js": "createWindow({window:2, x:60, y:145, width:151, height:73});",
                 "raw": "50 02 3c 00 91 00 97 00 49 00"
               },
               {
                 "op": "MESSAGE",
                 "n": 2,
                 "d": 5,
-                "description": "showWindowWithDialog({window:2, dialog:5}); // Flower girl<br/>“Oh, these?<br/>\tDo you like them?<br/>\tThey're only one gil.”",
+                "js": "showWindowWithDialog({window:2, dialog:5}); // Flower girl<br/>“Oh, these?<br/>\tDo you like them?<br/>\tThey're only one gil.”",
                 "raw": "40 02 05"
               },
               {
                 "op": "JMPF",
                 "a": 44,
-                "description": "goto 993;",
+                "js": "goto 241;",
                 "raw": "10 2c"
               },
               {
@@ -816,7 +822,7 @@
                 "bs": 0,
                 "a": 2,
                 "v": 12,
-                "description": "Bank[5][2] = 12;",
+                "js": "Bank[5][2] = 12;",
                 "raw": "80 50 02 0c"
               },
               {
@@ -824,8 +830,9 @@
                 "e": 2,
                 "p": 2,
                 "f": 4,
-                "description": "entityExecuteAsyncGuaranteed({entity:2, priority:2, function:4});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:2, priority:2, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 02 44"
               },
               {
@@ -835,14 +842,14 @@
                 "y": 145,
                 "w": 86,
                 "h": 57,
-                "description": "createWindow({window:2, x:100, y:145, width:86, height:57});",
+                "js": "createWindow({window:2, x:100, y:145, width:86, height:57});",
                 "raw": "50 02 64 00 91 00 56 00 39 00"
               },
               {
                 "op": "MESSAGE",
                 "n": 2,
                 "d": 4,
-                "description": "showWindowWithDialog({window:2, dialog:4}); // Flower girl<br/>“What!<br/>\tTell me!”",
+                "js": "showWindowWithDialog({window:2, dialog:4}); // Flower girl<br/>“What!<br/>\tTell me!”",
                 "raw": "40 02 04"
               },
               {
@@ -850,8 +857,8 @@
                 "e": 2,
                 "p": 3,
                 "f": 4,
-                "description": "entityExecuteSync({entity:2, priority:3, function:4});",
-                "pres": "Tells <E> to <F>",
+                "js": "entityExecuteSync({entity:2, priority:3, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "03 02 64"
               },
               {
@@ -860,7 +867,7 @@
                 "bs": 0,
                 "a": 2,
                 "v": 5,
-                "description": "Bank[5][2] = 5;",
+                "js": "Bank[5][2] = 5;",
                 "raw": "80 50 02 05"
               },
               {
@@ -868,8 +875,9 @@
                 "e": 2,
                 "p": 2,
                 "f": 4,
-                "description": "entityExecuteAsyncGuaranteed({entity:2, priority:2, function:4});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:2, priority:2, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 02 44"
               },
               {
@@ -879,14 +887,14 @@
                 "y": 145,
                 "w": 199,
                 "h": 73,
-                "description": "createWindow({window:2, x:60, y:145, width:199, height:73});",
+                "js": "createWindow({window:2, x:60, y:145, width:199, height:73});",
                 "raw": "50 02 3c 00 91 00 c7 00 49 00"
               },
               {
                 "op": "MESSAGE",
                 "n": 2,
                 "d": 7,
-                "description": "showWindowWithDialog({window:2, dialog:7}); // Flower girl<br/>“Uh, excuse me, would you like<br/>\tto buy some flowers?<br/>\tThey're only one gil.”",
+                "js": "showWindowWithDialog({window:2, dialog:7}); // Flower girl<br/>“Uh, excuse me, would you like<br/>\tto buy some flowers?<br/>\tThey're only one gil.”",
                 "raw": "40 02 07"
               },
               {
@@ -895,7 +903,7 @@
                 "bs": 0,
                 "a": 1,
                 "v": 0,
-                "description": "Bank[5][1] = 0;",
+                "js": "Bank[5][1] = 0;",
                 "raw": "80 50 01 00"
               },
               {
@@ -905,7 +913,7 @@
                 "y": 145,
                 "w": 95,
                 "h": 41,
-                "description": "createWindow({window:0, x:160, y:145, width:95, height:41});",
+                "js": "createWindow({window:0, x:160, y:145, width:95, height:41});",
                 "raw": "50 00 a0 00 91 00 5f 00 29 00"
               },
               {
@@ -916,7 +924,7 @@
                 "f": 0,
                 "l": 1,
                 "a": 1,
-                "description": "Bank[5][1] = askQuestion({window:0, dialog:6, firstChoice:0, lastChoice:1});",
+                "js": "Bank[5][1] = askQuestion({window:0, dialog:6, firstChoice:0, lastChoice:1});",
                 "raw": "48 05 00 06 00 01 01"
               },
               {
@@ -927,7 +935,7 @@
                 "v": 0,
                 "c": 0,
                 "e": 58,
-                "description": "if (Bank[5][1] == 0) (else goto 1077);",
+                "js": "if (Bank[5][1] == 0) (else goto 1077);",
                 "raw": "14 50 01 00 00 3a"
               },
               {
@@ -936,7 +944,7 @@
                 "bs": 0,
                 "a": 2,
                 "v": 6,
-                "description": "Bank[5][2] = 6;",
+                "js": "Bank[5][2] = 6;",
                 "raw": "80 50 02 06"
               },
               {
@@ -944,8 +952,9 @@
                 "e": 2,
                 "p": 3,
                 "f": 4,
-                "description": "entityExecuteAsyncGuaranteed({entity:2, priority:3, function:4});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:2, priority:3, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 02 64"
               },
               {
@@ -955,14 +964,14 @@
                 "y": 145,
                 "w": 124,
                 "h": 41,
-                "description": "createWindow({window:2, x:90, y:145, width:124, height:41});",
+                "js": "createWindow({window:2, x:90, y:145, width:124, height:41});",
                 "raw": "50 02 5a 00 91 00 7c 00 29 00"
               },
               {
                 "op": "MESSAGE",
                 "n": 2,
                 "d": 8,
-                "description": "showWindowWithDialog({window:2, dialog:8}); // Flower girl<br/>“Oh, thank you!”",
+                "js": "showWindowWithDialog({window:2, dialog:8}); // Flower girl<br/>“Oh, thank you!”",
                 "raw": "40 02 08"
               },
               {
@@ -970,8 +979,8 @@
                 "e": 2,
                 "p": 4,
                 "f": 4,
-                "description": "entityExecuteSync({entity:2, priority:4, function:4});",
-                "pres": "Tells <E> to <F>",
+                "js": "entityExecuteSync({entity:2, priority:4, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "03 02 84"
               },
               {
@@ -979,8 +988,9 @@
                 "e": 2,
                 "p": 2,
                 "f": 4,
-                "description": "entityExecuteAsyncGuaranteed({entity:2, priority:2, function:4});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:2, priority:2, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 02 44"
               },
               {
@@ -990,14 +1000,14 @@
                 "y": 145,
                 "w": 112,
                 "h": 41,
-                "description": "createWindow({window:2, x:130, y:145, width:112, height:41});",
+                "js": "createWindow({window:2, x:130, y:145, width:112, height:41});",
                 "raw": "50 02 82 00 91 00 70 00 29 00"
               },
               {
                 "op": "MESSAGE",
                 "n": 2,
                 "d": 9,
-                "description": "showWindowWithDialog({window:2, dialog:9}); // Flower girl<br/>“Here you are!”",
+                "js": "showWindowWithDialog({window:2, dialog:9}); // Flower girl<br/>“Here you are!”",
                 "raw": "40 02 09"
               },
               {
@@ -1005,8 +1015,8 @@
                 "e": 2,
                 "p": 3,
                 "f": 4,
-                "description": "entityExecuteSync({entity:2, priority:3, function:4});",
-                "pres": "Tells <E> to <F>",
+                "js": "entityExecuteSync({entity:2, priority:3, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "03 02 64"
               },
               {
@@ -1014,15 +1024,16 @@
                 "e": 2,
                 "p": 2,
                 "f": 3,
-                "description": "entityExecuteAsync({entity:2, priority:2, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsync({entity:2, priority:2, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "01 02 43"
               },
               {
                 "op": "GOLDD",
                 "b1": 0,
                 "a": 1,
-                "description": "decreaseGilBy({decrement:1});",
+                "js": "decreaseGilBy({decrement:1});",
                 "raw": "3a 00 01 00 00 00"
               },
               {
@@ -1031,13 +1042,13 @@
                 "bs": 0,
                 "d": 111,
                 "bit": 0,
-                "description": "setBit({destination:Bank[3][111], bit:0});",
+                "js": "setBit({destination:Bank[3][111], bit:0});",
                 "raw": "82 30 6f 00"
               },
               {
                 "op": "JMPF",
                 "a": 27,
-                "description": "goto 1103;",
+                "js": "goto 351;",
                 "raw": "10 1b"
               },
               {
@@ -1046,7 +1057,7 @@
                 "bs": 0,
                 "a": 2,
                 "v": 10,
-                "description": "Bank[5][2] = 10;",
+                "js": "Bank[5][2] = 10;",
                 "raw": "80 50 02 0a"
               },
               {
@@ -1054,8 +1065,9 @@
                 "e": 2,
                 "p": 3,
                 "f": 4,
-                "description": "entityExecuteAsyncGuaranteed({entity:2, priority:3, function:4});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsyncGuaranteed({entity:2, priority:3, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "02 02 64"
               },
               {
@@ -1065,14 +1077,14 @@
                 "y": 145,
                 "w": 125,
                 "h": 41,
-                "description": "createWindow({window:2, x:60, y:145, width:125, height:41});",
+                "js": "createWindow({window:2, x:60, y:145, width:125, height:41});",
                 "raw": "50 02 3c 00 91 00 7d 00 29 00"
               },
               {
                 "op": "MESSAGE",
                 "n": 2,
                 "d": 10,
-                "description": "showWindowWithDialog({window:2, dialog:10}); // Flower girl<br/>“Ahh…not again.”",
+                "js": "showWindowWithDialog({window:2, dialog:10}); // Flower girl<br/>“Ahh…not again.”",
                 "raw": "40 02 0a"
               },
               {
@@ -1080,8 +1092,8 @@
                 "e": 2,
                 "p": 4,
                 "f": 4,
-                "description": "entityExecuteSync({entity:2, priority:4, function:4});",
-                "pres": "Tells <E> to <F>",
+                "js": "entityExecuteSync({entity:2, priority:4, function:4});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "03 02 84"
               },
               {
@@ -1089,8 +1101,9 @@
                 "e": 2,
                 "p": 2,
                 "f": 3,
-                "description": "entityExecuteAsync({entity:2, priority:2, function:3});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsync({entity:2, priority:2, function:3});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "01 02 43"
               },
               {
@@ -1099,7 +1112,7 @@
                 "bs": 0,
                 "a": 0,
                 "v": 39,
-                "description": "Bank[2][0] = 39;",
+                "js": "Bank[2][0] = 39;",
                 "raw": "81 20 00 27 00"
               },
               {
@@ -1108,35 +1121,35 @@
                 "p2": 30,
                 "p3": 0,
                 "p4": 2,
-                "description": "scrollOp0x62({param1:0, param2:30, param3:0, param4:2});",
+                "js": "scrollOp0x62({param1:0, param2:30, param3:0, param4:2});",
                 "pres": "The camera scrolls...",
                 "raw": "62 00 1e 00 02"
               },
               {
                 "op": "SCRLW",
-                "description": "waitForScroll();",
+                "js": "waitForScroll();",
                 "raw": "67"
               },
               {
                 "op": "SCRCC",
-                "description": "scrollToCurrentPlayableCharacter();",
+                "js": "scrollToCurrentPlayableCharacter();",
                 "raw": "65"
               },
               {
                 "op": "SCRLW",
-                "description": "waitForScroll();",
+                "js": "waitForScroll();",
                 "raw": "67"
               },
               {
                 "op": "UC",
                 "s": 0,
-                "description": "setPlayableCharacterMovability(M.Movable);",
+                "js": "setPlayableCharacterMovability(M.Movable);",
                 "raw": "33 00"
               },
               {
                 "op": "MENU2",
                 "s": 0,
-                "description": "setMainMenuAccessibility(MM.Accessible);",
+                "js": "setMainMenuAccessibility(MM.Accessible);",
                 "raw": "4a 00"
               },
               {
@@ -1145,12 +1158,13 @@
                 "bs": 0,
                 "a": 6,
                 "v": 1,
-                "description": "Bank[5][6] = 1;",
+                "js": "Bank[5][6] = 1;",
                 "raw": "80 50 06 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1160,7 +1174,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1176,18 +1191,19 @@
               {
                 "op": "CHAR",
                 "n": 0,
-                "description": "thisIsACharacterFieldModel(0);",
+                "js": "thisIsAFieldModel(0);",
                 "raw": "a1 00"
               },
               {
                 "op": "PC",
                 "c": 0,
-                "description": "thisIsAPlayableCharacter(C.Cloud);",
+                "js": "thisIsAPlayableCharacter(C.Cloud);",
                 "raw": "a0 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1199,12 +1215,13 @@
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1214,7 +1231,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1232,7 +1250,7 @@
                 "y": 21263,
                 "z": 258,
                 "i": 2,
-                "description": "placeObject({x:-3694, y:21263, z:258, walkmeshTriangle:2});",
+                "js": "placeObject({x:-3694, y:21263, z:258, walkmeshTriangle:2});",
                 "raw": "a5 00 00 92 f1 0f 53 02 01 02 00"
               },
               {
@@ -1241,12 +1259,13 @@
                 "b2": 0,
                 "x": -3989,
                 "y": 21138,
-                "description": "walkObjectTo({x:-3989, y:21138});",
+                "js": "walkObjectTo({x:-3989, y:21138});",
                 "raw": "a8 00 6b f0 92 52"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1258,12 +1277,13 @@
                 "op": "ASPED",
                 "b": 0,
                 "s": 32,
-                "description": "setAnimationSpeed({speed:32});",
+                "js": "setAnimationSpeed({speed:32});",
                 "raw": "bd 00 20"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1279,7 +1299,7 @@
                 "v": 1,
                 "c": 0,
                 "e": 12,
-                "description": "if (Bank[5][3] == 1) (else goto 1191);",
+                "js": "if (Bank[5][3] == 1) (else goto 1191);",
                 "raw": "14 50 03 01 00 0c"
               },
               {
@@ -1288,7 +1308,7 @@
                 "f": 0,
                 "l": 14,
                 "s": 1,
-                "description": "playPartialAnimation({animation:5, firstFrame:0, lastFrame:14, slowness:1});",
+                "js": "playPartialAnimation({animation:5, firstFrame:0, lastFrame:14, slowness:1});",
                 "raw": "bc 05 00 0e 01"
               },
               {
@@ -1297,13 +1317,13 @@
                 "bs": 0,
                 "a": 3,
                 "v": 2,
-                "description": "Bank[5][3] = 2;",
+                "js": "Bank[5][3] = 2;",
                 "raw": "80 50 03 02"
               },
               {
                 "op": "JMPF",
                 "a": 12,
-                "description": "goto 1202;",
+                "js": "goto 28;",
                 "raw": "10 0c"
               },
               {
@@ -1314,7 +1334,7 @@
                 "v": 2,
                 "c": 0,
                 "e": 6,
-                "description": "if (Bank[5][3] == 2) (else goto 1202);",
+                "js": "if (Bank[5][3] == 2) (else goto 1202);",
                 "raw": "14 50 03 02 00 06"
               },
               {
@@ -1323,12 +1343,13 @@
                 "f": 14,
                 "l": 29,
                 "s": 1,
-                "description": "playPartialAnimation({animation:5, firstFrame:14, lastFrame:29, slowness:1});",
+                "js": "playPartialAnimation({animation:5, firstFrame:14, lastFrame:29, slowness:1});",
                 "raw": "bc 05 0e 1d 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1344,7 +1365,7 @@
               {
                 "op": "CHAR",
                 "n": 1,
-                "description": "thisIsACharacterFieldModel(1);",
+                "js": "thisIsAFieldModel(1);",
                 "raw": "a1 01"
               },
               {
@@ -1355,14 +1376,14 @@
                 "v": 36,
                 "c": 0,
                 "e": 20,
-                "description": "if (Bank[2][0] == 36) (else goto 1232);",
+                "js": "if (Bank[2][0] == 36) (else goto 1232);",
                 "raw": "16 20 00 00 24 00 00 14"
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 24,
-                "description": "setFacingDirection({direction:24});",
+                "js": "setFacingDirection({direction:24});",
                 "raw": "b3 00 18"
               },
               {
@@ -1375,25 +1396,26 @@
                 "y": 21273,
                 "z": 258,
                 "i": 9,
-                "description": "placeObject({x:-4066, y:21273, z:258, walkmeshTriangle:9});",
+                "js": "placeObject({x:-4066, y:21273, z:258, walkmeshTriangle:9});",
                 "raw": "a5 00 00 1e f0 19 53 02 01 09 00"
               },
               {
                 "op": "SLIDR",
                 "b": 0,
                 "r": 1,
-                "description": "setCollisionRadius({radius:1});",
+                "js": "setCollisionRadius({radius:1});",
                 "raw": "c6 00 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1406,26 +1428,27 @@
                 "op": "ANIM!2",
                 "a": 2,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:2, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:2, slowness:1});",
                 "raw": "ba 02 01"
               },
               {
                 "op": "ANIM!2",
                 "a": 2,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:2, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:2, slowness:1});",
                 "raw": "ba 02 01"
               },
               {
                 "op": "DFANM",
                 "a": 0,
                 "s": 1,
-                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "js": "playAnimationLoop({animation:0, slowness:1});",
                 "raw": "a2 00 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1435,7 +1458,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1447,7 +1471,7 @@
                 "op": "MSPED",
                 "b": 0,
                 "d": 1520,
-                "description": "setMovementSpeed({speed:1520});",
+                "js": "setMovementSpeed({speed:1520});",
                 "raw": "b2 00 f0 05"
               },
               {
@@ -1456,7 +1480,7 @@
                 "b2": 0,
                 "x": -4053,
                 "y": 20933,
-                "description": "walkObjectTo({x:-4053, y:20933});",
+                "js": "walkObjectTo({x:-4053, y:20933});",
                 "raw": "a8 00 2b f0 c5 51"
               },
               {
@@ -1465,7 +1489,7 @@
                 "b2": 0,
                 "x": -3875,
                 "y": 20673,
-                "description": "walkObjectTo({x:-3875, y:20673});",
+                "js": "walkObjectTo({x:-3875, y:20673});",
                 "raw": "a8 00 dd f0 c1 50"
               },
               {
@@ -1474,30 +1498,31 @@
                 "b2": 0,
                 "x": -3933,
                 "y": 20487,
-                "description": "walkObjectTo({x:-3933, y:20487});",
+                "js": "walkObjectTo({x:-3933, y:20487});",
                 "raw": "a8 00 a3 f0 07 50"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1513,7 +1538,7 @@
                 "v": 1,
                 "c": 0,
                 "e": 12,
-                "description": "if (Bank[5][2] == 1) (else goto 1290);",
+                "js": "if (Bank[5][2] == 1) (else goto 1290);",
                 "raw": "14 50 02 01 00 0c"
               },
               {
@@ -1522,7 +1547,7 @@
                 "f": 0,
                 "l": 29,
                 "s": 1,
-                "description": "playPartialAnimation({animation:3, firstFrame:0, lastFrame:29, slowness:1});",
+                "js": "playPartialAnimation({animation:3, firstFrame:0, lastFrame:29, slowness:1});",
                 "raw": "bc 03 00 1d 01"
               },
               {
@@ -1531,13 +1556,13 @@
                 "bs": 0,
                 "a": 2,
                 "v": 2,
-                "description": "Bank[5][2] = 2;",
+                "js": "Bank[5][2] = 2;",
                 "raw": "80 50 02 02"
               },
               {
                 "op": "JMPF",
                 "a": 173,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 ad"
               },
               {
@@ -1548,7 +1573,7 @@
                 "v": 2,
                 "c": 0,
                 "e": 8,
-                "description": "if (Bank[5][2] == 2) (else goto 1303);",
+                "js": "if (Bank[5][2] == 2) (else goto 1303);",
                 "raw": "14 50 02 02 00 08"
               },
               {
@@ -1557,13 +1582,13 @@
                 "f": 29,
                 "l": 39,
                 "s": 1,
-                "description": "playPartialAnimation({animation:3, firstFrame:29, lastFrame:39, slowness:1});",
+                "js": "playPartialAnimation({animation:3, firstFrame:29, lastFrame:39, slowness:1});",
                 "raw": "bc 03 1d 27 01"
               },
               {
                 "op": "JMPF",
                 "a": 160,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 a0"
               },
               {
@@ -1574,7 +1599,7 @@
                 "v": 3,
                 "c": 0,
                 "e": 12,
-                "description": "if (Bank[5][2] == 3) (else goto 1320);",
+                "js": "if (Bank[5][2] == 3) (else goto 1320);",
                 "raw": "14 50 02 03 00 0c"
               },
               {
@@ -1583,7 +1608,7 @@
                 "f": 0,
                 "l": 9,
                 "s": 1,
-                "description": "playPartialAnimation({animation:4, firstFrame:0, lastFrame:9, slowness:1});",
+                "js": "playPartialAnimation({animation:4, firstFrame:0, lastFrame:9, slowness:1});",
                 "raw": "bc 04 00 09 01"
               },
               {
@@ -1592,13 +1617,13 @@
                 "bs": 0,
                 "a": 2,
                 "v": 4,
-                "description": "Bank[5][2] = 4;",
+                "js": "Bank[5][2] = 4;",
                 "raw": "80 50 02 04"
               },
               {
                 "op": "JMPF",
                 "a": 143,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 8f"
               },
               {
@@ -1609,7 +1634,7 @@
                 "v": 4,
                 "c": 0,
                 "e": 8,
-                "description": "if (Bank[5][2] == 4) (else goto 1333);",
+                "js": "if (Bank[5][2] == 4) (else goto 1333);",
                 "raw": "14 50 02 04 00 08"
               },
               {
@@ -1618,13 +1643,13 @@
                 "f": 9,
                 "l": 19,
                 "s": 1,
-                "description": "playPartialAnimation({animation:4, firstFrame:9, lastFrame:19, slowness:1});",
+                "js": "playPartialAnimation({animation:4, firstFrame:9, lastFrame:19, slowness:1});",
                 "raw": "bc 04 09 13 01"
               },
               {
                 "op": "JMPF",
                 "a": 130,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 82"
               },
               {
@@ -1635,20 +1660,20 @@
                 "v": 5,
                 "c": 0,
                 "e": 6,
-                "description": "if (Bank[5][2] == 5) (else goto 1344);",
+                "js": "if (Bank[5][2] == 5) (else goto 1344);",
                 "raw": "14 50 02 05 00 06"
               },
               {
                 "op": "ANIM!2",
                 "a": 5,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:5, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:5, slowness:1});",
                 "raw": "ba 05 01"
               },
               {
                 "op": "JMPF",
                 "a": 119,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 77"
               },
               {
@@ -1659,14 +1684,14 @@
                 "v": 6,
                 "c": 0,
                 "e": 10,
-                "description": "if (Bank[5][2] == 6) (else goto 1359);",
+                "js": "if (Bank[5][2] == 6) (else goto 1359);",
                 "raw": "14 50 02 06 00 0a"
               },
               {
                 "op": "ANIM!2",
                 "a": 6,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:6, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:6, slowness:1});",
                 "raw": "ba 06 01"
               },
               {
@@ -1675,13 +1700,13 @@
                 "bs": 0,
                 "a": 2,
                 "v": 7,
-                "description": "Bank[5][2] = 7;",
+                "js": "Bank[5][2] = 7;",
                 "raw": "80 50 02 07"
               },
               {
                 "op": "JMPF",
                 "a": 104,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 68"
               },
               {
@@ -1692,14 +1717,14 @@
                 "v": 7,
                 "c": 0,
                 "e": 10,
-                "description": "if (Bank[5][2] == 7) (else goto 1374);",
+                "js": "if (Bank[5][2] == 7) (else goto 1374);",
                 "raw": "14 50 02 07 00 0a"
               },
               {
                 "op": "ANIM!2",
                 "a": 7,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:7, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:7, slowness:1});",
                 "raw": "ba 07 01"
               },
               {
@@ -1708,13 +1733,13 @@
                 "bs": 0,
                 "a": 2,
                 "v": 8,
-                "description": "Bank[5][2] = 8;",
+                "js": "Bank[5][2] = 8;",
                 "raw": "80 50 02 08"
               },
               {
                 "op": "JMPF",
                 "a": 89,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 59"
               },
               {
@@ -1725,7 +1750,7 @@
                 "v": 8,
                 "c": 0,
                 "e": 12,
-                "description": "if (Bank[5][2] == 8) (else goto 1391);",
+                "js": "if (Bank[5][2] == 8) (else goto 1391);",
                 "raw": "14 50 02 08 00 0c"
               },
               {
@@ -1734,7 +1759,7 @@
                 "f": 0,
                 "l": 14,
                 "s": 1,
-                "description": "playPartialAnimation({animation:8, firstFrame:0, lastFrame:14, slowness:1});",
+                "js": "playPartialAnimation({animation:8, firstFrame:0, lastFrame:14, slowness:1});",
                 "raw": "bc 08 00 0e 01"
               },
               {
@@ -1743,13 +1768,13 @@
                 "bs": 0,
                 "a": 2,
                 "v": 9,
-                "description": "Bank[5][2] = 9;",
+                "js": "Bank[5][2] = 9;",
                 "raw": "80 50 02 09"
               },
               {
                 "op": "JMPF",
                 "a": 72,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 48"
               },
               {
@@ -1760,7 +1785,7 @@
                 "v": 9,
                 "c": 0,
                 "e": 8,
-                "description": "if (Bank[5][2] == 9) (else goto 1404);",
+                "js": "if (Bank[5][2] == 9) (else goto 1404);",
                 "raw": "14 50 02 09 00 08"
               },
               {
@@ -1769,13 +1794,13 @@
                 "f": 14,
                 "l": 29,
                 "s": 1,
-                "description": "playPartialAnimation({animation:8, firstFrame:14, lastFrame:29, slowness:1});",
+                "js": "playPartialAnimation({animation:8, firstFrame:14, lastFrame:29, slowness:1});",
                 "raw": "bc 08 0e 1d 01"
               },
               {
                 "op": "JMPF",
                 "a": 59,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 3b"
               },
               {
@@ -1786,7 +1811,7 @@
                 "v": 10,
                 "c": 0,
                 "e": 12,
-                "description": "if (Bank[5][2] == 10) (else goto 1421);",
+                "js": "if (Bank[5][2] == 10) (else goto 1421);",
                 "raw": "14 50 02 0a 00 0c"
               },
               {
@@ -1795,7 +1820,7 @@
                 "f": 0,
                 "l": 26,
                 "s": 1,
-                "description": "playPartialAnimation({animation:9, firstFrame:0, lastFrame:26, slowness:1});",
+                "js": "playPartialAnimation({animation:9, firstFrame:0, lastFrame:26, slowness:1});",
                 "raw": "bc 09 00 1a 01"
               },
               {
@@ -1804,13 +1829,13 @@
                 "bs": 0,
                 "a": 2,
                 "v": 11,
-                "description": "Bank[5][2] = 11;",
+                "js": "Bank[5][2] = 11;",
                 "raw": "80 50 02 0b"
               },
               {
                 "op": "JMPF",
                 "a": 42,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 2a"
               },
               {
@@ -1821,7 +1846,7 @@
                 "v": 11,
                 "c": 0,
                 "e": 8,
-                "description": "if (Bank[5][2] == 11) (else goto 1434);",
+                "js": "if (Bank[5][2] == 11) (else goto 1434);",
                 "raw": "14 50 02 0b 00 08"
               },
               {
@@ -1830,13 +1855,13 @@
                 "f": 26,
                 "l": 39,
                 "s": 1,
-                "description": "playPartialAnimation({animation:9, firstFrame:26, lastFrame:39, slowness:1});",
+                "js": "playPartialAnimation({animation:9, firstFrame:26, lastFrame:39, slowness:1});",
                 "raw": "bc 09 1a 27 01"
               },
               {
                 "op": "JMPF",
                 "a": 29,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 1d"
               },
               {
@@ -1847,7 +1872,7 @@
                 "v": 12,
                 "c": 0,
                 "e": 12,
-                "description": "if (Bank[5][2] == 12) (else goto 1451);",
+                "js": "if (Bank[5][2] == 12) (else goto 1451);",
                 "raw": "14 50 02 0c 00 0c"
               },
               {
@@ -1856,7 +1881,7 @@
                 "f": 0,
                 "l": 26,
                 "s": 1,
-                "description": "playPartialAnimation({animation:10, firstFrame:0, lastFrame:26, slowness:1});",
+                "js": "playPartialAnimation({animation:10, firstFrame:0, lastFrame:26, slowness:1});",
                 "raw": "bc 0a 00 1a 01"
               },
               {
@@ -1865,13 +1890,13 @@
                 "bs": 0,
                 "a": 2,
                 "v": 13,
-                "description": "Bank[5][2] = 13;",
+                "js": "Bank[5][2] = 13;",
                 "raw": "80 50 02 0d"
               },
               {
                 "op": "JMPF",
                 "a": 12,
-                "description": "goto 1462;",
+                "js": "goto 189;",
                 "raw": "10 0c"
               },
               {
@@ -1882,7 +1907,7 @@
                 "v": 13,
                 "c": 0,
                 "e": 6,
-                "description": "if (Bank[5][2] == 13) (else goto 1462);",
+                "js": "if (Bank[5][2] == 13) (else goto 1462);",
                 "raw": "14 50 02 0d 00 06"
               },
               {
@@ -1891,12 +1916,13 @@
                 "f": 26,
                 "l": 39,
                 "s": 1,
-                "description": "playPartialAnimation({animation:10, firstFrame:26, lastFrame:39, slowness:1});",
+                "js": "playPartialAnimation({animation:10, firstFrame:26, lastFrame:39, slowness:1});",
                 "raw": "bc 0a 1a 27 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1910,33 +1936,34 @@
                 "b2": 0,
                 "i": 175,
                 "d": 63,
-                "description": "playSound({sound:175, direction:63});",
+                "js": "playSound({sound:175, direction:63});",
                 "raw": "f1 00 af 00 3f"
               },
               {
                 "op": "ANIM!2",
                 "a": 11,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:11, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:11, slowness:1});",
                 "raw": "ba 0b 01"
               },
               {
                 "op": "ANIM!2",
                 "a": 12,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:12, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:12, slowness:1});",
                 "raw": "ba 0c 01"
               },
               {
                 "op": "ANIM!2",
                 "a": 13,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:13, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:13, slowness:1});",
                 "raw": "ba 0d 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1950,12 +1977,13 @@
                 "b2": 0,
                 "x": -4031,
                 "y": 21208,
-                "description": "walkObjectTo({x:-4031, y:21208});",
+                "js": "walkObjectTo({x:-4031, y:21208});",
                 "raw": "a8 00 41 f0 d8 52"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -1971,32 +1999,33 @@
                 "v": 0,
                 "c": 0,
                 "e": 6,
-                "description": "if (Bank[5][5] == 0) (else goto 1496);",
+                "js": "if (Bank[5][5] == 0) (else goto 1496);",
                 "raw": "14 50 05 00 00 06"
               },
               {
                 "op": "ANIM!2",
                 "a": 2,
                 "s": 1,
-                "description": "playAnimationHoldLastFrameSync({animation:2, slowness:1});",
+                "js": "playAnimationHoldLastFrameSync({animation:2, slowness:1});",
                 "raw": "ba 02 01"
               },
               {
                 "op": "JMPB",
                 "a": 9,
-                "description": "goto 1485;",
+                "js": "goto 0;",
                 "raw": "12 09"
               },
               {
                 "op": "DFANM",
                 "a": 0,
                 "s": 1,
-                "description": "playAnimationLoop({animation:0, slowness:1});",
+                "js": "playAnimationLoop({animation:0, slowness:1});",
                 "raw": "a2 00 01"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2012,7 +2041,7 @@
               {
                 "op": "CHAR",
                 "n": 2,
-                "description": "thisIsACharacterFieldModel(2);",
+                "js": "thisIsAFieldModel(2);",
                 "raw": "a1 02"
               },
               {
@@ -2025,20 +2054,20 @@
                 "y": 21077,
                 "z": 258,
                 "i": 16,
-                "description": "placeObject({x:-4284, y:21077, z:258, walkmeshTriangle:16});",
+                "js": "placeObject({x:-4284, y:21077, z:258, walkmeshTriangle:16});",
                 "raw": "a5 00 00 44 ef 55 52 02 01 10 00"
               },
               {
                 "op": "SLIDR",
                 "b": 0,
                 "r": 1,
-                "description": "setCollisionRadius({radius:1});",
+                "js": "setCollisionRadius({radius:1});",
                 "raw": "c6 00 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
@@ -2049,30 +2078,31 @@
                 "v": 36,
                 "c": 1,
                 "e": 7,
-                "description": "if (Bank[2][0] != 36) (else goto 1532);",
+                "js": "if (Bank[2][0] != 36) (else goto 1532);",
                 "raw": "16 20 00 00 24 00 01 07"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2089,7 +2119,7 @@
                 "v": 36,
                 "c": 0,
                 "e": 46,
-                "description": "if (Bank[2][0] == 36) (else goto 1586);",
+                "js": "if (Bank[2][0] == 36) (else goto 1586);",
                 "raw": "16 20 00 00 24 00 00 2e"
               },
               {
@@ -2100,26 +2130,26 @@
                 "v": 0,
                 "c": 0,
                 "e": 3,
-                "description": "if (Bank[5][4] == 0) (else goto 1549);",
+                "js": "if (Bank[5][4] == 0) (else goto 1549);",
                 "raw": "14 50 04 00 00 03"
               },
               {
                 "op": "JMPB",
                 "a": 6,
-                "description": "goto 1541;",
+                "js": "goto 8;",
                 "raw": "12 06"
               },
               {
                 "op": "WAIT",
                 "a": 90,
-                "description": "wait({numFrames:90});",
+                "js": "wait({numFrames:90});",
                 "raw": "24 5a 00"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 2560,
-                "description": "setMovementSpeed({speed:2560});",
+                "js": "setMovementSpeed({speed:2560});",
                 "raw": "b2 00 00 0a"
               },
               {
@@ -2128,7 +2158,7 @@
                 "b2": 0,
                 "x": -4021,
                 "y": 21028,
-                "description": "walkObjectTo({x:-4021, y:21028});",
+                "js": "walkObjectTo({x:-4021, y:21028});",
                 "raw": "a8 00 4b f0 24 52"
               },
               {
@@ -2137,7 +2167,7 @@
                 "b2": 0,
                 "x": -3836,
                 "y": 21028,
-                "description": "walkObjectTo({x:-3836, y:21028});",
+                "js": "walkObjectTo({x:-3836, y:21028});",
                 "raw": "a8 00 04 f1 24 52"
               },
               {
@@ -2146,7 +2176,7 @@
                 "b2": 0,
                 "x": -3845,
                 "y": 20692,
-                "description": "walkObjectTo({x:-3845, y:20692});",
+                "js": "walkObjectTo({x:-3845, y:20692});",
                 "raw": "a8 00 fb f0 d4 50"
               },
               {
@@ -2155,30 +2185,31 @@
                 "b2": 0,
                 "x": -3954,
                 "y": 20466,
-                "description": "walkObjectTo({x:-3954, y:20466});",
+                "js": "walkObjectTo({x:-3954, y:20466});",
                 "raw": "a8 00 8e f0 f2 4f"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2188,7 +2219,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2204,7 +2236,7 @@
               {
                 "op": "CHAR",
                 "n": 3,
-                "description": "thisIsACharacterFieldModel(3);",
+                "js": "thisIsAFieldModel(3);",
                 "raw": "a1 03"
               },
               {
@@ -2217,43 +2249,44 @@
                 "y": 20830,
                 "z": 258,
                 "i": 29,
-                "description": "placeObject({x:-3807, y:20830, z:258, walkmeshTriangle:29});",
+                "js": "placeObject({x:-3807, y:20830, z:258, walkmeshTriangle:29});",
                 "raw": "a5 00 00 21 f1 5e 51 02 01 1d 00"
               },
               {
                 "op": "SLIDR",
                 "b": 0,
                 "r": 1,
-                "description": "setCollisionRadius({radius:1});",
+                "js": "setCollisionRadius({radius:1});",
                 "raw": "c6 00 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2270,38 +2303,38 @@
                 "v": 36,
                 "c": 0,
                 "e": 81,
-                "description": "if (Bank[2][0] == 36) (else goto 1701);",
+                "js": "if (Bank[2][0] == 36) (else goto 1701);",
                 "raw": "16 20 00 00 24 00 00 51"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "SLIDR",
                 "b": 0,
                 "r": 1,
-                "description": "setCollisionRadius({radius:1});",
+                "js": "setCollisionRadius({radius:1});",
                 "raw": "c6 00 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
@@ -2312,26 +2345,26 @@
                 "v": 0,
                 "c": 0,
                 "e": 3,
-                "description": "if (Bank[5][4] == 0) (else goto 1640);",
+                "js": "if (Bank[5][4] == 0) (else goto 1640);",
                 "raw": "14 50 04 00 00 03"
               },
               {
                 "op": "JMPB",
                 "a": 6,
-                "description": "goto 1632;",
+                "js": "goto 19;",
                 "raw": "12 06"
               },
               {
                 "op": "WAIT",
                 "a": 90,
-                "description": "wait({numFrames:90});",
+                "js": "wait({numFrames:90});",
                 "raw": "24 5a 00"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 2560,
-                "description": "setMovementSpeed({speed:2560});",
+                "js": "setMovementSpeed({speed:2560});",
                 "raw": "b2 00 00 0a"
               },
               {
@@ -2340,7 +2373,7 @@
                 "b2": 0,
                 "x": -4026,
                 "y": 20685,
-                "description": "walkObjectTo({x:-4026, y:20685});",
+                "js": "walkObjectTo({x:-4026, y:20685});",
                 "raw": "a8 00 46 f0 cd 50"
               },
               {
@@ -2349,7 +2382,7 @@
                 "b2": 0,
                 "x": -4068,
                 "y": 21070,
-                "description": "walkObjectTo({x:-4068, y:21070});",
+                "js": "walkObjectTo({x:-4068, y:21070});",
                 "raw": "a8 00 1c f0 4e 52"
               },
               {
@@ -2358,7 +2391,7 @@
                 "b2": 0,
                 "x": -4335,
                 "y": 21085,
-                "description": "walkObjectTo({x:-4335, y:21085});",
+                "js": "walkObjectTo({x:-4335, y:21085});",
                 "raw": "a8 00 11 ef 5d 52"
               },
               {
@@ -2367,7 +2400,7 @@
                 "b2": 0,
                 "x": -4101,
                 "y": 21042,
-                "description": "walkObjectTo({x:-4101, y:21042});",
+                "js": "walkObjectTo({x:-4101, y:21042});",
                 "raw": "a8 00 fb ef 32 52"
               },
               {
@@ -2376,7 +2409,7 @@
                 "b2": 0,
                 "x": -3842,
                 "y": 20959,
-                "description": "walkObjectTo({x:-3842, y:20959});",
+                "js": "walkObjectTo({x:-3842, y:20959});",
                 "raw": "a8 00 fe f0 df 51"
               },
               {
@@ -2385,25 +2418,25 @@
                 "b2": 0,
                 "x": -3973,
                 "y": 20427,
-                "description": "walkObjectTo({x:-3973, y:20427});",
+                "js": "walkObjectTo({x:-3973, y:20427});",
                 "raw": "a8 00 7b f0 cb 4f"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
@@ -2414,39 +2447,39 @@
                 "v": 0,
                 "c": 0,
                 "e": 3,
-                "description": "if (Bank[5][6] == 0) (else goto 1697);",
+                "js": "if (Bank[5][6] == 0) (else goto 1697);",
                 "raw": "14 50 06 00 00 03"
               },
               {
                 "op": "JMPB",
                 "a": 6,
-                "description": "goto 1689;",
+                "js": "goto 76;",
                 "raw": "12 06"
               },
               {
                 "op": "JMPF",
                 "a": 3,
-                "description": "goto 1701;",
+                "js": "goto 88;",
                 "raw": "10 03"
               },
               {
                 "op": "JMPF",
                 "a": 218,
-                "description": "goto 1918;",
+                "js": "goto 305;",
                 "raw": "10 da"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 2560,
-                "description": "setMovementSpeed({speed:2560});",
+                "js": "setMovementSpeed({speed:2560});",
                 "raw": "b2 00 00 0a"
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 7,
-                "description": "set8bit(Bank[5][7], Math.floor(Math.random() * 256));",
+                "js": "set8bit(Bank[5][7], Math.floor(Math.random() * 256));",
                 "raw": "99 05 07"
               },
               {
@@ -2457,14 +2490,14 @@
                 "v": 240,
                 "c": 2,
                 "e": 200,
-                "description": "if (Bank[5][7] > 240) (else goto 1913);",
+                "js": "if (Bank[5][7] > 240) (else goto 1913);",
                 "raw": "14 50 07 f0 02 c8"
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 7,
-                "description": "set8bit(Bank[5][7], Math.floor(Math.random() * 256));",
+                "js": "set8bit(Bank[5][7], Math.floor(Math.random() * 256));",
                 "raw": "99 05 07"
               },
               {
@@ -2473,7 +2506,7 @@
                 "bs": 0,
                 "d": 7,
                 "s": 3,
-                "description": "Bank[5][7] = Bank[5][7] & 3;",
+                "js": "Bank[5][7] = Bank[5][7] & 3;",
                 "raw": "8f 50 07 03"
               },
               {
@@ -2484,7 +2517,7 @@
                 "v": 1,
                 "c": 0,
                 "e": 55,
-                "description": "if (Bank[5][7] == 1) (else goto 1781);",
+                "js": "if (Bank[5][7] == 1) (else goto 1781);",
                 "raw": "14 50 07 01 00 37"
               },
               {
@@ -2497,38 +2530,38 @@
                 "y": 21084,
                 "z": 258,
                 "i": 16,
-                "description": "placeObject({x:-4301, y:21084, z:258, walkmeshTriangle:16});",
+                "js": "placeObject({x:-4301, y:21084, z:258, walkmeshTriangle:16});",
                 "raw": "a5 00 00 33 ef 5c 52 02 01 10 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "SLIDR",
                 "b": 0,
                 "r": 1,
-                "description": "setCollisionRadius({radius:1});",
+                "js": "setCollisionRadius({radius:1});",
                 "raw": "c6 00 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
@@ -2537,7 +2570,7 @@
                 "b2": 0,
                 "x": -4013,
                 "y": 21048,
-                "description": "walkObjectTo({x:-4013, y:21048});",
+                "js": "walkObjectTo({x:-4013, y:21048});",
                 "raw": "a8 00 53 f0 38 52"
               },
               {
@@ -2546,7 +2579,7 @@
                 "b2": 0,
                 "x": -4007,
                 "y": 20688,
-                "description": "walkObjectTo({x:-4007, y:20688});",
+                "js": "walkObjectTo({x:-4007, y:20688});",
                 "raw": "a8 00 59 f0 d0 50"
               },
               {
@@ -2555,7 +2588,7 @@
                 "b2": 0,
                 "x": -3882,
                 "y": 20685,
-                "description": "walkObjectTo({x:-3882, y:20685});",
+                "js": "walkObjectTo({x:-3882, y:20685});",
                 "raw": "a8 00 d6 f0 cd 50"
               },
               {
@@ -2564,31 +2597,31 @@
                 "b2": 0,
                 "x": -3973,
                 "y": 20427,
-                "description": "walkObjectTo({x:-3973, y:20427});",
+                "js": "walkObjectTo({x:-3973, y:20427});",
                 "raw": "a8 00 7b f0 cb 4f"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "JMPF",
                 "a": 131,
-                "description": "goto 1911;",
+                "js": "goto 298;",
                 "raw": "10 83"
               },
               {
@@ -2599,7 +2632,7 @@
                 "v": 2,
                 "c": 0,
                 "e": 61,
-                "description": "if (Bank[5][7] == 2) (else goto 1847);",
+                "js": "if (Bank[5][7] == 2) (else goto 1847);",
                 "raw": "14 50 07 02 00 3d"
               },
               {
@@ -2612,38 +2645,38 @@
                 "y": 20427,
                 "z": 258,
                 "i": 41,
-                "description": "placeObject({x:-3973, y:20427, z:258, walkmeshTriangle:41});",
+                "js": "placeObject({x:-3973, y:20427, z:258, walkmeshTriangle:41});",
                 "raw": "a5 00 00 7b f0 cb 4f 02 01 29 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "SLIDR",
                 "b": 0,
                 "r": 1,
-                "description": "setCollisionRadius({radius:1});",
+                "js": "setCollisionRadius({radius:1});",
                 "raw": "c6 00 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
@@ -2652,7 +2685,7 @@
                 "b2": 0,
                 "x": -3837,
                 "y": 20762,
-                "description": "walkObjectTo({x:-3837, y:20762});",
+                "js": "walkObjectTo({x:-3837, y:20762});",
                 "raw": "a8 00 03 f1 1a 51"
               },
               {
@@ -2661,7 +2694,7 @@
                 "b2": 0,
                 "x": -3985,
                 "y": 20993,
-                "description": "walkObjectTo({x:-3985, y:20993});",
+                "js": "walkObjectTo({x:-3985, y:20993});",
                 "raw": "a8 00 6f f0 01 52"
               },
               {
@@ -2670,7 +2703,7 @@
                 "b2": 0,
                 "x": -3793,
                 "y": 21296,
-                "description": "walkObjectTo({x:-3793, y:21296});",
+                "js": "walkObjectTo({x:-3793, y:21296});",
                 "raw": "a8 00 2f f1 30 53"
               },
               {
@@ -2679,7 +2712,7 @@
                 "b2": 0,
                 "x": -3496,
                 "y": 21261,
-                "description": "walkObjectTo({x:-3496, y:21261});",
+                "js": "walkObjectTo({x:-3496, y:21261});",
                 "raw": "a8 00 58 f2 0d 53"
               },
               {
@@ -2688,31 +2721,31 @@
                 "b2": 0,
                 "x": -3444,
                 "y": 21261,
-                "description": "walkObjectTo({x:-3444, y:21261});",
+                "js": "walkObjectTo({x:-3444, y:21261});",
                 "raw": "a8 00 8c f2 0d 53"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "JMPF",
                 "a": 65,
-                "description": "goto 1911;",
+                "js": "goto 298;",
                 "raw": "10 41"
               },
               {
@@ -2723,7 +2756,7 @@
                 "v": 3,
                 "c": 0,
                 "e": 59,
-                "description": "if (Bank[5][7] == 3) (else goto 1911);",
+                "js": "if (Bank[5][7] == 3) (else goto 1911);",
                 "raw": "14 50 07 03 00 3b"
               },
               {
@@ -2736,38 +2769,38 @@
                 "y": 21261,
                 "z": 258,
                 "i": 35,
-                "description": "placeObject({x:-3444, y:21261, z:258, walkmeshTriangle:35});",
+                "js": "placeObject({x:-3444, y:21261, z:258, walkmeshTriangle:35});",
                 "raw": "a5 00 00 8c f2 0d 53 02 01 23 00"
               },
               {
                 "op": "TLKON",
                 "s": 0,
-                "description": "interactibilityOn();",
+                "js": "interactibilityOn();",
                 "raw": "7e 00"
               },
               {
                 "op": "SOLID",
                 "s": 0,
-                "description": "setSolidMode(S.Solid);",
+                "js": "setSolidMode(S.Solid);",
                 "raw": "c7 00"
               },
               {
                 "op": "VISI",
                 "s": 1,
-                "description": "setVisibilityMode(V.Visible);",
+                "js": "setVisibilityMode(V.Visible);",
                 "raw": "a4 01"
               },
               {
                 "op": "SLIDR",
                 "b": 0,
                 "r": 1,
-                "description": "setCollisionRadius({radius:1});",
+                "js": "setCollisionRadius({radius:1});",
                 "raw": "c6 00 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
@@ -2776,7 +2809,7 @@
                 "b2": 0,
                 "x": -3496,
                 "y": 21261,
-                "description": "walkObjectTo({x:-3496, y:21261});",
+                "js": "walkObjectTo({x:-3496, y:21261});",
                 "raw": "a8 00 58 f2 0d 53"
               },
               {
@@ -2785,7 +2818,7 @@
                 "b2": 0,
                 "x": -3793,
                 "y": 21296,
-                "description": "walkObjectTo({x:-3793, y:21296});",
+                "js": "walkObjectTo({x:-3793, y:21296});",
                 "raw": "a8 00 2f f1 30 53"
               },
               {
@@ -2794,7 +2827,7 @@
                 "b2": 0,
                 "x": -4059,
                 "y": 20910,
-                "description": "walkObjectTo({x:-4059, y:20910});",
+                "js": "walkObjectTo({x:-4059, y:20910});",
                 "raw": "a8 00 25 f0 ae 51"
               },
               {
@@ -2803,7 +2836,7 @@
                 "b2": 0,
                 "x": -4185,
                 "y": 21096,
-                "description": "walkObjectTo({x:-4185, y:21096});",
+                "js": "walkObjectTo({x:-4185, y:21096});",
                 "raw": "a8 00 a7 ef 68 52"
               },
               {
@@ -2812,48 +2845,49 @@
                 "b2": 0,
                 "x": -4338,
                 "y": 21085,
-                "description": "walkObjectTo({x:-4338, y:21085});",
+                "js": "walkObjectTo({x:-4338, y:21085});",
                 "raw": "a8 00 0e ef 5d 52"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "JMPF",
                 "a": 4,
-                "description": "goto 1916;",
+                "js": "goto 303;",
                 "raw": "10 04"
               },
               {
                 "op": "WAIT",
                 "a": 60,
-                "description": "wait({numFrames:60});",
+                "js": "wait({numFrames:60});",
                 "raw": "24 3c 00"
               },
               {
                 "op": "JMPB",
                 "a": 215,
-                "description": "goto 1701;",
+                "js": "goto 88;",
                 "raw": "12 d7"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2863,7 +2897,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2879,7 +2914,7 @@
               {
                 "op": "CHAR",
                 "n": 4,
-                "description": "thisIsACharacterFieldModel(4);",
+                "js": "thisIsAFieldModel(4);",
                 "raw": "a1 04"
               },
               {
@@ -2892,20 +2927,20 @@
                 "y": 21165,
                 "z": 258,
                 "i": 36,
-                "description": "placeObject({x:-3780, y:21165, z:258, walkmeshTriangle:36});",
+                "js": "placeObject({x:-3780, y:21165, z:258, walkmeshTriangle:36});",
                 "raw": "a5 00 00 3c f1 ad 52 02 01 24 00"
               },
               {
                 "op": "SLIDR",
                 "b": 0,
                 "r": 1,
-                "description": "setCollisionRadius({radius:1});",
+                "js": "setCollisionRadius({radius:1});",
                 "raw": "c6 00 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
@@ -2916,30 +2951,31 @@
                 "v": 36,
                 "c": 1,
                 "e": 7,
-                "description": "if (Bank[2][0] != 36) (else goto 1952);",
+                "js": "if (Bank[2][0] != 36) (else goto 1952);",
                 "raw": "16 20 00 00 24 00 01 07"
               },
               {
                 "op": "TLKON",
                 "s": 1,
-                "description": "interactibilityOff();",
+                "js": "interactibilityOff();",
                 "raw": "7e 01"
               },
               {
                 "op": "SOLID",
                 "s": 1,
-                "description": "setSolidMode(S.NonSolid);",
+                "js": "setSolidMode(S.NonSolid);",
                 "raw": "c7 01"
               },
               {
                 "op": "VISI",
                 "s": 0,
-                "description": "setVisibilityMode(V.NotVisible);",
+                "js": "setVisibilityMode(V.NotVisible);",
                 "raw": "a4 00"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -2956,7 +2992,7 @@
                 "v": 36,
                 "c": 0,
                 "e": 43,
-                "description": "if (Bank[2][0] == 36) (else goto 2003);",
+                "js": "if (Bank[2][0] == 36) (else goto 2003);",
                 "raw": "16 20 00 00 24 00 00 2b"
               },
               {
@@ -2967,26 +3003,26 @@
                 "v": 0,
                 "c": 0,
                 "e": 3,
-                "description": "if (Bank[5][4] == 0) (else goto 1969);",
+                "js": "if (Bank[5][4] == 0) (else goto 1969);",
                 "raw": "14 50 04 00 00 03"
               },
               {
                 "op": "JMPB",
                 "a": 6,
-                "description": "goto 1961;",
+                "js": "goto 8;",
                 "raw": "12 06"
               },
               {
                 "op": "WAIT",
                 "a": 65,
-                "description": "wait({numFrames:65});",
+                "js": "wait({numFrames:65});",
                 "raw": "24 41 00"
               },
               {
                 "op": "MSPED",
                 "b": 0,
                 "d": 2560,
-                "description": "setMovementSpeed({speed:2560});",
+                "js": "setMovementSpeed({speed:2560});",
                 "raw": "b2 00 00 0a"
               },
               {
@@ -2995,7 +3031,7 @@
                 "b2": 0,
                 "x": -4030,
                 "y": 21232,
-                "description": "walkObjectTo({x:-4030, y:21232});",
+                "js": "walkObjectTo({x:-4030, y:21232});",
                 "raw": "a8 00 42 f0 f0 52"
               },
               {
@@ -3003,8 +3039,9 @@
                 "e": 2,
                 "p": 2,
                 "f": 5,
-                "description": "entityExecuteAsync({entity:2, priority:2, function:5});",
-                "pres": "Tells <E> to <F>",
+                "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
+                "js": "entityExecuteAsync({entity:2, priority:2, function:5});",
+                "pres": "Tells <entityName> to <scriptName>",
                 "raw": "01 02 45"
               },
               {
@@ -3013,7 +3050,7 @@
                 "b2": 0,
                 "x": -4040,
                 "y": 20880,
-                "description": "walkObjectTo({x:-4040, y:20880});",
+                "js": "walkObjectTo({x:-4040, y:20880});",
                 "raw": "a8 00 38 f0 90 51"
               },
               {
@@ -3022,7 +3059,7 @@
                 "b2": 0,
                 "x": -4199,
                 "y": 21092,
-                "description": "walkObjectTo({x:-4199, y:21092});",
+                "js": "walkObjectTo({x:-4199, y:21092});",
                 "raw": "a8 00 99 ef 64 52"
               },
               {
@@ -3031,12 +3068,13 @@
                 "b2": 0,
                 "x": -4342,
                 "y": 21077,
-                "description": "walkObjectTo({x:-4342, y:21077});",
+                "js": "walkObjectTo({x:-4342, y:21077});",
                 "raw": "a8 00 0a ef 55 52"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3046,7 +3084,8 @@
             "ops": [
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3063,7 +3102,7 @@
                 "op": "BGCLR",
                 "b": 0,
                 "a": 1,
-                "description": "clearBackground({area:1});",
+                "js": "clearBackground({area:1});",
                 "pres": "<Area:1> clears.",
                 "raw": "e4 00 01"
               },
@@ -3073,13 +3112,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 5,
-                "description": "backgroundOn({area:1, layer:5});",
+                "js": "backgroundOn({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> appears.",
                 "raw": "e0 00 01 05"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -3096,14 +3136,14 @@
                 "v": 39,
                 "c": 3,
                 "e": 211,
-                "description": "if (Bank[2][0] < 39) (else goto 2231);",
+                "js": "if (Bank[2][0] < 39) (else goto 2231);",
                 "raw": "16 20 00 00 27 00 03 d3"
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 9,
-                "description": "set8bit(Bank[5][9], Math.floor(Math.random() * 256));",
+                "js": "set8bit(Bank[5][9], Math.floor(Math.random() * 256));",
                 "raw": "99 05 09"
               },
               {
@@ -3114,14 +3154,14 @@
                 "v": 235,
                 "c": 2,
                 "e": 134,
-                "description": "if (Bank[5][9] > 235) (else goto 2163);",
+                "js": "if (Bank[5][9] > 235) (else goto 2163);",
                 "raw": "14 50 09 eb 02 86"
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 10,
-                "description": "set8bit(Bank[5][10], Math.floor(Math.random() * 256));",
+                "js": "set8bit(Bank[5][10], Math.floor(Math.random() * 256));",
                 "raw": "99 05 0a"
               },
               {
@@ -3130,14 +3170,14 @@
                 "bs": 0,
                 "d": 10,
                 "s": 3,
-                "description": "Bank[5][10] = Bank[5][10] & 3;",
+                "js": "Bank[5][10] = Bank[5][10] & 3;",
                 "raw": "8f 50 0a 03"
               },
               {
                 "op": "INC",
                 "b": 5,
                 "a": 10,
-                "description": "increment8bit(Bank[5][10]);",
+                "js": "increment8bit(Bank[5][10]);",
                 "raw": "95 05 0a"
               },
               {
@@ -3148,13 +3188,13 @@
                 "v": 0,
                 "c": 2,
                 "e": 116,
-                "description": "if (Bank[5][10] > 0) (else goto 2161);",
+                "js": "if (Bank[5][10] > 0) (else goto 2161);",
                 "raw": "14 50 0a 00 02 74"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3163,7 +3203,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 5,
-                "description": "backgroundOff({area:1, layer:5});",
+                "js": "backgroundOff({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> disappears.",
                 "raw": "e1 00 01 05"
               },
@@ -3173,14 +3213,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOn({area:1, layer:4});",
+                "js": "backgroundOn({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> appears.",
                 "raw": "e0 00 01 04"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3189,7 +3229,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOff({area:1, layer:4});",
+                "js": "backgroundOff({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> disappears.",
                 "raw": "e1 00 01 04"
               },
@@ -3199,14 +3239,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOn({area:1, layer:3});",
+                "js": "backgroundOn({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> appears.",
                 "raw": "e0 00 01 03"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3215,7 +3255,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOff({area:1, layer:3});",
+                "js": "backgroundOff({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> disappears.",
                 "raw": "e1 00 01 03"
               },
@@ -3225,14 +3265,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOn({area:1, layer:2});",
+                "js": "backgroundOn({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> appears.",
                 "raw": "e0 00 01 02"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3241,7 +3281,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOff({area:1, layer:2});",
+                "js": "backgroundOff({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> disappears.",
                 "raw": "e1 00 01 02"
               },
@@ -3251,14 +3291,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 1,
-                "description": "backgroundOn({area:1, layer:1});",
+                "js": "backgroundOn({area:1, layer:1});",
                 "pres": "<Area:1> <Layer:1> appears.",
                 "raw": "e0 00 01 01"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3267,7 +3307,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 1,
-                "description": "backgroundOff({area:1, layer:1});",
+                "js": "backgroundOff({area:1, layer:1});",
                 "pres": "<Area:1> <Layer:1> disappears.",
                 "raw": "e1 00 01 01"
               },
@@ -3277,14 +3317,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 0,
-                "description": "backgroundOn({area:1, layer:0});",
+                "js": "backgroundOn({area:1, layer:0});",
                 "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3293,7 +3333,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 0,
-                "description": "backgroundOff({area:1, layer:0});",
+                "js": "backgroundOff({area:1, layer:0});",
                 "pres": "<Area:1> <Layer:0> disappears.",
                 "raw": "e1 00 01 00"
               },
@@ -3303,14 +3343,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 1,
-                "description": "backgroundOn({area:1, layer:1});",
+                "js": "backgroundOn({area:1, layer:1});",
                 "pres": "<Area:1> <Layer:1> appears.",
                 "raw": "e0 00 01 01"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3319,7 +3359,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 1,
-                "description": "backgroundOff({area:1, layer:1});",
+                "js": "backgroundOff({area:1, layer:1});",
                 "pres": "<Area:1> <Layer:1> disappears.",
                 "raw": "e1 00 01 01"
               },
@@ -3329,14 +3369,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOn({area:1, layer:2});",
+                "js": "backgroundOn({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> appears.",
                 "raw": "e0 00 01 02"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3345,7 +3385,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOff({area:1, layer:2});",
+                "js": "backgroundOff({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> disappears.",
                 "raw": "e1 00 01 02"
               },
@@ -3355,14 +3395,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOn({area:1, layer:3});",
+                "js": "backgroundOn({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> appears.",
                 "raw": "e0 00 01 03"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3371,7 +3411,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOff({area:1, layer:3});",
+                "js": "backgroundOff({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> disappears.",
                 "raw": "e1 00 01 03"
               },
@@ -3381,14 +3421,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOn({area:1, layer:4});",
+                "js": "backgroundOn({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> appears.",
                 "raw": "e0 00 01 04"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3397,7 +3437,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOff({area:1, layer:4});",
+                "js": "backgroundOff({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> disappears.",
                 "raw": "e1 00 01 04"
               },
@@ -3407,7 +3447,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 5,
-                "description": "backgroundOn({area:1, layer:5});",
+                "js": "backgroundOn({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> appears.",
                 "raw": "e0 00 01 05"
               },
@@ -3415,25 +3455,25 @@
                 "op": "DEC",
                 "b": 5,
                 "a": 10,
-                "description": "decrement8bit(Bank[5][10]);",
+                "js": "decrement8bit(Bank[5][10]);",
                 "raw": "97 05 0a"
               },
               {
                 "op": "JMPB",
                 "a": 119,
-                "description": "goto 2040;",
+                "js": "goto 27;",
                 "raw": "12 77"
               },
               {
                 "op": "JMPF",
                 "a": 67,
-                "description": "goto 2229;",
+                "js": "goto 216;",
                 "raw": "10 43"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3442,7 +3482,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 5,
-                "description": "backgroundOff({area:1, layer:5});",
+                "js": "backgroundOff({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> disappears.",
                 "raw": "e1 00 01 05"
               },
@@ -3452,14 +3492,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOn({area:1, layer:4});",
+                "js": "backgroundOn({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> appears.",
                 "raw": "e0 00 01 04"
               },
               {
                 "op": "WAIT",
                 "a": 6,
-                "description": "wait({numFrames:6});",
+                "js": "wait({numFrames:6});",
                 "raw": "24 06 00"
               },
               {
@@ -3468,7 +3508,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOff({area:1, layer:4});",
+                "js": "backgroundOff({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> disappears.",
                 "raw": "e1 00 01 04"
               },
@@ -3478,14 +3518,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOn({area:1, layer:3});",
+                "js": "backgroundOn({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> appears.",
                 "raw": "e0 00 01 03"
               },
               {
                 "op": "WAIT",
                 "a": 6,
-                "description": "wait({numFrames:6});",
+                "js": "wait({numFrames:6});",
                 "raw": "24 06 00"
               },
               {
@@ -3494,7 +3534,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOff({area:1, layer:3});",
+                "js": "backgroundOff({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> disappears.",
                 "raw": "e1 00 01 03"
               },
@@ -3504,14 +3544,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOn({area:1, layer:2});",
+                "js": "backgroundOn({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> appears.",
                 "raw": "e0 00 01 02"
               },
               {
                 "op": "WAIT",
                 "a": 6,
-                "description": "wait({numFrames:6});",
+                "js": "wait({numFrames:6});",
                 "raw": "24 06 00"
               },
               {
@@ -3520,7 +3560,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOff({area:1, layer:2});",
+                "js": "backgroundOff({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> disappears.",
                 "raw": "e1 00 01 02"
               },
@@ -3530,14 +3570,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOn({area:1, layer:3});",
+                "js": "backgroundOn({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> appears.",
                 "raw": "e0 00 01 03"
               },
               {
                 "op": "WAIT",
                 "a": 6,
-                "description": "wait({numFrames:6});",
+                "js": "wait({numFrames:6});",
                 "raw": "24 06 00"
               },
               {
@@ -3546,7 +3586,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOff({area:1, layer:3});",
+                "js": "backgroundOff({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> disappears.",
                 "raw": "e1 00 01 03"
               },
@@ -3556,14 +3596,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOn({area:1, layer:4});",
+                "js": "backgroundOn({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> appears.",
                 "raw": "e0 00 01 04"
               },
               {
                 "op": "WAIT",
                 "a": 6,
-                "description": "wait({numFrames:6});",
+                "js": "wait({numFrames:6});",
                 "raw": "24 06 00"
               },
               {
@@ -3572,7 +3612,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOff({area:1, layer:4});",
+                "js": "backgroundOff({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> disappears.",
                 "raw": "e1 00 01 04"
               },
@@ -3582,21 +3622,21 @@
                 "b2": 0,
                 "a": 1,
                 "l": 5,
-                "description": "backgroundOn({area:1, layer:5});",
+                "js": "backgroundOn({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> appears.",
                 "raw": "e0 00 01 05"
               },
               {
                 "op": "JMPB",
                 "a": 216,
-                "description": "goto 2013;",
+                "js": "goto 0;",
                 "raw": "12 d8"
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 9,
-                "description": "set8bit(Bank[5][9], Math.floor(Math.random() * 256));",
+                "js": "set8bit(Bank[5][9], Math.floor(Math.random() * 256));",
                 "raw": "99 05 09"
               },
               {
@@ -3607,14 +3647,14 @@
                 "v": 128,
                 "c": 2,
                 "e": 134,
-                "description": "if (Bank[5][9] > 128) (else goto 2373);",
+                "js": "if (Bank[5][9] > 128) (else goto 2373);",
                 "raw": "14 50 09 80 02 86"
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 10,
-                "description": "set8bit(Bank[5][10], Math.floor(Math.random() * 256));",
+                "js": "set8bit(Bank[5][10], Math.floor(Math.random() * 256));",
                 "raw": "99 05 0a"
               },
               {
@@ -3623,14 +3663,14 @@
                 "bs": 0,
                 "d": 10,
                 "s": 3,
-                "description": "Bank[5][10] = Bank[5][10] & 3;",
+                "js": "Bank[5][10] = Bank[5][10] & 3;",
                 "raw": "8f 50 0a 03"
               },
               {
                 "op": "INC",
                 "b": 5,
                 "a": 10,
-                "description": "increment8bit(Bank[5][10]);",
+                "js": "increment8bit(Bank[5][10]);",
                 "raw": "95 05 0a"
               },
               {
@@ -3641,13 +3681,13 @@
                 "v": 0,
                 "c": 2,
                 "e": 116,
-                "description": "if (Bank[5][10] > 0) (else goto 2371);",
+                "js": "if (Bank[5][10] > 0) (else goto 2371);",
                 "raw": "14 50 0a 00 02 74"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3656,7 +3696,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 5,
-                "description": "backgroundOff({area:1, layer:5});",
+                "js": "backgroundOff({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> disappears.",
                 "raw": "e1 00 01 05"
               },
@@ -3666,14 +3706,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOn({area:1, layer:4});",
+                "js": "backgroundOn({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> appears.",
                 "raw": "e0 00 01 04"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3682,7 +3722,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOff({area:1, layer:4});",
+                "js": "backgroundOff({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> disappears.",
                 "raw": "e1 00 01 04"
               },
@@ -3692,14 +3732,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOn({area:1, layer:3});",
+                "js": "backgroundOn({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> appears.",
                 "raw": "e0 00 01 03"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3708,7 +3748,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOff({area:1, layer:3});",
+                "js": "backgroundOff({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> disappears.",
                 "raw": "e1 00 01 03"
               },
@@ -3718,14 +3758,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOn({area:1, layer:2});",
+                "js": "backgroundOn({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> appears.",
                 "raw": "e0 00 01 02"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3734,7 +3774,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOff({area:1, layer:2});",
+                "js": "backgroundOff({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> disappears.",
                 "raw": "e1 00 01 02"
               },
@@ -3744,14 +3784,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 1,
-                "description": "backgroundOn({area:1, layer:1});",
+                "js": "backgroundOn({area:1, layer:1});",
                 "pres": "<Area:1> <Layer:1> appears.",
                 "raw": "e0 00 01 01"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3760,7 +3800,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 1,
-                "description": "backgroundOff({area:1, layer:1});",
+                "js": "backgroundOff({area:1, layer:1});",
                 "pres": "<Area:1> <Layer:1> disappears.",
                 "raw": "e1 00 01 01"
               },
@@ -3770,14 +3810,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 0,
-                "description": "backgroundOn({area:1, layer:0});",
+                "js": "backgroundOn({area:1, layer:0});",
                 "pres": "<Area:1> <Layer:0> appears.",
                 "raw": "e0 00 01 00"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3786,7 +3826,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 0,
-                "description": "backgroundOff({area:1, layer:0});",
+                "js": "backgroundOff({area:1, layer:0});",
                 "pres": "<Area:1> <Layer:0> disappears.",
                 "raw": "e1 00 01 00"
               },
@@ -3796,14 +3836,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 1,
-                "description": "backgroundOn({area:1, layer:1});",
+                "js": "backgroundOn({area:1, layer:1});",
                 "pres": "<Area:1> <Layer:1> appears.",
                 "raw": "e0 00 01 01"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3812,7 +3852,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 1,
-                "description": "backgroundOff({area:1, layer:1});",
+                "js": "backgroundOff({area:1, layer:1});",
                 "pres": "<Area:1> <Layer:1> disappears.",
                 "raw": "e1 00 01 01"
               },
@@ -3822,14 +3862,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOn({area:1, layer:2});",
+                "js": "backgroundOn({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> appears.",
                 "raw": "e0 00 01 02"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3838,7 +3878,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOff({area:1, layer:2});",
+                "js": "backgroundOff({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> disappears.",
                 "raw": "e1 00 01 02"
               },
@@ -3848,14 +3888,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOn({area:1, layer:3});",
+                "js": "backgroundOn({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> appears.",
                 "raw": "e0 00 01 03"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3864,7 +3904,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOff({area:1, layer:3});",
+                "js": "backgroundOff({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> disappears.",
                 "raw": "e1 00 01 03"
               },
@@ -3874,14 +3914,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOn({area:1, layer:4});",
+                "js": "backgroundOn({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> appears.",
                 "raw": "e0 00 01 04"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3890,7 +3930,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOff({area:1, layer:4});",
+                "js": "backgroundOff({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> disappears.",
                 "raw": "e1 00 01 04"
               },
@@ -3900,7 +3940,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 5,
-                "description": "backgroundOn({area:1, layer:5});",
+                "js": "backgroundOn({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> appears.",
                 "raw": "e0 00 01 05"
               },
@@ -3908,25 +3948,25 @@
                 "op": "DEC",
                 "b": 5,
                 "a": 10,
-                "description": "decrement8bit(Bank[5][10]);",
+                "js": "decrement8bit(Bank[5][10]);",
                 "raw": "97 05 0a"
               },
               {
                 "op": "JMPB",
                 "a": 119,
-                "description": "goto 2250;",
+                "js": "goto 237;",
                 "raw": "12 77"
               },
               {
                 "op": "JMPF",
                 "a": 67,
-                "description": "goto 2439;",
+                "js": "goto 426;",
                 "raw": "10 43"
               },
               {
                 "op": "WAIT",
                 "a": 4,
-                "description": "wait({numFrames:4});",
+                "js": "wait({numFrames:4});",
                 "raw": "24 04 00"
               },
               {
@@ -3935,7 +3975,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 5,
-                "description": "backgroundOff({area:1, layer:5});",
+                "js": "backgroundOff({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> disappears.",
                 "raw": "e1 00 01 05"
               },
@@ -3945,14 +3985,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOn({area:1, layer:4});",
+                "js": "backgroundOn({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> appears.",
                 "raw": "e0 00 01 04"
               },
               {
                 "op": "WAIT",
                 "a": 6,
-                "description": "wait({numFrames:6});",
+                "js": "wait({numFrames:6});",
                 "raw": "24 06 00"
               },
               {
@@ -3961,7 +4001,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOff({area:1, layer:4});",
+                "js": "backgroundOff({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> disappears.",
                 "raw": "e1 00 01 04"
               },
@@ -3971,14 +4011,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOn({area:1, layer:3});",
+                "js": "backgroundOn({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> appears.",
                 "raw": "e0 00 01 03"
               },
               {
                 "op": "WAIT",
                 "a": 6,
-                "description": "wait({numFrames:6});",
+                "js": "wait({numFrames:6});",
                 "raw": "24 06 00"
               },
               {
@@ -3987,7 +4027,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOff({area:1, layer:3});",
+                "js": "backgroundOff({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> disappears.",
                 "raw": "e1 00 01 03"
               },
@@ -3997,14 +4037,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOn({area:1, layer:2});",
+                "js": "backgroundOn({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> appears.",
                 "raw": "e0 00 01 02"
               },
               {
                 "op": "WAIT",
                 "a": 6,
-                "description": "wait({numFrames:6});",
+                "js": "wait({numFrames:6});",
                 "raw": "24 06 00"
               },
               {
@@ -4013,7 +4053,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 2,
-                "description": "backgroundOff({area:1, layer:2});",
+                "js": "backgroundOff({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> disappears.",
                 "raw": "e1 00 01 02"
               },
@@ -4023,14 +4063,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOn({area:1, layer:3});",
+                "js": "backgroundOn({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> appears.",
                 "raw": "e0 00 01 03"
               },
               {
                 "op": "WAIT",
                 "a": 6,
-                "description": "wait({numFrames:6});",
+                "js": "wait({numFrames:6});",
                 "raw": "24 06 00"
               },
               {
@@ -4039,7 +4079,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 3,
-                "description": "backgroundOff({area:1, layer:3});",
+                "js": "backgroundOff({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> disappears.",
                 "raw": "e1 00 01 03"
               },
@@ -4049,14 +4089,14 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOn({area:1, layer:4});",
+                "js": "backgroundOn({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> appears.",
                 "raw": "e0 00 01 04"
               },
               {
                 "op": "WAIT",
                 "a": 6,
-                "description": "wait({numFrames:6});",
+                "js": "wait({numFrames:6});",
                 "raw": "24 06 00"
               },
               {
@@ -4065,7 +4105,7 @@
                 "b2": 0,
                 "a": 1,
                 "l": 4,
-                "description": "backgroundOff({area:1, layer:4});",
+                "js": "backgroundOff({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> disappears.",
                 "raw": "e1 00 01 04"
               },
@@ -4075,19 +4115,20 @@
                 "b2": 0,
                 "a": 1,
                 "l": 5,
-                "description": "backgroundOn({area:1, layer:5});",
+                "js": "backgroundOn({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> appears.",
                 "raw": "e0 00 01 05"
               },
               {
                 "op": "JMPB",
                 "a": 208,
-                "description": "goto 2231;",
+                "js": "goto 218;",
                 "raw": "12 d0"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4104,13 +4145,14 @@
                 "op": "BGCLR",
                 "b": 0,
                 "a": 2,
-                "description": "clearBackground({area:2});",
+                "js": "clearBackground({area:2});",
                 "pres": "<Area:2> clears.",
                 "raw": "e4 00 02"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4123,7 +4165,7 @@
                 "op": "RANDOM",
                 "b": 5,
                 "a": 11,
-                "description": "set8bit(Bank[5][11], Math.floor(Math.random() * 256));",
+                "js": "set8bit(Bank[5][11], Math.floor(Math.random() * 256));",
                 "raw": "99 05 0b"
               },
               {
@@ -4134,14 +4176,14 @@
                 "v": 225,
                 "c": 2,
                 "e": 49,
-                "description": "if (Bank[5][11] > 225) (else goto 2503);",
+                "js": "if (Bank[5][11] > 225) (else goto 2503);",
                 "raw": "14 50 0b e1 02 31"
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 12,
-                "description": "set8bit(Bank[5][12], Math.floor(Math.random() * 256));",
+                "js": "set8bit(Bank[5][12], Math.floor(Math.random() * 256));",
                 "raw": "99 05 0c"
               },
               {
@@ -4150,14 +4192,14 @@
                 "bs": 0,
                 "d": 12,
                 "s": 7,
-                "description": "Bank[5][12] = Bank[5][12] & 7;",
+                "js": "Bank[5][12] = Bank[5][12] & 7;",
                 "raw": "8f 50 0c 07"
               },
               {
                 "op": "INC",
                 "b": 5,
                 "a": 12,
-                "description": "increment8bit(Bank[5][12]);",
+                "js": "increment8bit(Bank[5][12]);",
                 "raw": "95 05 0c"
               },
               {
@@ -4168,13 +4210,13 @@
                 "v": 0,
                 "c": 2,
                 "e": 31,
-                "description": "if (Bank[5][12] > 0) (else goto 2501);",
+                "js": "if (Bank[5][12] > 0) (else goto 2501);",
                 "raw": "14 50 0c 00 02 1f"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
@@ -4183,14 +4225,14 @@
                 "b2": 0,
                 "a": 2,
                 "l": 0,
-                "description": "backgroundOn({area:2, layer:0});",
+                "js": "backgroundOn({area:2, layer:0});",
                 "pres": "<Area:2> <Layer:0> appears.",
                 "raw": "e0 00 02 00"
               },
               {
                 "op": "WAIT",
                 "a": 3,
-                "description": "wait({numFrames:3});",
+                "js": "wait({numFrames:3});",
                 "raw": "24 03 00"
               },
               {
@@ -4199,7 +4241,7 @@
                 "b2": 0,
                 "a": 2,
                 "l": 0,
-                "description": "backgroundOff({area:2, layer:0});",
+                "js": "backgroundOff({area:2, layer:0});",
                 "pres": "<Area:2> <Layer:0> disappears.",
                 "raw": "e1 00 02 00"
               },
@@ -4209,14 +4251,14 @@
                 "b2": 0,
                 "a": 2,
                 "l": 1,
-                "description": "backgroundOn({area:2, layer:1});",
+                "js": "backgroundOn({area:2, layer:1});",
                 "pres": "<Area:2> <Layer:1> appears.",
                 "raw": "e0 00 02 01"
               },
               {
                 "op": "WAIT",
                 "a": 3,
-                "description": "wait({numFrames:3});",
+                "js": "wait({numFrames:3});",
                 "raw": "24 03 00"
               },
               {
@@ -4225,7 +4267,7 @@
                 "b2": 0,
                 "a": 2,
                 "l": 1,
-                "description": "backgroundOff({area:2, layer:1});",
+                "js": "backgroundOff({area:2, layer:1});",
                 "pres": "<Area:2> <Layer:1> disappears.",
                 "raw": "e1 00 02 01"
               },
@@ -4233,31 +4275,31 @@
                 "op": "DEC",
                 "b": 5,
                 "a": 12,
-                "description": "decrement8bit(Bank[5][12]);",
+                "js": "decrement8bit(Bank[5][12]);",
                 "raw": "97 05 0c"
               },
               {
                 "op": "JMPB",
                 "a": 34,
-                "description": "goto 2465;",
+                "js": "goto 19;",
                 "raw": "12 22"
               },
               {
                 "op": "JMPF",
                 "a": 4,
-                "description": "goto 2506;",
+                "js": "goto 60;",
                 "raw": "10 04"
               },
               {
                 "op": "WAIT",
                 "a": 8,
-                "description": "wait({numFrames:8});",
+                "js": "wait({numFrames:8});",
                 "raw": "24 08 00"
               },
               {
                 "op": "JMPB",
                 "a": 60,
-                "description": "goto 2446;",
+                "js": "goto 0;",
                 "raw": "12 3c"
               }
             ]
@@ -4274,13 +4316,14 @@
                 "op": "BGCLR",
                 "b": 0,
                 "a": 3,
-                "description": "clearBackground({area:3});",
+                "js": "clearBackground({area:3});",
                 "pres": "<Area:3> clears.",
                 "raw": "e4 00 03"
               },
               {
                 "op": "RET",
-                "description": "return;",
+                "mr": "Return",
+                "js": "return;",
                 "raw": "00"
               }
             ]
@@ -4293,7 +4336,7 @@
                 "op": "RANDOM",
                 "b": 5,
                 "a": 13,
-                "description": "set8bit(Bank[5][13], Math.floor(Math.random() * 256));",
+                "js": "set8bit(Bank[5][13], Math.floor(Math.random() * 256));",
                 "raw": "99 05 0d"
               },
               {
@@ -4304,14 +4347,14 @@
                 "v": 200,
                 "c": 2,
                 "e": 82,
-                "description": "if (Bank[5][13] > 200) (else goto 2602);",
+                "js": "if (Bank[5][13] > 200) (else goto 2602);",
                 "raw": "14 50 0d c8 02 52"
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 14,
-                "description": "set8bit(Bank[5][14], Math.floor(Math.random() * 256));",
+                "js": "set8bit(Bank[5][14], Math.floor(Math.random() * 256));",
                 "raw": "99 05 0e"
               },
               {
@@ -4320,14 +4363,14 @@
                 "bs": 0,
                 "d": 14,
                 "s": 3,
-                "description": "Bank[5][14] = Bank[5][14] & 3;",
+                "js": "Bank[5][14] = Bank[5][14] & 3;",
                 "raw": "8f 50 0e 03"
               },
               {
                 "op": "INC",
                 "b": 5,
                 "a": 14,
-                "description": "increment8bit(Bank[5][14]);",
+                "js": "increment8bit(Bank[5][14]);",
                 "raw": "95 05 0e"
               },
               {
@@ -4338,13 +4381,13 @@
                 "v": 0,
                 "c": 2,
                 "e": 64,
-                "description": "if (Bank[5][14] > 0) (else goto 2600);",
+                "js": "if (Bank[5][14] > 0) (else goto 2600);",
                 "raw": "14 50 0e 00 02 40"
               },
               {
                 "op": "WAIT",
                 "a": 1,
-                "description": "wait({numFrames:1});",
+                "js": "wait({numFrames:1});",
                 "raw": "24 01 00"
               },
               {
@@ -4353,14 +4396,14 @@
                 "b2": 0,
                 "a": 3,
                 "l": 0,
-                "description": "backgroundOn({area:3, layer:0});",
+                "js": "backgroundOn({area:3, layer:0});",
                 "pres": "<Area:3> <Layer:0> appears.",
                 "raw": "e0 00 03 00"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
@@ -4369,7 +4412,7 @@
                 "b2": 0,
                 "a": 3,
                 "l": 0,
-                "description": "backgroundOff({area:3, layer:0});",
+                "js": "backgroundOff({area:3, layer:0});",
                 "pres": "<Area:3> <Layer:0> disappears.",
                 "raw": "e1 00 03 00"
               },
@@ -4379,14 +4422,14 @@
                 "b2": 0,
                 "a": 3,
                 "l": 1,
-                "description": "backgroundOn({area:3, layer:1});",
+                "js": "backgroundOn({area:3, layer:1});",
                 "pres": "<Area:3> <Layer:1> appears.",
                 "raw": "e0 00 03 01"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
@@ -4395,7 +4438,7 @@
                 "b2": 0,
                 "a": 3,
                 "l": 1,
-                "description": "backgroundOff({area:3, layer:1});",
+                "js": "backgroundOff({area:3, layer:1});",
                 "pres": "<Area:3> <Layer:1> disappears.",
                 "raw": "e1 00 03 01"
               },
@@ -4405,14 +4448,14 @@
                 "b2": 0,
                 "a": 3,
                 "l": 2,
-                "description": "backgroundOn({area:3, layer:2});",
+                "js": "backgroundOn({area:3, layer:2});",
                 "pres": "<Area:3> <Layer:2> appears.",
                 "raw": "e0 00 03 02"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
@@ -4421,7 +4464,7 @@
                 "b2": 0,
                 "a": 3,
                 "l": 2,
-                "description": "backgroundOff({area:3, layer:2});",
+                "js": "backgroundOff({area:3, layer:2});",
                 "pres": "<Area:3> <Layer:2> disappears.",
                 "raw": "e1 00 03 02"
               },
@@ -4431,14 +4474,14 @@
                 "b2": 0,
                 "a": 3,
                 "l": 3,
-                "description": "backgroundOn({area:3, layer:3});",
+                "js": "backgroundOn({area:3, layer:3});",
                 "pres": "<Area:3> <Layer:3> appears.",
                 "raw": "e0 00 03 03"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
@@ -4447,7 +4490,7 @@
                 "b2": 0,
                 "a": 3,
                 "l": 3,
-                "description": "backgroundOff({area:3, layer:3});",
+                "js": "backgroundOff({area:3, layer:3});",
                 "pres": "<Area:3> <Layer:3> disappears.",
                 "raw": "e1 00 03 03"
               },
@@ -4457,14 +4500,14 @@
                 "b2": 0,
                 "a": 3,
                 "l": 4,
-                "description": "backgroundOn({area:3, layer:4});",
+                "js": "backgroundOn({area:3, layer:4});",
                 "pres": "<Area:3> <Layer:4> appears.",
                 "raw": "e0 00 03 04"
               },
               {
                 "op": "WAIT",
                 "a": 2,
-                "description": "wait({numFrames:2});",
+                "js": "wait({numFrames:2});",
                 "raw": "24 02 00"
               },
               {
@@ -4473,7 +4516,7 @@
                 "b2": 0,
                 "a": 3,
                 "l": 4,
-                "description": "backgroundOff({area:3, layer:4});",
+                "js": "backgroundOff({area:3, layer:4});",
                 "pres": "<Area:3> <Layer:4> disappears.",
                 "raw": "e1 00 03 04"
               },
@@ -4481,31 +4524,31 @@
                 "op": "DEC",
                 "b": 5,
                 "a": 14,
-                "description": "decrement8bit(Bank[5][14]);",
+                "js": "decrement8bit(Bank[5][14]);",
                 "raw": "97 05 0e"
               },
               {
                 "op": "JMPB",
                 "a": 67,
-                "description": "goto 2531;",
+                "js": "goto 19;",
                 "raw": "12 43"
               },
               {
                 "op": "JMPF",
                 "a": 4,
-                "description": "goto 2605;",
+                "js": "goto 93;",
                 "raw": "10 04"
               },
               {
                 "op": "WAIT",
                 "a": 15,
-                "description": "wait({numFrames:15});",
+                "js": "wait({numFrames:15});",
                 "raw": "24 0f 00"
               },
               {
                 "op": "JMPB",
                 "a": 93,
-                "description": "goto 2512;",
+                "js": "goto 0;",
                 "raw": "12 5d"
               }
             ]
