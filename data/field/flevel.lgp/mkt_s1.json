@@ -3762,7 +3762,93 @@
                 "b": 0,
                 "s": 5,
                 "js": "setAnimationSpeed({speed:5});",
-                "raw": "bd 00 05"
+                "raw": "bd 00 05 00"
+              },
+              {
+                "op": "SETBYTE",
+                "bd": 5,
+                "bs": 0,
+                "a": 1,
+                "v": 0,
+                "js": "Bank[5][1] = 0;",
+                "raw": "80 50 01 00"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 1,
+                "v": 0,
+                "c": 0,
+                "e": 35,
+                "js": "if (Bank[5][1] == 0) (else goto 75);",
+                "raw": "14 50 01 00 00 23"
+              },
+              {
+                "op": "CANM!2",
+                "a": 3,
+                "f": 0,
+                "l": 7,
+                "s": 1,
+                "js": "playPartialAnimation({animation:3, firstFrame:0, lastFrame:7, slowness:1});",
+                "raw": "bc 03 00 07 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 20,
+                "js": "wait({numFrames:20});",
+                "raw": "24 14 00"
+              },
+              {
+                "op": "CANM!2",
+                "a": 3,
+                "f": 7,
+                "l": 14,
+                "s": 1,
+                "js": "playPartialAnimation({animation:3, firstFrame:7, lastFrame:14, slowness:1});",
+                "raw": "bc 03 07 0e 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 20,
+                "js": "wait({numFrames:20});",
+                "raw": "24 14 00"
+              },
+              {
+                "op": "CANM!2",
+                "a": 3,
+                "f": 14,
+                "l": 22,
+                "s": 1,
+                "js": "playPartialAnimation({animation:3, firstFrame:14, lastFrame:22, slowness:1});",
+                "raw": "bc 03 0e 16 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 20,
+                "js": "wait({numFrames:20});",
+                "raw": "24 14 00"
+              },
+              {
+                "op": "CANM!2",
+                "a": 3,
+                "f": 22,
+                "l": 29,
+                "s": 1,
+                "js": "playPartialAnimation({animation:3, firstFrame:22, lastFrame:29, slowness:1});",
+                "raw": "bc 03 16 1d 01"
+              },
+              {
+                "op": "WAIT",
+                "a": 20,
+                "js": "wait({numFrames:20});",
+                "raw": "24 14 00"
+              },
+              {
+                "op": "JMPB",
+                "a": 38,
+                "js": "goto 35;",
+                "raw": "12 26"
               },
               {
                 "op": "RET",
@@ -3829,7 +3915,20 @@
                 "b": 0,
                 "s": 16,
                 "js": "setAnimationSpeed({speed:16});",
-                "raw": "bd 00 10"
+                "raw": "bd 00 10 00"
+              },
+              {
+                "op": "ANIME1",
+                "a": 4,
+                "s": 1,
+                "js": "playAnimationSync({animation:4, slowness:1});",
+                "raw": "a3 04 01"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "js": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
               },
               {
                 "op": "RET",
@@ -3847,7 +3946,47 @@
                 "b": 0,
                 "s": 16,
                 "js": "setAnimationSpeed({speed:16});",
-                "raw": "bd 00 10"
+                "raw": "bd 00 10 00"
+              },
+              {
+                "op": "TURNGEN",
+                "b": 0,
+                "r": 128,
+                "d": 2,
+                "s": 8,
+                "t": 1,
+                "js": "rotateModel({rotation:128, direction:2, steps:8, stepType:1});",
+                "raw": "b4 00 80 02 08 01"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "js": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
+              },
+              {
+                "op": "WSIZW",
+                "i": 1,
+                "x": 10,
+                "y": 130,
+                "w": 179,
+                "h": 41,
+                "js": "resizeWindow({windowId:1, x:10, y:130, width:179, height:41});",
+                "raw": "2f 01 0a 00 82 00 b3 00 29 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 1,
+                "d": 15,
+                "js": "showWindowWithDialog({window:1, dialog:15}); // {Cloud}<br/>“We couldn't find him yet.”",
+                "raw": "40 01 0f"
+              },
+              {
+                "op": "WREST",
+                "w": 1,
+                "js": "resetWindow({windowId:1});",
+                "raw": "53 01"
               },
               {
                 "op": "RET",
@@ -6030,7 +6169,26 @@
                 "b": 0,
                 "s": 5,
                 "js": "setAnimationSpeed({speed:5});",
-                "raw": "bd 00 05"
+                "raw": "bd 00 05 00"
+              },
+              {
+                "op": "DFANM",
+                "a": 3,
+                "s": 1,
+                "js": "playAnimationLoop({animation:3, slowness:1});",
+                "raw": "a2 03 01"
+              },
+              {
+                "op": "UC",
+                "s": 0,
+                "js": "setPlayableCharacterMovability(M.Movable);",
+                "raw": "33 00"
+              },
+              {
+                "op": "MENU2",
+                "s": 0,
+                "js": "setMainMenuAccessibility(MM.Accessible);",
+                "raw": "4a 00"
               },
               {
                 "op": "RET",
@@ -6097,7 +6255,14 @@
                 "b": 0,
                 "s": 2,
                 "js": "setAnimationSpeed({speed:2});",
-                "raw": "bd 00 02"
+                "raw": "bd 00 02 00"
+              },
+              {
+                "op": "DFANM",
+                "a": 4,
+                "s": 1,
+                "js": "playAnimationLoop({animation:4, slowness:1});",
+                "raw": "a2 04 01"
               },
               {
                 "op": "RET",
@@ -6153,7 +6318,14 @@
                 "b": 0,
                 "s": 5,
                 "js": "setAnimationSpeed({speed:5});",
-                "raw": "bd 00 05"
+                "raw": "bd 00 05 00"
+              },
+              {
+                "op": "DFANM",
+                "a": 3,
+                "s": 1,
+                "js": "playAnimationLoop({animation:3, slowness:1});",
+                "raw": "a2 03 01"
               },
               {
                 "op": "RET",
@@ -6171,7 +6343,20 @@
                 "b": 0,
                 "s": 16,
                 "js": "setAnimationSpeed({speed:16});",
-                "raw": "bd 00 10"
+                "raw": "bd 00 10 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "js": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 5,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:5, slowness:1});",
+                "raw": "ba 05 01"
               },
               {
                 "op": "RET",
@@ -6225,7 +6410,97 @@
                 "b": 0,
                 "s": 16,
                 "js": "setAnimationSpeed({speed:16});",
-                "raw": "bd 00 10"
+                "raw": "bd 00 10 00"
+              },
+              {
+                "op": "ANIME1",
+                "a": 8,
+                "s": 1,
+                "js": "playAnimationAsync({animation:8, slowness:1});",
+                "raw": "ae 08 01"
+              },
+              {
+                "op": "WSIZW",
+                "i": 2,
+                "x": 120,
+                "y": 10,
+                "w": 207,
+                "h": 41,
+                "js": "resizeWindow({windowId:2, x:120, y:10, width:207, height:41});",
+                "raw": "2f 02 78 00 0a 00 cf 00 29 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 2,
+                "d": 8,
+                "js": "showWindowWithDialog({window:2, dialog:8}); // “Yes, I'm sorry.<br/>\tHe's caused so much trouble.”",
+                "raw": "40 02 08"
+              },
+              {
+                "op": "WREST",
+                "w": 2,
+                "js": "resetWindow({windowId:2});",
+                "raw": "53 02"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 9,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:9, slowness:1});",
+                "raw": "ba 09 01"
+              },
+              {
+                "op": "WSIZW",
+                "i": 2,
+                "x": 190,
+                "y": 80,
+                "w": 39,
+                "h": 25,
+                "js": "resizeWindow({windowId:2, x:190, y:80, width:39, height:25});",
+                "raw": "2f 02 be 00 50 00 27 00 19 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 2,
+                "d": 9,
+                "js": "showWindowWithDialog({window:2, dialog:9}); // “!”",
+                "raw": "40 02 09"
+              },
+              {
+                "op": "WREST",
+                "w": 2,
+                "js": "resetWindow({windowId:2});",
+                "raw": "53 02"
+              },
+              {
+                "op": "ANIME1",
+                "a": 10,
+                "s": 1,
+                "js": "playAnimationSync({animation:10, slowness:1});",
+                "raw": "a3 0a 01"
+              },
+              {
+                "op": "WSIZW",
+                "i": 2,
+                "x": 120,
+                "y": 10,
+                "w": 206,
+                "h": 25,
+                "js": "resizeWindow({windowId:2, x:120, y:10, width:206, height:25});",
+                "raw": "2f 02 78 00 0a 00 ce 00 19 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 2,
+                "d": 10,
+                "js": "showWindowWithDialog({window:2, dialog:10}); // “You'd help me bring him back?”",
+                "raw": "40 02 0a"
+              },
+              {
+                "op": "WREST",
+                "w": 2,
+                "js": "resetWindow({windowId:2});",
+                "raw": "53 02"
               },
               {
                 "op": "RET",
@@ -6261,7 +6536,43 @@
                 "b": 0,
                 "s": 16,
                 "js": "setAnimationSpeed({speed:16});",
-                "raw": "bd 00 10"
+                "raw": "bd 00 10 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 5,
+                "js": "setModelDirectionToFaceEntity({entityIndex:5});",
+                "raw": "b6 05"
+              },
+              {
+                "op": "ANIME1",
+                "a": 12,
+                "s": 1,
+                "js": "playAnimationSync({animation:12, slowness:1});",
+                "raw": "a3 0c 01"
+              },
+              {
+                "op": "WSIZW",
+                "i": 2,
+                "x": 120,
+                "y": 10,
+                "w": 131,
+                "h": 25,
+                "js": "resizeWindow({windowId:2, x:120, y:10, width:131, height:25});",
+                "raw": "2f 02 78 00 0a 00 83 00 19 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 2,
+                "d": 14,
+                "js": "showWindowWithDialog({window:2, dialog:14}); // “So how did it go?”",
+                "raw": "40 02 0e"
+              },
+              {
+                "op": "WREST",
+                "w": 2,
+                "js": "resetWindow({windowId:2});",
+                "raw": "53 02"
               },
               {
                 "op": "RET",
@@ -6279,7 +6590,83 @@
                 "b": 0,
                 "s": 16,
                 "js": "setAnimationSpeed({speed:16});",
-                "raw": "bd 00 10"
+                "raw": "bd 00 10 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 7,
+                "js": "setModelDirectionToFaceEntity({entityIndex:7});",
+                "raw": "b6 07"
+              },
+              {
+                "op": "ANIME1",
+                "a": 8,
+                "s": 1,
+                "js": "playAnimationSync({animation:8, slowness:1});",
+                "raw": "a3 08 01"
+              },
+              {
+                "op": "ANIMW",
+                "js": "waitForLastAnimationToFinish();",
+                "raw": "ac"
+              },
+              {
+                "op": "DIRA",
+                "e": 10,
+                "js": "setModelDirectionToFaceEntity({entityIndex:10});",
+                "raw": "b6 0a"
+              },
+              {
+                "op": "WSIZW",
+                "i": 2,
+                "x": 80,
+                "y": 10,
+                "w": 142,
+                "h": 41,
+                "js": "resizeWindow({windowId:2, x:80, y:10, width:142, height:41});",
+                "raw": "2f 02 50 00 0a 00 8e 00 29 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 2,
+                "d": 27,
+                "js": "showWindowWithDialog({window:2, dialog:27}); // “Yeah, you're right.<br/>\tShould we try it?”",
+                "raw": "40 02 1b"
+              },
+              {
+                "op": "WREST",
+                "w": 2,
+                "js": "resetWindow({windowId:2});",
+                "raw": "53 02"
+              },
+              {
+                "op": "DIRA",
+                "e": 6,
+                "js": "setModelDirectionToFaceEntity({entityIndex:6});",
+                "raw": "b6 06"
+              },
+              {
+                "op": "WSIZW",
+                "i": 2,
+                "x": 80,
+                "y": 10,
+                "w": 253,
+                "h": 73,
+                "js": "resizeWindow({windowId:2, x:80, y:10, width:253, height:73});",
+                "raw": "2f 02 50 00 0a 00 fd 00 49 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 2,
+                "d": 28,
+                "js": "showWindowWithDialog({window:2, dialog:28}); // “Thanks for showing us something new.<br/>\tMy father's got<br/>\this motivation back now,<br/>\tso the dress is on the house.”",
+                "raw": "40 02 1c"
+              },
+              {
+                "op": "WREST",
+                "w": 2,
+                "js": "resetWindow({windowId:2});",
+                "raw": "53 02"
               },
               {
                 "op": "RET",
@@ -6932,7 +7319,58 @@
                 "b": 0,
                 "s": 16,
                 "js": "setAnimationSpeed({speed:16});",
-                "raw": "bd 00 10"
+                "raw": "bd 00 10 00"
+              },
+              {
+                "op": "DIRA",
+                "e": 7,
+                "js": "setModelDirectionToFaceEntity({entityIndex:7});",
+                "raw": "b6 07"
+              },
+              {
+                "op": "ANIME1",
+                "a": 4,
+                "s": 1,
+                "js": "playAnimationSync({animation:4, slowness:1});",
+                "raw": "a3 04 01"
+              },
+              {
+                "op": "WSIZW",
+                "i": 2,
+                "x": 20,
+                "y": 10,
+                "w": 245,
+                "h": 41,
+                "js": "resizeWindow({windowId:2, x:20, y:10, width:245, height:41});",
+                "raw": "2f 02 14 00 0a 00 f5 00 29 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 2,
+                "d": 26,
+                "js": "showWindowWithDialog({window:2, dialog:26}); // “Hmm, not bad.<br/>\tThis may be a new business for me.”",
+                "raw": "40 02 1a"
+              },
+              {
+                "op": "WREST",
+                "w": 2,
+                "js": "resetWindow({windowId:2});",
+                "raw": "53 02"
+              },
+              {
+                "op": "TURA",
+                "g": 9,
+                "d": 8,
+                "s": 2,
+                "js": "turnToEntity({groupId:9, direction:8, speed:2});",
+                "raw": "ab 09 08 02"
+              },
+              {
+                "op": "ANIME1",
+                "a": 5,
+                "s": 1,
+                "js": "playAnimationSync({animation:5, slowness:1});",
+                "raw": "a3 05 01"
               },
               {
                 "op": "RET",
@@ -9619,5 +10057,121 @@
         "type": 0
       }
     ]
+  },
+  "palette": {
+    "length": 2572,
+    "header": {
+      "length": 2572,
+      "palX": 0,
+      "palY": 480,
+      "colorsPerPage": 256,
+      "pageCount": 5
+    },
+    "pages": "Omitted to reduce size"
+  },
+  "background": {
+    "length": 143839,
+    "header": {
+      "unknown1": 0,
+      "depth": 1,
+      "unknown2": 1
+    },
+    "palette": {
+      "title": "PALETTE",
+      "paletteSize": 16843008,
+      "palX": 257,
+      "palY": 257,
+      "width": 257,
+      "height": 257,
+      "colors": [
+        {
+          "r": 8,
+          "g": 66,
+          "b": 0,
+          "hex": "084200"
+        },
+        {
+          "r": 8,
+          "g": 66,
+          "b": 0,
+          "hex": "084200"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "hex": "000000"
+        }
+      ]
+    },
+    "tiles": {
+      "layer1": {
+        "width": 336,
+        "height": 256,
+        "tileCount": 174,
+        "depth": 1,
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer2": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 68,
+        "unknown": [
+          0,
+          0,
+          1,
+          0,
+          15,
+          0,
+          16,
+          0,
+          26,
+          0,
+          27,
+          0,
+          33,
+          0,
+          34,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      }
+    },
+    "textures": {
+      "texture0": {
+        "textureId": 0,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture15": {
+        "textureId": 15,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      }
+    }
   }
 }

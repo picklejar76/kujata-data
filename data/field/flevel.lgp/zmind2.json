@@ -629,7 +629,164 @@
                 "b": 0,
                 "s": 2,
                 "js": "setAnimationSpeed({speed:2});",
-                "raw": "bd 00 02"
+                "raw": "bd 00 02 00"
+              },
+              {
+                "op": "RANDOM",
+                "b": 5,
+                "a": 3,
+                "js": "set8bit(Bank[5][3], Math.floor(Math.random() * 256));",
+                "raw": "99 05 03"
+              },
+              {
+                "op": "AND",
+                "bd": 5,
+                "bs": 0,
+                "d": 3,
+                "s": 3,
+                "js": "Bank[5][3] = Bank[5][3] & 3;",
+                "raw": "8f 50 03 03"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 3,
+                "v": 0,
+                "c": 0,
+                "e": 10,
+                "js": "if (Bank[5][3] == 0) (else goto 30);",
+                "raw": "14 50 03 00 00 0a"
+              },
+              {
+                "op": "ANIME1",
+                "a": 3,
+                "s": 1,
+                "js": "playAnimationSync({animation:3, slowness:1});",
+                "raw": "a3 03 01"
+              },
+              {
+                "op": "ANIME1",
+                "a": 3,
+                "s": 1,
+                "js": "playAnimationSync({animation:3, slowness:1});",
+                "raw": "a3 03 01"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 3,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "raw": "ba 03 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 3,
+                "v": 1,
+                "c": 0,
+                "e": 10,
+                "js": "if (Bank[5][3] == 1) (else goto 45);",
+                "raw": "14 50 03 01 00 0a"
+              },
+              {
+                "op": "ANIME1",
+                "a": 4,
+                "s": 1,
+                "js": "playAnimationSync({animation:4, slowness:1});",
+                "raw": "a3 04 01"
+              },
+              {
+                "op": "ANIME1",
+                "a": 4,
+                "s": 1,
+                "js": "playAnimationSync({animation:4, slowness:1});",
+                "raw": "a3 04 01"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 3,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "raw": "ba 03 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 3,
+                "v": 2,
+                "c": 0,
+                "e": 19,
+                "js": "if (Bank[5][3] == 2) (else goto 69);",
+                "raw": "14 50 03 02 00 13"
+              },
+              {
+                "op": "CANM!2",
+                "a": 5,
+                "f": 24,
+                "l": 49,
+                "s": 1,
+                "js": "playPartialAnimation({animation:5, firstFrame:24, lastFrame:49, slowness:1});",
+                "raw": "bc 05 18 31 01"
+              },
+              {
+                "op": "ANIME1",
+                "a": 6,
+                "s": 1,
+                "js": "playAnimationSync({animation:6, slowness:1});",
+                "raw": "a3 06 01"
+              },
+              {
+                "op": "ANIME1",
+                "a": 6,
+                "s": 1,
+                "js": "playAnimationSync({animation:6, slowness:1});",
+                "raw": "a3 06 01"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 7,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:7, slowness:1});",
+                "raw": "ba 07 01"
+              },
+              {
+                "op": "ANIMW",
+                "js": "waitForLastAnimationToFinish();",
+                "raw": "ac"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 3,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "raw": "ba 03 01"
+              },
+              {
+                "op": "IFUB",
+                "b1": 5,
+                "b2": 0,
+                "a": 3,
+                "v": 3,
+                "c": 0,
+                "e": 4,
+                "js": "if (Bank[5][3] == 3) (else goto 78);",
+                "raw": "14 50 03 03 00 04"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 3,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "raw": "ba 03 01"
+              },
+              {
+                "op": "JMPB",
+                "a": 70,
+                "js": "goto 8;",
+                "raw": "12 46"
               },
               {
                 "op": "RET",
@@ -705,7 +862,14 @@
                 "b": 0,
                 "s": 4,
                 "js": "setAnimationSpeed({speed:4});",
-                "raw": "bd 00 04"
+                "raw": "bd 00 04 00"
+              },
+              {
+                "op": "DFANM",
+                "a": 8,
+                "s": 1,
+                "js": "playAnimationLoop({animation:8, slowness:1});",
+                "raw": "a2 08 01"
               },
               {
                 "op": "RET",
@@ -850,7 +1014,16 @@
                 "b": 0,
                 "s": 6,
                 "js": "setAnimationSpeed({speed:6});",
-                "raw": "bd 00 06"
+                "raw": "bd 00 06 00"
+              },
+              {
+                "op": "CANM!2",
+                "a": 9,
+                "f": 0,
+                "l": 29,
+                "s": 1,
+                "js": "playPartialAnimation({animation:9, firstFrame:0, lastFrame:29, slowness:1});",
+                "raw": "bc 09 00 1d 01"
               },
               {
                 "op": "RET",
@@ -1072,7 +1245,7 @@
                 "b": 0,
                 "s": 4,
                 "js": "setAnimationSpeed({speed:4});",
-                "raw": "bd 00 04"
+                "raw": "bd 00 04 00"
               },
               {
                 "op": "RET",
@@ -1159,7 +1332,38 @@
                 "b": 0,
                 "s": 16,
                 "js": "setAnimationSpeed({speed:16});",
-                "raw": "bd 00 10"
+                "raw": "bd 00 10 00"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 10,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:10, slowness:1});",
+                "raw": "ba 0a 01"
+              },
+              {
+                "op": "WSIZW",
+                "i": 0,
+                "x": 40,
+                "y": 150,
+                "w": 240,
+                "h": 57,
+                "js": "resizeWindow({windowId:0, x:40, y:150, width:240, height:57});",
+                "raw": "2f 00 28 00 96 00 f0 00 39 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 0,
+                "d": 5,
+                "js": "showWindowWithDialog({window:0, dialog:5}); // “You mean that member of SOLDIER<br/>\twho came with Sephiroth<br/>\twasn't…{Cloud}?”",
+                "raw": "40 00 05"
+              },
+              {
+                "op": "ASPED",
+                "b": 0,
+                "s": 4,
+                "js": "setAnimationSpeed({speed:4});",
+                "raw": "bd 00 04 00"
               },
               {
                 "op": "RET",
@@ -1329,7 +1533,127 @@
                 "b": 0,
                 "s": 21,
                 "js": "setAnimationSpeed({speed:21});",
-                "raw": "bd 00 15"
+                "raw": "bd 00 15 00"
+              },
+              {
+                "op": "TURA",
+                "g": 4,
+                "d": 8,
+                "s": 2,
+                "js": "turnToEntity({groupId:4, direction:8, speed:2});",
+                "raw": "ab 04 08 02"
+              },
+              {
+                "op": "WAIT",
+                "a": 20,
+                "js": "wait({numFrames:20});",
+                "raw": "24 14 00"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 3,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "raw": "ba 03 01"
+              },
+              {
+                "op": "WSIZW",
+                "i": 0,
+                "x": 91,
+                "y": 150,
+                "w": 137,
+                "h": 57,
+                "js": "resizeWindow({windowId:0, x:91, y:150, width:137, height:57});",
+                "raw": "2f 00 5b 00 96 00 89 00 39 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 0,
+                "d": 1,
+                "js": "showWindowWithDialog({window:0, dialog:1}); // {Tifa}<br/>“There's nothing…<br/>\tI can say.”",
+                "raw": "40 00 01"
+              },
+              {
+                "op": "MOVE",
+                "b1": 0,
+                "b2": 0,
+                "x": 6359,
+                "y": -383,
+                "js": "walkObjectTo({x:6359, y:-383});",
+                "raw": "a8 00 d7 18 81 fe"
+              },
+              {
+                "op": "WSIZW",
+                "i": 0,
+                "x": 73,
+                "y": 150,
+                "w": 173,
+                "h": 57,
+                "js": "resizeWindow({windowId:0, x:73, y:150, width:173, height:57});",
+                "raw": "2f 00 49 00 96 00 ad 00 39 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 0,
+                "d": 2,
+                "js": "showWindowWithDialog({window:0, dialog:2}); // {Tifa}<br/>“You must find <br/>\tthe answer yourself.”",
+                "raw": "40 00 02"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 3,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
+                "raw": "ba 03 01"
+              },
+              {
+                "op": "WSIZW",
+                "i": 0,
+                "x": 91,
+                "y": 150,
+                "w": 137,
+                "h": 57,
+                "js": "resizeWindow({windowId:0, x:91, y:150, width:137, height:57});",
+                "raw": "2f 00 5b 00 96 00 89 00 39 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 0,
+                "d": 3,
+                "js": "showWindowWithDialog({window:0, dialog:3}); // {Tifa}<br/>“If you can't,<br/>\tthen…”",
+                "raw": "40 00 03"
+              },
+              {
+                "op": "TURA",
+                "g": 4,
+                "d": 8,
+                "s": 2,
+                "js": "turnToEntity({groupId:4, direction:8, speed:2});",
+                "raw": "ab 04 08 02"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 4,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:4, slowness:1});",
+                "raw": "ba 04 01"
+              },
+              {
+                "op": "WSIZW",
+                "i": 0,
+                "x": 36,
+                "y": 150,
+                "w": 248,
+                "h": 57,
+                "js": "resizeWindow({windowId:0, x:36, y:150, width:248, height:57});",
+                "raw": "2f 00 24 00 96 00 f8 00 39 00"
+              },
+              {
+                "op": "MESSAGE",
+                "n": 0,
+                "d": 4,
+                "js": "showWindowWithDialog({window:0, dialog:4}); // {Tifa}<br/>“Take your time, {Cloud}.<br/>\tSlowly…little by little, OK?”",
+                "raw": "40 00 04"
               },
               {
                 "op": "RET",
@@ -1500,7 +1824,23 @@
                 "b": 0,
                 "s": 8,
                 "js": "setAnimationSpeed({speed:8});",
-                "raw": "bd 00 08"
+                "raw": "bd 00 08 00"
+              },
+              {
+                "op": "CANM!2",
+                "a": 7,
+                "f": 0,
+                "l": 9,
+                "s": 1,
+                "js": "playPartialAnimation({animation:7, firstFrame:0, lastFrame:9, slowness:1});",
+                "raw": "bc 07 00 09 01"
+              },
+              {
+                "op": "ANIM!2",
+                "a": 8,
+                "s": 1,
+                "js": "playAnimationHoldLastFrameSync({animation:8, slowness:1});",
+                "raw": "ba 08 01"
               },
               {
                 "op": "RET",
@@ -6405,5 +6745,127 @@
         "type": 0
       }
     ]
+  },
+  "palette": {
+    "length": 2060,
+    "header": {
+      "length": 2060,
+      "palX": 0,
+      "palY": 480,
+      "colorsPerPage": 256,
+      "pageCount": 4
+    },
+    "pages": "Omitted to reduce size"
+  },
+  "background": {
+    "length": 297795,
+    "header": {
+      "unknown1": 0,
+      "depth": 1,
+      "unknown2": 1
+    },
+    "palette": {
+      "title": "PALETTE",
+      "paletteSize": 16842752,
+      "palX": 257,
+      "palY": 257,
+      "width": 257,
+      "height": 257,
+      "colors": [
+        {
+          "r": 8,
+          "g": 66,
+          "b": 0,
+          "hex": "084200"
+        },
+        {
+          "r": 8,
+          "g": 66,
+          "b": 0,
+          "hex": "084200"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "hex": "000000"
+        }
+      ]
+    },
+    "tiles": {
+      "layer1": {
+        "width": 432,
+        "height": 432,
+        "tileCount": 673,
+        "depth": 1,
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer2": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 9,
+        "unknown": [
+          1,
+          0,
+          2,
+          0,
+          15,
+          0,
+          16,
+          0,
+          26,
+          0,
+          27,
+          0,
+          33,
+          0,
+          34,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      }
+    },
+    "textures": {
+      "texture0": {
+        "textureId": 0,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture1": {
+        "textureId": 1,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture26": {
+        "textureId": 26,
+        "size": 0,
+        "depth": 2,
+        "data": "Omitted to reduce size"
+      }
+    }
   }
 }
