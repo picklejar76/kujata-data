@@ -240,7 +240,8 @@
                 "id": 0,
                 "js": "playMusic({song:0});",
                 "pres": "Song starts: <Song:0>",
-                "raw": "f0 00"
+                "raw": "f0 00",
+                "byteIndex": 0
               },
               {
                 "op": "SOUND",
@@ -249,7 +250,8 @@
                 "i": 42,
                 "d": 63,
                 "js": "playSound({sound:42, direction:63});",
-                "raw": "f1 00 2a 00 3f"
+                "raw": "f1 00 2a 00 3f",
+                "byteIndex": 2
               },
               {
                 "op": "SETBYTE",
@@ -258,25 +260,29 @@
                 "a": 25,
                 "v": 255,
                 "js": "Bank[11][25] = 255;",
-                "raw": "80 b0 19 ff"
+                "raw": "80 b0 19 ff",
+                "byteIndex": 7
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 11
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 13
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 15
               }
             ]
           },
@@ -293,14 +299,16 @@
                 "w": 272,
                 "h": 73,
                 "js": "resizeWindow({windowId:1, x:16, y:0, width:272, height:73});",
-                "raw": "2f 01 10 00 00 00 10 01 49 00"
+                "raw": "2f 01 10 00 00 00 10 01 49 00",
+                "byteIndex": 16
               },
               {
                 "op": "MESSAGE",
                 "n": 1,
                 "d": 0,
                 "js": "showWindowWithDialog({window:1, dialog:0}); // Ester<br/>“Hmm, so that's what happened.<br/>\tI'll talk to Dio directly.<br/>\tYou just concentrate on the race.”{PAUSE}“Oh yeah, getting back to the other thing,<br/>\tthere are many different<br/>\ttypes of Chocobo jockeys.<br/>\tIt's not only for criminals.”{PAUSE}“Some people compete for the fame,<br/>\tsome people compete for the money,<br/>\tsome only for glory…<br/>\tAnd then there're people like you.”{PAUSE}“Oh yeah,<br/>\tI'll teach you how to<br/>\tride a Chocobo.”",
-                "raw": "40 01 00"
+                "raw": "40 01 00",
+                "byteIndex": 26
               },
               {
                 "op": "WSIZW",
@@ -310,7 +318,8 @@
                 "w": 129,
                 "h": 41,
                 "js": "resizeWindow({windowId:1, x:40, y:120, width:129, height:41});",
-                "raw": "2f 01 28 00 78 00 81 00 29 00"
+                "raw": "2f 01 28 00 78 00 81 00 29 00",
+                "byteIndex": 29
               },
               {
                 "op": "ASK",
@@ -321,7 +330,8 @@
                 "l": 1,
                 "a": 0,
                 "js": "Bank[5][0] = askQuestion({window:1, dialog:1, firstChoice:0, lastChoice:1});",
-                "raw": "48 05 01 01 00 01 00"
+                "raw": "48 05 01 01 00 01 00",
+                "byteIndex": 39
               },
               {
                 "op": "IFUB",
@@ -332,7 +342,9 @@
                 "c": 0,
                 "e": 14,
                 "js": "if (Bank[5][0] == 0) (else goto 49);",
-                "raw": "14 50 00 00 00 0e"
+                "goto": 49,
+                "raw": "14 50 00 00 00 0e",
+                "byteIndex": 46
               },
               {
                 "op": "WSIZW",
@@ -342,20 +354,23 @@
                 "w": 257,
                 "h": 73,
                 "js": "resizeWindow({windowId:1, x:23, y:0, width:257, height:73});",
-                "raw": "2f 01 17 00 00 00 01 01 49 00"
+                "raw": "2f 01 17 00 00 00 01 01 49 00",
+                "byteIndex": 52
               },
               {
                 "op": "MESSAGE",
                 "n": 1,
                 "d": 2,
                 "js": "showWindowWithDialog({window:1, dialog:2}); // Ester<br/>“Ummm…<br/>\tFirst use <fe>{PURPLE}[ASSIST]<fe>{WHITE}<br/>\tto choose either AUTO or MANUAL.”{PAUSE}“This lets you control the Chocobo<br/>\tyourself or lets it run on its own.”{PAUSE}“But it's pretty hard to make the <br/>\tChocobo run the way you want it to.<br/>\tIf the Chocobo doesn't like you,<br/>\tit won't listen.”{PAUSE}“Then, you're stuck…”{PAUSE}“But, most of the Chocobos<br/>\tI have are mellow<br/>\tand you should be able to<br/>\thandle them.”{PAUSE}“When you're riding,<br/>\tuse <fe>{PURPLE}[SWITCH]<fe>{WHITE} to Speed Up<br/>\tand <fe>{PURPLE}[CANCEL]<fe>{WHITE} to Slow Down.”{PAUSE}“But, if you go faster than<br/>\tthe Chocobo can handle, it will<br/>\tquickly lose its stamina.”{PAUSE}“Use the Directional button to<br/>\tmove the Chocobo left and right,<br/>\tuse <fe>{PURPLE}[OK]<fe>{WHITE}<br/>\tto get a boost of speed.”{PAUSE}“But this makes your stamina<br/>\trun out faster.”{PAUSE}“Some Chocobos are bad-tempered<br/>\tand can't pace themselves.<br/>\tThey'll lose their<br/>\tstamina quickly.”{PAUSE}“Those Chocobos should be<br/>\tset on Manual<br/>\tto slow them down.”{PAUSE}“Finally, some advice<br/>\tfor the restless. Once<br/>\tthe first and second Chocobo<br/>\tcross the goal line,”{PAUSE}“push <fe>{PURPLE}[START]<fe>{WHITE}<br/>\tto end the race.”",
-                "raw": "40 01 02"
+                "raw": "40 01 02",
+                "byteIndex": 62
               },
               {
                 "op": "WAIT",
                 "a": 15,
                 "js": "wait({numFrames:15});",
-                "raw": "24 0f 00"
+                "raw": "24 0f 00",
+                "byteIndex": 65
               },
               {
                 "op": "MAPJUMP",
@@ -365,13 +380,15 @@
                 "i": 0,
                 "d": 0,
                 "js": "mapJump({fieldId:512, x:0, y:0, triangleId:0, direction:0});",
-                "raw": "60 00 02 00 00 00 00 00 00 00"
+                "raw": "60 00 02 00 00 00 00 00 00 00",
+                "byteIndex": 68
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 78
               }
             ]
           },
@@ -383,7 +400,8 @@
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
@@ -401,13 +419,15 @@
                 "op": "CHAR",
                 "n": 0,
                 "js": "thisIsAFieldModel(0);",
-                "raw": "a1 00"
+                "raw": "a1 00",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 0,
                 "js": "thisIsAPlayableCharacter(C.Cloud);",
-                "raw": "a0 00"
+                "raw": "a0 00",
+                "byteIndex": 2
               },
               {
                 "op": "XYZI",
@@ -420,13 +440,15 @@
                 "z": -6115,
                 "i": 1,
                 "js": "placeObject({x:-30, y:-48, z:-6115, walkmeshTriangle:1});",
-                "raw": "a5 00 00 e2 ff d0 ff 1d e8 01 00"
+                "raw": "a5 00 00 e2 ff d0 ff 1d e8 01 00",
+                "byteIndex": 4
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 15
               }
             ]
           },
@@ -439,14 +461,16 @@
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 16
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 32,
                 "js": "setFacingDirection({direction:32});",
-                "raw": "b3 00 20"
+                "raw": "b3 00 20",
+                "byteIndex": 18
               },
               {
                 "op": "OFST",
@@ -459,12 +483,14 @@
                 "z": 32,
                 "s": 0,
                 "js": "transposeObjectDisplayOnly({x:0, y:0, z:32, speed:0});",
-                "raw": "c3 00 00 00 00 00 00 00 20 00 00 00"
+                "raw": "c3 00 00 00 00 00 00 00 20 00 00 00",
+                "byteIndex": 21
               },
               {
                 "op": "OFSTW",
                 "js": "waitForTransposeObjectDisplayOnly();",
-                "raw": "c4"
+                "raw": "c4",
+                "byteIndex": 33
               },
               {
                 "op": "OFST",
@@ -477,13 +503,15 @@
                 "z": 6944,
                 "s": 1000,
                 "js": "transposeObjectDisplayOnly({x:0, y:0, z:6944, speed:1000});",
-                "raw": "c3 00 00 01 00 00 00 00 20 1b e8 03"
+                "raw": "c3 00 00 01 00 00 00 00 20 1b e8 03",
+                "byteIndex": 34
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 46
               }
             ]
           },
@@ -495,7 +523,8 @@
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
@@ -513,7 +542,8 @@
                 "op": "CHAR",
                 "n": 1,
                 "js": "thisIsAFieldModel(1);",
-                "raw": "a1 01"
+                "raw": "a1 01",
+                "byteIndex": 0
               },
               {
                 "op": "XYZI",
@@ -526,20 +556,23 @@
                 "z": -6115,
                 "i": 0,
                 "js": "placeObject({x:60, y:-48, z:-6115, walkmeshTriangle:0});",
-                "raw": "a5 00 00 3c 00 d0 ff 1d e8 00 00"
+                "raw": "a5 00 00 3c 00 d0 ff 1d e8 00 00",
+                "byteIndex": 2
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 192,
                 "js": "setFacingDirection({direction:192});",
-                "raw": "b3 00 c0"
+                "raw": "b3 00 c0",
+                "byteIndex": 13
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 16
               }
             ]
           },
@@ -552,7 +585,8 @@
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 17
               },
               {
                 "op": "OFST",
@@ -565,12 +599,14 @@
                 "z": 32,
                 "s": 0,
                 "js": "transposeObjectDisplayOnly({x:0, y:0, z:32, speed:0});",
-                "raw": "c3 00 00 00 00 00 00 00 20 00 00 00"
+                "raw": "c3 00 00 00 00 00 00 00 20 00 00 00",
+                "byteIndex": 19
               },
               {
                 "op": "OFSTW",
                 "js": "waitForTransposeObjectDisplayOnly();",
-                "raw": "c4"
+                "raw": "c4",
+                "byteIndex": 31
               },
               {
                 "op": "OFST",
@@ -583,13 +619,15 @@
                 "z": 6944,
                 "s": 1000,
                 "js": "transposeObjectDisplayOnly({x:0, y:0, z:6944, speed:1000});",
-                "raw": "c3 00 00 01 00 00 00 00 20 1b e8 03"
+                "raw": "c3 00 00 01 00 00 00 00 20 1b e8 03",
+                "byteIndex": 32
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 44
               }
             ]
           },
@@ -601,7 +639,8 @@
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
@@ -619,7 +658,8 @@
                 "op": "CHAR",
                 "n": 2,
                 "js": "thisIsAFieldModel(2);",
-                "raw": "a1 02"
+                "raw": "a1 02",
+                "byteIndex": 0
               },
               {
                 "op": "XYZI",
@@ -632,13 +672,15 @@
                 "z": -6115,
                 "i": 0,
                 "js": "placeObject({x:29, y:-20, z:-6115, walkmeshTriangle:0});",
-                "raw": "a5 00 00 1d 00 ec ff 1d e8 00 00"
+                "raw": "a5 00 00 1d 00 ec ff 1d e8 00 00",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
@@ -651,13 +693,15 @@
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 14
               },
               {
                 "op": "WAIT",
                 "a": 3,
                 "js": "wait({numFrames:3});",
-                "raw": "24 03 00"
+                "raw": "24 03 00",
+                "byteIndex": 16
               },
               {
                 "op": "OFST",
@@ -670,13 +714,15 @@
                 "z": 6912,
                 "s": 1000,
                 "js": "transposeObjectDisplayOnly({x:0, y:0, z:6912, speed:1000});",
-                "raw": "c3 00 00 01 00 00 00 00 00 1b e8 03"
+                "raw": "c3 00 00 01 00 00 00 00 00 1b e8 03",
+                "byteIndex": 19
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 31
               }
             ]
           },
@@ -688,7 +734,8 @@
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
@@ -709,13 +756,15 @@
                 "a": 1,
                 "v": 66,
                 "js": "Bank[5][1] = 66;",
-                "raw": "80 50 01 42"
+                "raw": "80 50 01 42",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
@@ -731,7 +780,8 @@
                 "p": 2,
                 "a": 0,
                 "js": "storePalette({paletteId:2, paletteArrayId:0, size:255});",
-                "raw": "e5 00 02 00 ff"
+                "raw": "e5 00 02 00 ff",
+                "byteIndex": 5
               },
               {
                 "op": "IFUB",
@@ -742,7 +792,9 @@
                 "c": 3,
                 "e": 27,
                 "js": "if (Bank[5][1] < 62) (else goto 37);",
-                "raw": "14 50 01 3e 03 1b"
+                "goto": 37,
+                "raw": "14 50 01 3e 03 1b",
+                "byteIndex": 10
               },
               {
                 "op": "PLUS!",
@@ -751,7 +803,8 @@
                 "d": 1,
                 "s": 2,
                 "js": "Bank[5][1] = add8bitClamped(Bank[5][1], 2);",
-                "raw": "76 50 01 02"
+                "raw": "76 50 01 02",
+                "byteIndex": 16
               },
               {
                 "op": "MPPAL2",
@@ -767,7 +820,8 @@
                 "r": 1,
                 "size": 255,
                 "js": "multiplyPaletteColors2({sourcePaletteId:0, targetPaletteId:16, r:1, g:Bank[5][1], b:Bank[5][1], size:255});",
-                "raw": "ea 00 55 50 00 10 01 01 01 ff"
+                "raw": "ea 00 55 50 00 10 01 01 01 ff",
+                "byteIndex": 20
               },
               {
                 "op": "CPPAL",
@@ -776,7 +830,8 @@
                 "s": 0,
                 "d": 16,
                 "js": "copyPalette({sourceArrayId:0, targetArrayId:16, size:0});",
-                "raw": "e7 00 00 10 00"
+                "raw": "e7 00 00 10 00",
+                "byteIndex": 30
               },
               {
                 "op": "LDPAL",
@@ -785,13 +840,16 @@
                 "p": 16,
                 "a": 2,
                 "js": "loadPalette({paletteId:16, paletteArrayId:2, size:255});",
-                "raw": "e6 00 10 02 ff"
+                "raw": "e6 00 10 02 ff",
+                "byteIndex": 35
               },
               {
                 "op": "JMPB",
                 "a": 30,
                 "js": "goto 5;",
-                "raw": "12 1e"
+                "goto": 65,
+                "raw": "12 1e",
+                "byteIndex": 40
               },
               {
                 "op": "IFUB",
@@ -802,7 +860,9 @@
                 "c": 2,
                 "e": 27,
                 "js": "if (Bank[5][1] > 8) (else goto 69);",
-                "raw": "14 50 01 08 02 1b"
+                "goto": 69,
+                "raw": "14 50 01 08 02 1b",
+                "byteIndex": 42
               },
               {
                 "op": "MINUS!",
@@ -811,7 +871,8 @@
                 "d": 1,
                 "s": 2,
                 "js": "Bank[5][1] = subtract8bitClamped(Bank[5][1], 2);",
-                "raw": "78 50 01 02"
+                "raw": "78 50 01 02",
+                "byteIndex": 48
               },
               {
                 "op": "MPPAL2",
@@ -827,7 +888,8 @@
                 "r": 1,
                 "size": 255,
                 "js": "multiplyPaletteColors2({sourcePaletteId:0, targetPaletteId:16, r:1, g:Bank[5][1], b:Bank[5][1], size:255});",
-                "raw": "ea 00 55 50 00 10 01 01 01 ff"
+                "raw": "ea 00 55 50 00 10 01 01 01 ff",
+                "byteIndex": 52
               },
               {
                 "op": "CPPAL",
@@ -836,7 +898,8 @@
                 "s": 0,
                 "d": 16,
                 "js": "copyPalette({sourceArrayId:0, targetArrayId:16, size:0});",
-                "raw": "e7 00 00 10 00"
+                "raw": "e7 00 00 10 00",
+                "byteIndex": 62
               },
               {
                 "op": "LDPAL",
@@ -845,19 +908,24 @@
                 "p": 16,
                 "a": 2,
                 "js": "loadPalette({paletteId:16, paletteArrayId:2, size:255});",
-                "raw": "e6 00 10 02 ff"
+                "raw": "e6 00 10 02 ff",
+                "byteIndex": 67
               },
               {
                 "op": "JMPB",
                 "a": 30,
                 "js": "goto 37;",
-                "raw": "12 1e"
+                "goto": 97,
+                "raw": "12 1e",
+                "byteIndex": 72
               },
               {
                 "op": "JMPB",
                 "a": 64,
                 "js": "goto 5;",
-                "raw": "12 40"
+                "goto": 133,
+                "raw": "12 40",
+                "byteIndex": 74
               }
             ]
           }
