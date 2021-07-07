@@ -533,10 +533,13 @@
     },
     "entities": [
       {
+        "entityId": 0,
         "entityName": "crater",
+        "entityType": "Animation",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "BGPDH",
@@ -544,65 +547,77 @@
                 "l": 3,
                 "z": 3840,
                 "js": "setBackgroundZDepth({layerId:3, z:3840});",
-                "raw": "2c 00 03 00 0f"
+                "raw": "2c 00 03 00 0f",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 6
               }
             ]
           }
         ]
       },
       {
+        "entityId": 1,
         "entityName": "drctr",
+        "entityType": "Director",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "MPNAM",
                 "dialogId": 0,
                 "js": "setMapName({dialog:0});",
-                "raw": "43 00"
+                "raw": "43 00",
+                "byteIndex": 0
               },
               {
                 "op": "MUSIC",
                 "id": 0,
                 "js": "playMusic({song:0});",
                 "pres": "Song starts: <Song:0>",
-                "raw": "f0 00"
+                "raw": "f0 00",
+                "byteIndex": 2
               },
               {
                 "op": "BMUSC",
                 "id": 1,
                 "js": "setBattleMusic({song:1});",
-                "raw": "f6 01"
+                "raw": "f6 01",
+                "byteIndex": 4
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 6
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -613,20 +628,24 @@
                 "v": 7,
                 "c": 10,
                 "e": 88,
-                "js": "if (!((Bank[1][132] & (1<<7)))) (else goto 93);",
-                "raw": "14 10 84 07 0a 58"
+                "js": "if (!((Bank[1][132] & (1<<7)))) (else goto 100);",
+                "goto": 100,
+                "raw": "14 10 84 07 0a 58",
+                "byteIndex": 7
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 13
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 15
               },
               {
                 "op": "BITON",
@@ -635,7 +654,8 @@
                 "d": 132,
                 "bit": 7,
                 "js": "setBit({destination:Bank[1][132], bit:7});",
-                "raw": "82 10 84 07"
+                "raw": "82 10 84 07",
+                "byteIndex": 17
               },
               {
                 "op": "REQEW",
@@ -644,7 +664,8 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:4, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 04 c3"
+                "raw": "03 04 c3",
+                "byteIndex": 21
               },
               {
                 "op": "SPLIT",
@@ -663,7 +684,8 @@
                 "s": 32,
                 "js": "splitParty({c1: {x:1029, y:-321, d:128}, c2: {x:1155, y:-321, d:128}, slowness:32});",
                 "pres": "The party spreads out.",
-                "raw": "09 00 00 00 05 04 bf fe 80 83 04 bf fe 80 20"
+                "raw": "09 00 00 00 05 04 bf fe 80 83 04 bf fe 80 20",
+                "byteIndex": 24
               },
               {
                 "op": "WINDOW",
@@ -673,14 +695,16 @@
                 "w": 137,
                 "h": 41,
                 "js": "createWindow({window:0, x:100, y:160, width:137, height:41});",
-                "raw": "50 00 64 00 a0 00 89 00 29 00"
+                "raw": "50 00 64 00 a0 00 89 00 29 00",
+                "byteIndex": 39
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 1,
                 "js": "showWindowWithDialog({window:0, dialog:1}); // {Cloud}<br/>“An old crater…”",
-                "raw": "40 00 01"
+                "raw": "40 00 01",
+                "byteIndex": 49
               },
               {
                 "op": "WINDOW",
@@ -690,14 +714,16 @@
                 "w": 194,
                 "h": 57,
                 "js": "createWindow({window:0, x:100, y:160, width:194, height:57});",
-                "raw": "50 00 64 00 a0 00 c2 00 39 00"
+                "raw": "50 00 64 00 a0 00 c2 00 39 00",
+                "byteIndex": 52
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 2,
                 "js": "showWindowWithDialog({window:0, dialog:2}); // {Cloud}<br/>“Something fell out of the sky<br/>\tand crashed down here…”",
-                "raw": "40 00 02"
+                "raw": "40 00 02",
+                "byteIndex": 62
               },
               {
                 "op": "WINDOW",
@@ -707,14 +733,16 @@
                 "w": 201,
                 "h": 41,
                 "js": "createWindow({window:0, x:100, y:160, width:201, height:41});",
-                "raw": "50 00 64 00 a0 00 c9 00 29 00"
+                "raw": "50 00 64 00 a0 00 c9 00 29 00",
+                "byteIndex": 65
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 3,
                 "js": "showWindowWithDialog({window:0, dialog:3}); // {Cloud}<br/>“Leaving a scar on the Planet.”",
-                "raw": "40 00 03"
+                "raw": "40 00 03",
+                "byteIndex": 75
               },
               {
                 "op": "REQEW",
@@ -723,7 +751,8 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:2, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 02 c3"
+                "raw": "03 02 c3",
+                "byteIndex": 78
               },
               {
                 "op": "WINDOW",
@@ -733,116 +762,137 @@
                 "w": 210,
                 "h": 57,
                 "js": "createWindow({window:0, x:100, y:160, width:210, height:57});",
-                "raw": "50 00 64 00 a0 00 d2 00 39 00"
+                "raw": "50 00 64 00 a0 00 d2 00 39 00",
+                "byteIndex": 81
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 4,
                 "js": "showWindowWithDialog({window:0, dialog:4}); // {Cloud}<br/>“Sephiroth took that energy and<br/>\tis trying to use Meteor.”{PAUSE}“Next time<br/>\tthe wound won't be so small.”",
-                "raw": "40 00 04"
+                "raw": "40 00 04",
+                "byteIndex": 91
               },
               {
                 "op": "JOIN",
                 "s": 32,
                 "js": "joinParty({slowness:32});",
                 "pres": "The party gathers.",
-                "raw": "08 20"
+                "raw": "08 20",
+                "byteIndex": 94
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 96
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 98
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 100
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Script 2",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 2,
         "entityName": "ad",
+        "entityType": "Unknown",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 1
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Script 2",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "IFUB",
@@ -853,7 +903,9 @@
                 "c": 0,
                 "e": 4,
                 "js": "if (Bank[3][10] == 1) (else goto 9);",
-                "raw": "14 30 0a 01 00 04"
+                "goto": 9,
+                "raw": "14 30 0a 01 00 04",
+                "byteIndex": 0
               },
               {
                 "op": "REQEW",
@@ -862,7 +914,8 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:5, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 05 c3"
+                "raw": "03 05 c3",
+                "byteIndex": 6
               },
               {
                 "op": "IFUB",
@@ -873,7 +926,9 @@
                 "c": 0,
                 "e": 4,
                 "js": "if (Bank[3][10] == 2) (else goto 18);",
-                "raw": "14 30 0a 02 00 04"
+                "goto": 18,
+                "raw": "14 30 0a 02 00 04",
+                "byteIndex": 9
               },
               {
                 "op": "REQEW",
@@ -882,7 +937,8 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:6, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 06 c3"
+                "raw": "03 06 c3",
+                "byteIndex": 15
               },
               {
                 "op": "IFUB",
@@ -893,7 +949,9 @@
                 "c": 0,
                 "e": 4,
                 "js": "if (Bank[3][10] == 4) (else goto 27);",
-                "raw": "14 30 0a 04 00 04"
+                "goto": 27,
+                "raw": "14 30 0a 04 00 04",
+                "byteIndex": 18
               },
               {
                 "op": "REQEW",
@@ -902,7 +960,8 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:7, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 07 c3"
+                "raw": "03 07 c3",
+                "byteIndex": 24
               },
               {
                 "op": "IFUB",
@@ -913,7 +972,9 @@
                 "c": 0,
                 "e": 4,
                 "js": "if (Bank[3][10] == 8) (else goto 36);",
-                "raw": "14 30 0a 08 00 04"
+                "goto": 36,
+                "raw": "14 30 0a 08 00 04",
+                "byteIndex": 27
               },
               {
                 "op": "REQEW",
@@ -922,7 +983,8 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:8, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 08 c3"
+                "raw": "03 08 c3",
+                "byteIndex": 33
               },
               {
                 "op": "IFUB",
@@ -933,7 +995,9 @@
                 "c": 0,
                 "e": 4,
                 "js": "if (Bank[3][10] == 5) (else goto 45);",
-                "raw": "14 30 0a 05 00 04"
+                "goto": 45,
+                "raw": "14 30 0a 05 00 04",
+                "byteIndex": 36
               },
               {
                 "op": "REQEW",
@@ -942,7 +1006,8 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:9, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 09 c3"
+                "raw": "03 09 c3",
+                "byteIndex": 42
               },
               {
                 "op": "IFUB",
@@ -953,7 +1018,9 @@
                 "c": 0,
                 "e": 4,
                 "js": "if (Bank[3][10] == 6) (else goto 54);",
-                "raw": "14 30 0a 06 00 04"
+                "goto": 54,
+                "raw": "14 30 0a 06 00 04",
+                "byteIndex": 45
               },
               {
                 "op": "REQEW",
@@ -962,7 +1029,8 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:10, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0a c3"
+                "raw": "03 0a c3",
+                "byteIndex": 51
               },
               {
                 "op": "IFUB",
@@ -973,7 +1041,9 @@
                 "c": 0,
                 "e": 4,
                 "js": "if (Bank[3][10] == 7) (else goto 63);",
-                "raw": "14 30 0a 07 00 04"
+                "goto": 63,
+                "raw": "14 30 0a 07 00 04",
+                "byteIndex": 54
               },
               {
                 "op": "REQEW",
@@ -982,23 +1052,28 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:11, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0b c3"
+                "raw": "03 0b c3",
+                "byteIndex": 60
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 63
               }
             ]
           }
         ]
       },
       {
+        "entityId": 3,
         "entityName": "blkdown",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -1009,63 +1084,74 @@
                 "y2": -368,
                 "z2": -1225,
                 "js": "createLineTrigger({x1:-564, y1:-289, z1:-1235, x2:-564, y2:-368, z2:-1225});",
-                "raw": "d0 cc fd df fe 2d fb cc fd 90 fe 37 fb"
+                "raw": "d0 cc fd df fe 2d fb cc fd 90 fe 37 fb",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Go",
             "ops": [
               {
                 "op": "IFUB",
@@ -1076,19 +1162,23 @@
                 "c": 10,
                 "e": 16,
                 "js": "if (!((Bank[1][133] & (1<<6)))) (else goto 21);",
-                "raw": "14 10 85 06 0a 10"
+                "goto": 21,
+                "raw": "14 10 85 06 0a 10",
+                "byteIndex": 0
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 6
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 8
               },
               {
                 "op": "BITON",
@@ -1097,7 +1187,8 @@
                 "d": 133,
                 "bit": 6,
                 "js": "setBit({destination:Bank[1][133], bit:6});",
-                "raw": "82 10 85 06"
+                "raw": "82 10 85 06",
+                "byteIndex": 10
               },
               {
                 "op": "REQSW",
@@ -1107,114 +1198,135 @@
                 "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
                 "js": "entityExecuteAsyncGuaranteed({entity:12, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "02 0c c3"
+                "raw": "02 0c c3",
+                "byteIndex": 14
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 17
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 19
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 21
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Go 1x",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Go away",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 4,
         "entityName": "cloud",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 0,
                 "js": "thisIsAFieldModel(0);",
-                "raw": "a1 00"
+                "raw": "a1 00",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 0,
                 "js": "thisIsAPlayableCharacter(C.Cloud);",
-                "raw": "a0 00"
+                "raw": "a0 00",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "MOVE",
@@ -1223,7 +1335,8 @@
                 "x": 1089,
                 "y": -321,
                 "js": "walkObjectTo({x:1089, y:-321});",
-                "raw": "a8 00 41 04 bf fe"
+                "raw": "a8 00 41 04 bf fe",
+                "byteIndex": 0
               },
               {
                 "op": "TURNGEN",
@@ -1233,18 +1346,21 @@
                 "s": 15,
                 "t": 1,
                 "js": "rotateModel({rotation:128, direction:0, steps:15, stepType:1});",
-                "raw": "b4 00 80 00 0f 01"
+                "raw": "b4 00 80 00 0f 01",
+                "byteIndex": 6
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 12
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "CANM!2",
@@ -1253,18 +1369,21 @@
                 "l": 19,
                 "s": 1,
                 "js": "playPartialAnimation({animation:3, firstFrame:0, lastFrame:19, slowness:1});",
-                "raw": "bc 03 00 13 01"
+                "raw": "bc 03 00 13 01",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Script 5",
             "ops": [
               {
                 "op": "CANM!2",
@@ -1273,80 +1392,95 @@
                 "l": 29,
                 "s": 1,
                 "js": "playPartialAnimation({animation:3, firstFrame:20, lastFrame:29, slowness:1});",
-                "raw": "bc 03 14 1d 01"
+                "raw": "bc 03 14 1d 01",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           }
         ]
       },
       {
+        "entityId": 5,
         "entityName": "ballet",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 1,
                 "js": "thisIsAFieldModel(1);",
-                "raw": "a1 01"
+                "raw": "a1 01",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 1,
                 "js": "thisIsAPlayableCharacter(C.Barret);",
-                "raw": "a0 01"
+                "raw": "a0 01",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "WINDOW",
@@ -1356,87 +1490,103 @@
                 "w": 218,
                 "h": 57,
                 "js": "createWindow({window:0, x:8, y:8, width:218, height:57});",
-                "raw": "50 00 08 00 08 00 da 00 39 00"
+                "raw": "50 00 08 00 08 00 da 00 39 00",
+                "byteIndex": 0
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 5,
                 "js": "showWindowWithDialog({window:0, dialog:5}); // {Barret}<br/>“So all this energy's gathered here<br/>\tfor the Planet to heal itself?”",
-                "raw": "40 00 05"
+                "raw": "40 00 05",
+                "byteIndex": 10
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           }
         ]
       },
       {
+        "entityId": 6,
         "entityName": "tifa",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 2,
                 "js": "thisIsAFieldModel(2);",
-                "raw": "a1 02"
+                "raw": "a1 02",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 2,
                 "js": "thisIsAPlayableCharacter(C.Tifa);",
-                "raw": "a0 02"
+                "raw": "a0 02",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "WINDOW",
@@ -1446,87 +1596,103 @@
                 "w": 218,
                 "h": 57,
                 "js": "createWindow({window:0, x:8, y:8, width:218, height:57});",
-                "raw": "50 00 08 00 08 00 da 00 39 00"
+                "raw": "50 00 08 00 08 00 da 00 39 00",
+                "byteIndex": 0
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 6,
                 "js": "showWindowWithDialog({window:0, dialog:6}); // {Tifa}<br/>“So the Planet has gathered all<br/>\tthis energy here to heal itself?”",
-                "raw": "40 00 06"
+                "raw": "40 00 06",
+                "byteIndex": 10
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           }
         ]
       },
       {
+        "entityId": 7,
         "entityName": "red",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 3,
                 "js": "thisIsAFieldModel(3);",
-                "raw": "a1 03"
+                "raw": "a1 03",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 4,
                 "js": "thisIsAPlayableCharacter(C.RedXIII);",
-                "raw": "a0 04"
+                "raw": "a0 04",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "WINDOW",
@@ -1536,87 +1702,103 @@
                 "w": 181,
                 "h": 57,
                 "js": "createWindow({window:0, x:8, y:8, width:181, height:57});",
-                "raw": "50 00 08 00 08 00 b5 00 39 00"
+                "raw": "50 00 08 00 08 00 b5 00 39 00",
+                "byteIndex": 0
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 7,
                 "js": "showWindowWithDialog({window:0, dialog:7}); // {Red XIII}<br/>“The energy of the Planet is<br/>\tconcentrated here.”{PAUSE}“It is slowly healing<br/>\tits old wound.”",
-                "raw": "40 00 07"
+                "raw": "40 00 07",
+                "byteIndex": 10
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           }
         ]
       },
       {
+        "entityId": 8,
         "entityName": "cid",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 4,
                 "js": "thisIsAFieldModel(4);",
-                "raw": "a1 04"
+                "raw": "a1 04",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 8,
                 "js": "thisIsAPlayableCharacter(C.Cid);",
-                "raw": "a0 08"
+                "raw": "a0 08",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "WINDOW",
@@ -1626,87 +1808,103 @@
                 "w": 194,
                 "h": 73,
                 "js": "createWindow({window:0, x:8, y:8, width:194, height:73});",
-                "raw": "50 00 08 00 08 00 c2 00 49 00"
+                "raw": "50 00 08 00 08 00 c2 00 49 00",
+                "byteIndex": 0
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 9,
                 "js": "showWindowWithDialog({window:0, dialog:9}); // {Cid}<br/>“Damn, this's somethin'.<br/>\tIt's gathered all that energy<br/>\tto try an' heal itself.”",
-                "raw": "40 00 09"
+                "raw": "40 00 09",
+                "byteIndex": 10
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           }
         ]
       },
       {
+        "entityId": 9,
         "entityName": "yufi",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 5,
                 "js": "thisIsAFieldModel(5);",
-                "raw": "a1 05"
+                "raw": "a1 05",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 5,
                 "js": "thisIsAPlayableCharacter(C.Yuffie);",
-                "raw": "a0 05"
+                "raw": "a0 05",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "WINDOW",
@@ -1716,87 +1914,103 @@
                 "w": 220,
                 "h": 73,
                 "js": "createWindow({window:0, x:8, y:8, width:220, height:73});",
-                "raw": "50 00 08 00 08 00 dc 00 49 00"
+                "raw": "50 00 08 00 08 00 dc 00 49 00",
+                "byteIndex": 0
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 8,
                 "js": "showWindowWithDialog({window:0, dialog:8}); // {Yuffie}<br/>“Even I know what's going on.<br/>\tThe energy's bein' gathered here<br/>\tto heal the gash.”",
-                "raw": "40 00 08"
+                "raw": "40 00 08",
+                "byteIndex": 10
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           }
         ]
       },
       {
+        "entityId": 10,
         "entityName": "ketcy",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 6,
                 "js": "thisIsAFieldModel(6);",
-                "raw": "a1 06"
+                "raw": "a1 06",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 6,
                 "js": "thisIsAPlayableCharacter(C.CaitSith);",
-                "raw": "a0 06"
+                "raw": "a0 06",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "WINDOW",
@@ -1806,87 +2020,103 @@
                 "w": 235,
                 "h": 57,
                 "js": "createWindow({window:0, x:8, y:8, width:235, height:57});",
-                "raw": "50 00 08 00 08 00 eb 00 39 00"
+                "raw": "50 00 08 00 08 00 eb 00 39 00",
+                "byteIndex": 0
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 10,
                 "js": "showWindowWithDialog({window:0, dialog:10}); // {Cait Sith}<br/>“It's trying to heal its wound<br/>\tby gathering all that energy here.”",
-                "raw": "40 00 0a"
+                "raw": "40 00 0a",
+                "byteIndex": 10
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           }
         ]
       },
       {
+        "entityId": 11,
         "entityName": "vincent",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 7,
                 "js": "thisIsAFieldModel(7);",
-                "raw": "a1 07"
+                "raw": "a1 07",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 7,
                 "js": "thisIsAPlayableCharacter(C.Vincent);",
-                "raw": "a0 07"
+                "raw": "a0 07",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "WINDOW",
@@ -1896,43 +2126,51 @@
                 "w": 244,
                 "h": 57,
                 "js": "createWindow({window:0, x:8, y:8, width:244, height:57});",
-                "raw": "50 00 08 00 08 00 f4 00 39 00"
+                "raw": "50 00 08 00 08 00 f4 00 39 00",
+                "byteIndex": 0
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 11,
                 "js": "showWindowWithDialog({window:0, dialog:11}); // {Vincent}<br/>“It's amassed a vast amount of energy<br/>\tto heal itself.”",
-                "raw": "40 00 0b"
+                "raw": "40 00 0b",
+                "byteIndex": 10
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           }
         ]
       },
       {
+        "entityId": 12,
         "entityName": "black1",
+        "entityType": "Model",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 8,
                 "js": "thisIsAFieldModel(8);",
-                "raw": "a1 08"
+                "raw": "a1 08",
+                "byteIndex": 0
               },
               {
                 "op": "TALKR",
                 "b": 0,
                 "r": 35,
                 "js": "setInteractibilityRadius({radius:35});",
-                "raw": "c5 00 23"
+                "raw": "c5 00 23",
+                "byteIndex": 2
               },
               {
                 "op": "IFUB",
@@ -1943,7 +2181,9 @@
                 "c": 10,
                 "e": 17,
                 "js": "if (!((Bank[1][133] & (1<<6)))) (else goto 27);",
-                "raw": "14 10 85 06 0a 11"
+                "goto": 27,
+                "raw": "14 10 85 06 0a 11",
+                "byteIndex": 5
               },
               {
                 "op": "XYZI",
@@ -1956,73 +2196,86 @@
                 "z": -1542,
                 "i": 49,
                 "js": "placeObject({x:-1130, y:-347, z:-1542, walkmeshTriangle:49});",
-                "raw": "a5 00 00 96 fb a5 fe fa f9 31 00"
+                "raw": "a5 00 00 96 fb a5 fe fa f9 31 00",
+                "byteIndex": 11
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 192,
                 "js": "setFacingDirection({direction:192});",
-                "raw": "b3 00 c0"
+                "raw": "b3 00 c0",
+                "byteIndex": 22
               },
               {
                 "op": "JMPF",
                 "a": 7,
                 "js": "goto 33;",
-                "raw": "10 07"
+                "goto": 33,
+                "raw": "10 07",
+                "byteIndex": 25
               },
               {
                 "op": "TLKON",
                 "s": 1,
                 "js": "interactibilityOff();",
-                "raw": "7e 01"
+                "raw": "7e 01",
+                "byteIndex": 27
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 29
               },
               {
                 "op": "VISI",
                 "s": 0,
                 "js": "setVisibilityMode(V.NotVisible);",
-                "raw": "a4 00"
+                "raw": "a4 00",
+                "byteIndex": 31
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 33
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 34
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 0
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 2
               },
               {
                 "op": "REQSW",
@@ -2032,7 +2285,8 @@
                 "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
                 "js": "entityExecuteAsyncGuaranteed({entity:4, priority:6, function:4});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "02 04 c4"
+                "raw": "02 04 c4",
+                "byteIndex": 4
               },
               {
                 "op": "WINDOW",
@@ -2042,38 +2296,44 @@
                 "w": 141,
                 "h": 41,
                 "js": "createWindow({window:0, x:8, y:100, width:141, height:41});",
-                "raw": "50 00 08 00 64 00 8d 00 29 00"
+                "raw": "50 00 08 00 64 00 8d 00 29 00",
+                "byteIndex": 7
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 12,
                 "js": "showWindowWithDialog({window:0, dialog:12}); // “…bback…to…Sep…<br/>\t…i…roth…”",
-                "raw": "40 00 0c"
+                "raw": "40 00 0c",
+                "byteIndex": 17
               },
               {
                 "op": "TLKON",
                 "s": 1,
                 "js": "interactibilityOff();",
-                "raw": "7e 01"
+                "raw": "7e 01",
+                "byteIndex": 20
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 22
               },
               {
                 "op": "VISI",
                 "s": 0,
                 "js": "setVisibilityMode(V.NotVisible);",
-                "raw": "a4 00"
+                "raw": "a4 00",
+                "byteIndex": 24
               },
               {
                 "op": "WAIT",
                 "a": 2,
                 "js": "wait({numFrames:2});",
-                "raw": "24 02 00"
+                "raw": "24 02 00",
+                "byteIndex": 26
               },
               {
                 "op": "REQSW",
@@ -2083,179 +2343,209 @@
                 "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
                 "js": "entityExecuteAsyncGuaranteed({entity:4, priority:6, function:5});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "02 04 c5"
+                "raw": "02 04 c5",
+                "byteIndex": 29
               },
               {
                 "op": "TLKON",
                 "s": 0,
                 "js": "interactibilityOn();",
-                "raw": "7e 00"
+                "raw": "7e 00",
+                "byteIndex": 32
               },
               {
                 "op": "SOLID",
                 "s": 0,
                 "js": "setSolidMode(S.Solid);",
-                "raw": "c7 00"
+                "raw": "c7 00",
+                "byteIndex": 34
               },
               {
                 "op": "VISI",
                 "s": 1,
                 "js": "setVisibilityMode(V.Visible);",
-                "raw": "a4 01"
+                "raw": "a4 01",
+                "byteIndex": 36
               },
               {
                 "op": "WAIT",
                 "a": 2,
                 "js": "wait({numFrames:2});",
-                "raw": "24 02 00"
+                "raw": "24 02 00",
+                "byteIndex": 38
               },
               {
                 "op": "TLKON",
                 "s": 1,
                 "js": "interactibilityOff();",
-                "raw": "7e 01"
+                "raw": "7e 01",
+                "byteIndex": 41
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 43
               },
               {
                 "op": "VISI",
                 "s": 0,
                 "js": "setVisibilityMode(V.NotVisible);",
-                "raw": "a4 00"
+                "raw": "a4 00",
+                "byteIndex": 45
               },
               {
                 "op": "WAIT",
                 "a": 2,
                 "js": "wait({numFrames:2});",
-                "raw": "24 02 00"
+                "raw": "24 02 00",
+                "byteIndex": 47
               },
               {
                 "op": "TLKON",
                 "s": 0,
                 "js": "interactibilityOn();",
-                "raw": "7e 00"
+                "raw": "7e 00",
+                "byteIndex": 50
               },
               {
                 "op": "SOLID",
                 "s": 0,
                 "js": "setSolidMode(S.Solid);",
-                "raw": "c7 00"
+                "raw": "c7 00",
+                "byteIndex": 52
               },
               {
                 "op": "VISI",
                 "s": 1,
                 "js": "setVisibilityMode(V.Visible);",
-                "raw": "a4 01"
+                "raw": "a4 01",
+                "byteIndex": 54
               },
               {
                 "op": "WAIT",
                 "a": 2,
                 "js": "wait({numFrames:2});",
-                "raw": "24 02 00"
+                "raw": "24 02 00",
+                "byteIndex": 56
               },
               {
                 "op": "TLKON",
                 "s": 1,
                 "js": "interactibilityOff();",
-                "raw": "7e 01"
+                "raw": "7e 01",
+                "byteIndex": 59
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 61
               },
               {
                 "op": "VISI",
                 "s": 0,
                 "js": "setVisibilityMode(V.NotVisible);",
-                "raw": "a4 00"
+                "raw": "a4 00",
+                "byteIndex": 63
               },
               {
                 "op": "WAIT",
                 "a": 2,
                 "js": "wait({numFrames:2});",
-                "raw": "24 02 00"
+                "raw": "24 02 00",
+                "byteIndex": 65
               },
               {
                 "op": "TLKON",
                 "s": 0,
                 "js": "interactibilityOn();",
-                "raw": "7e 00"
+                "raw": "7e 00",
+                "byteIndex": 68
               },
               {
                 "op": "SOLID",
                 "s": 0,
                 "js": "setSolidMode(S.Solid);",
-                "raw": "c7 00"
+                "raw": "c7 00",
+                "byteIndex": 70
               },
               {
                 "op": "VISI",
                 "s": 1,
                 "js": "setVisibilityMode(V.Visible);",
-                "raw": "a4 01"
+                "raw": "a4 01",
+                "byteIndex": 72
               },
               {
                 "op": "WAIT",
                 "a": 2,
                 "js": "wait({numFrames:2});",
-                "raw": "24 02 00"
+                "raw": "24 02 00",
+                "byteIndex": 74
               },
               {
                 "op": "TLKON",
                 "s": 1,
                 "js": "interactibilityOff();",
-                "raw": "7e 01"
+                "raw": "7e 01",
+                "byteIndex": 77
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 79
               },
               {
                 "op": "VISI",
                 "s": 0,
                 "js": "setVisibilityMode(V.NotVisible);",
-                "raw": "a4 00"
+                "raw": "a4 00",
+                "byteIndex": 81
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 83
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 85
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 87
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "TURNGEN",
@@ -2265,14 +2555,16 @@
                 "s": 30,
                 "t": 1,
                 "js": "rotateModel({rotation:0, direction:0, steps:30, stepType:1});",
-                "raw": "b4 00 00 00 1e 01"
+                "raw": "b4 00 00 00 1e 01",
+                "byteIndex": 0
               },
               {
                 "op": "ANIM!2",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
-                "raw": "ba 03 01"
+                "raw": "ba 03 01",
+                "byteIndex": 6
               },
               {
                 "op": "SOUND",
@@ -2281,13 +2573,15 @@
                 "i": 427,
                 "d": 64,
                 "js": "playSound({sound:427, direction:64});",
-                "raw": "f1 00 ab 01 40"
+                "raw": "f1 00 ab 01 40",
+                "byteIndex": 9
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           }
@@ -2308,6 +2602,18 @@
       "{Cait Sith}<br/>“It's trying to heal its wound<br/>\tby gathering all that energy here.”",
       "{Vincent}<br/>“It's amassed a vast amount of energy<br/>\tto heal itself.”",
       "“…bback…to…Sep…<br/>\t…i…roth…”"
+    ],
+    "akao": [
+      {
+        "id": 72,
+        "name": "kita",
+        "description": "The Great Northern Cave"
+      },
+      {
+        "id": 8,
+        "name": "bat",
+        "description": "Fighting"
+      }
     ]
   },
   "model": {
@@ -4718,7 +5024,8 @@
   "triggers": {
     "header": {
       "fieldName": "crater_1",
-      "controlDirection": -128,
+      "controlDirection": 128,
+      "controlDirectionDegrees": 0,
       "cameraHeightAdjustment": 64,
       "cameraRange": {
         "left": -560,
@@ -4754,10 +5061,12 @@
         "destinationVertex": {
           "x": 717,
           "y": -27972,
-          "z": 11
+          "triangleId": 11,
+          "direction": 0
         },
         "fieldId": 695,
-        "fieldName": "gaia_32"
+        "fieldName": "gaia_32",
+        "showArrow": 0
       },
       {
         "exitLineVertex1": {
@@ -4773,10 +5082,12 @@
         "destinationVertex": {
           "x": 1088,
           "y": 20,
-          "z": 61
+          "triangleId": 61,
+          "direction": -72
         },
         "fieldId": 701,
-        "fieldName": "crater_2"
+        "fieldName": "crater_2",
+        "showArrow": 0
       }
     ],
     "triggers": [
@@ -4973,20 +5284,6 @@
         "soundId": 0
       }
     ],
-    "shownArrows": [
-      0,
-      0,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
     "gatewayArrows": [
       {
         "x": 1548,
@@ -5061,5 +5358,169 @@
         "type": 0
       }
     ]
+  },
+  "palette": {
+    "length": 4108,
+    "header": {
+      "length": 4108,
+      "palX": 0,
+      "palY": 480,
+      "colorsPerPage": 256,
+      "pageCount": 8
+    },
+    "pages": "Omitted to reduce size"
+  },
+  "background": {
+    "length": 510735,
+    "header": {
+      "zero1": 0,
+      "usePaddles": 1,
+      "activated": 1
+    },
+    "palette": {
+      "ignoreFirstPixel": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "tiles": {
+      "layer1": {
+        "width": 1136,
+        "height": 896,
+        "tileCount": 1,
+        "depth": 1,
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer2": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 851,
+        "unknown": [
+          0,
+          0,
+          4,
+          0,
+          15,
+          0,
+          16,
+          0,
+          26,
+          0,
+          27,
+          0,
+          33,
+          0,
+          34,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer3": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 50,
+        "unknown": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer4": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 93,
+        "unknown": [
+          0,
+          0,
+          17,
+          0,
+          18,
+          0,
+          35,
+          0,
+          36,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      }
+    },
+    "textures": {
+      "texture0": {
+        "textureId": 0,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture1": {
+        "textureId": 1,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture2": {
+        "textureId": 2,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture3": {
+        "textureId": 3,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture4": {
+        "textureId": 4,
+        "size": 1,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture5": {
+        "textureId": 5,
+        "size": 1,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture6": {
+        "textureId": 6,
+        "size": 1,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      }
+    }
   }
 }

@@ -381,10 +381,13 @@
     },
     "entities": [
       {
+        "entityId": 0,
         "entityName": "dir",
+        "entityType": "Director",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "IFSW",
@@ -395,44 +398,53 @@
                 "c": 2,
                 "e": 5,
                 "js": "if (Bank[2][0] > 1022) (else goto 12);",
-                "raw": "16 20 00 00 fe 03 02 05"
+                "goto": 12,
+                "raw": "16 20 00 00 fe 03 02 05",
+                "byteIndex": 0
               },
               {
                 "op": "MUSIC",
                 "id": 0,
                 "js": "playMusic({song:0});",
                 "pres": "Song starts: <Song:0>",
-                "raw": "f0 00"
+                "raw": "f0 00",
+                "byteIndex": 8
               },
               {
                 "op": "JMPF",
                 "a": 3,
                 "js": "goto 14;",
-                "raw": "10 03"
+                "goto": 14,
+                "raw": "10 03",
+                "byteIndex": 10
               },
               {
                 "op": "MUSIC",
                 "id": 1,
                 "js": "playMusic({song:1});",
                 "pres": "Song starts: <Song:1>",
-                "raw": "f0 01"
+                "raw": "f0 01",
+                "byteIndex": 12
               },
               {
                 "op": "MPNAM",
                 "dialogId": 11,
                 "js": "setMapName({dialog:11});",
-                "raw": "43 0b"
+                "raw": "43 0b",
+                "byteIndex": 14
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 16
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -443,14 +455,17 @@
                 "v": 1000,
                 "c": 0,
                 "e": 18,
-                "js": "if (Bank[2][0] == 1000) (else goto 25);",
-                "raw": "16 20 00 00 e8 03 00 12"
+                "js": "if (Bank[2][0] == 1000) (else goto 42);",
+                "goto": 42,
+                "raw": "16 20 00 00 e8 03 00 12",
+                "byteIndex": 17
               },
               {
                 "op": "WAIT",
                 "a": 4,
                 "js": "wait({numFrames:4});",
-                "raw": "24 04 00"
+                "raw": "24 04 00",
+                "byteIndex": 25
               },
               {
                 "op": "REQ",
@@ -460,7 +475,8 @@
                 "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
                 "js": "entityExecuteAsync({entity:5, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "01 05 c3"
+                "raw": "01 05 c3",
+                "byteIndex": 28
               },
               {
                 "op": "REQ",
@@ -470,13 +486,15 @@
                 "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
                 "js": "entityExecuteAsync({entity:2, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "01 02 c3"
+                "raw": "01 02 c3",
+                "byteIndex": 31
               },
               {
                 "op": "WAIT",
                 "a": 10,
                 "js": "wait({numFrames:10});",
-                "raw": "24 0a 00"
+                "raw": "24 0a 00",
+                "byteIndex": 34
               },
               {
                 "op": "SETWORD",
@@ -486,97 +504,118 @@
                 "v": 1001,
                 "mr": "$GameMoment = 1001 (16 bit)",
                 "js": "$GameMoment = 1001;",
-                "raw": "81 20 00 e9 03"
+                "raw": "81 20 00 e9 03",
+                "byteIndex": 37
               },
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 25;",
-                "raw": "12 00"
+                "js": "goto 42;",
+                "goto": 42,
+                "raw": "12 00",
+                "byteIndex": 42
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 1,
         "entityName": "cl",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 0,
                 "js": "thisIsAFieldModel(0);",
-                "raw": "a1 00"
+                "raw": "a1 00",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 0,
                 "js": "thisIsAPlayableCharacter(C.Cloud);",
-                "raw": "a0 00"
+                "raw": "a0 00",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 2,
         "entityName": "ti",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 1,
                 "js": "thisIsAFieldModel(1);",
-                "raw": "a1 01"
+                "raw": "a1 01",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 2,
                 "js": "thisIsAPlayableCharacter(C.Tifa);",
-                "raw": "a0 02"
+                "raw": "a0 02",
+                "byteIndex": 2
               },
               {
                 "op": "IFSW",
@@ -587,7 +626,9 @@
                 "c": 0,
                 "e": 21,
                 "js": "if (Bank[2][0] == 1000) (else goto 32);",
-                "raw": "16 20 00 00 e8 03 00 15"
+                "goto": 32,
+                "raw": "16 20 00 00 e8 03 00 15",
+                "byteIndex": 4
               },
               {
                 "op": "XYZI",
@@ -600,66 +641,78 @@
                 "z": 447,
                 "i": 21,
                 "js": "placeObject({x:175, y:-92, z:447, walkmeshTriangle:21});",
-                "raw": "a5 00 00 af 00 a4 ff bf 01 15 00"
+                "raw": "a5 00 00 af 00 a4 ff bf 01 15 00",
+                "byteIndex": 12
               },
               {
                 "op": "DFANM",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationLoop({animation:3, slowness:1});",
-                "raw": "a2 03 01"
+                "raw": "a2 03 01",
+                "byteIndex": 23
               },
               {
                 "op": "TLKON",
                 "s": 0,
                 "js": "interactibilityOn();",
-                "raw": "7e 00"
+                "raw": "7e 00",
+                "byteIndex": 26
               },
               {
                 "op": "SOLID",
                 "s": 0,
                 "js": "setSolidMode(S.Solid);",
-                "raw": "c7 00"
+                "raw": "c7 00",
+                "byteIndex": 28
               },
               {
                 "op": "VISI",
                 "s": 1,
                 "js": "setVisibilityMode(V.Visible);",
-                "raw": "a4 01"
+                "raw": "a4 01",
+                "byteIndex": 30
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 32
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 33;",
+                "goto": 33,
+                "raw": "12 00",
+                "byteIndex": 33
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "FMOVE",
@@ -668,7 +721,8 @@
                 "x": 351,
                 "y": -92,
                 "js": "moveFieldObjectTo({x:351, y:-92});",
-                "raw": "ad 00 5f 01 a4 ff"
+                "raw": "ad 00 5f 01 a4 ff",
+                "byteIndex": 0
               },
               {
                 "op": "FMOVE",
@@ -677,104 +731,125 @@
                 "x": 346,
                 "y": 444,
                 "js": "moveFieldObjectTo({x:346, y:444});",
-                "raw": "ad 00 5a 01 bc 01"
+                "raw": "ad 00 5a 01 bc 01",
+                "byteIndex": 6
               },
               {
                 "op": "TLKON",
                 "s": 1,
                 "js": "interactibilityOff();",
-                "raw": "7e 01"
+                "raw": "7e 01",
+                "byteIndex": 12
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 14
               },
               {
                 "op": "VISI",
                 "s": 0,
                 "js": "setVisibilityMode(V.NotVisible);",
-                "raw": "a4 00"
+                "raw": "a4 00",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 18
               }
             ]
           }
         ]
       },
       {
+        "entityId": 3,
         "entityName": "cid",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 2,
                 "js": "thisIsAFieldModel(2);",
-                "raw": "a1 02"
+                "raw": "a1 02",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 8,
                 "js": "thisIsAPlayableCharacter(C.Cid);",
-                "raw": "a0 08"
+                "raw": "a0 08",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 4,
         "entityName": "ba",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 3,
                 "js": "thisIsAFieldModel(3);",
-                "raw": "a1 03"
+                "raw": "a1 03",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 1,
                 "js": "thisIsAPlayableCharacter(C.Barret);",
-                "raw": "a0 01"
+                "raw": "a0 01",
+                "byteIndex": 2
               },
               {
                 "op": "IFSW",
@@ -785,7 +860,9 @@
                 "c": 3,
                 "e": 13,
                 "js": "if (Bank[2][0] < 1008) (else goto 24);",
-                "raw": "16 20 00 00 f0 03 03 0d"
+                "goto": 24,
+                "raw": "16 20 00 00 f0 03 03 0d",
+                "byteIndex": 4
               },
               {
                 "op": "CCANM",
@@ -794,7 +871,8 @@
                 "i": 0,
                 "js": "setAnimationId({animationId:3, speed:1, actionId:Action.Stand});",
                 "pres": "<This> <Animation>.",
-                "raw": "dc 03 01 00"
+                "raw": "dc 03 01 00",
+                "byteIndex": 12
               },
               {
                 "op": "CCANM",
@@ -803,7 +881,8 @@
                 "i": 1,
                 "js": "setAnimationId({animationId:4, speed:1, actionId:Action.Walk});",
                 "pres": "<This> <Animation>.",
-                "raw": "dc 04 01 01"
+                "raw": "dc 04 01 01",
+                "byteIndex": 16
               },
               {
                 "op": "CCANM",
@@ -812,70 +891,84 @@
                 "i": 2,
                 "js": "setAnimationId({animationId:5, speed:1, actionId:Action.Run});",
                 "pres": "<This> <Animation>.",
-                "raw": "dc 05 01 02"
+                "raw": "dc 05 01 02",
+                "byteIndex": 20
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 24
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 25;",
+                "goto": 25,
+                "raw": "12 00",
+                "byteIndex": 25
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 5,
         "entityName": "hei0",
+        "entityType": "Model",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 4,
                 "js": "thisIsAFieldModel(4);",
-                "raw": "a1 04"
+                "raw": "a1 04",
+                "byteIndex": 0
               },
               {
                 "op": "TLKON",
                 "s": 1,
                 "js": "interactibilityOff();",
-                "raw": "7e 01"
+                "raw": "7e 01",
+                "byteIndex": 2
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 4
               },
               {
                 "op": "VISI",
                 "s": 0,
                 "js": "setVisibilityMode(V.NotVisible);",
-                "raw": "a4 00"
+                "raw": "a4 00",
+                "byteIndex": 6
               },
               {
                 "op": "IFSW",
@@ -886,7 +979,9 @@
                 "c": 0,
                 "e": 18,
                 "js": "if (Bank[2][0] == 1000) (else goto 33);",
-                "raw": "16 20 00 00 e8 03 00 12"
+                "goto": 33,
+                "raw": "16 20 00 00 e8 03 00 12",
+                "byteIndex": 8
               },
               {
                 "op": "XYZI",
@@ -899,59 +994,70 @@
                 "z": 447,
                 "i": 20,
                 "js": "placeObject({x:-43, y:-87, z:447, walkmeshTriangle:20});",
-                "raw": "a5 00 00 d5 ff a9 ff bf 01 14 00"
+                "raw": "a5 00 00 d5 ff a9 ff bf 01 14 00",
+                "byteIndex": 16
               },
               {
                 "op": "TLKON",
                 "s": 0,
                 "js": "interactibilityOn();",
-                "raw": "7e 00"
+                "raw": "7e 00",
+                "byteIndex": 27
               },
               {
                 "op": "SOLID",
                 "s": 0,
                 "js": "setSolidMode(S.Solid);",
-                "raw": "c7 00"
+                "raw": "c7 00",
+                "byteIndex": 29
               },
               {
                 "op": "VISI",
                 "s": 1,
                 "js": "setVisibilityMode(V.Visible);",
-                "raw": "a4 01"
+                "raw": "a4 01",
+                "byteIndex": 31
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 33
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 34;",
+                "goto": 34,
+                "raw": "12 00",
+                "byteIndex": 34
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "MOVE",
@@ -960,7 +1066,8 @@
                 "x": 351,
                 "y": -92,
                 "js": "walkObjectTo({x:351, y:-92});",
-                "raw": "a8 00 5f 01 a4 ff"
+                "raw": "a8 00 5f 01 a4 ff",
+                "byteIndex": 0
               },
               {
                 "op": "MOVE",
@@ -969,47 +1076,56 @@
                 "x": 346,
                 "y": 444,
                 "js": "walkObjectTo({x:346, y:444});",
-                "raw": "a8 00 5a 01 bc 01"
+                "raw": "a8 00 5a 01 bc 01",
+                "byteIndex": 6
               },
               {
                 "op": "TLKON",
                 "s": 1,
                 "js": "interactibilityOff();",
-                "raw": "7e 01"
+                "raw": "7e 01",
+                "byteIndex": 12
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 14
               },
               {
                 "op": "VISI",
                 "s": 0,
                 "js": "setVisibilityMode(V.NotVisible);",
-                "raw": "a4 00"
+                "raw": "a4 00",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 18
               }
             ]
           }
         ]
       },
       {
+        "entityId": 6,
         "entityName": "save",
+        "entityType": "Model",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 5,
                 "js": "thisIsAFieldModel(5);",
-                "raw": "a1 05"
+                "raw": "a1 05",
+                "byteIndex": 0
               },
               {
                 "op": "XYZI",
@@ -1022,52 +1138,62 @@
                 "z": 447,
                 "i": 26,
                 "js": "placeObject({x:-359, y:-338, z:447, walkmeshTriangle:26});",
-                "raw": "a5 00 00 99 fe ae fe bf 01 1a 00"
+                "raw": "a5 00 00 99 fe ae fe bf 01 1a 00",
+                "byteIndex": 2
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 13
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 15
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 16
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 7,
         "entityName": "savel0",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -1078,41 +1204,48 @@
                 "y2": -368,
                 "z2": 447,
                 "js": "createLineTrigger({x1:-414, y1:-307, z1:447, x2:-335, y2:-368, z2:447});",
-                "raw": "d0 62 fe cd fe bf 01 b1 fe 90 fe bf 01"
+                "raw": "d0 62 fe cd fe bf 01 b1 fe 90 fe bf 01",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Go 1x",
             "ops": [
               {
                 "op": "SOUND",
@@ -1121,7 +1254,8 @@
                 "i": 359,
                 "d": 64,
                 "js": "playSound({sound:359, direction:64});",
-                "raw": "f1 00 67 01 40"
+                "raw": "f1 00 67 01 40",
+                "byteIndex": 0
               },
               {
                 "op": "IFUB",
@@ -1132,19 +1266,23 @@
                 "c": 10,
                 "e": 22,
                 "js": "if (!((Bank[13][91] & (1<<1)))) (else goto 32);",
-                "raw": "14 d0 5b 01 0a 16"
+                "goto": 32,
+                "raw": "14 d0 5b 01 0a 16",
+                "byteIndex": 5
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 11
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 13
               },
               {
                 "op": "WINDOW",
@@ -1154,26 +1292,30 @@
                 "w": 180,
                 "h": 57,
                 "js": "createWindow({window:0, x:62, y:10, width:180, height:57});",
-                "raw": "50 00 3e 00 0a 00 b4 00 39 00"
+                "raw": "50 00 3e 00 0a 00 b4 00 39 00",
+                "byteIndex": 15
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 1,
                 "js": "showWindowWithDialog({window:0, dialog:1}); // [Save Point]<br/>Access the Menu and select<br/><fe>{PURPLE}[SAVE]<fe>{WHITE} to save your game.",
-                "raw": "40 00 01"
+                "raw": "40 00 01",
+                "byteIndex": 25
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 28
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 30
               },
               {
                 "op": "BITON",
@@ -1182,7 +1324,8 @@
                 "d": 91,
                 "bit": 1,
                 "js": "setBit({destination:Bank[13][91], bit:1});",
-                "raw": "82 d0 5b 01"
+                "raw": "82 d0 5b 01",
+                "byteIndex": 32
               },
               {
                 "op": "AND2",
@@ -1191,18 +1334,21 @@
                 "d": 30,
                 "s": -513,
                 "js": "Bank[2][30] = Bank[2][30] & -513;",
-                "raw": "90 20 1e ff fd"
+                "raw": "90 20 1e ff fd",
+                "byteIndex": 36
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 41
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Go away",
             "ops": [
               {
                 "op": "BITOFF",
@@ -1211,7 +1357,8 @@
                 "d": 91,
                 "bit": 1,
                 "js": "unsetBit({destination:Bank[13][91], bit:1});",
-                "raw": "83 d0 5b 01"
+                "raw": "83 d0 5b 01",
+                "byteIndex": 0
               },
               {
                 "op": "OR2",
@@ -1220,23 +1367,28 @@
                 "d": 30,
                 "s": 512,
                 "js": "Bank[2][30] = Bank[2][30] | 512;",
-                "raw": "92 20 1e 00 02"
+                "raw": "92 20 1e 00 02",
+                "byteIndex": 4
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 9
               }
             ]
           }
         ]
       },
       {
+        "entityId": 8,
         "entityName": "door",
+        "entityType": "Animation",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "BGCLR",
@@ -1244,30 +1396,35 @@
                 "a": 1,
                 "js": "clearBackground({area:1});",
                 "pres": "<Area:1> clears.",
-                "raw": "e4 00 01"
+                "raw": "e4 00 01",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 3
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "BGON",
@@ -1277,18 +1434,21 @@
                 "l": 0,
                 "js": "backgroundOn({area:1, layer:0});",
                 "pres": "<Area:1> <Layer:0> appears.",
-                "raw": "e0 00 01 00"
+                "raw": "e0 00 01 00",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Script 2",
             "ops": [
               {
                 "op": "BGOFF",
@@ -1298,13 +1458,15 @@
                 "l": 0,
                 "js": "backgroundOff({area:1, layer:0});",
                 "pres": "<Area:1> <Layer:0> disappears.",
-                "raw": "e1 00 01 00"
+                "raw": "e1 00 01 00",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           }
@@ -1486,6 +1648,18 @@
       "“Speed, 70 Knots!”",
       "“Weapon, closing in!!”",
       "“Not good! It's attacking!”"
+    ],
+    "akao": [
+      {
+        "id": 83,
+        "name": "gun",
+        "description": "Shinra Army Wages A Full-Scale Attack"
+      },
+      {
+        "id": 46,
+        "name": "rhythm",
+        "description": "Turk's Theme"
+      }
     ]
   },
   "model": {
@@ -2723,7 +2897,8 @@
   "triggers": {
     "header": {
       "fieldName": "junbin12",
-      "controlDirection": -128,
+      "controlDirection": 128,
+      "controlDirectionDegrees": 0,
       "cameraHeightAdjustment": 0,
       "cameraRange": {
         "left": -160,
@@ -2759,10 +2934,12 @@
         "destinationVertex": {
           "x": 527,
           "y": 583,
-          "z": 31
+          "triangleId": 31,
+          "direction": -128
         },
         "fieldId": 396,
-        "fieldName": "junbin1"
+        "fieldName": "junbin1",
+        "showArrow": 0
       },
       {
         "exitLineVertex1": {
@@ -2778,10 +2955,12 @@
         "destinationVertex": {
           "x": 8,
           "y": -1215,
-          "z": 64
+          "triangleId": 64,
+          "direction": -128
         },
         "fieldId": 398,
-        "fieldName": "junbin21"
+        "fieldName": "junbin21",
+        "showArrow": 0
       }
     ],
     "triggers": [
@@ -2978,20 +3157,6 @@
         "soundId": 0
       }
     ],
-    "shownArrows": [
-      0,
-      0,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
     "gatewayArrows": [
       {
         "x": 65490,
@@ -3066,5 +3231,99 @@
         "type": 0
       }
     ]
+  },
+  "palette": {
+    "length": 3596,
+    "header": {
+      "length": 3596,
+      "palX": 0,
+      "palY": 480,
+      "colorsPerPage": 256,
+      "pageCount": 7
+    },
+    "pages": "Omitted to reduce size"
+  },
+  "background": {
+    "length": 149663,
+    "header": {
+      "zero1": 0,
+      "usePaddles": 1,
+      "activated": 1
+    },
+    "palette": {
+      "ignoreFirstPixel": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "tiles": {
+      "layer1": {
+        "width": 336,
+        "height": 256,
+        "tileCount": 184,
+        "depth": 1,
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer2": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 170,
+        "unknown": [
+          0,
+          0,
+          2,
+          0,
+          15,
+          0,
+          16,
+          0,
+          26,
+          0,
+          27,
+          0,
+          33,
+          0,
+          34,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      }
+    },
+    "textures": {
+      "texture0": {
+        "textureId": 0,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture1": {
+        "textureId": 1,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      }
+    }
   }
 }

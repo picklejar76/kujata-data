@@ -267,10 +267,13 @@
     },
     "entities": [
       {
+        "entityId": 0,
         "entityName": "dir",
+        "entityType": "Director",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "IFSW",
@@ -281,50 +284,60 @@
                 "c": 3,
                 "e": 5,
                 "js": "if (Bank[2][0] < 385) (else goto 12);",
-                "raw": "16 20 00 00 81 01 03 05"
+                "goto": 12,
+                "raw": "16 20 00 00 81 01 03 05",
+                "byteIndex": 0
               },
               {
                 "op": "BTLON",
                 "s": 1,
                 "js": "disableRandomEncounters();",
                 "pres": "Random monsters stop showing up.",
-                "raw": "71 01"
+                "raw": "71 01",
+                "byteIndex": 8
               },
               {
                 "op": "JMPF",
                 "a": 5,
                 "js": "goto 16;",
-                "raw": "10 05"
+                "goto": 16,
+                "raw": "10 05",
+                "byteIndex": 10
               },
               {
                 "op": "BMUSC",
                 "id": 0,
                 "js": "setBattleMusic({song:0});",
-                "raw": "f6 00"
+                "raw": "f6 00",
+                "byteIndex": 12
               },
               {
                 "op": "MUSIC",
                 "id": 1,
                 "js": "playMusic({song:1});",
                 "pres": "Song starts: <Song:1>",
-                "raw": "f0 01"
+                "raw": "f0 01",
+                "byteIndex": 14
               },
               {
                 "op": "MPNAM",
                 "dialogId": 6,
                 "js": "setMapName({dialog:6});",
-                "raw": "43 06"
+                "raw": "43 06",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 18
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -335,8 +348,10 @@
                 "v": 373,
                 "c": 0,
                 "e": 22,
-                "js": "if (Bank[2][0] == 373) (else goto 29);",
-                "raw": "16 20 00 00 75 01 00 16"
+                "js": "if (Bank[2][0] == 373) (else goto 48);",
+                "goto": 48,
+                "raw": "16 20 00 00 75 01 00 16",
+                "byteIndex": 19
               },
               {
                 "op": "SETWORD",
@@ -346,13 +361,15 @@
                 "v": 374,
                 "mr": "$GameMoment = 374 (16 bit)",
                 "js": "$GameMoment = 374;",
-                "raw": "81 20 00 76 01"
+                "raw": "81 20 00 76 01",
+                "byteIndex": 27
               },
               {
                 "op": "WAIT",
                 "a": 30,
                 "js": "wait({numFrames:30});",
-                "raw": "24 1e 00"
+                "raw": "24 1e 00",
+                "byteIndex": 32
               },
               {
                 "op": "WINDOW",
@@ -362,14 +379,16 @@
                 "w": 120,
                 "h": 41,
                 "js": "createWindow({window:0, x:110, y:100, width:120, height:41});",
-                "raw": "50 00 6e 00 64 00 78 00 29 00"
+                "raw": "50 00 6e 00 64 00 78 00 29 00",
+                "byteIndex": 35
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 102,
                 "js": "showWindowWithDialog({window:0, dialog:102}); // Sephiroth<br/>“Ha, ha, ha…”",
-                "raw": "40 00 66"
+                "raw": "40 00 66",
+                "byteIndex": 45
               },
               {
                 "op": "IFSW",
@@ -379,20 +398,24 @@
                 "v": 370,
                 "c": 0,
                 "e": 113,
-                "js": "if (Bank[2][0] == 370) (else goto 149);",
-                "raw": "16 20 00 00 72 01 00 71"
+                "js": "if (Bank[2][0] == 370) (else goto 168);",
+                "goto": 168,
+                "raw": "16 20 00 00 72 01 00 71",
+                "byteIndex": 48
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 56
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 58
               },
               {
                 "op": "SCR2D",
@@ -401,13 +424,15 @@
                 "targetX": -40,
                 "targetY": -24,
                 "js": "scroll({x:-40, y:-24});",
-                "raw": "64 00 d8 ff e8 ff"
+                "raw": "64 00 d8 ff e8 ff",
+                "byteIndex": 60
               },
               {
                 "op": "WAIT",
                 "a": 50,
                 "js": "wait({numFrames:50});",
-                "raw": "24 32 00"
+                "raw": "24 32 00",
+                "byteIndex": 66
               },
               {
                 "op": "WINDOW",
@@ -417,14 +442,16 @@
                 "w": 266,
                 "h": 73,
                 "js": "createWindow({window:0, x:110, y:150, width:266, height:73});",
-                "raw": "50 00 6e 00 96 00 0a 01 49 00"
+                "raw": "50 00 6e 00 96 00 0a 01 49 00",
+                "byteIndex": 69
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 92,
                 "js": "showWindowWithDialog({window:0, dialog:92}); // Sephiroth<br/>“…An apparently dead organism<br/>\twas found in a 2000 year old<br/>\tgeological stratum.”",
-                "raw": "40 00 5c"
+                "raw": "40 00 5c",
+                "byteIndex": 79
               },
               {
                 "op": "SCR2DC",
@@ -435,7 +462,8 @@
                 "y": 24,
                 "s": 90,
                 "js": "scrollSmooth({x:-40, y:24, speed:90});",
-                "raw": "66 00 00 d8 ff 18 00 5a 00"
+                "raw": "66 00 00 d8 ff 18 00 5a 00",
+                "byteIndex": 82
               },
               {
                 "op": "WINDOW",
@@ -445,14 +473,16 @@
                 "w": 307,
                 "h": 41,
                 "js": "createWindow({window:0, x:120, y:165, width:307, height:41});",
-                "raw": "50 00 78 00 a5 00 33 01 29 00"
+                "raw": "50 00 78 00 a5 00 33 01 29 00",
+                "byteIndex": 91
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 93,
                 "js": "showWindowWithDialog({window:0, dialog:93}); // Sephiroth<br/>“Professor Gast named that organism, Jenova…”",
-                "raw": "40 00 5d"
+                "raw": "40 00 5d",
+                "byteIndex": 101
               },
               {
                 "op": "WINDOW",
@@ -462,14 +492,16 @@
                 "w": 248,
                 "h": 57,
                 "js": "createWindow({window:0, x:100, y:150, width:248, height:57});",
-                "raw": "50 00 64 00 96 00 f8 00 39 00"
+                "raw": "50 00 64 00 96 00 f8 00 39 00",
+                "byteIndex": 104
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 94,
                 "js": "showWindowWithDialog({window:0, dialog:94}); // Sephiroth<br/>“X Year, X Month, X Day.<br/>\tJenova confirmed to be an Ancient…”",
-                "raw": "40 00 5e"
+                "raw": "40 00 5e",
+                "byteIndex": 114
               },
               {
                 "op": "WINDOW",
@@ -479,20 +511,23 @@
                 "w": 302,
                 "h": 73,
                 "js": "createWindow({window:0, x:90, y:140, width:302, height:73});",
-                "raw": "50 00 5a 00 8c 00 2e 01 49 00"
+                "raw": "50 00 5a 00 8c 00 2e 01 49 00",
+                "byteIndex": 117
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 95,
                 "js": "showWindowWithDialog({window:0, dialog:95}); // Sephiroth<br/>“X Year, X Month, X Day.<br/>\tJenova Project approved.<br/>\tThe use of Mako Reactor 1 approved for use…”",
-                "raw": "40 00 5f"
+                "raw": "40 00 5f",
+                "byteIndex": 127
               },
               {
                 "op": "PMJMP",
                 "i": 307,
                 "js": "setFieldJumpId({fieldId:307});",
-                "raw": "d8 33 01"
+                "raw": "d8 33 01",
+                "byteIndex": 130
               },
               {
                 "op": "SETBYTE",
@@ -501,7 +536,8 @@
                 "a": 7,
                 "v": 0,
                 "js": "Bank[5][7] = 0;",
-                "raw": "80 50 07 00"
+                "raw": "80 50 07 00",
+                "byteIndex": 133
               },
               {
                 "op": "IFUB",
@@ -511,25 +547,31 @@
                 "v": 0,
                 "c": 0,
                 "e": 3,
-                "js": "if (Bank[5][7] == 0) (else goto 126);",
-                "raw": "14 50 07 00 00 03"
+                "js": "if (Bank[5][7] == 0) (else goto 145);",
+                "goto": 145,
+                "raw": "14 50 07 00 00 03",
+                "byteIndex": 137
               },
               {
                 "op": "JMPB",
                 "a": 6,
-                "js": "goto 118;",
-                "raw": "12 06"
+                "js": "goto 137;",
+                "goto": 137,
+                "raw": "12 06",
+                "byteIndex": 143
               },
               {
                 "op": "WAIT",
                 "a": 60,
                 "js": "wait({numFrames:60});",
-                "raw": "24 3c 00"
+                "raw": "24 3c 00",
+                "byteIndex": 145
               },
               {
                 "op": "FADE",
                 "b1": 0,
                 "b2": 0,
+                "b3": 0,
                 "r": 0,
                 "g": 0,
                 "b": 0,
@@ -538,13 +580,15 @@
                 "a": 0,
                 "js": "fade({r:0, g:0, b:0, speed:8, type:2, adjust:0});",
                 "pres": "The screen fades...",
-                "raw": "6b 00 00 00 00 00 08 02 00"
+                "raw": "6b 00 00 00 00 00 08 02 00",
+                "byteIndex": 148
               },
               {
                 "op": "FADEW",
                 "js": "waitForFade();",
                 "pres": "...",
-                "raw": "6c"
+                "raw": "6c",
+                "byteIndex": 157
               },
               {
                 "op": "MAPJUMP",
@@ -554,57 +598,69 @@
                 "i": 82,
                 "d": 0,
                 "js": "mapJump({fieldId:307, x:-675, y:4862, triangleId:82, direction:0});",
-                "raw": "60 33 01 5d fd fe 12 52 00 00"
+                "raw": "60 33 01 5d fd fe 12 52 00 00",
+                "byteIndex": 158
               },
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 149;",
-                "raw": "12 00"
+                "js": "goto 168;",
+                "goto": 168,
+                "raw": "12 00",
+                "byteIndex": 168
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 1,
         "entityName": "cl",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 0,
                 "js": "thisIsAFieldModel(0);",
-                "raw": "a1 00"
+                "raw": "a1 00",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 9,
                 "js": "thisIsAPlayableCharacter(C.YoungCloud);",
-                "raw": "a0 09"
+                "raw": "a0 09",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -615,21 +671,25 @@
                 "v": 370,
                 "c": 0,
                 "e": 14,
-                "js": "if (Bank[2][0] == 370) (else goto 21);",
-                "raw": "16 20 00 00 72 01 00 0e"
+                "js": "if (Bank[2][0] == 370) (else goto 26);",
+                "goto": 26,
+                "raw": "16 20 00 00 72 01 00 0e",
+                "byteIndex": 5
               },
               {
                 "op": "WAIT",
                 "a": 90,
                 "js": "wait({numFrames:90});",
-                "raw": "24 5a 00"
+                "raw": "24 5a 00",
+                "byteIndex": 13
               },
               {
                 "op": "MSPED",
                 "b": 0,
-                "d": 512,
+                "s": 512,
                 "js": "setMovementSpeed({speed:512});",
-                "raw": "b2 00 00 02"
+                "raw": "b2 00 00 02",
+                "byteIndex": 16
               },
               {
                 "op": "MOVE",
@@ -638,58 +698,70 @@
                 "x": -341,
                 "y": -157,
                 "js": "walkObjectTo({x:-341, y:-157});",
-                "raw": "a8 00 ab fe 63 ff"
+                "raw": "a8 00 ab fe 63 ff",
+                "byteIndex": 20
               },
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 21;",
-                "raw": "12 00"
+                "js": "goto 26;",
+                "goto": 26,
+                "raw": "12 00",
+                "byteIndex": 26
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 2,
         "entityName": "cef",
+        "entityType": "Model",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 1,
                 "js": "thisIsAFieldModel(1);",
-                "raw": "a1 01"
+                "raw": "a1 01",
+                "byteIndex": 0
               },
               {
                 "op": "TLKON",
                 "s": 1,
                 "js": "interactibilityOff();",
-                "raw": "7e 01"
+                "raw": "7e 01",
+                "byteIndex": 2
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 4
               },
               {
                 "op": "VISI",
                 "s": 0,
                 "js": "setVisibilityMode(V.NotVisible);",
-                "raw": "a4 00"
+                "raw": "a4 00",
+                "byteIndex": 6
               },
               {
                 "op": "IFSW",
@@ -700,7 +772,9 @@
                 "c": 0,
                 "e": 21,
                 "js": "if (Bank[2][0] == 371) (else goto 36);",
-                "raw": "16 20 00 00 73 01 00 15"
+                "goto": 36,
+                "raw": "16 20 00 00 73 01 00 15",
+                "byteIndex": 8
               },
               {
                 "op": "XYZI",
@@ -713,32 +787,37 @@
                 "z": 0,
                 "i": 122,
                 "js": "placeObject({x:81, y:224, z:0, walkmeshTriangle:122});",
-                "raw": "a5 00 00 51 00 e0 00 00 00 7a 00"
+                "raw": "a5 00 00 51 00 e0 00 00 00 7a 00",
+                "byteIndex": 16
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 128,
                 "js": "setFacingDirection({direction:128});",
-                "raw": "b3 00 80"
+                "raw": "b3 00 80",
+                "byteIndex": 27
               },
               {
                 "op": "TLKON",
                 "s": 0,
                 "js": "interactibilityOn();",
-                "raw": "7e 00"
+                "raw": "7e 00",
+                "byteIndex": 30
               },
               {
                 "op": "SOLID",
                 "s": 0,
                 "js": "setSolidMode(S.Solid);",
-                "raw": "c7 00"
+                "raw": "c7 00",
+                "byteIndex": 32
               },
               {
                 "op": "VISI",
                 "s": 1,
                 "js": "setVisibilityMode(V.Visible);",
-                "raw": "a4 01"
+                "raw": "a4 01",
+                "byteIndex": 34
               },
               {
                 "op": "IFSW",
@@ -749,7 +828,9 @@
                 "c": 0,
                 "e": 22,
                 "js": "if (Bank[2][0] == 370) (else goto 65);",
-                "raw": "16 20 00 00 72 01 00 16"
+                "goto": 65,
+                "raw": "16 20 00 00 72 01 00 16",
+                "byteIndex": 36
               },
               {
                 "op": "XYZI",
@@ -762,25 +843,29 @@
                 "z": 0,
                 "i": 34,
                 "js": "placeObject({x:-198, y:-187, z:0, walkmeshTriangle:34});",
-                "raw": "a5 00 00 3a ff 45 ff 00 00 22 00"
+                "raw": "a5 00 00 3a ff 45 ff 00 00 22 00",
+                "byteIndex": 44
               },
               {
                 "op": "TLKON",
                 "s": 0,
                 "js": "interactibilityOn();",
-                "raw": "7e 00"
+                "raw": "7e 00",
+                "byteIndex": 55
               },
               {
                 "op": "SOLID",
                 "s": 0,
                 "js": "setSolidMode(S.Solid);",
-                "raw": "c7 00"
+                "raw": "c7 00",
+                "byteIndex": 57
               },
               {
                 "op": "VISI",
                 "s": 1,
                 "js": "setVisibilityMode(V.Visible);",
-                "raw": "a4 01"
+                "raw": "a4 01",
+                "byteIndex": 59
               },
               {
                 "op": "SETBYTE",
@@ -789,18 +874,21 @@
                 "a": 7,
                 "v": 1,
                 "js": "Bank[5][7] = 1;",
-                "raw": "80 50 07 01"
+                "raw": "80 50 07 01",
+                "byteIndex": 61
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 65
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -811,8 +899,10 @@
                 "v": 371,
                 "c": 0,
                 "e": 6,
-                "js": "if (Bank[2][0] == 371) (else goto 13);",
-                "raw": "16 20 00 00 73 01 00 06"
+                "js": "if (Bank[2][0] == 371) (else goto 79);",
+                "goto": 79,
+                "raw": "16 20 00 00 73 01 00 06",
+                "byteIndex": 66
               },
               {
                 "op": "CANM!2",
@@ -821,7 +911,8 @@
                 "l": 99,
                 "s": 1,
                 "js": "playPartialAnimation({animation:3, firstFrame:99, lastFrame:99, slowness:1});",
-                "raw": "bc 03 63 63 01"
+                "raw": "bc 03 63 63 01",
+                "byteIndex": 74
               },
               {
                 "op": "IFSW",
@@ -831,15 +922,18 @@
                 "v": 370,
                 "c": 0,
                 "e": 78,
-                "js": "if (Bank[2][0] == 370) (else goto 98);",
-                "raw": "16 20 00 00 72 01 00 4e"
+                "js": "if (Bank[2][0] == 370) (else goto 164);",
+                "goto": 164,
+                "raw": "16 20 00 00 72 01 00 4e",
+                "byteIndex": 79
               },
               {
                 "op": "MSPED",
                 "b": 0,
-                "d": 768,
+                "s": 768,
                 "js": "setMovementSpeed({speed:768});",
-                "raw": "b2 00 00 03"
+                "raw": "b2 00 00 03",
+                "byteIndex": 87
               },
               {
                 "op": "MOVE",
@@ -848,13 +942,15 @@
                 "x": 194,
                 "y": -14,
                 "js": "walkObjectTo({x:194, y:-14});",
-                "raw": "a8 00 c2 00 f2 ff"
+                "raw": "a8 00 c2 00 f2 ff",
+                "byteIndex": 91
               },
               {
                 "op": "WAIT",
                 "a": 60,
                 "js": "wait({numFrames:60});",
-                "raw": "24 3c 00"
+                "raw": "24 3c 00",
+                "byteIndex": 97
               },
               {
                 "op": "TURNGEN",
@@ -864,7 +960,8 @@
                 "s": 15,
                 "t": 1,
                 "js": "rotateModel({rotation:224, direction:1, steps:15, stepType:1});",
-                "raw": "b4 00 e0 01 0f 01"
+                "raw": "b4 00 e0 01 0f 01",
+                "byteIndex": 100
               },
               {
                 "op": "IFUB",
@@ -874,14 +971,18 @@
                 "v": 0,
                 "c": 0,
                 "e": 3,
-                "js": "if (Bank[5][7] == 0) (else goto 48);",
-                "raw": "14 50 07 00 00 03"
+                "js": "if (Bank[5][7] == 0) (else goto 114);",
+                "goto": 114,
+                "raw": "14 50 07 00 00 03",
+                "byteIndex": 106
               },
               {
                 "op": "JMPF",
                 "a": 38,
-                "js": "goto 85;",
-                "raw": "10 26"
+                "js": "goto 151;",
+                "goto": 151,
+                "raw": "10 26",
+                "byteIndex": 112
               },
               {
                 "op": "MOVE",
@@ -890,7 +991,8 @@
                 "x": -198,
                 "y": -187,
                 "js": "walkObjectTo({x:-198, y:-187});",
-                "raw": "a8 00 3a ff 45 ff"
+                "raw": "a8 00 3a ff 45 ff",
+                "byteIndex": 114
               },
               {
                 "op": "TURNGEN",
@@ -900,7 +1002,8 @@
                 "s": 15,
                 "t": 1,
                 "js": "rotateModel({rotation:0, direction:0, steps:15, stepType:1});",
-                "raw": "b4 00 00 00 0f 01"
+                "raw": "b4 00 00 00 0f 01",
+                "byteIndex": 120
               },
               {
                 "op": "IFUB",
@@ -910,33 +1013,40 @@
                 "v": 0,
                 "c": 0,
                 "e": 3,
-                "js": "if (Bank[5][7] == 0) (else goto 68);",
-                "raw": "14 50 07 00 00 03"
+                "js": "if (Bank[5][7] == 0) (else goto 134);",
+                "goto": 134,
+                "raw": "14 50 07 00 00 03",
+                "byteIndex": 126
               },
               {
                 "op": "JMPF",
                 "a": 18,
-                "js": "goto 85;",
-                "raw": "10 12"
+                "js": "goto 151;",
+                "goto": 151,
+                "raw": "10 12",
+                "byteIndex": 132
               },
               {
                 "op": "WAIT",
                 "a": 30,
                 "js": "wait({numFrames:30});",
-                "raw": "24 1e 00"
+                "raw": "24 1e 00",
+                "byteIndex": 134
               },
               {
                 "op": "ANIME1",
                 "a": 4,
                 "s": 1,
                 "js": "playAnimationSync({animation:4, slowness:1});",
-                "raw": "a3 04 01"
+                "raw": "a3 04 01",
+                "byteIndex": 137
               },
               {
                 "op": "WAIT",
                 "a": 30,
                 "js": "wait({numFrames:30});",
-                "raw": "24 1e 00"
+                "raw": "24 1e 00",
+                "byteIndex": 140
               },
               {
                 "op": "TURNGEN",
@@ -946,13 +1056,16 @@
                 "s": 15,
                 "t": 1,
                 "js": "rotateModel({rotation:96, direction:0, steps:15, stepType:1});",
-                "raw": "b4 00 60 00 0f 01"
+                "raw": "b4 00 60 00 0f 01",
+                "byteIndex": 143
               },
               {
                 "op": "JMPB",
                 "a": 58,
-                "js": "goto 25;",
-                "raw": "12 3a"
+                "js": "goto 91;",
+                "goto": 91,
+                "raw": "12 3a",
+                "byteIndex": 149
               },
               {
                 "op": "SETBYTE",
@@ -961,13 +1074,15 @@
                 "a": 7,
                 "v": 1,
                 "js": "Bank[5][7] = 1;",
-                "raw": "80 50 07 01"
+                "raw": "80 50 07 01",
+                "byteIndex": 151
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 155
               },
               {
                 "op": "MOVE",
@@ -976,34 +1091,42 @@
                 "x": 55,
                 "y": 254,
                 "js": "walkObjectTo({x:55, y:254});",
-                "raw": "a8 00 37 00 fe 00"
+                "raw": "a8 00 37 00 fe 00",
+                "byteIndex": 158
               },
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 98;",
-                "raw": "12 00"
+                "js": "goto 164;",
+                "goto": 164,
+                "raw": "12 00",
+                "byteIndex": 164
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 3,
         "entityName": "ln0",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -1014,41 +1137,49 @@
                 "y2": -61,
                 "z2": 0,
                 "js": "createLineTrigger({x1:-463, y1:-135, z1:0, x2:-408, y2:-61, z2:0});",
-                "raw": "d0 31 fe 79 ff 00 00 68 fe c3 ff 00 00"
+                "raw": "d0 31 fe 79 ff 00 00 68 fe c3 ff 00 00",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 14;",
+                "goto": 14,
+                "raw": "12 00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Go 1x",
             "ops": [
               {
                 "op": "IFSW",
@@ -1059,30 +1190,36 @@
                 "c": 0,
                 "e": 33,
                 "js": "if (Bank[2][0] == 371) (else goto 40);",
-                "raw": "16 20 00 00 73 01 00 21"
+                "goto": 40,
+                "raw": "16 20 00 00 73 01 00 21",
+                "byteIndex": 0
               },
               {
                 "op": "PMJMP",
                 "i": 307,
                 "js": "setFieldJumpId({fieldId:307});",
-                "raw": "d8 33 01"
+                "raw": "d8 33 01",
+                "byteIndex": 8
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 11
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 13
               },
               {
                 "op": "FADE",
                 "b1": 0,
                 "b2": 0,
+                "b3": 0,
                 "r": 0,
                 "g": 0,
                 "b": 0,
@@ -1091,13 +1228,15 @@
                 "a": 0,
                 "js": "fade({r:0, g:0, b:0, speed:8, type:2, adjust:0});",
                 "pres": "The screen fades...",
-                "raw": "6b 00 00 00 00 00 08 02 00"
+                "raw": "6b 00 00 00 00 00 08 02 00",
+                "byteIndex": 15
               },
               {
                 "op": "FADEW",
                 "js": "waitForFade();",
                 "pres": "...",
-                "raw": "6c"
+                "raw": "6c",
+                "byteIndex": 24
               },
               {
                 "op": "SETWORD",
@@ -1107,7 +1246,8 @@
                 "v": 372,
                 "mr": "$GameMoment = 372 (16 bit)",
                 "js": "$GameMoment = 372;",
-                "raw": "81 20 00 74 01"
+                "raw": "81 20 00 74 01",
+                "byteIndex": 25
               },
               {
                 "op": "MAPJUMP",
@@ -1117,28 +1257,34 @@
                 "i": 82,
                 "d": 0,
                 "js": "mapJump({fieldId:307, x:-675, y:4862, triangleId:82, direction:0});",
-                "raw": "60 33 01 5d fd fe 12 52 00 00"
+                "raw": "60 33 01 5d fd fe 12 52 00 00",
+                "byteIndex": 30
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Go away",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 4,
         "entityName": "LIGHT1",
+        "entityType": "Animation",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "BGON",
@@ -1148,7 +1294,8 @@
                 "l": 0,
                 "js": "backgroundOn({area:1, layer:0});",
                 "pres": "<Area:1> <Layer:0> appears.",
-                "raw": "e0 00 01 00"
+                "raw": "e0 00 01 00",
+                "byteIndex": 0
               },
               {
                 "op": "SETBYTE",
@@ -1157,7 +1304,8 @@
                 "a": 8,
                 "v": 0,
                 "js": "Bank[5][8] = 0;",
-                "raw": "80 50 08 00"
+                "raw": "80 50 08 00",
+                "byteIndex": 4
               },
               {
                 "op": "SETBYTE",
@@ -1166,18 +1314,21 @@
                 "a": 10,
                 "v": 0,
                 "js": "Bank[5][10] = 0;",
-                "raw": "80 50 0a 00"
+                "raw": "80 50 0a 00",
+                "byteIndex": 8
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 12
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -1187,7 +1338,8 @@
                 "p": 5,
                 "a": 0,
                 "js": "storePalette({paletteId:5, paletteArrayId:0, size:255});",
-                "raw": "e5 00 05 00 ff"
+                "raw": "e5 00 05 00 ff",
+                "byteIndex": 13
               },
               {
                 "op": "IFUB",
@@ -1197,15 +1349,18 @@
                 "v": 0,
                 "c": 0,
                 "e": 16,
-                "js": "if (Bank[5][8] == 0) (else goto 26);",
-                "raw": "14 50 08 00 00 10"
+                "js": "if (Bank[5][8] == 0) (else goto 39);",
+                "goto": 39,
+                "raw": "14 50 08 00 00 10",
+                "byteIndex": 18
               },
               {
                 "op": "DEC",
                 "b": 5,
                 "a": 10,
                 "js": "decrement8bit(Bank[5][10]);",
-                "raw": "97 05 0a"
+                "raw": "97 05 0a",
+                "byteIndex": 24
               },
               {
                 "op": "IFUB",
@@ -1215,8 +1370,10 @@
                 "v": 253,
                 "c": 0,
                 "e": 5,
-                "js": "if (Bank[5][10] == 253) (else goto 24);",
-                "raw": "14 50 0a fd 00 05"
+                "js": "if (Bank[5][10] == 253) (else goto 37);",
+                "goto": 37,
+                "raw": "14 50 0a fd 00 05",
+                "byteIndex": 27
               },
               {
                 "op": "SETBYTE",
@@ -1225,20 +1382,24 @@
                 "a": 8,
                 "v": 1,
                 "js": "Bank[5][8] = 1;",
-                "raw": "80 50 08 01"
+                "raw": "80 50 08 01",
+                "byteIndex": 33
               },
               {
                 "op": "JMPF",
                 "a": 14,
-                "js": "goto 39;",
-                "raw": "10 0e"
+                "js": "goto 52;",
+                "goto": 52,
+                "raw": "10 0e",
+                "byteIndex": 37
               },
               {
                 "op": "INC",
                 "b": 5,
                 "a": 10,
                 "js": "increment8bit(Bank[5][10]);",
-                "raw": "95 05 0a"
+                "raw": "95 05 0a",
+                "byteIndex": 39
               },
               {
                 "op": "IFUB",
@@ -1248,8 +1409,10 @@
                 "v": 255,
                 "c": 0,
                 "e": 5,
-                "js": "if (Bank[5][10] == 255) (else goto 39);",
-                "raw": "14 50 0a ff 00 05"
+                "js": "if (Bank[5][10] == 255) (else goto 52);",
+                "goto": 52,
+                "raw": "14 50 0a ff 00 05",
+                "byteIndex": 42
               },
               {
                 "op": "SETBYTE",
@@ -1258,13 +1421,15 @@
                 "a": 8,
                 "v": 0,
                 "js": "Bank[5][8] = 0;",
-                "raw": "80 50 08 00"
+                "raw": "80 50 08 00",
+                "byteIndex": 48
               },
               {
                 "op": "WAIT",
                 "a": 7,
                 "js": "wait({numFrames:7});",
-                "raw": "24 07 00"
+                "raw": "24 07 00",
+                "byteIndex": 52
               },
               {
                 "op": "ADPAL",
@@ -1280,7 +1445,8 @@
                 "r": 10,
                 "size": 255,
                 "js": "addPaletteColors_0xe9({sourcePaletteId:0, targetPaletteId:16, r:10, g:Bank[5][10], b:Bank[5][10], size:255});",
-                "raw": "e9 00 55 50 00 10 0a 0a 0a ff"
+                "raw": "e9 00 55 50 00 10 0a 0a 0a ff",
+                "byteIndex": 55
               },
               {
                 "op": "LDPAL",
@@ -1289,29 +1455,36 @@
                 "p": 16,
                 "a": 5,
                 "js": "loadPalette({paletteId:16, paletteArrayId:5, size:255});",
-                "raw": "e6 00 10 05 ff"
+                "raw": "e6 00 10 05 ff",
+                "byteIndex": 65
               },
               {
                 "op": "JMPB",
                 "a": 52,
-                "js": "goto 5;",
-                "raw": "12 34"
+                "js": "goto 18;",
+                "goto": 18,
+                "raw": "12 34",
+                "byteIndex": 70
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 72
               }
             ]
           }
         ]
       },
       {
+        "entityId": 5,
         "entityName": "LIGHT2",
+        "entityType": "Animation",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "BGON",
@@ -1321,7 +1494,8 @@
                 "l": 0,
                 "js": "backgroundOn({area:2, layer:0});",
                 "pres": "<Area:2> <Layer:0> appears.",
-                "raw": "e0 00 02 00"
+                "raw": "e0 00 02 00",
+                "byteIndex": 0
               },
               {
                 "op": "SETBYTE",
@@ -1330,7 +1504,8 @@
                 "a": 9,
                 "v": 0,
                 "js": "Bank[5][9] = 0;",
-                "raw": "80 50 09 00"
+                "raw": "80 50 09 00",
+                "byteIndex": 4
               },
               {
                 "op": "SETBYTE",
@@ -1339,18 +1514,21 @@
                 "a": 11,
                 "v": 0,
                 "js": "Bank[5][11] = 0;",
-                "raw": "80 50 0b 00"
+                "raw": "80 50 0b 00",
+                "byteIndex": 8
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 12
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -1360,7 +1538,8 @@
                 "p": 6,
                 "a": 32,
                 "js": "storePalette({paletteId:6, paletteArrayId:32, size:255});",
-                "raw": "e5 00 06 20 ff"
+                "raw": "e5 00 06 20 ff",
+                "byteIndex": 13
               },
               {
                 "op": "IFUB",
@@ -1370,15 +1549,18 @@
                 "v": 0,
                 "c": 0,
                 "e": 16,
-                "js": "if (Bank[5][9] == 0) (else goto 26);",
-                "raw": "14 50 09 00 00 10"
+                "js": "if (Bank[5][9] == 0) (else goto 39);",
+                "goto": 39,
+                "raw": "14 50 09 00 00 10",
+                "byteIndex": 18
               },
               {
                 "op": "DEC",
                 "b": 5,
                 "a": 11,
                 "js": "decrement8bit(Bank[5][11]);",
-                "raw": "97 05 0b"
+                "raw": "97 05 0b",
+                "byteIndex": 24
               },
               {
                 "op": "IFUB",
@@ -1388,8 +1570,10 @@
                 "v": 249,
                 "c": 0,
                 "e": 5,
-                "js": "if (Bank[5][11] == 249) (else goto 24);",
-                "raw": "14 50 0b f9 00 05"
+                "js": "if (Bank[5][11] == 249) (else goto 37);",
+                "goto": 37,
+                "raw": "14 50 0b f9 00 05",
+                "byteIndex": 27
               },
               {
                 "op": "SETBYTE",
@@ -1398,20 +1582,24 @@
                 "a": 9,
                 "v": 1,
                 "js": "Bank[5][9] = 1;",
-                "raw": "80 50 09 01"
+                "raw": "80 50 09 01",
+                "byteIndex": 33
               },
               {
                 "op": "JMPF",
                 "a": 14,
-                "js": "goto 39;",
-                "raw": "10 0e"
+                "js": "goto 52;",
+                "goto": 52,
+                "raw": "10 0e",
+                "byteIndex": 37
               },
               {
                 "op": "INC",
                 "b": 5,
                 "a": 11,
                 "js": "increment8bit(Bank[5][11]);",
-                "raw": "95 05 0b"
+                "raw": "95 05 0b",
+                "byteIndex": 39
               },
               {
                 "op": "IFUB",
@@ -1421,8 +1609,10 @@
                 "v": 0,
                 "c": 0,
                 "e": 5,
-                "js": "if (Bank[5][11] == 0) (else goto 39);",
-                "raw": "14 50 0b 00 00 05"
+                "js": "if (Bank[5][11] == 0) (else goto 52);",
+                "goto": 52,
+                "raw": "14 50 0b 00 00 05",
+                "byteIndex": 42
               },
               {
                 "op": "SETBYTE",
@@ -1431,13 +1621,15 @@
                 "a": 9,
                 "v": 0,
                 "js": "Bank[5][9] = 0;",
-                "raw": "80 50 09 00"
+                "raw": "80 50 09 00",
+                "byteIndex": 48
               },
               {
                 "op": "WAIT",
                 "a": 3,
                 "js": "wait({numFrames:3});",
-                "raw": "24 03 00"
+                "raw": "24 03 00",
+                "byteIndex": 52
               },
               {
                 "op": "ADPAL",
@@ -1453,7 +1645,8 @@
                 "r": 11,
                 "size": 255,
                 "js": "addPaletteColors_0xe9({sourcePaletteId:32, targetPaletteId:48, r:11, g:Bank[5][11], b:Bank[5][11], size:255});",
-                "raw": "e9 00 55 50 20 30 0b 0b 0b ff"
+                "raw": "e9 00 55 50 20 30 0b 0b 0b ff",
+                "byteIndex": 55
               },
               {
                 "op": "LDPAL",
@@ -1462,19 +1655,23 @@
                 "p": 48,
                 "a": 6,
                 "js": "loadPalette({paletteId:48, paletteArrayId:6, size:255});",
-                "raw": "e6 00 30 06 ff"
+                "raw": "e6 00 30 06 ff",
+                "byteIndex": 65
               },
               {
                 "op": "JMPB",
                 "a": 52,
-                "js": "goto 5;",
-                "raw": "12 34"
+                "js": "goto 18;",
+                "goto": 18,
+                "raw": "12 34",
+                "byteIndex": 70
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 72
               }
             ]
           }
@@ -1664,6 +1861,18 @@
       "“There's a carving in the floor.”<br/>{CHOICE}\t<fe>{GREEN}(2)\t   Left 10",
       "“There's a carving in the floor.”<br/>{CHOICE}\t<fe>{GREEN} (3)\t\tRight 59",
       "“Something is written on the back of the lid.”<br/>{CHOICE}\t<fe>{GREEN} (4)\t  Right 97"
+    ],
+    "akao": [
+      {
+        "id": 8,
+        "name": "bat",
+        "description": "Fighting"
+      },
+      {
+        "id": 51,
+        "name": "cintro",
+        "description": "Those Chosen By The Planet (Intro)"
+      }
     ]
   },
   "model": {
@@ -5603,7 +5812,8 @@
   "triggers": {
     "header": {
       "fieldName": "sininb31",
-      "controlDirection": -128,
+      "controlDirection": 128,
+      "controlDirectionDegrees": 0,
       "cameraHeightAdjustment": 64,
       "cameraRange": {
         "left": -200,
@@ -5639,10 +5849,12 @@
         "destinationVertex": {
           "x": 307,
           "y": 133,
-          "z": 11
+          "triangleId": 11,
+          "direction": 124
         },
         "fieldId": 307,
-        "fieldName": "sininb41"
+        "fieldName": "sininb41",
+        "showArrow": 0
       },
       {
         "exitLineVertex1": {
@@ -5658,10 +5870,12 @@
         "destinationVertex": {
           "x": -225,
           "y": -1043,
-          "z": 23
+          "triangleId": 23,
+          "direction": -128
         },
         "fieldId": 303,
-        "fieldName": "sininb2"
+        "fieldName": "sininb2",
+        "showArrow": 0
       }
     ],
     "triggers": [
@@ -5858,20 +6072,6 @@
         "soundId": 0
       }
     ],
-    "shownArrows": [
-      0,
-      0,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
     "gatewayArrows": [
       {
         "x": 60,
@@ -5946,5 +6146,111 @@
         "type": 0
       }
     ]
+  },
+  "palette": {
+    "length": 5132,
+    "header": {
+      "length": 5132,
+      "palX": 0,
+      "palY": 480,
+      "colorsPerPage": 256,
+      "pageCount": 10
+    },
+    "pages": "Omitted to reduce size"
+  },
+  "background": {
+    "length": 301543,
+    "header": {
+      "zero1": 0,
+      "usePaddles": 1,
+      "activated": 1
+    },
+    "palette": {
+      "ignoreFirstPixel": [
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "tiles": {
+      "layer1": {
+        "width": 416,
+        "height": 304,
+        "tileCount": 428,
+        "depth": 1,
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer2": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 326,
+        "unknown": [
+          1,
+          0,
+          3,
+          0,
+          15,
+          0,
+          16,
+          0,
+          26,
+          0,
+          27,
+          0,
+          33,
+          0,
+          34,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      }
+    },
+    "textures": {
+      "texture0": {
+        "textureId": 0,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture1": {
+        "textureId": 1,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture2": {
+        "textureId": 2,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture15": {
+        "textureId": 15,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      }
+    }
   }
 }

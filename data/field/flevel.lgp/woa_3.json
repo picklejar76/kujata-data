@@ -875,10 +875,13 @@
     },
     "entities": [
       {
+        "entityId": 0,
         "entityName": "try",
+        "entityType": "Unknown",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "SETBYTE",
@@ -887,18 +890,21 @@
                 "a": 7,
                 "v": 0,
                 "js": "Bank[5][7] = 0;",
-                "raw": "80 50 07 00"
+                "raw": "80 50 07 00",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -910,7 +916,8 @@
                 "y": 80,
                 "js": "scrollBackgroundLayer({layerId:2, xSpeed:640, ySpeed:80});",
                 "pres": "The background scrolls...",
-                "raw": "2d 00 02 80 02 50 00"
+                "raw": "2d 00 02 80 02 50 00",
+                "byteIndex": 5
               },
               {
                 "op": "BGPDH",
@@ -918,7 +925,8 @@
                 "l": 2,
                 "z": 466,
                 "js": "setBackgroundZDepth({layerId:2, z:466});",
-                "raw": "2c 00 02 d2 01"
+                "raw": "2c 00 02 d2 01",
+                "byteIndex": 12
               },
               {
                 "op": "BGPDH",
@@ -926,13 +934,15 @@
                 "l": 3,
                 "z": 465,
                 "js": "setBackgroundZDepth({layerId:3, z:465});",
-                "raw": "2c 00 03 d1 01"
+                "raw": "2c 00 03 d1 01",
+                "byteIndex": 17
               },
               {
                 "op": "WAIT",
                 "a": 8,
                 "js": "wait({numFrames:8});",
-                "raw": "24 08 00"
+                "raw": "24 08 00",
+                "byteIndex": 22
               },
               {
                 "op": "SETBYTE",
@@ -941,7 +951,8 @@
                 "a": 7,
                 "v": 0,
                 "js": "Bank[5][7] = 0;",
-                "raw": "80 50 07 00"
+                "raw": "80 50 07 00",
+                "byteIndex": 25
               },
               {
                 "op": "REQEW",
@@ -950,13 +961,15 @@
                 "f": 1,
                 "js": "entityExecuteSync({entity:3, priority:2, function:1});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 03 41"
+                "raw": "03 03 41",
+                "byteIndex": 29
               },
               {
                 "op": "WAIT",
                 "a": 10,
                 "js": "wait({numFrames:10});",
-                "raw": "24 0a 00"
+                "raw": "24 0a 00",
+                "byteIndex": 32
               },
               {
                 "op": "REQEW",
@@ -965,13 +978,15 @@
                 "f": 1,
                 "js": "entityExecuteSync({entity:3, priority:2, function:1});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 03 41"
+                "raw": "03 03 41",
+                "byteIndex": 35
               },
               {
                 "op": "WAIT",
                 "a": 10,
                 "js": "wait({numFrames:10});",
-                "raw": "24 0a 00"
+                "raw": "24 0a 00",
+                "byteIndex": 38
               },
               {
                 "op": "REQEW",
@@ -980,14 +995,16 @@
                 "f": 1,
                 "js": "entityExecuteSync({entity:3, priority:2, function:1});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 03 41"
+                "raw": "03 03 41",
+                "byteIndex": 41
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 0,
                 "js": "set8bit(Bank[5][0], Math.floor(Math.random() * 256));",
-                "raw": "99 05 00"
+                "raw": "99 05 00",
+                "byteIndex": 44
               },
               {
                 "op": "MOD",
@@ -996,7 +1013,8 @@
                 "d": 0,
                 "s": 8,
                 "js": "Bank[5][0] = Bank[5][0] % 8;",
-                "raw": "8d 50 00 08"
+                "raw": "8d 50 00 08",
+                "byteIndex": 47
               },
               {
                 "op": "PLUS",
@@ -1005,7 +1023,8 @@
                 "d": 0,
                 "s": 80,
                 "js": "Bank[5][0] = add8bit(Bank[5][0], 80);",
-                "raw": "85 50 00 50"
+                "raw": "85 50 00 50",
+                "byteIndex": 51
               },
               {
                 "op": "IFUB",
@@ -1015,8 +1034,10 @@
                 "v": 0,
                 "c": 2,
                 "e": 35,
-                "js": "if (Bank[5][0] > 0) (else goto 90);",
-                "raw": "14 50 00 00 02 23"
+                "js": "if (Bank[5][0] > 0) (else goto 95);",
+                "goto": 95,
+                "raw": "14 50 00 00 02 23",
+                "byteIndex": 55
               },
               {
                 "op": "IFUB",
@@ -1026,8 +1047,10 @@
                 "v": 32,
                 "c": 3,
                 "e": 19,
-                "js": "if (Bank[5][1] < 32) (else goto 80);",
-                "raw": "14 50 01 20 03 13"
+                "js": "if (Bank[5][1] < 32) (else goto 85);",
+                "goto": 85,
+                "raw": "14 50 01 20 03 13",
+                "byteIndex": 61
               },
               {
                 "op": "IFUB",
@@ -1037,8 +1060,10 @@
                 "v": 0,
                 "c": 1,
                 "e": 7,
-                "js": "if (Bank[5][6] != 0) (else goto 74);",
-                "raw": "14 50 06 00 01 07"
+                "js": "if (Bank[5][6] != 0) (else goto 79);",
+                "goto": 79,
+                "raw": "14 50 06 00 01 07",
+                "byteIndex": 67
               },
               {
                 "op": "SETBYTE",
@@ -1047,13 +1072,16 @@
                 "a": 7,
                 "v": 1,
                 "js": "Bank[5][7] = 1;",
-                "raw": "80 50 07 01"
+                "raw": "80 50 07 01",
+                "byteIndex": 73
               },
               {
                 "op": "JMPF",
                 "a": 5,
-                "js": "goto 78;",
-                "raw": "10 05"
+                "js": "goto 83;",
+                "goto": 83,
+                "raw": "10 05",
+                "byteIndex": 77
               },
               {
                 "op": "SETBYTE",
@@ -1062,13 +1090,16 @@
                 "a": 7,
                 "v": 0,
                 "js": "Bank[5][7] = 0;",
-                "raw": "80 50 07 00"
+                "raw": "80 50 07 00",
+                "byteIndex": 79
               },
               {
                 "op": "JMPF",
                 "a": 5,
-                "js": "goto 84;",
-                "raw": "10 05"
+                "js": "goto 89;",
+                "goto": 89,
+                "raw": "10 05",
+                "byteIndex": 83
               },
               {
                 "op": "SETBYTE",
@@ -1077,7 +1108,8 @@
                 "a": 7,
                 "v": 0,
                 "js": "Bank[5][7] = 0;",
-                "raw": "80 50 07 00"
+                "raw": "80 50 07 00",
+                "byteIndex": 85
               },
               {
                 "op": "MINUS!",
@@ -1086,13 +1118,16 @@
                 "d": 0,
                 "s": 1,
                 "js": "Bank[5][0] = subtract8bitClamped(Bank[5][0], 1);",
-                "raw": "78 50 00 01"
+                "raw": "78 50 00 01",
+                "byteIndex": 89
               },
               {
                 "op": "JMPB",
                 "a": 38,
-                "js": "goto 50;",
-                "raw": "12 26"
+                "js": "goto 55;",
+                "goto": 55,
+                "raw": "12 26",
+                "byteIndex": 93
               },
               {
                 "op": "SETBYTE",
@@ -1101,7 +1136,8 @@
                 "a": 7,
                 "v": 0,
                 "js": "Bank[5][7] = 0;",
-                "raw": "80 50 07 00"
+                "raw": "80 50 07 00",
+                "byteIndex": 95
               },
               {
                 "op": "REQEW",
@@ -1110,13 +1146,15 @@
                 "f": 1,
                 "js": "entityExecuteSync({entity:3, priority:2, function:1});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 03 41"
+                "raw": "03 03 41",
+                "byteIndex": 99
               },
               {
                 "op": "WAIT",
                 "a": 8,
                 "js": "wait({numFrames:8});",
-                "raw": "24 08 00"
+                "raw": "24 08 00",
+                "byteIndex": 102
               },
               {
                 "op": "REQEW",
@@ -1125,14 +1163,16 @@
                 "f": 1,
                 "js": "entityExecuteSync({entity:3, priority:2, function:1});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 03 41"
+                "raw": "03 03 41",
+                "byteIndex": 105
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 0,
                 "js": "set8bit(Bank[5][0], Math.floor(Math.random() * 256));",
-                "raw": "99 05 00"
+                "raw": "99 05 00",
+                "byteIndex": 108
               },
               {
                 "op": "MOD",
@@ -1141,7 +1181,8 @@
                 "d": 0,
                 "s": 8,
                 "js": "Bank[5][0] = Bank[5][0] % 8;",
-                "raw": "8d 50 00 08"
+                "raw": "8d 50 00 08",
+                "byteIndex": 111
               },
               {
                 "op": "PLUS",
@@ -1150,7 +1191,8 @@
                 "d": 0,
                 "s": 60,
                 "js": "Bank[5][0] = add8bit(Bank[5][0], 60);",
-                "raw": "85 50 00 3c"
+                "raw": "85 50 00 3c",
+                "byteIndex": 115
               },
               {
                 "op": "IFUB",
@@ -1160,8 +1202,10 @@
                 "v": 0,
                 "c": 2,
                 "e": 35,
-                "js": "if (Bank[5][0] > 0) (else goto 154);",
-                "raw": "14 50 00 00 02 23"
+                "js": "if (Bank[5][0] > 0) (else goto 159);",
+                "goto": 159,
+                "raw": "14 50 00 00 02 23",
+                "byteIndex": 119
               },
               {
                 "op": "IFUB",
@@ -1171,8 +1215,10 @@
                 "v": 32,
                 "c": 3,
                 "e": 19,
-                "js": "if (Bank[5][1] < 32) (else goto 144);",
-                "raw": "14 50 01 20 03 13"
+                "js": "if (Bank[5][1] < 32) (else goto 149);",
+                "goto": 149,
+                "raw": "14 50 01 20 03 13",
+                "byteIndex": 125
               },
               {
                 "op": "IFUB",
@@ -1182,8 +1228,10 @@
                 "v": 0,
                 "c": 1,
                 "e": 7,
-                "js": "if (Bank[5][6] != 0) (else goto 138);",
-                "raw": "14 50 06 00 01 07"
+                "js": "if (Bank[5][6] != 0) (else goto 143);",
+                "goto": 143,
+                "raw": "14 50 06 00 01 07",
+                "byteIndex": 131
               },
               {
                 "op": "SETBYTE",
@@ -1192,13 +1240,16 @@
                 "a": 7,
                 "v": 1,
                 "js": "Bank[5][7] = 1;",
-                "raw": "80 50 07 01"
+                "raw": "80 50 07 01",
+                "byteIndex": 137
               },
               {
                 "op": "JMPF",
                 "a": 5,
-                "js": "goto 142;",
-                "raw": "10 05"
+                "js": "goto 147;",
+                "goto": 147,
+                "raw": "10 05",
+                "byteIndex": 141
               },
               {
                 "op": "SETBYTE",
@@ -1207,13 +1258,16 @@
                 "a": 7,
                 "v": 0,
                 "js": "Bank[5][7] = 0;",
-                "raw": "80 50 07 00"
+                "raw": "80 50 07 00",
+                "byteIndex": 143
               },
               {
                 "op": "JMPF",
                 "a": 5,
-                "js": "goto 148;",
-                "raw": "10 05"
+                "js": "goto 153;",
+                "goto": 153,
+                "raw": "10 05",
+                "byteIndex": 147
               },
               {
                 "op": "SETBYTE",
@@ -1222,7 +1276,8 @@
                 "a": 7,
                 "v": 0,
                 "js": "Bank[5][7] = 0;",
-                "raw": "80 50 07 00"
+                "raw": "80 50 07 00",
+                "byteIndex": 149
               },
               {
                 "op": "MINUS!",
@@ -1231,20 +1286,24 @@
                 "d": 0,
                 "s": 1,
                 "js": "Bank[5][0] = subtract8bitClamped(Bank[5][0], 1);",
-                "raw": "78 50 00 01"
+                "raw": "78 50 00 01",
+                "byteIndex": 153
               },
               {
                 "op": "JMPB",
                 "a": 38,
-                "js": "goto 114;",
-                "raw": "12 26"
+                "js": "goto 119;",
+                "goto": 119,
+                "raw": "12 26",
+                "byteIndex": 157
               },
               {
                 "op": "RANDOM",
                 "b": 5,
                 "a": 0,
                 "js": "set8bit(Bank[5][0], Math.floor(Math.random() * 256));",
-                "raw": "99 05 00"
+                "raw": "99 05 00",
+                "byteIndex": 159
               },
               {
                 "op": "MOD",
@@ -1253,7 +1312,8 @@
                 "d": 0,
                 "s": 8,
                 "js": "Bank[5][0] = Bank[5][0] % 8;",
-                "raw": "8d 50 00 08"
+                "raw": "8d 50 00 08",
+                "byteIndex": 162
               },
               {
                 "op": "PLUS",
@@ -1262,7 +1322,8 @@
                 "d": 0,
                 "s": 60,
                 "js": "Bank[5][0] = add8bit(Bank[5][0], 60);",
-                "raw": "85 50 00 3c"
+                "raw": "85 50 00 3c",
+                "byteIndex": 166
               },
               {
                 "op": "IFUB",
@@ -1272,8 +1333,10 @@
                 "v": 0,
                 "c": 2,
                 "e": 35,
-                "js": "if (Bank[5][0] > 0) (else goto 205);",
-                "raw": "14 50 00 00 02 23"
+                "js": "if (Bank[5][0] > 0) (else goto 210);",
+                "goto": 210,
+                "raw": "14 50 00 00 02 23",
+                "byteIndex": 170
               },
               {
                 "op": "IFUB",
@@ -1283,8 +1346,10 @@
                 "v": 32,
                 "c": 3,
                 "e": 19,
-                "js": "if (Bank[5][1] < 32) (else goto 195);",
-                "raw": "14 50 01 20 03 13"
+                "js": "if (Bank[5][1] < 32) (else goto 200);",
+                "goto": 200,
+                "raw": "14 50 01 20 03 13",
+                "byteIndex": 176
               },
               {
                 "op": "IFUB",
@@ -1294,8 +1359,10 @@
                 "v": 0,
                 "c": 1,
                 "e": 7,
-                "js": "if (Bank[5][6] != 0) (else goto 189);",
-                "raw": "14 50 06 00 01 07"
+                "js": "if (Bank[5][6] != 0) (else goto 194);",
+                "goto": 194,
+                "raw": "14 50 06 00 01 07",
+                "byteIndex": 182
               },
               {
                 "op": "SETBYTE",
@@ -1304,13 +1371,16 @@
                 "a": 7,
                 "v": 1,
                 "js": "Bank[5][7] = 1;",
-                "raw": "80 50 07 01"
+                "raw": "80 50 07 01",
+                "byteIndex": 188
               },
               {
                 "op": "JMPF",
                 "a": 5,
-                "js": "goto 193;",
-                "raw": "10 05"
+                "js": "goto 198;",
+                "goto": 198,
+                "raw": "10 05",
+                "byteIndex": 192
               },
               {
                 "op": "SETBYTE",
@@ -1319,13 +1389,16 @@
                 "a": 7,
                 "v": 0,
                 "js": "Bank[5][7] = 0;",
-                "raw": "80 50 07 00"
+                "raw": "80 50 07 00",
+                "byteIndex": 194
               },
               {
                 "op": "JMPF",
                 "a": 5,
-                "js": "goto 199;",
-                "raw": "10 05"
+                "js": "goto 204;",
+                "goto": 204,
+                "raw": "10 05",
+                "byteIndex": 198
               },
               {
                 "op": "SETBYTE",
@@ -1334,7 +1407,8 @@
                 "a": 7,
                 "v": 0,
                 "js": "Bank[5][7] = 0;",
-                "raw": "80 50 07 00"
+                "raw": "80 50 07 00",
+                "byteIndex": 200
               },
               {
                 "op": "MINUS!",
@@ -1343,35 +1417,44 @@
                 "d": 0,
                 "s": 1,
                 "js": "Bank[5][0] = subtract8bitClamped(Bank[5][0], 1);",
-                "raw": "78 50 00 01"
+                "raw": "78 50 00 01",
+                "byteIndex": 204
               },
               {
                 "op": "JMPB",
                 "a": 38,
-                "js": "goto 165;",
-                "raw": "12 26"
+                "js": "goto 170;",
+                "goto": 170,
+                "raw": "12 26",
+                "byteIndex": 208
               },
               {
                 "op": "JMPBL",
                 "a": 185,
-                "js": "goto 20;",
-                "raw": "13 b9 00"
+                "js": "goto 25;",
+                "goto": 25,
+                "raw": "13 b9 00",
+                "byteIndex": 210
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 213
               }
             ]
           }
         ]
       },
       {
+        "entityId": 1,
         "entityName": "woa",
+        "entityType": "Unknown",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "SETBYTE",
@@ -1380,7 +1463,8 @@
                 "a": 2,
                 "v": 0,
                 "js": "Bank[5][2] = 0;",
-                "raw": "80 50 02 00"
+                "raw": "80 50 02 00",
+                "byteIndex": 0
               },
               {
                 "op": "SETBYTE",
@@ -1389,7 +1473,8 @@
                 "a": 1,
                 "v": 66,
                 "js": "Bank[5][1] = 66;",
-                "raw": "80 50 01 42"
+                "raw": "80 50 01 42",
+                "byteIndex": 4
               },
               {
                 "op": "SETBYTE",
@@ -1398,18 +1483,21 @@
                 "a": 3,
                 "v": 34,
                 "js": "Bank[5][3] = 34;",
-                "raw": "80 50 03 22"
+                "raw": "80 50 03 22",
+                "byteIndex": 8
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 12
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -1419,7 +1507,8 @@
                 "p": 3,
                 "a": 32,
                 "js": "storePalette({paletteId:3, paletteArrayId:32, size:191});",
-                "raw": "e5 00 03 20 bf"
+                "raw": "e5 00 03 20 bf",
+                "byteIndex": 13
               },
               {
                 "op": "MPPAL2",
@@ -1435,7 +1524,8 @@
                 "r": 34,
                 "size": 255,
                 "js": "multiplyPaletteColors2({sourcePaletteId:32, targetPaletteId:48, r:34, g:34, b:34, size:255});",
-                "raw": "ea 00 00 00 20 30 22 22 22 ff"
+                "raw": "ea 00 00 00 20 30 22 22 22 ff",
+                "byteIndex": 18
               },
               {
                 "op": "LDPAL",
@@ -1444,7 +1534,8 @@
                 "p": 48,
                 "a": 3,
                 "js": "loadPalette({paletteId:48, paletteArrayId:3, size:255});",
-                "raw": "e6 00 30 03 ff"
+                "raw": "e6 00 30 03 ff",
+                "byteIndex": 28
               },
               {
                 "op": "LDPAL",
@@ -1453,7 +1544,8 @@
                 "p": 48,
                 "a": 4,
                 "js": "loadPalette({paletteId:48, paletteArrayId:4, size:255});",
-                "raw": "e6 00 30 04 ff"
+                "raw": "e6 00 30 04 ff",
+                "byteIndex": 33
               },
               {
                 "op": "STPAL",
@@ -1462,7 +1554,8 @@
                 "p": 5,
                 "a": 44,
                 "js": "storePalette({paletteId:5, paletteArrayId:44, size:47});",
-                "raw": "e5 00 05 2c 2f"
+                "raw": "e5 00 05 2c 2f",
+                "byteIndex": 38
               },
               {
                 "op": "CPPAL",
@@ -1471,7 +1564,8 @@
                 "s": 44,
                 "d": 60,
                 "js": "copyPalette({sourceArrayId:44, targetArrayId:60, size:47});",
-                "raw": "e7 00 2c 3c 2f"
+                "raw": "e7 00 2c 3c 2f",
+                "byteIndex": 43
               },
               {
                 "op": "MPPAL2",
@@ -1487,7 +1581,8 @@
                 "r": 1,
                 "size": 47,
                 "js": "multiplyPaletteColors2({sourcePaletteId:44, targetPaletteId:60, r:1, g:Bank[5][1], b:Bank[5][1], size:47});",
-                "raw": "ea 00 55 50 2c 3c 01 01 01 2f"
+                "raw": "ea 00 55 50 2c 3c 01 01 01 2f",
+                "byteIndex": 48
               },
               {
                 "op": "LDPAL",
@@ -1496,7 +1591,8 @@
                 "p": 48,
                 "a": 3,
                 "js": "loadPalette({paletteId:48, paletteArrayId:3, size:191});",
-                "raw": "e6 00 30 03 bf"
+                "raw": "e6 00 30 03 bf",
+                "byteIndex": 58
               },
               {
                 "op": "LDPAL",
@@ -1505,7 +1601,8 @@
                 "p": 48,
                 "a": 4,
                 "js": "loadPalette({paletteId:48, paletteArrayId:4, size:191});",
-                "raw": "e6 00 30 04 bf"
+                "raw": "e6 00 30 04 bf",
+                "byteIndex": 63
               },
               {
                 "op": "LDPAL",
@@ -1514,7 +1611,8 @@
                 "p": 60,
                 "a": 5,
                 "js": "loadPalette({paletteId:60, paletteArrayId:5, size:47});",
-                "raw": "e6 00 3c 05 2f"
+                "raw": "e6 00 3c 05 2f",
+                "byteIndex": 68
               },
               {
                 "op": "LDPAL",
@@ -1523,7 +1621,8 @@
                 "p": 60,
                 "a": 6,
                 "js": "loadPalette({paletteId:60, paletteArrayId:6, size:47});",
-                "raw": "e6 00 3c 06 2f"
+                "raw": "e6 00 3c 06 2f",
+                "byteIndex": 73
               },
               {
                 "op": "IFUB",
@@ -1533,8 +1632,10 @@
                 "v": 0,
                 "c": 0,
                 "e": 43,
-                "js": "if (Bank[5][2] == 0) (else goto 113);",
-                "raw": "14 50 02 00 00 2b"
+                "js": "if (Bank[5][2] == 0) (else goto 126);",
+                "goto": 126,
+                "raw": "14 50 02 00 00 2b",
+                "byteIndex": 78
               },
               {
                 "op": "IFUB",
@@ -1544,8 +1645,10 @@
                 "v": 12,
                 "c": 2,
                 "e": 28,
-                "js": "if (Bank[5][1] > 12) (else goto 104);",
-                "raw": "14 50 01 0c 02 1c"
+                "js": "if (Bank[5][1] > 12) (else goto 117);",
+                "goto": 117,
+                "raw": "14 50 01 0c 02 1c",
+                "byteIndex": 84
               },
               {
                 "op": "MINUS!",
@@ -1554,7 +1657,8 @@
                 "d": 1,
                 "s": 1,
                 "js": "Bank[5][1] = subtract8bitClamped(Bank[5][1], 1);",
-                "raw": "78 50 01 01"
+                "raw": "78 50 01 01",
+                "byteIndex": 90
               },
               {
                 "op": "SETBYTE",
@@ -1563,7 +1667,8 @@
                 "a": 4,
                 "v": 1,
                 "js": "Bank[5][4] = Bank[5][1];",
-                "raw": "80 55 04 01"
+                "raw": "80 55 04 01",
+                "byteIndex": 94
               },
               {
                 "op": "MOD",
@@ -1572,7 +1677,8 @@
                 "d": 4,
                 "s": 8,
                 "js": "Bank[5][4] = Bank[5][4] % 8;",
-                "raw": "8d 50 04 08"
+                "raw": "8d 50 04 08",
+                "byteIndex": 98
               },
               {
                 "op": "IFUB",
@@ -1582,8 +1688,10 @@
                 "v": 0,
                 "c": 0,
                 "e": 5,
-                "js": "if (Bank[5][4] == 0) (else goto 99);",
-                "raw": "14 50 04 00 00 05"
+                "js": "if (Bank[5][4] == 0) (else goto 112);",
+                "goto": 112,
+                "raw": "14 50 04 00 00 05",
+                "byteIndex": 102
               },
               {
                 "op": "MINUS!",
@@ -1592,19 +1700,23 @@
                 "d": 3,
                 "s": 1,
                 "js": "Bank[5][3] = subtract8bitClamped(Bank[5][3], 1);",
-                "raw": "78 50 03 01"
+                "raw": "78 50 03 01",
+                "byteIndex": 108
               },
               {
                 "op": "WAIT",
                 "a": 0,
                 "js": "wait({numFrames:0});",
-                "raw": "24 00 00"
+                "raw": "24 00 00",
+                "byteIndex": 112
               },
               {
                 "op": "JMPF",
                 "a": 8,
-                "js": "goto 111;",
-                "raw": "10 08"
+                "js": "goto 124;",
+                "goto": 124,
+                "raw": "10 08",
+                "byteIndex": 115
               },
               {
                 "op": "SETBYTE",
@@ -1613,19 +1725,23 @@
                 "a": 2,
                 "v": 1,
                 "js": "Bank[5][2] = 1;",
-                "raw": "80 50 02 01"
+                "raw": "80 50 02 01",
+                "byteIndex": 117
               },
               {
                 "op": "WAIT",
                 "a": 120,
                 "js": "wait({numFrames:120});",
-                "raw": "24 78 00"
+                "raw": "24 78 00",
+                "byteIndex": 121
               },
               {
                 "op": "JMPF",
                 "a": 41,
-                "js": "goto 153;",
-                "raw": "10 29"
+                "js": "goto 166;",
+                "goto": 166,
+                "raw": "10 29",
+                "byteIndex": 124
               },
               {
                 "op": "IFUB",
@@ -1635,8 +1751,10 @@
                 "v": 82,
                 "c": 3,
                 "e": 28,
-                "js": "if (Bank[5][1] < 82) (else goto 146);",
-                "raw": "14 50 01 52 03 1c"
+                "js": "if (Bank[5][1] < 82) (else goto 159);",
+                "goto": 159,
+                "raw": "14 50 01 52 03 1c",
+                "byteIndex": 126
               },
               {
                 "op": "PLUS!",
@@ -1645,7 +1763,8 @@
                 "d": 1,
                 "s": 1,
                 "js": "Bank[5][1] = add8bitClamped(Bank[5][1], 1);",
-                "raw": "76 50 01 01"
+                "raw": "76 50 01 01",
+                "byteIndex": 132
               },
               {
                 "op": "SETBYTE",
@@ -1654,7 +1773,8 @@
                 "a": 4,
                 "v": 1,
                 "js": "Bank[5][4] = Bank[5][1];",
-                "raw": "80 55 04 01"
+                "raw": "80 55 04 01",
+                "byteIndex": 136
               },
               {
                 "op": "MOD",
@@ -1663,7 +1783,8 @@
                 "d": 4,
                 "s": 8,
                 "js": "Bank[5][4] = Bank[5][4] % 8;",
-                "raw": "8d 50 04 08"
+                "raw": "8d 50 04 08",
+                "byteIndex": 140
               },
               {
                 "op": "IFUB",
@@ -1673,8 +1794,10 @@
                 "v": 0,
                 "c": 0,
                 "e": 5,
-                "js": "if (Bank[5][4] == 0) (else goto 141);",
-                "raw": "14 50 04 00 00 05"
+                "js": "if (Bank[5][4] == 0) (else goto 154);",
+                "goto": 154,
+                "raw": "14 50 04 00 00 05",
+                "byteIndex": 144
               },
               {
                 "op": "PLUS!",
@@ -1683,19 +1806,23 @@
                 "d": 3,
                 "s": 1,
                 "js": "Bank[5][3] = add8bitClamped(Bank[5][3], 1);",
-                "raw": "76 50 03 01"
+                "raw": "76 50 03 01",
+                "byteIndex": 150
               },
               {
                 "op": "WAIT",
                 "a": 0,
                 "js": "wait({numFrames:0});",
-                "raw": "24 00 00"
+                "raw": "24 00 00",
+                "byteIndex": 154
               },
               {
                 "op": "JMPF",
                 "a": 8,
-                "js": "goto 153;",
-                "raw": "10 08"
+                "js": "goto 166;",
+                "goto": 166,
+                "raw": "10 08",
+                "byteIndex": 157
               },
               {
                 "op": "SETBYTE",
@@ -1704,35 +1831,43 @@
                 "a": 2,
                 "v": 0,
                 "js": "Bank[5][2] = 0;",
-                "raw": "80 50 02 00"
+                "raw": "80 50 02 00",
+                "byteIndex": 159
               },
               {
                 "op": "WAIT",
                 "a": 4,
                 "js": "wait({numFrames:4});",
-                "raw": "24 04 00"
+                "raw": "24 04 00",
+                "byteIndex": 163
               },
               {
                 "op": "JMPB",
                 "a": 118,
-                "js": "goto 35;",
-                "raw": "12 76"
+                "js": "goto 48;",
+                "goto": 48,
+                "raw": "12 76",
+                "byteIndex": 166
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 168
               }
             ]
           }
         ]
       },
       {
+        "entityId": 2,
         "entityName": "woa2",
+        "entityType": "Unknown",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "SETBYTE",
@@ -1741,18 +1876,27 @@
                 "a": 6,
                 "v": 8,
                 "js": "Bank[5][6] = 8;",
-                "raw": "80 50 06 08"
+                "raw": "80 50 06 08",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
+            "index": 0,
+            "scriptType": "Main",
+            "isMain": true,
+            "ops": []
+          },
+          {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "SETBYTE",
@@ -1761,7 +1905,8 @@
                 "a": 6,
                 "v": 8,
                 "js": "Bank[5][6] = 8;",
-                "raw": "80 50 06 08"
+                "raw": "80 50 06 08",
+                "byteIndex": 0
               },
               {
                 "op": "BGSCR",
@@ -1772,13 +1917,15 @@
                 "y": 0,
                 "js": "scrollBackgroundLayer({layerId:3, xSpeed:-3840, ySpeed:0});",
                 "pres": "The background scrolls...",
-                "raw": "2d 00 03 00 f1 00 00"
+                "raw": "2d 00 03 00 f1 00 00",
+                "byteIndex": 4
               },
               {
                 "op": "WAIT",
                 "a": 1,
                 "js": "wait({numFrames:1});",
-                "raw": "24 01 00"
+                "raw": "24 01 00",
+                "byteIndex": 11
               },
               {
                 "op": "BGSCR",
@@ -1789,7 +1936,8 @@
                 "y": 0,
                 "js": "scrollBackgroundLayer({layerId:3, xSpeed:0, ySpeed:0});",
                 "pres": "The background scrolls...",
-                "raw": "2d 00 03 00 00 00 00"
+                "raw": "2d 00 03 00 00 00 00",
+                "byteIndex": 14
               },
               {
                 "op": "BGSCR",
@@ -1800,7 +1948,8 @@
                 "y": 0,
                 "js": "scrollBackgroundLayer({layerId:3, xSpeed:320, ySpeed:0});",
                 "pres": "The background scrolls...",
-                "raw": "2d 00 03 40 01 00 00"
+                "raw": "2d 00 03 40 01 00 00",
+                "byteIndex": 21
               },
               {
                 "op": "IFUB",
@@ -1811,20 +1960,25 @@
                 "c": 2,
                 "e": 6,
                 "js": "if (Bank[5][6] > 0) (else goto 39);",
-                "raw": "14 50 06 00 02 06"
+                "goto": 39,
+                "raw": "14 50 06 00 02 06",
+                "byteIndex": 28
               },
               {
                 "op": "DEC!",
                 "b": 5,
                 "a": 6,
                 "js": "decrement8bitClamped(Bank[5][6]);",
-                "raw": "7c 05 06"
+                "raw": "7c 05 06",
+                "byteIndex": 34
               },
               {
                 "op": "JMPB",
                 "a": 9,
                 "js": "goto 28;",
-                "raw": "12 09"
+                "goto": 28,
+                "raw": "12 09",
+                "byteIndex": 37
               },
               {
                 "op": "SETBYTE",
@@ -1833,7 +1987,8 @@
                 "a": 5,
                 "v": 4,
                 "js": "Bank[5][5] = 4;",
-                "raw": "80 50 05 04"
+                "raw": "80 50 05 04",
+                "byteIndex": 39
               },
               {
                 "op": "IFUB",
@@ -1844,20 +1999,25 @@
                 "c": 2,
                 "e": 6,
                 "js": "if (Bank[5][5] > 0) (else goto 54);",
-                "raw": "14 50 05 00 02 06"
+                "goto": 54,
+                "raw": "14 50 05 00 02 06",
+                "byteIndex": 43
               },
               {
                 "op": "DEC!",
                 "b": 5,
                 "a": 5,
                 "js": "decrement8bitClamped(Bank[5][5]);",
-                "raw": "7c 05 05"
+                "raw": "7c 05 05",
+                "byteIndex": 49
               },
               {
                 "op": "JMPB",
                 "a": 9,
                 "js": "goto 43;",
-                "raw": "12 09"
+                "goto": 43,
+                "raw": "12 09",
+                "byteIndex": 52
               },
               {
                 "op": "SETBYTE",
@@ -1866,7 +2026,8 @@
                 "a": 6,
                 "v": 8,
                 "js": "Bank[5][6] = 8;",
-                "raw": "80 50 06 08"
+                "raw": "80 50 06 08",
+                "byteIndex": 54
               },
               {
                 "op": "SETBYTE",
@@ -1875,7 +2036,8 @@
                 "a": 5,
                 "v": 30,
                 "js": "Bank[5][5] = 30;",
-                "raw": "80 50 05 1e"
+                "raw": "80 50 05 1e",
+                "byteIndex": 58
               },
               {
                 "op": "IFUB",
@@ -1886,20 +2048,25 @@
                 "c": 2,
                 "e": 6,
                 "js": "if (Bank[5][5] > 0) (else goto 73);",
-                "raw": "14 50 05 00 02 06"
+                "goto": 73,
+                "raw": "14 50 05 00 02 06",
+                "byteIndex": 62
               },
               {
                 "op": "DEC!",
                 "b": 5,
                 "a": 5,
                 "js": "decrement8bitClamped(Bank[5][5]);",
-                "raw": "7c 05 05"
+                "raw": "7c 05 05",
+                "byteIndex": 68
               },
               {
                 "op": "JMPB",
                 "a": 9,
                 "js": "goto 62;",
-                "raw": "12 09"
+                "goto": 62,
+                "raw": "12 09",
+                "byteIndex": 71
               },
               {
                 "op": "BGSCR",
@@ -1910,35 +2077,43 @@
                 "y": 0,
                 "js": "scrollBackgroundLayer({layerId:3, xSpeed:-13440, ySpeed:0});",
                 "pres": "The background scrolls...",
-                "raw": "2d 00 03 80 cb 00 00"
+                "raw": "2d 00 03 80 cb 00 00",
+                "byteIndex": 73
               },
               {
                 "op": "JMPB",
                 "a": 59,
                 "js": "goto 21;",
-                "raw": "12 3b"
+                "goto": 21,
+                "raw": "12 3b",
+                "byteIndex": 80
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Script 2",
             "ops": [
               {
                 "op": "RETTO",
                 "p": 7,
                 "f": 1,
                 "js": "returnToFunction({priority:7, function:1});",
-                "raw": "07 e1"
+                "raw": "07 e1",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 3,
         "entityName": "thund",
+        "entityType": "Animation",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "BGCLR",
@@ -1946,18 +2121,21 @@
                 "a": 2,
                 "js": "clearBackground({area:2});",
                 "pres": "<Area:2> clears.",
-                "raw": "e4 00 02"
+                "raw": "e4 00 02",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 3
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -1967,18 +2145,21 @@
                 "p": 2,
                 "a": 0,
                 "js": "storePalette({paletteId:2, paletteArrayId:0, size:255});",
-                "raw": "e5 00 02 00 ff"
+                "raw": "e5 00 02 00 ff",
+                "byteIndex": 4
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 9
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "BGON",
@@ -1988,13 +2169,15 @@
                 "l": 0,
                 "js": "backgroundOn({area:2, layer:0});",
                 "pres": "<Area:2> <Layer:0> appears.",
-                "raw": "e0 00 02 00"
+                "raw": "e0 00 02 00",
+                "byteIndex": 0
               },
               {
                 "op": "WAIT",
                 "a": 1,
                 "js": "wait({numFrames:1});",
-                "raw": "24 01 00"
+                "raw": "24 01 00",
+                "byteIndex": 4
               },
               {
                 "op": "BGOFF",
@@ -2004,7 +2187,8 @@
                 "l": 0,
                 "js": "backgroundOff({area:2, layer:0});",
                 "pres": "<Area:2> <Layer:0> disappears.",
-                "raw": "e1 00 02 00"
+                "raw": "e1 00 02 00",
+                "byteIndex": 7
               },
               {
                 "op": "BGON",
@@ -2014,13 +2198,15 @@
                 "l": 1,
                 "js": "backgroundOn({area:2, layer:1});",
                 "pres": "<Area:2> <Layer:1> appears.",
-                "raw": "e0 00 02 01"
+                "raw": "e0 00 02 01",
+                "byteIndex": 11
               },
               {
                 "op": "WAIT",
                 "a": 1,
                 "js": "wait({numFrames:1});",
-                "raw": "24 01 00"
+                "raw": "24 01 00",
+                "byteIndex": 15
               },
               {
                 "op": "BGOFF",
@@ -2030,7 +2216,8 @@
                 "l": 1,
                 "js": "backgroundOff({area:2, layer:1});",
                 "pres": "<Area:2> <Layer:1> disappears.",
-                "raw": "e1 00 02 01"
+                "raw": "e1 00 02 01",
+                "byteIndex": 18
               },
               {
                 "op": "BGON",
@@ -2040,7 +2227,8 @@
                 "l": 2,
                 "js": "backgroundOn({area:2, layer:2});",
                 "pres": "<Area:2> <Layer:2> appears.",
-                "raw": "e0 00 02 02"
+                "raw": "e0 00 02 02",
+                "byteIndex": 22
               },
               {
                 "op": "BGON",
@@ -2050,13 +2238,15 @@
                 "l": 5,
                 "js": "backgroundOn({area:2, layer:5});",
                 "pres": "<Area:2> <Layer:5> appears.",
-                "raw": "e0 00 02 05"
+                "raw": "e0 00 02 05",
+                "byteIndex": 26
               },
               {
                 "op": "WAIT",
                 "a": 1,
                 "js": "wait({numFrames:1});",
-                "raw": "24 01 00"
+                "raw": "24 01 00",
+                "byteIndex": 30
               },
               {
                 "op": "MPPAL2",
@@ -2072,7 +2262,8 @@
                 "r": 52,
                 "size": 255,
                 "js": "multiplyPaletteColors2({sourcePaletteId:0, targetPaletteId:16, r:52, g:52, b:52, size:255});",
-                "raw": "ea 00 00 00 00 10 34 34 34 ff"
+                "raw": "ea 00 00 00 00 10 34 34 34 ff",
+                "byteIndex": 33
               },
               {
                 "op": "LDPAL",
@@ -2081,13 +2272,15 @@
                 "p": 16,
                 "a": 2,
                 "js": "loadPalette({paletteId:16, paletteArrayId:2, size:255});",
-                "raw": "e6 00 10 02 ff"
+                "raw": "e6 00 10 02 ff",
+                "byteIndex": 43
               },
               {
                 "op": "WAIT",
                 "a": 1,
                 "js": "wait({numFrames:1});",
-                "raw": "24 01 00"
+                "raw": "24 01 00",
+                "byteIndex": 48
               },
               {
                 "op": "MPPAL2",
@@ -2103,7 +2296,8 @@
                 "r": 66,
                 "size": 255,
                 "js": "multiplyPaletteColors2({sourcePaletteId:0, targetPaletteId:16, r:66, g:66, b:66, size:255});",
-                "raw": "ea 00 00 00 00 10 42 42 42 ff"
+                "raw": "ea 00 00 00 00 10 42 42 42 ff",
+                "byteIndex": 51
               },
               {
                 "op": "LDPAL",
@@ -2112,7 +2306,8 @@
                 "p": 16,
                 "a": 2,
                 "js": "loadPalette({paletteId:16, paletteArrayId:2, size:255});",
-                "raw": "e6 00 10 02 ff"
+                "raw": "e6 00 10 02 ff",
+                "byteIndex": 61
               },
               {
                 "op": "BGON",
@@ -2122,7 +2317,8 @@
                 "l": 6,
                 "js": "backgroundOn({area:2, layer:6});",
                 "pres": "<Area:2> <Layer:6> appears.",
-                "raw": "e0 00 02 06"
+                "raw": "e0 00 02 06",
+                "byteIndex": 66
               },
               {
                 "op": "BGON",
@@ -2132,7 +2328,8 @@
                 "l": 3,
                 "js": "backgroundOn({area:2, layer:3});",
                 "pres": "<Area:2> <Layer:3> appears.",
-                "raw": "e0 00 02 03"
+                "raw": "e0 00 02 03",
+                "byteIndex": 70
               },
               {
                 "op": "BGON",
@@ -2142,7 +2339,8 @@
                 "l": 4,
                 "js": "backgroundOn({area:2, layer:4});",
                 "pres": "<Area:2> <Layer:4> appears.",
-                "raw": "e0 00 02 04"
+                "raw": "e0 00 02 04",
+                "byteIndex": 74
               },
               {
                 "op": "MPPAL2",
@@ -2158,7 +2356,8 @@
                 "r": 39,
                 "size": 255,
                 "js": "multiplyPaletteColors2({sourcePaletteId:0, targetPaletteId:16, r:39, g:39, b:39, size:255});",
-                "raw": "ea 00 00 00 00 10 27 27 27 ff"
+                "raw": "ea 00 00 00 00 10 27 27 27 ff",
+                "byteIndex": 78
               },
               {
                 "op": "LDPAL",
@@ -2167,7 +2366,8 @@
                 "p": 16,
                 "a": 2,
                 "js": "loadPalette({paletteId:16, paletteArrayId:2, size:255});",
-                "raw": "e6 00 10 02 ff"
+                "raw": "e6 00 10 02 ff",
+                "byteIndex": 88
               },
               {
                 "op": "BGOFF",
@@ -2177,7 +2377,8 @@
                 "l": 2,
                 "js": "backgroundOff({area:2, layer:2});",
                 "pres": "<Area:2> <Layer:2> disappears.",
-                "raw": "e1 00 02 02"
+                "raw": "e1 00 02 02",
+                "byteIndex": 93
               },
               {
                 "op": "BGOFF",
@@ -2187,7 +2388,8 @@
                 "l": 5,
                 "js": "backgroundOff({area:2, layer:5});",
                 "pres": "<Area:2> <Layer:5> disappears.",
-                "raw": "e1 00 02 05"
+                "raw": "e1 00 02 05",
+                "byteIndex": 97
               },
               {
                 "op": "MPPAL2",
@@ -2203,7 +2405,8 @@
                 "r": 19,
                 "size": 255,
                 "js": "multiplyPaletteColors2({sourcePaletteId:0, targetPaletteId:16, r:19, g:19, b:19, size:255});",
-                "raw": "ea 00 00 00 00 10 13 13 13 ff"
+                "raw": "ea 00 00 00 00 10 13 13 13 ff",
+                "byteIndex": 101
               },
               {
                 "op": "LDPAL",
@@ -2212,7 +2415,8 @@
                 "p": 16,
                 "a": 2,
                 "js": "loadPalette({paletteId:16, paletteArrayId:2, size:255});",
-                "raw": "e6 00 10 02 ff"
+                "raw": "e6 00 10 02 ff",
+                "byteIndex": 111
               },
               {
                 "op": "BGOFF",
@@ -2222,7 +2426,8 @@
                 "l": 3,
                 "js": "backgroundOff({area:2, layer:3});",
                 "pres": "<Area:2> <Layer:3> disappears.",
-                "raw": "e1 00 02 03"
+                "raw": "e1 00 02 03",
+                "byteIndex": 116
               },
               {
                 "op": "BGOFF",
@@ -2232,7 +2437,8 @@
                 "l": 6,
                 "js": "backgroundOff({area:2, layer:6});",
                 "pres": "<Area:2> <Layer:6> disappears.",
-                "raw": "e1 00 02 06"
+                "raw": "e1 00 02 06",
+                "byteIndex": 120
               },
               {
                 "op": "BGOFF",
@@ -2242,23 +2448,28 @@
                 "l": 4,
                 "js": "backgroundOff({area:2, layer:4});",
                 "pres": "<Area:2> <Layer:4> disappears.",
-                "raw": "e1 00 02 04"
+                "raw": "e1 00 02 04",
+                "byteIndex": 124
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 128
               }
             ]
           }
         ]
       },
       {
+        "entityId": 4,
         "entityName": "dust",
+        "entityType": "Animation",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "BGON",
@@ -2268,18 +2479,21 @@
                 "l": 0,
                 "js": "backgroundOn({area:1, layer:0});",
                 "pres": "<Area:1> <Layer:0> appears.",
-                "raw": "e0 00 01 00"
+                "raw": "e0 00 01 00",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -2290,7 +2504,8 @@
                 "l": 5,
                 "js": "backgroundOff({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> disappears.",
-                "raw": "e1 00 01 05"
+                "raw": "e1 00 01 05",
+                "byteIndex": 5
               },
               {
                 "op": "BGON",
@@ -2300,13 +2515,15 @@
                 "l": 0,
                 "js": "backgroundOn({area:1, layer:0});",
                 "pres": "<Area:1> <Layer:0> appears.",
-                "raw": "e0 00 01 00"
+                "raw": "e0 00 01 00",
+                "byteIndex": 9
               },
               {
                 "op": "WAIT",
                 "a": 3,
                 "js": "wait({numFrames:3});",
-                "raw": "24 03 00"
+                "raw": "24 03 00",
+                "byteIndex": 13
               },
               {
                 "op": "BGOFF",
@@ -2316,7 +2533,8 @@
                 "l": 0,
                 "js": "backgroundOff({area:1, layer:0});",
                 "pres": "<Area:1> <Layer:0> disappears.",
-                "raw": "e1 00 01 00"
+                "raw": "e1 00 01 00",
+                "byteIndex": 16
               },
               {
                 "op": "BGON",
@@ -2326,13 +2544,15 @@
                 "l": 1,
                 "js": "backgroundOn({area:1, layer:1});",
                 "pres": "<Area:1> <Layer:1> appears.",
-                "raw": "e0 00 01 01"
+                "raw": "e0 00 01 01",
+                "byteIndex": 20
               },
               {
                 "op": "WAIT",
                 "a": 3,
                 "js": "wait({numFrames:3});",
-                "raw": "24 03 00"
+                "raw": "24 03 00",
+                "byteIndex": 24
               },
               {
                 "op": "BGOFF",
@@ -2342,7 +2562,8 @@
                 "l": 1,
                 "js": "backgroundOff({area:1, layer:1});",
                 "pres": "<Area:1> <Layer:1> disappears.",
-                "raw": "e1 00 01 01"
+                "raw": "e1 00 01 01",
+                "byteIndex": 27
               },
               {
                 "op": "BGON",
@@ -2352,13 +2573,15 @@
                 "l": 2,
                 "js": "backgroundOn({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> appears.",
-                "raw": "e0 00 01 02"
+                "raw": "e0 00 01 02",
+                "byteIndex": 31
               },
               {
                 "op": "WAIT",
                 "a": 3,
                 "js": "wait({numFrames:3});",
-                "raw": "24 03 00"
+                "raw": "24 03 00",
+                "byteIndex": 35
               },
               {
                 "op": "BGOFF",
@@ -2368,7 +2591,8 @@
                 "l": 2,
                 "js": "backgroundOff({area:1, layer:2});",
                 "pres": "<Area:1> <Layer:2> disappears.",
-                "raw": "e1 00 01 02"
+                "raw": "e1 00 01 02",
+                "byteIndex": 38
               },
               {
                 "op": "BGON",
@@ -2378,13 +2602,15 @@
                 "l": 3,
                 "js": "backgroundOn({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> appears.",
-                "raw": "e0 00 01 03"
+                "raw": "e0 00 01 03",
+                "byteIndex": 42
               },
               {
                 "op": "WAIT",
                 "a": 3,
                 "js": "wait({numFrames:3});",
-                "raw": "24 03 00"
+                "raw": "24 03 00",
+                "byteIndex": 46
               },
               {
                 "op": "BGOFF",
@@ -2394,7 +2620,8 @@
                 "l": 3,
                 "js": "backgroundOff({area:1, layer:3});",
                 "pres": "<Area:1> <Layer:3> disappears.",
-                "raw": "e1 00 01 03"
+                "raw": "e1 00 01 03",
+                "byteIndex": 49
               },
               {
                 "op": "BGON",
@@ -2404,13 +2631,15 @@
                 "l": 4,
                 "js": "backgroundOn({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> appears.",
-                "raw": "e0 00 01 04"
+                "raw": "e0 00 01 04",
+                "byteIndex": 53
               },
               {
                 "op": "WAIT",
                 "a": 3,
                 "js": "wait({numFrames:3});",
-                "raw": "24 03 00"
+                "raw": "24 03 00",
+                "byteIndex": 57
               },
               {
                 "op": "BGOFF",
@@ -2420,7 +2649,8 @@
                 "l": 4,
                 "js": "backgroundOff({area:1, layer:4});",
                 "pres": "<Area:1> <Layer:4> disappears.",
-                "raw": "e1 00 01 04"
+                "raw": "e1 00 01 04",
+                "byteIndex": 60
               },
               {
                 "op": "BGON",
@@ -2430,65 +2660,78 @@
                 "l": 5,
                 "js": "backgroundOn({area:1, layer:5});",
                 "pres": "<Area:1> <Layer:5> appears.",
-                "raw": "e0 00 01 05"
+                "raw": "e0 00 01 05",
+                "byteIndex": 64
               },
               {
                 "op": "WAIT",
                 "a": 2,
                 "js": "wait({numFrames:2});",
-                "raw": "24 02 00"
+                "raw": "24 02 00",
+                "byteIndex": 68
               },
               {
                 "op": "JMPB",
                 "a": 66,
-                "js": "goto 0;",
-                "raw": "12 42"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 42",
+                "byteIndex": 71
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 73
               }
             ]
           }
         ]
       },
       {
+        "entityId": 5,
         "entityName": "drctr",
+        "entityType": "Director",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "MPNAM",
                 "dialogId": 0,
                 "js": "setMapName({dialog:0});",
-                "raw": "43 00"
+                "raw": "43 00",
+                "byteIndex": 0
               },
               {
                 "op": "MUSIC",
                 "id": 0,
                 "js": "playMusic({song:0});",
                 "pres": "Song starts: <Song:0>",
-                "raw": "f0 00"
+                "raw": "f0 00",
+                "byteIndex": 2
               },
               {
                 "op": "BMUSC",
                 "id": 1,
                 "js": "setBattleMusic({song:1});",
-                "raw": "f6 01"
+                "raw": "f6 01",
+                "byteIndex": 4
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 6
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -2496,7 +2739,8 @@
                 "b": 6,
                 "a": 16,
                 "js": "Bank[6][16] = getLastFieldMapId(); // wm does not count",
-                "raw": "6e 06 10"
+                "raw": "6e 06 10",
+                "byteIndex": 7
               },
               {
                 "op": "IFSW",
@@ -2506,20 +2750,24 @@
                 "v": 293,
                 "c": 0,
                 "e": 50,
-                "js": "if (Bank[6][16] == 293) (else goto 60);",
-                "raw": "16 60 10 00 25 01 00 32"
+                "js": "if (Bank[6][16] == 293) (else goto 67);",
+                "goto": 67,
+                "raw": "16 60 10 00 25 01 00 32",
+                "byteIndex": 10
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 18
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 20
               },
               {
                 "op": "REQEW",
@@ -2528,7 +2776,8 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:14, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0e c3"
+                "raw": "03 0e c3",
+                "byteIndex": 22
               },
               {
                 "op": "SPLIT",
@@ -2547,7 +2796,8 @@
                 "s": 32,
                 "js": "splitParty({c1: {x:306, y:-405, d:160}, c2: {x:129, y:-472, d:112}, slowness:32});",
                 "pres": "The party spreads out.",
-                "raw": "09 00 00 00 32 01 6b fe a0 81 00 28 fe 70 20"
+                "raw": "09 00 00 00 32 01 6b fe a0 81 00 28 fe 70 20",
+                "byteIndex": 25
               },
               {
                 "op": "REQEW",
@@ -2556,7 +2806,8 @@
                 "f": 4,
                 "js": "entityExecuteSync({entity:14, priority:6, function:4});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0e c4"
+                "raw": "03 0e c4",
+                "byteIndex": 40
               },
               {
                 "op": "REQEW",
@@ -2565,7 +2816,8 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:16, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 10 c3"
+                "raw": "03 10 c3",
+                "byteIndex": 43
               },
               {
                 "op": "REQEW",
@@ -2574,7 +2826,8 @@
                 "f": 5,
                 "js": "entityExecuteSync({entity:14, priority:6, function:5});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0e c5"
+                "raw": "03 0e c5",
+                "byteIndex": 46
               },
               {
                 "op": "REQEW",
@@ -2583,7 +2836,8 @@
                 "f": 4,
                 "js": "entityExecuteSync({entity:16, priority:6, function:4});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 10 c4"
+                "raw": "03 10 c4",
+                "byteIndex": 49
               },
               {
                 "op": "REQEW",
@@ -2592,7 +2846,8 @@
                 "f": 6,
                 "js": "entityExecuteSync({entity:14, priority:6, function:6});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0e c6"
+                "raw": "03 0e c6",
+                "byteIndex": 52
               },
               {
                 "op": "REQEW",
@@ -2601,7 +2856,8 @@
                 "f": 5,
                 "js": "entityExecuteSync({entity:16, priority:6, function:5});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 10 c5"
+                "raw": "03 10 c5",
+                "byteIndex": 55
               },
               {
                 "op": "REQEW",
@@ -2610,26 +2866,30 @@
                 "f": 7,
                 "js": "entityExecuteSync({entity:14, priority:6, function:7});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0e c7"
+                "raw": "03 0e c7",
+                "byteIndex": 58
               },
               {
                 "op": "JOIN",
                 "s": 32,
                 "js": "joinParty({slowness:32});",
                 "pres": "The party gathers.",
-                "raw": "08 20"
+                "raw": "08 20",
+                "byteIndex": 61
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 63
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 65
               },
               {
                 "op": "IFUB",
@@ -2639,8 +2899,10 @@
                 "v": 0,
                 "c": 9,
                 "e": 32,
-                "js": "if (Bank[5][19] & (1<<0)) (else goto 97);",
-                "raw": "14 50 13 00 09 20"
+                "js": "if (Bank[5][19] & (1<<0)) (else goto 104);",
+                "goto": 104,
+                "raw": "14 50 13 00 09 20",
+                "byteIndex": 67
               },
               {
                 "op": "IFUB",
@@ -2650,20 +2912,24 @@
                 "v": 0,
                 "c": 0,
                 "e": 26,
-                "js": "if (Bank[5][7] == 0) (else goto 97);",
-                "raw": "14 50 07 00 00 1a"
+                "js": "if (Bank[5][7] == 0) (else goto 104);",
+                "goto": 104,
+                "raw": "14 50 07 00 00 1a",
+                "byteIndex": 73
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 79
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 81
               },
               {
                 "op": "REQEW",
@@ -2672,7 +2938,8 @@
                 "f": 8,
                 "js": "entityExecuteSync({entity:14, priority:6, function:8});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0e c8"
+                "raw": "03 0e c8",
+                "byteIndex": 83
               },
               {
                 "op": "BITOFF",
@@ -2681,7 +2948,8 @@
                 "d": 19,
                 "bit": 0,
                 "js": "unsetBit({destination:Bank[5][19], bit:0});",
-                "raw": "83 50 13 00"
+                "raw": "83 50 13 00",
+                "byteIndex": 86
               },
               {
                 "op": "BTLMD",
@@ -2689,14 +2957,16 @@
                 "bits2": 0,
                 "js": "setBattleModeOptions(CanNotEscape);",
                 "pres": "CanNotEscape",
-                "raw": "72 08 00"
+                "raw": "72 08 00",
+                "byteIndex": 90
               },
               {
                 "op": "BATTLE",
                 "b": 0,
                 "n": 729,
                 "js": "startBattle({battle:729});",
-                "raw": "70 00 d9 02"
+                "raw": "70 00 d9 02",
+                "byteIndex": 93
               },
               {
                 "op": "REQSW",
@@ -2706,113 +2976,136 @@
                 "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
                 "js": "entityExecuteAsyncGuaranteed({entity:2, priority:0, function:2});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "02 02 02"
+                "raw": "02 02 02",
+                "byteIndex": 97
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 100
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 102
               },
               {
                 "op": "JMPB",
                 "a": 37,
-                "js": "goto 60;",
-                "raw": "12 25"
+                "js": "goto 67;",
+                "goto": 67,
+                "raw": "12 25",
+                "byteIndex": 104
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 106
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Script 2",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 6,
         "entityName": "ad",
+        "entityType": "Unknown",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 1
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Script 2",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 7,
         "entityName": "goahed1",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -2823,52 +3116,61 @@
                 "y2": -20,
                 "z2": -494,
                 "js": "createLineTrigger({x1:96, y1:-20, z1:-495, x2:364, y2:-20, z2:-494});",
-                "raw": "d0 60 00 ec ff 11 fe 6c 01 ec ff 12 fe"
+                "raw": "d0 60 00 ec ff 11 fe 6c 01 ec ff 12 fe",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "IFUB",
@@ -2879,7 +3181,9 @@
                 "c": 9,
                 "e": 7,
                 "js": "if (Bank[5][19] & (1<<0)) (else goto 12);",
-                "raw": "14 50 13 00 09 07"
+                "goto": 12,
+                "raw": "14 50 13 00 09 07",
+                "byteIndex": 0
               },
               {
                 "op": "BITOFF",
@@ -2888,13 +3192,16 @@
                 "d": 19,
                 "bit": 0,
                 "js": "unsetBit({destination:Bank[5][19], bit:0});",
-                "raw": "83 50 13 00"
+                "raw": "83 50 13 00",
+                "byteIndex": 6
               },
               {
                 "op": "JMPF",
                 "a": 5,
                 "js": "goto 16;",
-                "raw": "10 05"
+                "goto": 16,
+                "raw": "10 05",
+                "byteIndex": 10
               },
               {
                 "op": "BITON",
@@ -2903,56 +3210,67 @@
                 "d": 19,
                 "bit": 0,
                 "js": "setBit({destination:Bank[5][19], bit:0});",
-                "raw": "82 50 13 00"
+                "raw": "82 50 13 00",
+                "byteIndex": 12
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 16
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Go",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Go 1x",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Go away",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 8,
         "entityName": "combak1",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -2963,52 +3281,61 @@
                 "y2": 229,
                 "z2": -505,
                 "js": "createLineTrigger({x1:146, y1:219, z1:-512, x2:373, y2:229, z2:-505});",
-                "raw": "d0 92 00 db 00 00 fe 75 01 e5 00 07 fe"
+                "raw": "d0 92 00 db 00 00 fe 75 01 e5 00 07 fe",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "IFUB",
@@ -3019,7 +3346,9 @@
                 "c": 9,
                 "e": 7,
                 "js": "if (Bank[5][19] & (1<<0)) (else goto 12);",
-                "raw": "14 50 13 00 09 07"
+                "goto": 12,
+                "raw": "14 50 13 00 09 07",
+                "byteIndex": 0
               },
               {
                 "op": "BITOFF",
@@ -3028,13 +3357,16 @@
                 "d": 19,
                 "bit": 0,
                 "js": "unsetBit({destination:Bank[5][19], bit:0});",
-                "raw": "83 50 13 00"
+                "raw": "83 50 13 00",
+                "byteIndex": 6
               },
               {
                 "op": "JMPF",
                 "a": 5,
                 "js": "goto 16;",
-                "raw": "10 05"
+                "goto": 16,
+                "raw": "10 05",
+                "byteIndex": 10
               },
               {
                 "op": "BITON",
@@ -3043,56 +3375,67 @@
                 "d": 19,
                 "bit": 0,
                 "js": "setBit({destination:Bank[5][19], bit:0});",
-                "raw": "82 50 13 00"
+                "raw": "82 50 13 00",
+                "byteIndex": 12
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 16
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Go",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Go 1x",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Go away",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 9,
         "entityName": "cover1",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -3103,63 +3446,74 @@
                 "y2": 303,
                 "z2": -526,
                 "js": "createLineTrigger({x1:136, y1:303, z1:-509, x2:303, y2:303, z2:-526});",
-                "raw": "d0 88 00 2f 01 03 fe 2f 01 2f 01 f2 fd"
+                "raw": "d0 88 00 2f 01 03 fe 2f 01 2f 01 f2 fd",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Go",
             "ops": [
               {
                 "op": "BITOFF",
@@ -3168,45 +3522,54 @@
                 "d": 19,
                 "bit": 0,
                 "js": "unsetBit({destination:Bank[5][19], bit:0});",
-                "raw": "83 50 13 00"
+                "raw": "83 50 13 00",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Go 1x",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Go away",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 10,
         "entityName": "cover2",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -3217,63 +3580,74 @@
                 "y2": 303,
                 "z2": -519,
                 "js": "createLineTrigger({x1:303, y1:303, z1:-526, x2:395, y2:303, z2:-519});",
-                "raw": "d0 2f 01 2f 01 f2 fd 8b 01 2f 01 f9 fd"
+                "raw": "d0 2f 01 2f 01 f2 fd 8b 01 2f 01 f9 fd",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Go",
             "ops": [
               {
                 "op": "BITOFF",
@@ -3282,45 +3656,54 @@
                 "d": 19,
                 "bit": 0,
                 "js": "unsetBit({destination:Bank[5][19], bit:0});",
-                "raw": "83 50 13 00"
+                "raw": "83 50 13 00",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Go 1x",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Go away",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 11,
         "entityName": "gonivl1",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -3331,41 +3714,48 @@
                 "y2": 4272,
                 "z2": -722,
                 "js": "createLineTrigger({x1:225, y1:4272, z1:-738, x2:334, y2:4272, z2:-722});",
-                "raw": "d0 e1 00 b0 10 1e fd 4e 01 b0 10 2e fd"
+                "raw": "d0 e1 00 b0 10 1e fd 4e 01 b0 10 2e fd",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "IFUB",
@@ -3376,19 +3766,23 @@
                 "c": 10,
                 "e": 33,
                 "js": "if (!((Bank[1][132] & (1<<6)))) (else goto 38);",
-                "raw": "14 10 84 06 0a 21"
+                "goto": 38,
+                "raw": "14 10 84 06 0a 21",
+                "byteIndex": 0
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 6
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 8
               },
               {
                 "op": "BITON",
@@ -3397,12 +3791,14 @@
                 "d": 132,
                 "bit": 6,
                 "js": "setBit({destination:Bank[1][132], bit:6});",
-                "raw": "82 10 84 06"
+                "raw": "82 10 84 06",
+                "byteIndex": 10
               },
               {
                 "op": "FADE",
                 "b1": 0,
                 "b2": 0,
+                "b3": 0,
                 "r": 255,
                 "g": 255,
                 "b": 255,
@@ -3411,13 +3807,15 @@
                 "a": 0,
                 "js": "fade({r:255, g:255, b:255, speed:60, type:6, adjust:0});",
                 "pres": "The screen fades...",
-                "raw": "6b 00 00 ff ff ff 3c 06 00"
+                "raw": "6b 00 00 ff ff ff 3c 06 00",
+                "byteIndex": 14
               },
               {
                 "op": "FADEW",
                 "js": "waitForFade();",
                 "pres": "...",
-                "raw": "6c"
+                "raw": "6c",
+                "byteIndex": 23
               },
               {
                 "op": "MAPJUMP",
@@ -3427,79 +3825,94 @@
                 "i": 0,
                 "d": 0,
                 "js": "mapJump({fieldId:279, x:0, y:0, triangleId:0, direction:0});",
-                "raw": "60 17 01 00 00 00 00 00 00 00"
+                "raw": "60 17 01 00 00 00 00 00 00 00",
+                "byteIndex": 24
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 34
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 36
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 38
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Go",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Go 1x",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Go away",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 12,
         "entityName": "gonivl2",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -3510,41 +3923,48 @@
                 "y2": 4272,
                 "z2": -705,
                 "js": "createLineTrigger({x1:334, y1:4272, z1:-722, x2:526, y2:4272, z2:-705});",
-                "raw": "d0 4e 01 b0 10 2e fd 0e 02 b0 10 3f fd"
+                "raw": "d0 4e 01 b0 10 2e fd 0e 02 b0 10 3f fd",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "IFUB",
@@ -3555,19 +3975,23 @@
                 "c": 10,
                 "e": 33,
                 "js": "if (!((Bank[1][132] & (1<<6)))) (else goto 38);",
-                "raw": "14 10 84 06 0a 21"
+                "goto": 38,
+                "raw": "14 10 84 06 0a 21",
+                "byteIndex": 0
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 6
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 8
               },
               {
                 "op": "BITON",
@@ -3576,12 +4000,14 @@
                 "d": 132,
                 "bit": 6,
                 "js": "setBit({destination:Bank[1][132], bit:6});",
-                "raw": "82 10 84 06"
+                "raw": "82 10 84 06",
+                "byteIndex": 10
               },
               {
                 "op": "FADE",
                 "b1": 0,
                 "b2": 0,
+                "b3": 0,
                 "r": 255,
                 "g": 255,
                 "b": 255,
@@ -3590,13 +4016,15 @@
                 "a": 0,
                 "js": "fade({r:255, g:255, b:255, speed:60, type:6, adjust:0});",
                 "pres": "The screen fades...",
-                "raw": "6b 00 00 ff ff ff 3c 06 00"
+                "raw": "6b 00 00 ff ff ff 3c 06 00",
+                "byteIndex": 14
               },
               {
                 "op": "FADEW",
                 "js": "waitForFade();",
                 "pres": "...",
-                "raw": "6c"
+                "raw": "6c",
+                "byteIndex": 23
               },
               {
                 "op": "MAPJUMP",
@@ -3606,79 +4034,94 @@
                 "i": 0,
                 "d": 0,
                 "js": "mapJump({fieldId:279, x:0, y:0, triangleId:0, direction:0});",
-                "raw": "60 17 01 00 00 00 00 00 00 00"
+                "raw": "60 17 01 00 00 00 00 00 00 00",
+                "byteIndex": 24
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 34
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 36
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 38
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Go",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Go 1x",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Go away",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 13,
         "entityName": "gonivl3",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -3689,41 +4132,48 @@
                 "y2": 4272,
                 "z2": -775,
                 "js": "createLineTrigger({x1:526, y1:4272, z1:-705, x2:604, y2:4272, z2:-775});",
-                "raw": "d0 0e 02 b0 10 3f fd 5c 02 b0 10 f9 fc"
+                "raw": "d0 0e 02 b0 10 3f fd 5c 02 b0 10 f9 fc",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "IFUB",
@@ -3734,19 +4184,23 @@
                 "c": 10,
                 "e": 33,
                 "js": "if (!((Bank[1][132] & (1<<6)))) (else goto 38);",
-                "raw": "14 10 84 06 0a 21"
+                "goto": 38,
+                "raw": "14 10 84 06 0a 21",
+                "byteIndex": 0
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 6
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 8
               },
               {
                 "op": "BITON",
@@ -3755,12 +4209,14 @@
                 "d": 132,
                 "bit": 6,
                 "js": "setBit({destination:Bank[1][132], bit:6});",
-                "raw": "82 10 84 06"
+                "raw": "82 10 84 06",
+                "byteIndex": 10
               },
               {
                 "op": "FADE",
                 "b1": 0,
                 "b2": 0,
+                "b3": 0,
                 "r": 255,
                 "g": 255,
                 "b": 255,
@@ -3769,13 +4225,15 @@
                 "a": 0,
                 "js": "fade({r:255, g:255, b:255, speed:60, type:6, adjust:0});",
                 "pres": "The screen fades...",
-                "raw": "6b 00 00 ff ff ff 3c 06 00"
+                "raw": "6b 00 00 ff ff ff 3c 06 00",
+                "byteIndex": 14
               },
               {
                 "op": "FADEW",
                 "js": "waitForFade();",
                 "pres": "...",
-                "raw": "6c"
+                "raw": "6c",
+                "byteIndex": 23
               },
               {
                 "op": "MAPJUMP",
@@ -3785,136 +4243,161 @@
                 "i": 0,
                 "d": 0,
                 "js": "mapJump({fieldId:279, x:0, y:0, triangleId:0, direction:0});",
-                "raw": "60 17 01 00 00 00 00 00 00 00"
+                "raw": "60 17 01 00 00 00 00 00 00 00",
+                "byteIndex": 24
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 34
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 36
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 38
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Go",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Go 1x",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Go away",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 14,
         "entityName": "cloud",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 0,
                 "js": "thisIsAFieldModel(0);",
-                "raw": "a1 00"
+                "raw": "a1 00",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 0,
                 "js": "thisIsAPlayableCharacter(C.Cloud);",
-                "raw": "a0 00"
+                "raw": "a0 00",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "XYZI",
@@ -3927,32 +4410,37 @@
                 "z": -477,
                 "i": 3,
                 "js": "placeObject({x:212, y:-214, z:-477, walkmeshTriangle:3});",
-                "raw": "a5 00 00 d4 00 2a ff 23 fe 03 00"
+                "raw": "a5 00 00 d4 00 2a ff 23 fe 03 00",
+                "byteIndex": 0
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 0,
                 "js": "setFacingDirection({direction:0});",
-                "raw": "b3 00 00"
+                "raw": "b3 00 00",
+                "byteIndex": 11
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -3962,27 +4450,31 @@
                 "w": 137,
                 "h": 41,
                 "js": "createWindow({window:0, x:100, y:8, width:137, height:41});",
-                "raw": "50 00 64 00 08 00 89 00 29 00"
+                "raw": "50 00 64 00 08 00 89 00 29 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 1,
                 "js": "showWindowWithDialog({window:0, dialog:1}); // {Cloud}<br/>“Hmm…I see,”",
-                "raw": "40 00 01"
+                "raw": "40 00 01",
+                "byteIndex": 13
               },
               {
                 "op": "WAIT",
                 "a": 24,
                 "js": "wait({numFrames:24});",
-                "raw": "24 18 00"
+                "raw": "24 18 00",
+                "byteIndex": 16
               },
               {
                 "op": "ANIME1",
                 "a": 4,
                 "s": 1,
                 "js": "playAnimationAsync({animation:4, slowness:1});",
-                "raw": "ae 04 01"
+                "raw": "ae 04 01",
+                "byteIndex": 19
               },
               {
                 "op": "WINDOW",
@@ -3992,32 +4484,37 @@
                 "w": 153,
                 "h": 57,
                 "js": "createWindow({window:0, x:100, y:8, width:153, height:57});",
-                "raw": "50 00 64 00 08 00 99 00 39 00"
+                "raw": "50 00 64 00 08 00 99 00 39 00",
+                "byteIndex": 22
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 2,
                 "js": "showWindowWithDialog({window:0, dialog:2}); // {Cloud}<br/>“Guess I shouldn't have<br/>\tworried about it.”",
-                "raw": "40 00 02"
+                "raw": "40 00 02",
+                "byteIndex": 32
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 35
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Script 5",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -4027,32 +4524,37 @@
                 "w": 284,
                 "h": 41,
                 "js": "createWindow({window:0, x:100, y:8, width:284, height:41});",
-                "raw": "50 00 64 00 08 00 1c 01 29 00"
+                "raw": "50 00 64 00 08 00 1c 01 29 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 3,
                 "js": "showWindowWithDialog({window:0, dialog:3}); // {Cloud}<br/>“{Tifa}, you'll be alright now.”",
-                "raw": "40 00 03"
+                "raw": "40 00 03",
+                "byteIndex": 13
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 16
               }
             ]
           },
           {
             "index": 6,
+            "scriptType": "Script 6",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -4062,32 +4564,37 @@
                 "w": 208,
                 "h": 57,
                 "js": "createWindow({window:0, x:100, y:8, width:208, height:57});",
-                "raw": "50 00 64 00 08 00 d0 00 39 00"
+                "raw": "50 00 64 00 08 00 d0 00 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 4,
                 "js": "showWindowWithDialog({window:0, dialog:4}); // {Cloud}<br/>“Yeah, sorry I made you worry.<br/>\tI solved the mystery.”",
-                "raw": "40 00 04"
+                "raw": "40 00 04",
+                "byteIndex": 13
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 16
               }
             ]
           },
           {
             "index": 7,
+            "scriptType": "Script 7",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -4097,32 +4604,37 @@
                 "w": 221,
                 "h": 57,
                 "js": "createWindow({window:0, x:100, y:8, width:221, height:57});",
-                "raw": "50 00 64 00 08 00 dd 00 39 00"
+                "raw": "50 00 64 00 08 00 dd 00 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 5,
                 "js": "showWindowWithDialog({window:0, dialog:5}); // {Cloud}<br/>“I'll explain it to you later.<br/>\tI need to do something now.”",
-                "raw": "40 00 05"
+                "raw": "40 00 05",
+                "byteIndex": 13
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 16
               }
             ]
           },
           {
             "index": 8,
+            "scriptType": "Script 8",
             "ops": [
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 128,
                 "js": "setFacingDirection({direction:128});",
-                "raw": "b3 00 80"
+                "raw": "b3 00 80",
+                "byteIndex": 0
               },
               {
                 "op": "SOUND",
@@ -4131,21 +4643,24 @@
                 "i": 28,
                 "d": 64,
                 "js": "playSound({sound:28, direction:64});",
-                "raw": "f1 00 1c 00 40"
+                "raw": "f1 00 1c 00 40",
+                "byteIndex": 3
               },
               {
                 "op": "DFANM",
                 "a": 5,
                 "s": 1,
                 "js": "playAnimationLoop({animation:5, slowness:1});",
-                "raw": "a2 05 01"
+                "raw": "a2 05 01",
+                "byteIndex": 8
               },
               {
                 "op": "MSPED",
                 "b": 0,
-                "d": 5376,
+                "s": 5376,
                 "js": "setMovementSpeed({speed:5376});",
-                "raw": "b2 00 00 15"
+                "raw": "b2 00 00 15",
+                "byteIndex": 11
               },
               {
                 "op": "CMOVE",
@@ -4154,72 +4669,83 @@
                 "x": 245,
                 "y": -250,
                 "js": "moveObjectTo({x:245, y:-250});",
-                "raw": "a9 00 f5 00 06 ff"
+                "raw": "a9 00 f5 00 06 ff",
+                "byteIndex": 15
               },
               {
                 "op": "ANIM!2",
                 "a": 6,
                 "s": 1,
                 "js": "playAnimationHoldLastFrameSync({animation:6, slowness:1});",
-                "raw": "ba 06 01"
+                "raw": "ba 06 01",
+                "byteIndex": 21
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 24
               },
               {
                 "op": "ANIM!2",
                 "a": 7,
                 "s": 1,
                 "js": "playAnimationHoldLastFrameSync({animation:7, slowness:1});",
-                "raw": "ba 07 01"
+                "raw": "ba 07 01",
+                "byteIndex": 27
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 30
               },
               {
                 "op": "ANIME1",
                 "a": 8,
                 "s": 1,
                 "js": "playAnimationSync({animation:8, slowness:1});",
-                "raw": "a3 08 01"
+                "raw": "a3 08 01",
+                "byteIndex": 33
               },
               {
                 "op": "ANIM!2",
                 "a": 9,
                 "s": 1,
                 "js": "playAnimationHoldLastFrameSync({animation:9, slowness:1});",
-                "raw": "ba 09 01"
+                "raw": "ba 09 01",
+                "byteIndex": 36
               },
               {
                 "op": "DFANM",
                 "a": 0,
                 "s": 1,
                 "js": "playAnimationLoop({animation:0, slowness:1});",
-                "raw": "a2 00 01"
+                "raw": "a2 00 01",
+                "byteIndex": 39
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 42
               }
             ]
           },
           {
             "index": 9,
+            "scriptType": "Script 9",
             "ops": [
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 0,
                 "js": "setFacingDirection({direction:0});",
-                "raw": "b3 00 00"
+                "raw": "b3 00 00",
+                "byteIndex": 0
               },
               {
                 "op": "SOUND",
@@ -4228,21 +4754,24 @@
                 "i": 28,
                 "d": 64,
                 "js": "playSound({sound:28, direction:64});",
-                "raw": "f1 00 1c 00 40"
+                "raw": "f1 00 1c 00 40",
+                "byteIndex": 3
               },
               {
                 "op": "DFANM",
                 "a": 5,
                 "s": 1,
                 "js": "playAnimationLoop({animation:5, slowness:1});",
-                "raw": "a2 05 01"
+                "raw": "a2 05 01",
+                "byteIndex": 8
               },
               {
                 "op": "MSPED",
                 "b": 0,
-                "d": 5376,
+                "s": 5376,
                 "js": "setMovementSpeed({speed:5376});",
-                "raw": "b2 00 00 15"
+                "raw": "b2 00 00 15",
+                "byteIndex": 11
               },
               {
                 "op": "CMOVE",
@@ -4251,196 +4780,231 @@
                 "x": 245,
                 "y": 981,
                 "js": "moveObjectTo({x:245, y:981});",
-                "raw": "a9 00 f5 00 d5 03"
+                "raw": "a9 00 f5 00 d5 03",
+                "byteIndex": 15
               },
               {
                 "op": "ANIM!2",
                 "a": 6,
                 "s": 1,
                 "js": "playAnimationHoldLastFrameSync({animation:6, slowness:1});",
-                "raw": "ba 06 01"
+                "raw": "ba 06 01",
+                "byteIndex": 21
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 24
               },
               {
                 "op": "ANIM!2",
                 "a": 7,
                 "s": 1,
                 "js": "playAnimationHoldLastFrameSync({animation:7, slowness:1});",
-                "raw": "ba 07 01"
+                "raw": "ba 07 01",
+                "byteIndex": 27
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 30
               },
               {
                 "op": "ANIME1",
                 "a": 8,
                 "s": 1,
                 "js": "playAnimationSync({animation:8, slowness:1});",
-                "raw": "a3 08 01"
+                "raw": "a3 08 01",
+                "byteIndex": 33
               },
               {
                 "op": "ANIM!2",
                 "a": 9,
                 "s": 1,
                 "js": "playAnimationHoldLastFrameSync({animation:9, slowness:1});",
-                "raw": "ba 09 01"
+                "raw": "ba 09 01",
+                "byteIndex": 36
               },
               {
                 "op": "DFANM",
                 "a": 0,
                 "s": 1,
                 "js": "playAnimationLoop({animation:0, slowness:1});",
-                "raw": "a2 00 01"
+                "raw": "a2 00 01",
+                "byteIndex": 39
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 42
               }
             ]
           }
         ]
       },
       {
+        "entityId": 15,
         "entityName": "ballet",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 1,
                 "js": "thisIsAFieldModel(1);",
-                "raw": "a1 01"
+                "raw": "a1 01",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 1,
                 "js": "thisIsAPlayableCharacter(C.Barret);",
-                "raw": "a0 01"
+                "raw": "a0 01",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 16,
         "entityName": "tifa",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 2,
                 "js": "thisIsAFieldModel(2);",
-                "raw": "a1 02"
+                "raw": "a1 02",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 2,
                 "js": "thisIsAPlayableCharacter(C.Tifa);",
-                "raw": "a0 02"
+                "raw": "a0 02",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -4450,27 +5014,31 @@
                 "w": 137,
                 "h": 41,
                 "js": "createWindow({window:0, x:100, y:8, width:137, height:41});",
-                "raw": "50 00 64 00 08 00 89 00 29 00"
+                "raw": "50 00 64 00 08 00 89 00 29 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 6,
                 "js": "showWindowWithDialog({window:0, dialog:6}); // {Tifa}<br/>“Sure, OK.”",
-                "raw": "40 00 06"
+                "raw": "40 00 06",
+                "byteIndex": 13
               },
               {
                 "op": "WAIT",
                 "a": 24,
                 "js": "wait({numFrames:24});",
-                "raw": "24 18 00"
+                "raw": "24 18 00",
+                "byteIndex": 16
               },
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 19
               },
               {
                 "op": "WINDOW",
@@ -4480,32 +5048,37 @@
                 "w": 211,
                 "h": 41,
                 "js": "createWindow({window:0, x:100, y:8, width:211, height:41});",
-                "raw": "50 00 64 00 08 00 d3 00 29 00"
+                "raw": "50 00 64 00 08 00 d3 00 29 00",
+                "byteIndex": 22
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 7,
                 "js": "showWindowWithDialog({window:0, dialog:7}); // {Tifa}<br/>“I think I overdid it a little, too.”",
-                "raw": "40 00 07"
+                "raw": "40 00 07",
+                "byteIndex": 32
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 35
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -4515,32 +5088,37 @@
                 "w": 137,
                 "h": 41,
                 "js": "createWindow({window:0, x:100, y:8, width:137, height:41});",
-                "raw": "50 00 64 00 08 00 89 00 29 00"
+                "raw": "50 00 64 00 08 00 89 00 29 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 8,
                 "js": "showWindowWithDialog({window:0, dialog:8}); // {Tifa}<br/>“Really?”",
-                "raw": "40 00 08"
+                "raw": "40 00 08",
+                "byteIndex": 13
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 16
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Script 5",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -4550,330 +5128,393 @@
                 "w": 154,
                 "h": 41,
                 "js": "createWindow({window:0, x:100, y:8, width:154, height:41});",
-                "raw": "50 00 64 00 08 00 9a 00 29 00"
+                "raw": "50 00 64 00 08 00 9a 00 29 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 9,
                 "js": "showWindowWithDialog({window:0, dialog:9}); // {Tifa}<br/>“What…do you mean?”",
-                "raw": "40 00 09"
+                "raw": "40 00 09",
+                "byteIndex": 13
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 16
               }
             ]
           }
         ]
       },
       {
+        "entityId": 17,
         "entityName": "red",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 3,
                 "js": "thisIsAFieldModel(3);",
-                "raw": "a1 03"
+                "raw": "a1 03",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 4,
                 "js": "thisIsAPlayableCharacter(C.RedXIII);",
-                "raw": "a0 04"
+                "raw": "a0 04",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 18,
         "entityName": "cid",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 4,
                 "js": "thisIsAFieldModel(4);",
-                "raw": "a1 04"
+                "raw": "a1 04",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 8,
                 "js": "thisIsAPlayableCharacter(C.Cid);",
-                "raw": "a0 08"
+                "raw": "a0 08",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 19,
         "entityName": "yufi",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 5,
                 "js": "thisIsAFieldModel(5);",
-                "raw": "a1 05"
+                "raw": "a1 05",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 5,
                 "js": "thisIsAPlayableCharacter(C.Yuffie);",
-                "raw": "a0 05"
+                "raw": "a0 05",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 20,
         "entityName": "ketcy",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 6,
                 "js": "thisIsAFieldModel(6);",
-                "raw": "a1 06"
+                "raw": "a1 06",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 6,
                 "js": "thisIsAPlayableCharacter(C.CaitSith);",
-                "raw": "a0 06"
+                "raw": "a0 06",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 21,
         "entityName": "vincent",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 7,
                 "js": "thisIsAFieldModel(7);",
-                "raw": "a1 07"
+                "raw": "a1 07",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 7,
                 "js": "thisIsAPlayableCharacter(C.Vincent);",
-                "raw": "a0 07"
+                "raw": "a0 07",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 2,
+            "scriptType": "Contact",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
@@ -4891,6 +5532,18 @@
       "{Tifa}<br/>“I think I overdid it a little, too.”",
       "{Tifa}<br/>“Really?”",
       "{Tifa}<br/>“What…do you mean?”"
+    ],
+    "akao": [
+      {
+        "id": 72,
+        "name": "kita",
+        "description": "The Great Northern Cave"
+      },
+      {
+        "id": 8,
+        "name": "bat",
+        "description": "Fighting"
+      }
     ]
   },
   "model": {
@@ -14125,7 +14778,8 @@
   "triggers": {
     "header": {
       "fieldName": "woa_3",
-      "controlDirection": -128,
+      "controlDirection": 128,
+      "controlDirectionDegrees": 0,
       "cameraHeightAdjustment": 0,
       "cameraRange": {
         "left": -160,
@@ -14161,10 +14815,12 @@
         "destinationVertex": {
           "x": 145,
           "y": -449,
-          "z": 18
+          "triangleId": 18,
+          "direction": -120
         },
         "fieldId": 706,
-        "fieldName": "trnad_51"
+        "fieldName": "trnad_51",
+        "showArrow": 1
       },
       {
         "exitLineVertex1": {
@@ -14180,10 +14836,12 @@
         "destinationVertex": {
           "x": -211,
           "y": 1416,
-          "z": 42
+          "triangleId": 42,
+          "direction": 0
         },
         "fieldId": 705,
-        "fieldName": "trnad_4"
+        "fieldName": "trnad_4",
+        "showArrow": 1
       },
       {
         "exitLineVertex1": {
@@ -14199,10 +14857,12 @@
         "destinationVertex": {
           "x": -211,
           "y": 1416,
-          "z": 42
+          "triangleId": 42,
+          "direction": 0
         },
         "fieldId": 705,
-        "fieldName": "trnad_4"
+        "fieldName": "trnad_4",
+        "showArrow": 1
       }
     ],
     "triggers": [
@@ -14399,20 +15059,6 @@
         "soundId": 0
       }
     ],
-    "shownArrows": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
     "gatewayArrows": [
       {
         "x": 192,
@@ -14487,5 +15133,169 @@
         "type": 0
       }
     ]
+  },
+  "palette": {
+    "length": 4108,
+    "header": {
+      "length": 4108,
+      "palX": 0,
+      "palY": 480,
+      "colorsPerPage": 256,
+      "pageCount": 8
+    },
+    "pages": "Omitted to reduce size"
+  },
+  "background": {
+    "length": 505483,
+    "header": {
+      "zero1": 0,
+      "usePaddles": 1,
+      "activated": 1
+    },
+    "palette": {
+      "ignoreFirstPixel": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "tiles": {
+      "layer1": {
+        "width": 336,
+        "height": 256,
+        "tileCount": 248,
+        "depth": 1,
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer2": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 512,
+        "unknown": [
+          0,
+          0,
+          2,
+          0,
+          15,
+          0,
+          17,
+          0,
+          26,
+          0,
+          27,
+          0,
+          33,
+          0,
+          34,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer3": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 90,
+        "unknown": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer4": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 44,
+        "unknown": [
+          0,
+          0,
+          20,
+          0,
+          20,
+          0,
+          35,
+          0,
+          36,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      }
+    },
+    "textures": {
+      "texture0": {
+        "textureId": 0,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture1": {
+        "textureId": 1,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture15": {
+        "textureId": 15,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture16": {
+        "textureId": 16,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture17": {
+        "textureId": 17,
+        "size": 1,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture18": {
+        "textureId": 18,
+        "size": 1,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      },
+      "texture19": {
+        "textureId": 19,
+        "size": 1,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      }
+    }
   }
 }
