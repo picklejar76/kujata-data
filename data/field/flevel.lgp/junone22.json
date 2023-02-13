@@ -416,21 +416,26 @@
     },
     "entities": [
       {
+        "entityId": 0,
         "entityName": "dir",
+        "entityType": "Unknown",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
@@ -440,105 +445,126 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:1, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 01 c3"
+                "raw": "03 01 c3",
+                "byteIndex": 1
               },
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 3;",
-                "raw": "12 00"
+                "js": "goto 4;",
+                "goto": 4,
+                "raw": "12 00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 1,
         "entityName": "cl",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 0,
                 "js": "thisIsAFieldModel(0);",
-                "raw": "a1 00"
+                "raw": "a1 00",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 0,
                 "js": "thisIsAPlayableCharacter(C.Cloud);",
-                "raw": "a0 00"
+                "raw": "a0 00",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 0
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 2
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 4
               },
               {
                 "op": "MSPED",
                 "b": 0,
-                "d": 2048,
+                "s": 2048,
                 "js": "setMovementSpeed({speed:2048});",
-                "raw": "b2 00 00 08"
+                "raw": "b2 00 00 08",
+                "byteIndex": 7
               },
               {
                 "op": "MOVE",
@@ -547,7 +573,8 @@
                 "x": 17510,
                 "y": -2787,
                 "js": "walkObjectTo({x:17510, y:-2787});",
-                "raw": "a8 00 66 44 1d f5"
+                "raw": "a8 00 66 44 1d f5",
+                "byteIndex": 11
               },
               {
                 "op": "SPLIT",
@@ -566,20 +593,23 @@
                 "s": 30,
                 "js": "splitParty({c1: {x:17630, y:-2858, d:188}, c2: {x:17592, y:-2645, d:220}, slowness:30});",
                 "pres": "The party spreads out.",
-                "raw": "09 00 00 00 de 44 d6 f4 bc b8 44 ab f5 dc 1e"
+                "raw": "09 00 00 00 de 44 d6 f4 bc b8 44 ab f5 dc 1e",
+                "byteIndex": 17
               },
               {
                 "op": "WAIT",
                 "a": 30,
                 "js": "wait({numFrames:30});",
-                "raw": "24 1e 00"
+                "raw": "24 1e 00",
+                "byteIndex": 32
               },
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 35
               },
               {
                 "op": "TURNGEN",
@@ -589,31 +619,36 @@
                 "s": 15,
                 "t": 1,
                 "js": "rotateModel({rotation:60, direction:0, steps:15, stepType:1});",
-                "raw": "b4 00 3c 00 0f 01"
+                "raw": "b4 00 3c 00 0f 01",
+                "byteIndex": 38
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 44
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 45
               },
               {
                 "op": "ANIME1",
                 "a": 4,
                 "s": 1,
                 "js": "playAnimationAsync({animation:4, slowness:1});",
-                "raw": "ae 04 01"
+                "raw": "ae 04 01",
+                "byteIndex": 48
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 51
               },
               {
                 "op": "WINDOW",
@@ -623,45 +658,52 @@
                 "w": 218,
                 "h": 73,
                 "js": "createWindow({window:0, x:10, y:10, width:218, height:73});",
-                "raw": "50 00 0a 00 0a 00 da 00 49 00"
+                "raw": "50 00 0a 00 0a 00 da 00 49 00",
+                "byteIndex": 54
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 59,
                 "js": "showWindowWithDialog({window:0, dialog:59}); // {Cloud}<br/>“I may be mistaken, but…<br/>\tDoesn't it feel like we're missing<br/>\tsomething?”",
-                "raw": "40 00 3b"
+                "raw": "40 00 3b",
+                "byteIndex": 64
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 67
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 68
               },
               {
                 "op": "JOIN",
                 "s": 30,
                 "js": "joinParty({slowness:30});",
                 "pres": "The party gathers.",
-                "raw": "08 1e"
+                "raw": "08 1e",
+                "byteIndex": 71
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 73
               },
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 76
               },
               {
                 "op": "TURNGEN",
@@ -671,18 +713,21 @@
                 "s": 15,
                 "t": 1,
                 "js": "rotateModel({rotation:185, direction:0, steps:15, stepType:1});",
-                "raw": "b4 00 b9 00 0f 01"
+                "raw": "b4 00 b9 00 0f 01",
+                "byteIndex": 79
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 85
               },
               {
                 "op": "WAIT",
                 "a": 6,
                 "js": "wait({numFrames:6});",
-                "raw": "24 06 00"
+                "raw": "24 06 00",
+                "byteIndex": 86
               },
               {
                 "op": "MAPJUMP",
@@ -692,421 +737,511 @@
                 "i": 96,
                 "d": 192,
                 "js": "mapJump({fieldId:360, x:580, y:-793, triangleId:96, direction:192});",
-                "raw": "60 68 01 44 02 e7 fc 60 00 c0"
+                "raw": "60 68 01 44 02 e7 fc 60 00 c0",
+                "byteIndex": 89
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 99
               }
             ]
           }
         ]
       },
       {
+        "entityId": 2,
         "entityName": "ti",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 1,
                 "js": "thisIsAFieldModel(1);",
-                "raw": "a1 01"
+                "raw": "a1 01",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 2,
                 "js": "thisIsAPlayableCharacter(C.Tifa);",
-                "raw": "a0 02"
+                "raw": "a0 02",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 3,
         "entityName": "cid",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 2,
                 "js": "thisIsAFieldModel(2);",
-                "raw": "a1 02"
+                "raw": "a1 02",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 8,
                 "js": "thisIsAPlayableCharacter(C.Cid);",
-                "raw": "a0 08"
+                "raw": "a0 08",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 4,
         "entityName": "ba",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 3,
                 "js": "thisIsAFieldModel(3);",
-                "raw": "a1 03"
+                "raw": "a1 03",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 1,
                 "js": "thisIsAPlayableCharacter(C.Barret);",
-                "raw": "a0 01"
+                "raw": "a0 01",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 5,
         "entityName": "ea",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 4,
                 "js": "thisIsAFieldModel(4);",
-                "raw": "a1 04"
+                "raw": "a1 04",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 3,
                 "js": "thisIsAPlayableCharacter(C.Aeris);",
-                "raw": "a0 03"
+                "raw": "a0 03",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 6,
         "entityName": "re",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 5,
                 "js": "thisIsAFieldModel(5);",
-                "raw": "a1 05"
+                "raw": "a1 05",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 4,
                 "js": "thisIsAPlayableCharacter(C.RedXIII);",
-                "raw": "a0 04"
+                "raw": "a0 04",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 7,
         "entityName": "ket",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 6,
                 "js": "thisIsAFieldModel(6);",
-                "raw": "a1 06"
+                "raw": "a1 06",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 6,
                 "js": "thisIsAPlayableCharacter(C.CaitSith);",
-                "raw": "a0 06"
+                "raw": "a0 06",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 8,
         "entityName": "vin",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 7,
                 "js": "thisIsAFieldModel(7);",
-                "raw": "a1 07"
+                "raw": "a1 07",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 7,
                 "js": "thisIsAPlayableCharacter(C.Vincent);",
-                "raw": "a0 07"
+                "raw": "a0 07",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 9,
         "entityName": "yuf",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 8,
                 "js": "thisIsAFieldModel(8);",
-                "raw": "a1 08"
+                "raw": "a1 08",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 5,
                 "js": "thisIsAPlayableCharacter(C.Yuffie);",
-                "raw": "a0 05"
+                "raw": "a0 05",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
@@ -1134,26 +1269,26 @@
       "  Received \"Silver M-phone\"!",
       "“There's no sign of Sephiroth,<br/>\tbut I know I saw him go into this room…”",
       "“Sephiroth seems different.”",
-      "Do <fe>{PURPLE}[CANCEL]<fe>{WHITE}<br/>Re <fe>{PURPLE}[SWITCH]<fe>{WHITE}<br/>Mi <fe>{PURPLE}[MENU]<fe>{WHITE}<br/>Fa <fe>{PURPLE}[OK]<fe>{WHITE}<br/>So <fe>{PURPLE}[PAGEUP]<fe>{WHITE} or <fe>{PURPLE}[PAGEDOWN]<fe>{WHITE} + <fe>{PURPLE}[CANCEL]<fe>{WHITE}<br/>La <fe>{PURPLE}[PAGEUP]<fe>{WHITE} or <fe>{PURPLE}[PAGEDOWN]<fe>{WHITE} + <fe>{PURPLE}[SWITCH]<fe>{WHITE}<br/>Ti [COLOR]]{PURPLE}[PAGEUP]<fe>{WHITE} or <fe>{PURPLE}[PAGEDOWN]<fe>{WHITE} + <fe>{PURPLE}[MENU]<fe>{WHITE}<br/>Do <fe>{PURPLE}[PAGEUP]<fe>{WHITE} or <fe>{PURPLE}[PAGEDOWN]<fe>{WHITE} + <fe>{PURPLE}[OK]<fe>{WHITE}<br/>Do Mi So  (C)\tDirectional button Down<br/>Do Fa La  (F)\tDirectional button Left<br/>Re So Ti  (G)\tDirectional button Up<br/>Mi So Do  (C)\tDirectional button Right<br/>End\t\t<fe>{PURPLE}[START]<fe>{WHITE}",
-      "  <fe>{PURPLE}[START]<fe>{WHITE}\t\tEnd",
-      "“Something is written on the back<br/>\tof the lid.”<br/>\t\t<fe>{GREEN}(1)\t\tRight 36",
-      "“Something is written on the floor.”<br/>\t\t<fe>{GREEN}(2)\t\tLeft 10",
-      "“Something is written on the floor.”<br/>\t\t<fe>{GREEN}(3)\t\tRight 59",
-      "“Something is written on the back<br/>\tof the lid.”<br/>\t\t<fe>{GREEN}(4)\t\tRight 97",
-      "Please push <fe>{PURPLE}[SWITCH]<fe>{WHITE} to <br/>set staff in position.",
+      "Do {PURPLE}[CANCEL]{WHITE}<br/>Re {PURPLE}[SWITCH]{WHITE}<br/>Mi {PURPLE}[MENU]{WHITE}<br/>Fa {PURPLE}[OK]{WHITE}<br/>So {PURPLE}[PAGEUP]{WHITE} or {PURPLE}[PAGEDOWN]{WHITE} + {PURPLE}[CANCEL]{WHITE}<br/>La {PURPLE}[PAGEUP]{WHITE} or {PURPLE}[PAGEDOWN]{WHITE} + {PURPLE}[SWITCH]{WHITE}<br/>Ti [COLOR]]{PURPLE}[PAGEUP]{WHITE} or {PURPLE}[PAGEDOWN]{WHITE} + {PURPLE}[MENU]{WHITE}<br/>Do {PURPLE}[PAGEUP]{WHITE} or {PURPLE}[PAGEDOWN]{WHITE} + {PURPLE}[OK]{WHITE}<br/>Do Mi So  (C)\tDirectional button Down<br/>Do Fa La  (F)\tDirectional button Left<br/>Re So Ti  (G)\tDirectional button Up<br/>Mi So Do  (C)\tDirectional button Right<br/>End\t\t{PURPLE}[START]{WHITE}",
+      "  {PURPLE}[START]{WHITE}\t\tEnd",
+      "“Something is written on the back<br/>\tof the lid.”<br/>\t\t{GREEN}(1)\t\tRight 36",
+      "“Something is written on the floor.”<br/>\t\t{GREEN}(2)\t\tLeft 10",
+      "“Something is written on the floor.”<br/>\t\t{GREEN}(3)\t\tRight 59",
+      "“Something is written on the back<br/>\tof the lid.”<br/>\t\t{GREEN}(4)\t\tRight 97",
+      "Please push {PURPLE}[SWITCH]{WHITE} to <br/>set staff in position.",
       "\t\t Order a search (100 gil)<br/>\t\t Done",
       "Could not position the staff,<br/>due to a lack of funds.",
-      "Press <fe>{PURPLE}[SWITCH]<fe>{WHITE} to ignite the<br/>bomb for the search.",
+      "Press {PURPLE}[SWITCH]{WHITE} to ignite the<br/>bomb for the search.",
       "The staff member will calculate<br/>the tremors and dig up the buried item.<br/>The dig point is where<br/>the staff's line <br/>of vision meets.",
-      "Move to the dig point<br/>and press <fe>{PURPLE}[SWITCH]<fe>{WHITE} to select.<br/>The staff will dig for the item.",
+      "Move to the dig point<br/>and press {PURPLE}[SWITCH]{WHITE} to select.<br/>The staff will dig for the item.",
       "“Now, the staff will dig here.<br/>\tThe result will be placed<br/>\tin the treasure box overnight.”",
       "“I sure was scared when Weapon attacked.<br/>\tIt gives me the creeps knowing there's<br/>\tstill two of them left.”",
       "“Oh yeah? Well, I'm ready to fight <br/>\tmankind's worst enemy<br/>\tlike a real warrior.<br/>\tIt's not everyday you get to fight<br/>\tin an inter-planetary war.”",
       "“The President is gathering up<br/>\tall the Huge Materia on the planet.<br/>\tHe wants to shoot it at Meteor<br/>\tin the rocket.”{PAUSE}“President Rufus is different<br/>\tfrom the older generation.<br/>\tHe'll protect the planet with<br/>\tall of Shinra's<br/>\tstate of the art technology.”",
       "“Protect it? No, I don't think so.<br/>\tThe President isn't the type to do<br/>\tanything so heroic. <br/>\tIt's all just a game to him<br/>\ta question of winning or losing.”",
-      "“They've finally started collecting<br/>\tthe Huge Materia <br/>\tfrom the Junon <fe>{CYAN}Underwater Reactor<fe>{WHITE}.”",
+      "“They've finally started collecting<br/>\tthe Huge Materia <br/>\tfrom the Junon {CYAN}Underwater Reactor{WHITE}.”",
       "“After they get it, they'll take it<br/>\tto the airport and will transport<br/>\tit to Rocket Town by Gelnika.<br/>\tDon't let your guard down!”",
-      "“Whew…I hope everything goes all right<br/>\tuntil we get to <fe>{CYAN}Rocket Town<fe>{WHITE}.<br/>\tThen, our mission is nearly complete.”",
+      "“Whew…I hope everything goes all right<br/>\tuntil we get to {CYAN}Rocket Town{WHITE}.<br/>\tThen, our mission is nearly complete.”",
       "“Not so fast. We still have one major task…<br/>\twe still have to transport the stuff…”",
       "“The stuff…”",
       "{Cloud}<br/>“Oh no!<br/>\tThe Huge Materia…”",
@@ -1176,8 +1311,8 @@
       "{Cloud}<br/>“I may be mistaken, but…<br/>\tDoesn't it feel like we're missing<br/>\tsomething?”",
       "“WH00A--<br/>\tWeapon's attacking!”",
       "“Run for your lives!!”",
-      "Release insects and frogs<br/>by pushing <fe>{PURPLE}[OK]<fe>{WHITE}. <br/>Insects and frogs react differently<br/>depending on where<br/>you release them, so try many different<br/>places.",
-      "Push <fe>{PURPLE}[SWITCH]<fe>{WHITE} to give up.<br/>You will return to the Entrance.",
+      "Release insects and frogs<br/>by pushing {PURPLE}[OK]{WHITE}. <br/>Insects and frogs react differently<br/>depending on where<br/>you release them, so try many different<br/>places.",
+      "Push {PURPLE}[SWITCH]{WHITE} to give up.<br/>You will return to the Entrance.",
       "C project<br/>specimen(B)  codeC",
       "“A scratch left by a fingernail inside<br/>\tthe beaker…<br/>\t'Let's get out of here…'.”",
       "C project<br/>specimen(A)  codeZ",
@@ -1186,7 +1321,8 @@
       "“Escapee Report no. 2<br/>  Description at the time of capture.<br/>A  Former member of SOLDIER/Number(   )<br/>\t   No effect could be detected from<br/>\t   either Mako Radiation Therapy<br/>\t   or Jenova on him.<br/>B  Regular/Number (   )<br/>\t   Reaction to Jenova detected.”",
       "“Escapee Report no. 3<br/>  Status.<br/>A  Shot for resisting.<br/>B  Escaped during A's resistance.”",
       "“Escapee Report no. 4<br/>  Other <br/>B's whereabouts is currently unknown.<br/>But pursuit is unnecessary due to<br/>his diminishing consciousness.<br/>Awaiting further instructions.”"
-    ]
+    ],
+    "akao": []
   },
   "model": {
     "header": {
@@ -2300,7 +2436,8 @@
   "triggers": {
     "header": {
       "fieldName": "junone22",
-      "controlDirection": -68,
+      "controlDirection": 188,
+      "controlDirectionDegrees": -84.375,
       "cameraHeightAdjustment": 0,
       "cameraRange": {
         "left": -160,
@@ -2516,20 +2653,6 @@
         "soundId": 0
       }
     ],
-    "shownArrows": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
     "gatewayArrows": [
       {
         "x": 0,
@@ -2604,5 +2727,99 @@
         "type": 0
       }
     ]
+  },
+  "palette": {
+    "length": 12,
+    "header": {
+      "length": 12,
+      "palX": 0,
+      "palY": 480,
+      "colorsPerPage": 256,
+      "pageCount": 0
+    },
+    "pages": []
+  },
+  "background": {
+    "length": 277927,
+    "header": {
+      "zero1": 0,
+      "usePaddles": 2,
+      "activated": 1
+    },
+    "palette": {
+      "ignoreFirstPixel": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "tiles": {
+      "layer1": {
+        "width": 336,
+        "height": 256,
+        "tileCount": 300,
+        "depth": 2,
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer2": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 0,
+        "unknown": [
+          0,
+          0,
+          1,
+          0,
+          15,
+          0,
+          16,
+          0,
+          27,
+          0,
+          28,
+          0,
+          33,
+          0,
+          34,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      }
+    },
+    "textures": {
+      "texture26": {
+        "textureId": 26,
+        "size": 0,
+        "depth": 2,
+        "data": "Omitted to reduce size"
+      },
+      "texture27": {
+        "textureId": 27,
+        "size": 0,
+        "depth": 2,
+        "data": "Omitted to reduce size"
+      }
+    }
   }
 }

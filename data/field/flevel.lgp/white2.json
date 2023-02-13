@@ -609,42 +609,50 @@
     },
     "entities": [
       {
+        "entityId": 0,
         "entityName": "dir",
+        "entityType": "Unknown",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "NFADE",
                 "b1": 0,
                 "b2": 0,
-                "r": 12,
+                "b3": 0,
+                "r": 255,
                 "g": 255,
                 "b": 255,
-                "s": 255,
-                "t": 1,
+                "s": 1,
+                "t": 12,
                 "unused": 0,
-                "js": "fadeScreen({r:12, g:255, b:255, speed:255, type:1}); // unused=0",
+                "js": "fadeScreenN({r:255, g:255, b:255, speed:1, type:12}); // unused=0",
                 "pres": "The screen fades...",
-                "raw": "25 00 00 0c ff ff ff 01 00"
+                "raw": "25 00 00 0c ff ff ff 01 00",
+                "byteIndex": 1
               },
               {
                 "op": "FADEW",
                 "js": "waitForFade();",
                 "pres": "...",
-                "raw": "6c"
+                "raw": "6c",
+                "byteIndex": 10
               },
               {
                 "op": "REQ",
@@ -654,104 +662,123 @@
                 "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
                 "js": "entityExecuteAsync({entity:1, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "01 01 c3"
+                "raw": "01 01 c3",
+                "byteIndex": 11
               },
               {
                 "op": "WAIT",
                 "a": 60,
                 "js": "wait({numFrames:60});",
-                "raw": "24 3c 00"
+                "raw": "24 3c 00",
+                "byteIndex": 14
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 17
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 19
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 21
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 1,
         "entityName": "mdir",
+        "entityType": "Unknown",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 1
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 0
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 2
               },
               {
                 "op": "MVCAM",
                 "s": 1,
                 "js": "stopUsingMovieCamera();",
-                "raw": "fb 01"
+                "raw": "fb 01",
+                "byteIndex": 4
               },
               {
                 "op": "IFSW",
@@ -762,101 +789,122 @@
                 "c": 4,
                 "e": 5,
                 "js": "if (Bank[2][0] >= 1620) (else goto 18);",
-                "raw": "16 20 00 00 54 06 04 05"
+                "goto": 18,
+                "raw": "16 20 00 00 54 06 04 05",
+                "byteIndex": 6
               },
               {
                 "op": "PMVIE",
                 "m": 28,
                 "js": "setCurrentMovie({movie:28});",
-                "raw": "f8 1c"
+                "raw": "f8 1c",
+                "byteIndex": 14
               },
               {
                 "op": "JMPF",
                 "a": 3,
                 "js": "goto 20;",
-                "raw": "10 03"
+                "goto": 20,
+                "raw": "10 03",
+                "byteIndex": 16
               },
               {
                 "op": "PMVIE",
                 "m": 42,
                 "js": "setCurrentMovie({movie:42});",
-                "raw": "f8 2a"
+                "raw": "f8 2a",
+                "byteIndex": 18
               },
               {
                 "op": "NFADE",
                 "b1": 0,
                 "b2": 0,
-                "r": 12,
+                "b3": 0,
+                "r": 0,
                 "g": 0,
                 "b": 0,
-                "s": 0,
-                "t": 30,
+                "s": 30,
+                "t": 12,
                 "unused": 0,
-                "js": "fadeScreen({r:12, g:0, b:0, speed:0, type:30}); // unused=0",
+                "js": "fadeScreenN({r:0, g:0, b:0, speed:30, type:12}); // unused=0",
                 "pres": "The screen fades...",
-                "raw": "25 00 00 0c 00 00 00 1e 00"
+                "raw": "25 00 00 0c 00 00 00 1e 00",
+                "byteIndex": 20
               },
               {
                 "op": "MOVIE",
                 "js": "playMovie();",
-                "raw": "f9"
+                "raw": "f9",
+                "byteIndex": 29
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 30
               }
             ]
           }
         ]
       },
       {
+        "entityId": 2,
         "entityName": "mf",
+        "entityType": "Unknown",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 1;",
+                "goto": 1,
+                "raw": "12 00",
+                "byteIndex": 1
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Script 1",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "MVIEF",
                 "b": 6,
                 "a": 9,
                 "js": "Bank[6][9] = getCurrentMovieFrame();",
-                "raw": "fa 06 09"
+                "raw": "fa 06 09",
+                "byteIndex": 0
               },
               {
                 "op": "IFSW",
@@ -867,12 +915,15 @@
                 "c": 2,
                 "e": 12,
                 "js": "if (Bank[6][9] > 0) (else goto 22);",
-                "raw": "16 60 09 00 00 00 02 0c"
+                "goto": 22,
+                "raw": "16 60 09 00 00 00 02 0c",
+                "byteIndex": 3
               },
               {
                 "op": "FADE",
                 "b1": 0,
                 "b2": 0,
+                "b3": 0,
                 "r": 0,
                 "g": 0,
                 "b": 0,
@@ -881,26 +932,32 @@
                 "a": 255,
                 "js": "fade({r:0, g:0, b:0, speed:8, type:1, adjust:255});",
                 "pres": "The screen fades...",
-                "raw": "6b 00 00 00 00 00 08 01 ff"
+                "raw": "6b 00 00 00 00 00 08 01 ff",
+                "byteIndex": 11
               },
               {
                 "op": "JMPF",
                 "a": 3,
                 "js": "goto 24;",
-                "raw": "10 03"
+                "goto": 24,
+                "raw": "10 03",
+                "byteIndex": 20
               },
               {
                 "op": "JMPB",
                 "a": 22,
                 "js": "goto 0;",
-                "raw": "12 16"
+                "goto": 0,
+                "raw": "12 16",
+                "byteIndex": 22
               },
               {
                 "op": "MVIEF",
                 "b": 6,
                 "a": 9,
                 "js": "Bank[6][9] = getCurrentMovieFrame();",
-                "raw": "fa 06 09"
+                "raw": "fa 06 09",
+                "byteIndex": 24
               },
               {
                 "op": "IFSW",
@@ -911,94 +968,115 @@
                 "c": 2,
                 "e": 7,
                 "js": "if (Bank[6][9] > 30) (else goto 41);",
-                "raw": "16 60 09 00 1e 00 02 07"
+                "goto": 41,
+                "raw": "16 60 09 00 1e 00 02 07",
+                "byteIndex": 27
               },
               {
                 "op": "MUSIC",
                 "id": 0,
                 "js": "playMusic({song:0});",
                 "pres": "Song starts: <Song:0>",
-                "raw": "f0 00"
+                "raw": "f0 00",
+                "byteIndex": 35
               },
               {
                 "op": "MULCK",
                 "s": 1,
                 "js": "setMusicLockMode(M.Locked);",
-                "raw": "f5 01"
+                "raw": "f5 01",
+                "byteIndex": 37
               },
               {
                 "op": "JMPF",
                 "a": 3,
                 "js": "goto 43;",
-                "raw": "10 03"
+                "goto": 43,
+                "raw": "10 03",
+                "byteIndex": 39
               },
               {
                 "op": "JMPB",
                 "a": 17,
                 "js": "goto 24;",
-                "raw": "12 11"
+                "goto": 24,
+                "raw": "12 11",
+                "byteIndex": 41
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 43
               }
             ]
           }
         ]
       },
       {
+        "entityId": 3,
         "entityName": "cl",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 0,
                 "js": "thisIsAFieldModel(0);",
-                "raw": "a1 00"
+                "raw": "a1 00",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 0,
                 "js": "thisIsAPlayableCharacter(C.Cloud);",
-                "raw": "a0 00"
+                "raw": "a0 00",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "AKAO",
@@ -1015,14 +1093,16 @@
                 "p5": 0,
                 "js": "musicOp_F2_c1({p1:255, p2:0, p3:0, p4:0, p5:0});",
                 "pres": "Music event.",
-                "raw": "f2 00 00 00 c1 ff 00 00 00 00 00 00 00 00"
+                "raw": "f2 00 00 00 c1 ff 00 00 00 00 00 00 00 00",
+                "byteIndex": 0
               },
               {
                 "op": "MSPED",
                 "b": 0,
-                "d": 1024,
+                "s": 1024,
                 "js": "setMovementSpeed({speed:1024});",
-                "raw": "b2 00 00 04"
+                "raw": "b2 00 00 04",
+                "byteIndex": 14
               },
               {
                 "op": "MOVE",
@@ -1031,7 +1111,8 @@
                 "x": -154,
                 "y": -331,
                 "js": "walkObjectTo({x:-154, y:-331});",
-                "raw": "a8 00 66 ff b5 fe"
+                "raw": "a8 00 66 ff b5 fe",
+                "byteIndex": 18
               },
               {
                 "op": "SPLIT",
@@ -1050,7 +1131,8 @@
                 "s": 15,
                 "js": "splitParty({c1: {x:-270, y:-350, d:112}, c2: {x:-108, y:-440, d:112}, slowness:15});",
                 "pres": "The party spreads out.",
-                "raw": "09 00 00 00 f2 fe a2 fe 70 94 ff 48 fe 70 0f"
+                "raw": "09 00 00 00 f2 fe a2 fe 70 94 ff 48 fe 70 0f",
+                "byteIndex": 24
               },
               {
                 "op": "REQEW",
@@ -1059,14 +1141,16 @@
                 "f": 5,
                 "js": "entityExecuteSync({entity:12, priority:6, function:5});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0c c5"
+                "raw": "03 0c c5",
+                "byteIndex": 39
               },
               {
                 "op": "MUSIC",
                 "id": 1,
                 "js": "playMusic({song:1});",
                 "pres": "Song starts: <Song:1>",
-                "raw": "f0 01"
+                "raw": "f0 01",
+                "byteIndex": 42
               },
               {
                 "op": "AKAO",
@@ -1083,12 +1167,14 @@
                 "p5": 0,
                 "js": "musicOp_F2_c1({p1:1, p2:127, p3:0, p4:0, p5:0});",
                 "pres": "Music event.",
-                "raw": "f2 00 00 00 c1 01 7f 00 00 00 00 00 00 00"
+                "raw": "f2 00 00 00 c1 01 7f 00 00 00 00 00 00 00",
+                "byteIndex": 44
               },
               {
                 "op": "FADE",
                 "b1": 0,
                 "b2": 0,
+                "b3": 0,
                 "r": 0,
                 "g": 0,
                 "b": 0,
@@ -1097,13 +1183,15 @@
                 "a": 0,
                 "js": "fade({r:0, g:0, b:0, speed:8, type:2, adjust:0});",
                 "pres": "The screen fades...",
-                "raw": "6b 00 00 00 00 00 08 02 00"
+                "raw": "6b 00 00 00 00 00 08 02 00",
+                "byteIndex": 58
               },
               {
                 "op": "FADEW",
                 "js": "waitForFade();",
                 "pres": "...",
-                "raw": "6c"
+                "raw": "6c",
+                "byteIndex": 67
               },
               {
                 "op": "MENU",
@@ -1111,19 +1199,22 @@
                 "t": 20,
                 "p": 0,
                 "js": "callMenu({type:20, param:0});",
-                "raw": "49 00 14 00"
+                "raw": "49 00 14 00",
+                "byteIndex": 68
               },
               {
                 "op": "MVCAM",
                 "s": 0,
                 "js": "useMovieCamera();",
-                "raw": "fb 00"
+                "raw": "fb 00",
+                "byteIndex": 72
               },
               {
                 "op": "PMVIE",
                 "m": 56,
                 "js": "setCurrentMovie({movie:56});",
-                "raw": "f8 38"
+                "raw": "f8 38",
+                "byteIndex": 74
               },
               {
                 "op": "REQ",
@@ -1133,38 +1224,44 @@
                 "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
                 "js": "entityExecuteAsync({entity:2, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "01 02 c3"
+                "raw": "01 02 c3",
+                "byteIndex": 76
               },
               {
                 "op": "MOVIE",
                 "js": "playMovie();",
-                "raw": "f9"
+                "raw": "f9",
+                "byteIndex": 79
               },
               {
                 "op": "NFADE",
                 "b1": 0,
                 "b2": 0,
-                "r": 12,
+                "b3": 0,
+                "r": 255,
                 "g": 255,
                 "b": 255,
-                "s": 255,
-                "t": 1,
+                "s": 1,
+                "t": 12,
                 "unused": 0,
-                "js": "fadeScreen({r:12, g:255, b:255, speed:255, type:1}); // unused=0",
+                "js": "fadeScreenN({r:255, g:255, b:255, speed:1, type:12}); // unused=0",
                 "pres": "The screen fades...",
-                "raw": "25 00 00 0c ff ff ff 01 00"
+                "raw": "25 00 00 0c ff ff ff 01 00",
+                "byteIndex": 80
               },
               {
                 "op": "FADEW",
                 "js": "waitForFade();",
                 "pres": "...",
-                "raw": "6c"
+                "raw": "6c",
+                "byteIndex": 89
               },
               {
                 "op": "MVCAM",
                 "s": 1,
                 "js": "stopUsingMovieCamera();",
-                "raw": "fb 01"
+                "raw": "fb 01",
+                "byteIndex": 90
               },
               {
                 "op": "REQ",
@@ -1174,20 +1271,23 @@
                 "mr": "Execute script #%3 in extern group %1 (priority %2/6) - Only if the script is not already running|_script(groupID)|priority|scriptID",
                 "js": "entityExecuteAsync({entity:1, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "01 01 c3"
+                "raw": "01 01 c3",
+                "byteIndex": 92
               },
               {
                 "op": "WAIT",
                 "a": 60,
                 "js": "wait({numFrames:60});",
-                "raw": "24 3c 00"
+                "raw": "24 3c 00",
+                "byteIndex": 95
               },
               {
                 "op": "ANIM!2",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationHoldLastFrameSync({animation:3, slowness:1});",
-                "raw": "ba 03 01"
+                "raw": "ba 03 01",
+                "byteIndex": 98
               },
               {
                 "op": "WINDOW",
@@ -1197,14 +1297,16 @@
                 "w": 137,
                 "h": 41,
                 "js": "createWindow({window:0, x:10, y:10, width:137, height:41});",
-                "raw": "50 00 0a 00 0a 00 89 00 29 00"
+                "raw": "50 00 0a 00 0a 00 89 00 29 00",
+                "byteIndex": 101
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 90,
                 "js": "showWindowWithDialog({window:0, dialog:90}); // {Cloud}<br/>“…It's glowing.”",
-                "raw": "40 00 5a"
+                "raw": "40 00 5a",
+                "byteIndex": 111
               },
               {
                 "op": "REQEW",
@@ -1213,14 +1315,16 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:12, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0c c3"
+                "raw": "03 0c c3",
+                "byteIndex": 114
               },
               {
                 "op": "ANIM!2",
                 "a": 4,
                 "s": 1,
                 "js": "playAnimationHoldLastFrameSync({animation:4, slowness:1});",
-                "raw": "ba 04 01"
+                "raw": "ba 04 01",
+                "byteIndex": 117
               },
               {
                 "op": "WINDOW",
@@ -1230,14 +1334,16 @@
                 "w": 282,
                 "h": 73,
                 "js": "createWindow({window:0, x:10, y:10, width:282, height:73});",
-                "raw": "50 00 0a 00 0a 00 1a 01 49 00"
+                "raw": "50 00 0a 00 0a 00 1a 01 49 00",
+                "byteIndex": 120
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 92,
                 "js": "showWindowWithDialog({window:0, dialog:92}); // {Cloud}<br/>“…{Aeris}.<br/>\t{Aeris} has already prayed<br/>\tfor Holy.”{PAUSE}“…After I gave up the Black Materia<br/>\tto Sephiroth…<br/>\t{Aeris}'s words came into<br/>\tmy dreams…”{PAUSE}“She said, she was the only one who could<br/>\tstop Sephiroth…<br/>\tAnd to do that, there was a secret here…”{PAUSE}“That was Holy…<br/>\tThat's why, she had the White Materia.<br/>\t{Aeris} knew about here…<br/>\tand what she had to do.”{PAUSE}“{Aeris} has left us great hope.<br/>\tBut, it cost her life…<br/>\ther future…”",
-                "raw": "40 00 5c"
+                "raw": "40 00 5c",
+                "byteIndex": 130
               },
               {
                 "op": "CANM!2",
@@ -1246,7 +1352,8 @@
                 "l": 14,
                 "s": 1,
                 "js": "playPartialAnimation({animation:5, firstFrame:0, lastFrame:14, slowness:1});",
-                "raw": "bc 05 00 0e 01"
+                "raw": "bc 05 00 0e 01",
+                "byteIndex": 133
               },
               {
                 "op": "WINDOW",
@@ -1256,14 +1363,16 @@
                 "w": 303,
                 "h": 57,
                 "js": "createWindow({window:0, x:10, y:10, width:303, height:57});",
-                "raw": "50 00 0a 00 0a 00 2f 01 39 00"
+                "raw": "50 00 0a 00 0a 00 2f 01 39 00",
+                "byteIndex": 138
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 93,
                 "js": "showWindowWithDialog({window:0, dialog:93}); // {Cloud}<br/>“I'm sorry…{Aeris}.<br/>\tI should have figured this out sooner.”{PAUSE}“…You left without saying a word…<br/>\tIt was all so sudden, I couldn't think…”{PAUSE}“That's why it took so long for me to find out…<br/>\tBut, {Aeris}…I understand now.”{PAUSE}“{Aeris}…<br/>\tI'll do the rest.”",
-                "raw": "40 00 5d"
+                "raw": "40 00 5d",
+                "byteIndex": 148
               },
               {
                 "op": "CANM!2",
@@ -1272,14 +1381,16 @@
                 "l": 29,
                 "s": 1,
                 "js": "playPartialAnimation({animation:5, firstFrame:14, lastFrame:29, slowness:1});",
-                "raw": "bc 05 0e 1d 01"
+                "raw": "bc 05 0e 1d 01",
+                "byteIndex": 151
               },
               {
                 "op": "DFANM",
                 "a": 0,
                 "s": 1,
                 "js": "playAnimationLoop({animation:0, slowness:1});",
-                "raw": "a2 00 01"
+                "raw": "a2 00 01",
+                "byteIndex": 156
               },
               {
                 "op": "PRQEW",
@@ -1288,14 +1399,16 @@
                 "f": 3,
                 "js": "partyMemberExecuteSync({partyMemberId:1, priority:6, function:3});",
                 "pres": "Tells <partyMemberName> to <scriptName>",
-                "raw": "06 01 c3"
+                "raw": "06 01 c3",
+                "byteIndex": 159
               },
               {
                 "op": "ANIME1",
                 "a": 6,
                 "s": 1,
                 "js": "playAnimationAsync({animation:6, slowness:1});",
-                "raw": "ae 06 01"
+                "raw": "ae 06 01",
+                "byteIndex": 162
               },
               {
                 "op": "PTURA",
@@ -1303,12 +1416,14 @@
                 "s": 15,
                 "a": 2,
                 "js": "turnToPartyMember({partyId:1, slowness:15, directionA:2});",
-                "raw": "35 01 0f 02"
+                "raw": "35 01 0f 02",
+                "byteIndex": 165
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 169
               },
               {
                 "op": "PRQEW",
@@ -1317,14 +1432,16 @@
                 "f": 4,
                 "js": "partyMemberExecuteSync({partyMemberId:2, priority:6, function:4});",
                 "pres": "Tells <partyMemberName> to <scriptName>",
-                "raw": "06 02 c4"
+                "raw": "06 02 c4",
+                "byteIndex": 170
               },
               {
                 "op": "ANIME1",
                 "a": 6,
                 "s": 1,
                 "js": "playAnimationAsync({animation:6, slowness:1});",
-                "raw": "ae 06 01"
+                "raw": "ae 06 01",
+                "byteIndex": 173
               },
               {
                 "op": "PTURA",
@@ -1332,38 +1449,44 @@
                 "s": 15,
                 "a": 2,
                 "js": "turnToPartyMember({partyId:2, slowness:15, directionA:2});",
-                "raw": "35 02 0f 02"
+                "raw": "35 02 0f 02",
+                "byteIndex": 176
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 180
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 181
               },
               {
                 "op": "ANIME1",
                 "a": 7,
                 "s": 1,
                 "js": "playAnimationSync({animation:7, slowness:1});",
-                "raw": "a3 07 01"
+                "raw": "a3 07 01",
+                "byteIndex": 184
               },
               {
                 "op": "WAIT",
                 "a": 20,
                 "js": "wait({numFrames:20});",
-                "raw": "24 14 00"
+                "raw": "24 14 00",
+                "byteIndex": 187
               },
               {
                 "op": "ANIME1",
                 "a": 8,
                 "s": 1,
                 "js": "playAnimationAsync({animation:8, slowness:1});",
-                "raw": "ae 08 01"
+                "raw": "ae 08 01",
+                "byteIndex": 190
               },
               {
                 "op": "TURNGEN",
@@ -1373,25 +1496,29 @@
                 "s": 15,
                 "t": 1,
                 "js": "rotateModel({rotation:240, direction:1, steps:15, stepType:1});",
-                "raw": "b4 00 f0 01 0f 01"
+                "raw": "b4 00 f0 01 0f 01",
+                "byteIndex": 193
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 199
               },
               {
                 "op": "ANIM!1",
                 "a": 9,
                 "s": 1,
                 "js": "playAnimationOnceAsync({animation:9, slowness:1});",
-                "raw": "af 09 01"
+                "raw": "af 09 01",
+                "byteIndex": 200
               },
               {
                 "op": "WAIT",
                 "a": 50,
                 "js": "wait({numFrames:50});",
-                "raw": "24 32 00"
+                "raw": "24 32 00",
+                "byteIndex": 203
               },
               {
                 "op": "WINDOW",
@@ -1401,19 +1528,22 @@
                 "w": 223,
                 "h": 41,
                 "js": "createWindow({window:0, x:10, y:10, width:223, height:41});",
-                "raw": "50 00 0a 00 0a 00 df 00 29 00"
+                "raw": "50 00 0a 00 0a 00 df 00 29 00",
+                "byteIndex": 206
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 108,
                 "js": "showWindowWithDialog({window:0, dialog:108}); // {Cloud}<br/>“Thank you…{Aeris}.”",
-                "raw": "40 00 6c"
+                "raw": "40 00 6c",
+                "byteIndex": 216
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 219
               },
               {
                 "op": "WINDOW",
@@ -1423,21 +1553,24 @@
                 "w": 297,
                 "h": 89,
                 "js": "createWindow({window:0, x:10, y:10, width:297, height:89});",
-                "raw": "50 00 0a 00 0a 00 29 01 59 00"
+                "raw": "50 00 0a 00 0a 00 29 01 59 00",
+                "byteIndex": 220
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 109,
                 "js": "showWindowWithDialog({window:0, dialog:109}); // {Cloud}<br/>“{Aeris}'s voice has already reached<br/>\tthe Planet.<br/>\tJust look at the glow of<br/>\tthe White Materia.”{PAUSE}“But…how about Holy?<br/>\tHow come Holy isn't moving?”",
-                "raw": "40 00 6d"
+                "raw": "40 00 6d",
+                "byteIndex": 230
               },
               {
                 "op": "ANIME1",
                 "a": 10,
                 "s": 1,
                 "js": "playAnimationSync({animation:10, slowness:1});",
-                "raw": "a3 0a 01"
+                "raw": "a3 0a 01",
+                "byteIndex": 233
               },
               {
                 "op": "WINDOW",
@@ -1447,14 +1580,16 @@
                 "w": 137,
                 "h": 41,
                 "js": "createWindow({window:0, x:10, y:10, width:137, height:41});",
-                "raw": "50 00 0a 00 0a 00 89 00 29 00"
+                "raw": "50 00 0a 00 0a 00 89 00 29 00",
+                "byteIndex": 236
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 110,
                 "js": "showWindowWithDialog({window:0, dialog:110}); // {Cloud}<br/>“Why?”",
-                "raw": "40 00 6e"
+                "raw": "40 00 6e",
+                "byteIndex": 246
               },
               {
                 "op": "REQEW",
@@ -1463,14 +1598,16 @@
                 "f": 4,
                 "js": "entityExecuteSync({entity:12, priority:6, function:4});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 0c c4"
+                "raw": "03 0c c4",
+                "byteIndex": 249
               },
               {
                 "op": "ANIME1",
                 "a": 11,
                 "s": 1,
                 "js": "playAnimationAsync({animation:11, slowness:1});",
-                "raw": "ae 0b 01"
+                "raw": "ae 0b 01",
+                "byteIndex": 252
               },
               {
                 "op": "WINDOW",
@@ -1480,19 +1617,22 @@
                 "w": 228,
                 "h": 41,
                 "js": "createWindow({window:0, x:10, y:10, width:228, height:41});",
-                "raw": "50 00 0a 00 0a 00 e4 00 29 00"
+                "raw": "50 00 0a 00 0a 00 e4 00 29 00",
+                "byteIndex": 255
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 112,
                 "js": "showWindowWithDialog({window:0, dialog:112}); // {Cloud}<br/>“…Him…”{PAUSE}“He's the only one that could do it.”",
-                "raw": "40 00 70"
+                "raw": "40 00 70",
+                "byteIndex": 265
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 268
               },
               {
                 "op": "CANM!2",
@@ -1501,7 +1641,8 @@
                 "l": 14,
                 "s": 1,
                 "js": "playPartialAnimation({animation:5, firstFrame:0, lastFrame:14, slowness:1});",
-                "raw": "bc 05 00 0e 01"
+                "raw": "bc 05 00 0e 01",
+                "byteIndex": 269
               },
               {
                 "op": "WINDOW",
@@ -1511,14 +1652,16 @@
                 "w": 137,
                 "h": 57,
                 "js": "createWindow({window:0, x:10, y:10, width:137, height:57});",
-                "raw": "50 00 0a 00 0a 00 89 00 39 00"
+                "raw": "50 00 0a 00 0a 00 89 00 39 00",
+                "byteIndex": 274
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 113,
                 "js": "showWindowWithDialog({window:0, dialog:113}); // {Cloud}<br/>“…Sephiroth.<br/>\tWhere are you?”",
-                "raw": "40 00 71"
+                "raw": "40 00 71",
+                "byteIndex": 284
               },
               {
                 "op": "CANM!2",
@@ -1527,76 +1670,91 @@
                 "l": 29,
                 "s": 1,
                 "js": "playPartialAnimation({animation:5, firstFrame:14, lastFrame:29, slowness:1});",
-                "raw": "bc 05 0e 1d 01"
+                "raw": "bc 05 0e 1d 01",
+                "byteIndex": 287
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 292
               }
             ]
           }
         ]
       },
       {
+        "entityId": 4,
         "entityName": "ti",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 1,
                 "js": "thisIsAFieldModel(1);",
-                "raw": "a1 01"
+                "raw": "a1 01",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 2,
                 "js": "thisIsAPlayableCharacter(C.Tifa);",
-                "raw": "a0 02"
+                "raw": "a0 02",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -1606,37 +1764,43 @@
                 "w": 137,
                 "h": 41,
                 "js": "createWindow({window:0, x:10, y:10, width:137, height:41});",
-                "raw": "50 00 0a 00 0a 00 89 00 29 00"
+                "raw": "50 00 0a 00 0a 00 89 00 29 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 94,
                 "js": "showWindowWithDialog({window:0, dialog:94}); // {Tifa}<br/>“You mean, WE…”",
-                "raw": "40 00 5e"
+                "raw": "40 00 5e",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -1646,88 +1810,105 @@
                 "w": 227,
                 "h": 57,
                 "js": "createWindow({window:0, x:203, y:10, width:227, height:57});",
-                "raw": "50 00 cb 00 0a 00 e3 00 39 00"
+                "raw": "50 00 cb 00 0a 00 e3 00 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 101,
                 "js": "showWindowWithDialog({window:0, dialog:101}); // {Tifa}<br/>“What {Aeris} left us…<br/>\tWe shouldn't waste.”",
-                "raw": "40 00 65"
+                "raw": "40 00 65",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           }
         ]
       },
       {
+        "entityId": 5,
         "entityName": "cid",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 2,
                 "js": "thisIsAFieldModel(2);",
-                "raw": "a1 02"
+                "raw": "a1 02",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 8,
                 "js": "thisIsAPlayableCharacter(C.Cid);",
-                "raw": "a0 08"
+                "raw": "a0 08",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -1737,37 +1918,43 @@
                 "w": 137,
                 "h": 57,
                 "js": "createWindow({window:0, x:10, y:10, width:137, height:57});",
-                "raw": "50 00 0a 00 0a 00 89 00 39 00"
+                "raw": "50 00 0a 00 0a 00 89 00 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 97,
                 "js": "showWindowWithDialog({window:0, dialog:97}); // {Cid}<br/>“You &^$#%^!<br/>\tIt's WE! WE!”",
-                "raw": "40 00 61"
+                "raw": "40 00 61",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -1777,88 +1964,105 @@
                 "w": 249,
                 "h": 57,
                 "js": "createWindow({window:0, x:200, y:10, width:249, height:57});",
-                "raw": "50 00 c8 00 0a 00 f9 00 39 00"
+                "raw": "50 00 c8 00 0a 00 f9 00 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 104,
                 "js": "showWindowWithDialog({window:0, dialog:104}); // {Cid}<br/>“The flower girl gave us a big chance…<br/>\tIt'd be sad if we didn't finish it!”",
-                "raw": "40 00 68"
+                "raw": "40 00 68",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           }
         ]
       },
       {
+        "entityId": 6,
         "entityName": "ba",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 3,
                 "js": "thisIsAFieldModel(3);",
-                "raw": "a1 03"
+                "raw": "a1 03",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 1,
                 "js": "thisIsAPlayableCharacter(C.Barret);",
-                "raw": "a0 01"
+                "raw": "a0 01",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -1868,37 +2072,43 @@
                 "w": 137,
                 "h": 41,
                 "js": "createWindow({window:0, x:10, y:10, width:137, height:41});",
-                "raw": "50 00 0a 00 0a 00 89 00 29 00"
+                "raw": "50 00 0a 00 0a 00 89 00 29 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 95,
                 "js": "showWindowWithDialog({window:0, dialog:95}); // {Barret}<br/>“That's 'WE'!”",
-                "raw": "40 00 5f"
+                "raw": "40 00 5f",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -1908,161 +2118,193 @@
                 "w": 274,
                 "h": 57,
                 "js": "createWindow({window:0, x:202, y:10, width:274, height:57});",
-                "raw": "50 00 ca 00 0a 00 12 01 39 00"
+                "raw": "50 00 ca 00 0a 00 12 01 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 102,
                 "js": "showWindowWithDialog({window:0, dialog:102}); // {Barret}<br/>“The thing  {Aeris} left for us…<br/>\tWe gotta take care of it.”",
-                "raw": "40 00 66"
+                "raw": "40 00 66",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           }
         ]
       },
       {
+        "entityId": 7,
         "entityName": "ea",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 4,
                 "js": "thisIsAFieldModel(4);",
-                "raw": "a1 04"
+                "raw": "a1 04",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 3,
                 "js": "thisIsAPlayableCharacter(C.Aeris);",
-                "raw": "a0 03"
+                "raw": "a0 03",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 8,
         "entityName": "re",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 5,
                 "js": "thisIsAFieldModel(5);",
-                "raw": "a1 05"
+                "raw": "a1 05",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 4,
                 "js": "thisIsAPlayableCharacter(C.RedXIII);",
-                "raw": "a0 04"
+                "raw": "a0 04",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -2072,37 +2314,43 @@
                 "w": 159,
                 "h": 41,
                 "js": "createWindow({window:0, x:10, y:10, width:159, height:41});",
-                "raw": "50 00 0a 00 0a 00 9f 00 29 00"
+                "raw": "50 00 0a 00 0a 00 9f 00 29 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 96,
                 "js": "showWindowWithDialog({window:0, dialog:96}); // {Red XIII}<br/>“WE'LL take care of it.”",
-                "raw": "40 00 60"
+                "raw": "40 00 60",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -2112,88 +2360,105 @@
                 "w": 248,
                 "h": 57,
                 "js": "createWindow({window:0, x:201, y:10, width:248, height:57});",
-                "raw": "50 00 c9 00 0a 00 f8 00 39 00"
+                "raw": "50 00 c9 00 0a 00 f8 00 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 103,
                 "js": "showWindowWithDialog({window:0, dialog:103}); // {Red XIII}<br/>“We can't waste what<br/>\t{Aeris} left for us.”",
-                "raw": "40 00 67"
+                "raw": "40 00 67",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           }
         ]
       },
       {
+        "entityId": 9,
         "entityName": "ket",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 6,
                 "js": "thisIsAFieldModel(6);",
-                "raw": "a1 06"
+                "raw": "a1 06",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 6,
                 "js": "thisIsAPlayableCharacter(C.CaitSith);",
-                "raw": "a0 06"
+                "raw": "a0 06",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -2203,37 +2468,43 @@
                 "w": 148,
                 "h": 41,
                 "js": "createWindow({window:0, x:10, y:10, width:148, height:41});",
-                "raw": "50 00 0a 00 0a 00 94 00 29 00"
+                "raw": "50 00 0a 00 0a 00 94 00 29 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 98,
                 "js": "showWindowWithDialog({window:0, dialog:98}); // {Cait Sith}<br/>“It's WE! Isn't it WE?”",
-                "raw": "40 00 62"
+                "raw": "40 00 62",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -2243,88 +2514,105 @@
                 "w": 227,
                 "h": 57,
                 "js": "createWindow({window:0, x:199, y:10, width:227, height:57});",
-                "raw": "50 00 c7 00 0a 00 e3 00 39 00"
+                "raw": "50 00 c7 00 0a 00 e3 00 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 105,
                 "js": "showWindowWithDialog({window:0, dialog:105}); // {Cait Sith}<br/>“What {Aeris} left us…<br/>\tWe mustn't let go to waste…”",
-                "raw": "40 00 69"
+                "raw": "40 00 69",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           }
         ]
       },
       {
+        "entityId": 10,
         "entityName": "vin",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 7,
                 "js": "thisIsAFieldModel(7);",
-                "raw": "a1 07"
+                "raw": "a1 07",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 7,
                 "js": "thisIsAPlayableCharacter(C.Vincent);",
-                "raw": "a0 07"
+                "raw": "a0 07",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -2334,37 +2622,43 @@
                 "w": 140,
                 "h": 41,
                 "js": "createWindow({window:0, x:10, y:10, width:140, height:41});",
-                "raw": "50 00 0a 00 0a 00 8c 00 29 00"
+                "raw": "50 00 0a 00 0a 00 8c 00 29 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 99,
                 "js": "showWindowWithDialog({window:0, dialog:99}); // {Vincent}<br/>“I? …you mean WE.”",
-                "raw": "40 00 63"
+                "raw": "40 00 63",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -2374,88 +2668,105 @@
                 "w": 270,
                 "h": 57,
                 "js": "createWindow({window:0, x:198, y:10, width:270, height:57});",
-                "raw": "50 00 c6 00 0a 00 0e 01 39 00"
+                "raw": "50 00 c6 00 0a 00 0e 01 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 106,
                 "js": "showWindowWithDialog({window:0, dialog:106}); // {Vincent}<br/>“The hope she left us…<br/>\tWe must make stronger…”",
-                "raw": "40 00 6a"
+                "raw": "40 00 6a",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           }
         ]
       },
       {
+        "entityId": 11,
         "entityName": "yuf",
+        "entityType": "Playable Character",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 8,
                 "js": "thisIsAFieldModel(8);",
-                "raw": "a1 08"
+                "raw": "a1 08",
+                "byteIndex": 0
               },
               {
                 "op": "PC",
                 "c": 5,
                 "js": "thisIsAPlayableCharacter(C.Yuffie);",
-                "raw": "a0 05"
+                "raw": "a0 05",
+                "byteIndex": 2
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 4
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 5;",
+                "goto": 5,
+                "raw": "12 00",
+                "byteIndex": 5
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -2465,37 +2776,43 @@
                 "w": 137,
                 "h": 57,
                 "js": "createWindow({window:0, x:10, y:10, width:137, height:57});",
-                "raw": "50 00 0a 00 0a 00 89 00 39 00"
+                "raw": "50 00 0a 00 0a 00 89 00 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 100,
                 "js": "showWindowWithDialog({window:0, dialog:100}); // {Yuffie}<br/>“Not I, dorkus!<br/>\tWE!”",
-                "raw": "40 00 64"
+                "raw": "40 00 64",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 3,
                 "s": 1,
                 "js": "playAnimationAsync({animation:3, slowness:1});",
-                "raw": "ae 03 01"
+                "raw": "ae 03 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -2505,59 +2822,70 @@
                 "w": 240,
                 "h": 57,
                 "js": "createWindow({window:0, x:197, y:10, width:240, height:57});",
-                "raw": "50 00 c5 00 0a 00 f0 00 39 00"
+                "raw": "50 00 c5 00 0a 00 f0 00 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 107,
                 "js": "showWindowWithDialog({window:0, dialog:107}); // {Yuffie}<br/>“We've gotta take a chance on<br/>\tthe hope she left us!”",
-                "raw": "40 00 6b"
+                "raw": "40 00 6b",
+                "byteIndex": 13
               },
               {
                 "op": "ANIMW",
                 "js": "waitForLastAnimationToFinish();",
-                "raw": "ac"
+                "raw": "ac",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 17
               }
             ]
           }
         ]
       },
       {
+        "entityId": 12,
         "entityName": "",
+        "entityType": "Model",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "CHAR",
                 "n": 9,
                 "js": "thisIsAFieldModel(9);",
-                "raw": "a1 09"
+                "raw": "a1 09",
+                "byteIndex": 0
               },
               {
                 "op": "TLKON",
                 "s": 1,
                 "js": "interactibilityOff();",
-                "raw": "7e 01"
+                "raw": "7e 01",
+                "byteIndex": 2
               },
               {
                 "op": "SOLID",
                 "s": 1,
                 "js": "setSolidMode(S.NonSolid);",
-                "raw": "c7 01"
+                "raw": "c7 01",
+                "byteIndex": 4
               },
               {
                 "op": "VISI",
                 "s": 0,
                 "js": "setVisibilityMode(V.NotVisible);",
-                "raw": "a4 00"
+                "raw": "a4 00",
+                "byteIndex": 6
               },
               {
                 "op": "IFSW",
@@ -2567,8 +2895,10 @@
                 "v": 1399,
                 "c": 0,
                 "e": 29,
-                "js": "if (Bank[2][0] == 1399) (else goto 44);",
-                "raw": "16 20 00 00 77 05 00 1d"
+                "js": "if (Bank[2][0] === 1399) (else goto 44);",
+                "goto": 44,
+                "raw": "16 20 00 00 77 05 00 1d",
+                "byteIndex": 8
               },
               {
                 "op": "XYZI",
@@ -2581,14 +2911,16 @@
                 "z": 138,
                 "i": 2,
                 "js": "placeObject({x:-73, y:-369, z:138, walkmeshTriangle:2});",
-                "raw": "a5 00 00 b7 ff 8f fe 8a 00 02 00"
+                "raw": "a5 00 00 b7 ff 8f fe 8a 00 02 00",
+                "byteIndex": 16
               },
               {
                 "op": "DIR",
                 "b": 0,
                 "d": 224,
                 "js": "setFacingDirection({direction:224});",
-                "raw": "b3 00 e0"
+                "raw": "b3 00 e0",
+                "byteIndex": 27
               },
               {
                 "op": "OFST",
@@ -2600,48 +2932,58 @@
                 "y": -32,
                 "z": 104,
                 "s": 0,
+                "t": 0,
                 "js": "transposeObjectDisplayOnly({x:70, y:-32, z:104, speed:0});",
-                "raw": "c3 00 00 00 46 00 e0 ff 68 00 00 00"
+                "raw": "c3 00 00 00 46 00 e0 ff 68 00 00 00",
+                "byteIndex": 30
               },
               {
                 "op": "VISI",
                 "s": 1,
                 "js": "setVisibilityMode(V.Visible);",
-                "raw": "a4 01"
+                "raw": "a4 01",
+                "byteIndex": 42
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 44
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 45;",
+                "goto": 45,
+                "raw": "12 00",
+                "byteIndex": 45
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "Talk",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Script 3",
             "ops": [
               {
                 "op": "TURNGEN",
@@ -2651,7 +2993,8 @@
                 "s": 15,
                 "t": 1,
                 "js": "rotateModel({rotation:224, direction:0, steps:15, stepType:1});",
-                "raw": "b4 00 e0 00 0f 01"
+                "raw": "b4 00 e0 00 0f 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -2661,25 +3004,29 @@
                 "w": 133,
                 "h": 57,
                 "js": "createWindow({window:0, x:171, y:10, width:133, height:57});",
-                "raw": "50 00 ab 00 0a 00 85 00 39 00"
+                "raw": "50 00 ab 00 0a 00 85 00 39 00",
+                "byteIndex": 6
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 91,
                 "js": "showWindowWithDialog({window:0, dialog:91}); // Bugenhagen<br/>“Ho Ho Hooo!!<br/>\tIt's pale green!!”",
-                "raw": "40 00 5b"
+                "raw": "40 00 5b",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 19
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Script 4",
             "ops": [
               {
                 "op": "WINDOW",
@@ -2689,32 +3036,37 @@
                 "w": 215,
                 "h": 41,
                 "js": "createWindow({window:0, x:89, y:10, width:215, height:41});",
-                "raw": "50 00 59 00 0a 00 d7 00 29 00"
+                "raw": "50 00 59 00 0a 00 d7 00 29 00",
+                "byteIndex": 0
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 111,
                 "js": "showWindowWithDialog({window:0, dialog:111}); // Bugenhagen<br/>“Something's getting in its way.”",
-                "raw": "40 00 6f"
+                "raw": "40 00 6f",
+                "byteIndex": 10
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 5,
+            "scriptType": "Script 5",
             "ops": [
               {
                 "op": "ANIME1",
                 "a": 2,
                 "s": 1,
                 "js": "playAnimationAsync({animation:2, slowness:1});",
-                "raw": "ae 02 01"
+                "raw": "ae 02 01",
+                "byteIndex": 0
               },
               {
                 "op": "WINDOW",
@@ -2724,14 +3076,16 @@
                 "w": 282,
                 "h": 57,
                 "js": "createWindow({window:0, x:22, y:10, width:282, height:57});",
-                "raw": "50 00 16 00 0a 00 1a 01 39 00"
+                "raw": "50 00 16 00 0a 00 1a 01 39 00",
+                "byteIndex": 3
               },
               {
                 "op": "MESSAGE",
                 "n": 0,
                 "d": 89,
                 "js": "showWindowWithDialog({window:0, dialog:89}); // Bugenhagen<br/>“This was just a screen to project an image!”{PAUSE}“Look!<br/>\tLook at the image<br/>\tprojected on the screen of the water!”",
-                "raw": "40 00 59"
+                "raw": "40 00 59",
+                "byteIndex": 13
               },
               {
                 "op": "TURNGEN",
@@ -2741,23 +3095,28 @@
                 "s": 15,
                 "t": 1,
                 "js": "rotateModel({rotation:107, direction:1, steps:15, stepType:1});",
-                "raw": "b4 00 6b 01 0f 01"
+                "raw": "b4 00 6b 01 0f 01",
+                "byteIndex": 16
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 22
               }
             ]
           }
         ]
       },
       {
+        "entityId": 13,
         "entityName": "lin0",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -2768,46 +3127,55 @@
                 "y2": -660,
                 "z2": 88,
                 "js": "createLineTrigger({x1:-332, y1:-624, z1:88, x2:-244, y2:-660, z2:88});",
-                "raw": "d0 b4 fe 90 fd 58 00 0c ff 6c fd 58 00"
+                "raw": "d0 b4 fe 90 fd 58 00 0c ff 6c fd 58 00",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 14;",
+                "goto": 14,
+                "raw": "12 00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "FADE",
                 "b1": 0,
                 "b2": 0,
+                "b3": 0,
                 "r": 0,
                 "g": 0,
                 "b": 0,
@@ -2816,13 +3184,15 @@
                 "a": 0,
                 "js": "fade({r:0, g:0, b:0, speed:16, type:2, adjust:0});",
                 "pres": "The screen fades...",
-                "raw": "6b 00 00 00 00 00 10 02 00"
+                "raw": "6b 00 00 00 00 00 10 02 00",
+                "byteIndex": 0
               },
               {
                 "op": "FADEW",
                 "js": "waitForFade();",
                 "pres": "...",
-                "raw": "6c"
+                "raw": "6c",
+                "byteIndex": 9
               },
               {
                 "op": "MENU",
@@ -2830,13 +3200,15 @@
                 "t": 20,
                 "p": 0,
                 "js": "callMenu({type:20, param:0});",
-                "raw": "49 00 14 00"
+                "raw": "49 00 14 00",
+                "byteIndex": 10
               },
               {
                 "op": "MVCAM",
                 "s": 0,
                 "js": "useMovieCamera();",
-                "raw": "fb 00"
+                "raw": "fb 00",
+                "byteIndex": 14
               },
               {
                 "op": "MAPJUMP",
@@ -2846,28 +3218,34 @@
                 "i": 19,
                 "d": 56,
                 "js": "mapJump({fieldId:637, x:636, y:-284, triangleId:19, direction:56});",
-                "raw": "60 7d 02 7c 02 e4 fe 13 00 38"
+                "raw": "60 7d 02 7c 02 e4 fe 13 00 38",
+                "byteIndex": 16
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Go",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
         ]
       },
       {
+        "entityId": 14,
         "entityName": "ev0",
+        "entityType": "Line",
         "scripts": [
           {
             "index": 0,
+            "scriptType": "Init",
             "ops": [
               {
                 "op": "LINE",
@@ -2878,41 +3256,49 @@
                 "y2": -505,
                 "z2": 138,
                 "js": "createLineTrigger({x1:-267, y1:-460, z1:139, x2:-172, y2:-505, z2:138});",
-                "raw": "d0 f5 fe 34 fe 8b 00 54 ff 07 fe 8a 00"
+                "raw": "d0 f5 fe 34 fe 8b 00 54 ff 07 fe 8a 00",
+                "byteIndex": 0
               },
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 13
               }
             ]
           },
           {
             "index": 0,
+            "scriptType": "Main",
             "isMain": true,
             "ops": [
               {
                 "op": "JMPB",
                 "a": 0,
-                "js": "goto 0;",
-                "raw": "12 00"
+                "js": "goto 14;",
+                "goto": 14,
+                "raw": "12 00",
+                "byteIndex": 14
               }
             ]
           },
           {
             "index": 1,
+            "scriptType": "[OK]",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           },
           {
             "index": 3,
+            "scriptType": "Move",
             "ops": [
               {
                 "op": "IFSW",
@@ -2922,20 +3308,24 @@
                 "v": 1399,
                 "c": 0,
                 "e": 33,
-                "js": "if (Bank[2][0] == 1399) (else goto 40);",
-                "raw": "16 20 00 00 77 05 00 21"
+                "js": "if (Bank[2][0] === 1399) (else goto 40);",
+                "goto": 40,
+                "raw": "16 20 00 00 77 05 00 21",
+                "byteIndex": 0
               },
               {
                 "op": "UC",
                 "s": 1,
                 "js": "setPlayableCharacterMovability(M.Frozen);",
-                "raw": "33 01"
+                "raw": "33 01",
+                "byteIndex": 8
               },
               {
                 "op": "MENU2",
                 "s": 1,
                 "js": "setMainMenuAccessibility(MM.Inaccessible);",
-                "raw": "4a 01"
+                "raw": "4a 01",
+                "byteIndex": 10
               },
               {
                 "op": "AKAO",
@@ -2952,7 +3342,8 @@
                 "p5": 0,
                 "js": "musicOp_F2_a6({p1:120, p2:24, p3:0, p4:0, p5:0});",
                 "pres": "Music event.",
-                "raw": "f2 00 00 00 a6 78 18 00 00 00 00 00 00 00"
+                "raw": "f2 00 00 00 a6 78 18 00 00 00 00 00 00 00",
+                "byteIndex": 12
               },
               {
                 "op": "REQEW",
@@ -2961,14 +3352,16 @@
                 "f": 3,
                 "js": "entityExecuteSync({entity:3, priority:6, function:3});",
                 "pres": "Tells <entityName> to <scriptName>",
-                "raw": "03 03 c3"
+                "raw": "03 03 c3",
+                "byteIndex": 26
               },
               {
                 "op": "JOIN",
                 "s": 30,
                 "js": "joinParty({slowness:30});",
                 "pres": "The party gathers.",
-                "raw": "08 1e"
+                "raw": "08 1e",
+                "byteIndex": 29
               },
               {
                 "op": "SETWORD",
@@ -2978,30 +3371,35 @@
                 "v": 1400,
                 "mr": "$GameMoment = 1400 (16 bit)",
                 "js": "$GameMoment = 1400;",
-                "raw": "81 20 00 78 05"
+                "raw": "81 20 00 78 05",
+                "byteIndex": 31
               },
               {
                 "op": "UC",
                 "s": 0,
                 "js": "setPlayableCharacterMovability(M.Movable);",
-                "raw": "33 00"
+                "raw": "33 00",
+                "byteIndex": 36
               },
               {
                 "op": "MENU2",
                 "s": 0,
                 "js": "setMainMenuAccessibility(MM.Accessible);",
-                "raw": "4a 00"
+                "raw": "4a 00",
+                "byteIndex": 38
               }
             ]
           },
           {
             "index": 4,
+            "scriptType": "Go",
             "ops": [
               {
                 "op": "RET",
                 "mr": "Return",
                 "js": "return;",
-                "raw": "00"
+                "raw": "00",
+                "byteIndex": 0
               }
             ]
           }
@@ -3094,7 +3492,7 @@
       "Bugenhagen<br/>“(even sunlight can't reach)…<br/>\tHmm…if we're above ground,<br/>\tthe sunlight reaches everywhere…<br/>\tThen it's probably not above ground…”",
       "Bugenhagen<br/>“A place where sunlight doesn't reach…<br/>\tRight, it must be underwater!”",
       "{Cloud}<br/>“Underwater?<br/>\tThere's…no way…<br/>\tWe need a submarine…”",
-      "{Cloud}<br/>“Wait.<br/>\tSubmarine…I think there's one<br/>\tat <fe>{CYAN}Junon Port<fe>{WHITE}.”",
+      "{Cloud}<br/>“Wait.<br/>\tSubmarine…I think there's one<br/>\tat {CYAN}Junon Port{WHITE}.”",
       "Bugenhagen<br/>“Oh! You've found it!”",
       "Bugenhagen<br/>“I'll go use the key.<br/>\tYou all wait here.”{PAUSE}“And watch closely what happens.”",
       "Bugenhagen<br/>“Now, go inside.<br/>\tHope may be inside…<br/>\tOr…”",
@@ -3170,7 +3568,7 @@
       "{Aeris}<br/>“And {Cloud},<br/>\tyou take care of yourself.”",
       "{Aeris}<br/>“So you don't have a breakdown, okay?”",
       "{Cloud}<br/>“What is this place?”",
-      "{Aeris}<br/>“This forest leads to the <fe>{CYAN}City of the Ancients<fe>{WHITE}…<br/>\tand is called the <fe>{CYAN}Sleeping Forest<fe>{WHITE}.”",
+      "{Aeris}<br/>“This forest leads to the {CYAN}City of the Ancients{WHITE}…<br/>\tand is called the {CYAN}Sleeping Forest{WHITE}.”",
       "{Aeris}<br/>“It's only a matter of time before Sephiroth<br/>\tuses Meteor.”{PAUSE}“That's why I'm going to protect it.<br/>\tOnly a survivor of the Cetra,<br/>\tlike me, can do it.”",
       "{Aeris}<br/>“The secret is just up here.”",
       "{Aeris}<br/>“At least it should be.<br/>\t…I feel it.<br/>\tIt feels like I'm being led by something.”",
@@ -3181,6 +3579,18 @@
       "{Tifa}<br/>“…{Cloud}.”",
       "",
       ""
+    ],
+    "akao": [
+      {
+        "id": 38,
+        "name": "earislo",
+        "description": "Flowers Blooming in the Church"
+      },
+      {
+        "id": 1,
+        "name": "none",
+        "description": "none"
+      }
     ]
   },
   "model": {
@@ -4701,6 +5111,7 @@
     "header": {
       "fieldName": "white2",
       "controlDirection": 112,
+      "controlDirectionDegrees": 22.5,
       "cameraHeightAdjustment": 144,
       "cameraRange": {
         "left": -160,
@@ -4916,20 +5327,6 @@
         "soundId": 0
       }
     ],
-    "shownArrows": [
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1,
-      1
-    ],
     "gatewayArrows": [
       {
         "x": 0,
@@ -5004,5 +5401,4194 @@
         "type": 0
       }
     ]
+  },
+  "palette": {
+    "length": 1036,
+    "header": {
+      "length": 1036,
+      "palX": 0,
+      "palY": 480,
+      "colorsPerPage": 256,
+      "pageCount": 2
+    },
+    "pages": [
+      [
+        {
+          "r": 165,
+          "g": 230,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "a5e6ff"
+        },
+        {
+          "r": 181,
+          "g": 230,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "b5e6ff"
+        },
+        {
+          "r": 156,
+          "g": 214,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "9cd6ff"
+        },
+        {
+          "r": 156,
+          "g": 222,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "9cdeff"
+        },
+        {
+          "r": 222,
+          "g": 247,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "def7ff"
+        },
+        {
+          "r": 148,
+          "g": 214,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "94d6ff"
+        },
+        {
+          "r": 132,
+          "g": 206,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "84ceff"
+        },
+        {
+          "r": 189,
+          "g": 173,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "bdadd6"
+        },
+        {
+          "r": 148,
+          "g": 90,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "945a94"
+        },
+        {
+          "r": 140,
+          "g": 82,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "8c5273"
+        },
+        {
+          "r": 82,
+          "g": 74,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "524a52"
+        },
+        {
+          "r": 99,
+          "g": 82,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "63526b"
+        },
+        {
+          "r": 41,
+          "g": 49,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "293152"
+        },
+        {
+          "r": 58,
+          "g": 58,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "3a3a5a"
+        },
+        {
+          "r": 41,
+          "g": 41,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "292942"
+        },
+        {
+          "r": 99,
+          "g": 90,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "635a94"
+        },
+        {
+          "r": 239,
+          "g": 173,
+          "b": 222,
+          "m": 255,
+          "a": 255,
+          "hex": "efadde"
+        },
+        {
+          "r": 247,
+          "g": 230,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "f7e6f7"
+        },
+        {
+          "r": 214,
+          "g": 148,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "d694b5"
+        },
+        {
+          "r": 132,
+          "g": 148,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "8494ef"
+        },
+        {
+          "r": 90,
+          "g": 132,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "5a84f7"
+        },
+        {
+          "r": 181,
+          "g": 214,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "b5d6ef"
+        },
+        {
+          "r": 148,
+          "g": 181,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "94b5ff"
+        },
+        {
+          "r": 197,
+          "g": 230,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "c5e6ff"
+        },
+        {
+          "r": 123,
+          "g": 173,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "7badef"
+        },
+        {
+          "r": 107,
+          "g": 173,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "6badff"
+        },
+        {
+          "r": 181,
+          "g": 247,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "b5f7ff"
+        },
+        {
+          "r": 189,
+          "g": 255,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "bdffff"
+        },
+        {
+          "r": 132,
+          "g": 189,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "84bdff"
+        },
+        {
+          "r": 148,
+          "g": 181,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "94b5ef"
+        },
+        {
+          "r": 206,
+          "g": 255,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "ceffff"
+        },
+        {
+          "r": 165,
+          "g": 206,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "a5ceef"
+        },
+        {
+          "r": 173,
+          "g": 156,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "ad9cad"
+        },
+        {
+          "r": 173,
+          "g": 132,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "ad848c"
+        },
+        {
+          "r": 58,
+          "g": 58,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "3a3a4a"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "425273"
+        },
+        {
+          "r": 74,
+          "g": 90,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "4a5a9c"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "42529c"
+        },
+        {
+          "r": 58,
+          "g": 90,
+          "b": 197,
+          "m": 255,
+          "a": 255,
+          "hex": "3a5ac5"
+        },
+        {
+          "r": 90,
+          "g": 132,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "5a84d6"
+        },
+        {
+          "r": 148,
+          "g": 197,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "94c5f7"
+        },
+        {
+          "r": 214,
+          "g": 140,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "d68c94"
+        },
+        {
+          "r": 58,
+          "g": 74,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "3a4a73"
+        },
+        {
+          "r": 49,
+          "g": 58,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "313a5a"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "425284"
+        },
+        {
+          "r": 181,
+          "g": 239,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "b5efff"
+        },
+        {
+          "r": 115,
+          "g": 148,
+          "b": 230,
+          "m": 255,
+          "a": 255,
+          "hex": "7394e6"
+        },
+        {
+          "r": 123,
+          "g": 148,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "7b94ce"
+        },
+        {
+          "r": 107,
+          "g": 140,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "6b8cce"
+        },
+        {
+          "r": 107,
+          "g": 132,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "6b84b5"
+        },
+        {
+          "r": 156,
+          "g": 181,
+          "b": 197,
+          "m": 255,
+          "a": 255,
+          "hex": "9cb5c5"
+        },
+        {
+          "r": 33,
+          "g": 41,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "212942"
+        },
+        {
+          "r": 74,
+          "g": 90,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "4a5a8c"
+        },
+        {
+          "r": 90,
+          "g": 115,
+          "b": 189,
+          "m": 255,
+          "a": 255,
+          "hex": "5a73bd"
+        },
+        {
+          "r": 156,
+          "g": 181,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "9cb5d6"
+        },
+        {
+          "r": 189,
+          "g": 222,
+          "b": 222,
+          "m": 255,
+          "a": 255,
+          "hex": "bddede"
+        },
+        {
+          "r": 107,
+          "g": 132,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "6b8494"
+        },
+        {
+          "r": 74,
+          "g": 74,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "4a4a5a"
+        },
+        {
+          "r": 58,
+          "g": 66,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "3a4263"
+        },
+        {
+          "r": 206,
+          "g": 247,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "cef7ff"
+        },
+        {
+          "r": 99,
+          "g": 123,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "637b94"
+        },
+        {
+          "r": 148,
+          "g": 156,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "949cad"
+        },
+        {
+          "r": 148,
+          "g": 132,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "948494"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "42527b"
+        },
+        {
+          "r": 230,
+          "g": 255,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "e6ffff"
+        },
+        {
+          "r": 82,
+          "g": 107,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "526bad"
+        },
+        {
+          "r": 90,
+          "g": 115,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "5a7394"
+        },
+        {
+          "r": 132,
+          "g": 140,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "848cad"
+        },
+        {
+          "r": 58,
+          "g": 74,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "3a4a6b"
+        },
+        {
+          "r": 41,
+          "g": 58,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "293a73"
+        },
+        {
+          "r": 90,
+          "g": 115,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "5a73ad"
+        },
+        {
+          "r": 123,
+          "g": 173,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "7badce"
+        },
+        {
+          "r": 115,
+          "g": 148,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "7394ad"
+        },
+        {
+          "r": 99,
+          "g": 132,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "6384ad"
+        },
+        {
+          "r": 82,
+          "g": 107,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "526b94"
+        },
+        {
+          "r": 82,
+          "g": 99,
+          "b": 165,
+          "m": 255,
+          "a": 255,
+          "hex": "5263a5"
+        },
+        {
+          "r": 74,
+          "g": 90,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "4a5a63"
+        },
+        {
+          "r": 90,
+          "g": 123,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "5a7bad"
+        },
+        {
+          "r": 140,
+          "g": 181,
+          "b": 197,
+          "m": 255,
+          "a": 255,
+          "hex": "8cb5c5"
+        },
+        {
+          "r": 49,
+          "g": 66,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "31426b"
+        },
+        {
+          "r": 239,
+          "g": 255,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "efffff"
+        },
+        {
+          "r": 99,
+          "g": 115,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "63738c"
+        },
+        {
+          "r": 132,
+          "g": 156,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "849cad"
+        },
+        {
+          "r": 82,
+          "g": 99,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "52637b"
+        },
+        {
+          "r": 90,
+          "g": 132,
+          "b": 189,
+          "m": 255,
+          "a": 255,
+          "hex": "5a84bd"
+        },
+        {
+          "r": 74,
+          "g": 90,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "4a5a7b"
+        },
+        {
+          "r": 140,
+          "g": 123,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "8c7b84"
+        },
+        {
+          "r": 156,
+          "g": 197,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "9cc5d6"
+        },
+        {
+          "r": 181,
+          "g": 197,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "b5c5d6"
+        },
+        {
+          "r": 132,
+          "g": 165,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "84a5ad"
+        },
+        {
+          "r": 107,
+          "g": 115,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "6b7373"
+        },
+        {
+          "r": 107,
+          "g": 132,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "6b848c"
+        },
+        {
+          "r": 123,
+          "g": 140,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "7b8c94"
+        },
+        {
+          "r": 140,
+          "g": 156,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "8c9c9c"
+        },
+        {
+          "r": 140,
+          "g": 165,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "8ca59c"
+        },
+        {
+          "r": 82,
+          "g": 99,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "526363"
+        },
+        {
+          "r": 132,
+          "g": 173,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "84adad"
+        },
+        {
+          "r": 123,
+          "g": 115,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "7b736b"
+        },
+        {
+          "r": 115,
+          "g": 82,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "73525a"
+        },
+        {
+          "r": 107,
+          "g": 123,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "6b7b7b"
+        },
+        {
+          "r": 82,
+          "g": 107,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "526b73"
+        },
+        {
+          "r": 58,
+          "g": 74,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "3a4a63"
+        },
+        {
+          "r": 74,
+          "g": 99,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "4a6373"
+        },
+        {
+          "r": 49,
+          "g": 66,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "31425a"
+        },
+        {
+          "r": 99,
+          "g": 115,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "63737b"
+        },
+        {
+          "r": 123,
+          "g": 148,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "7b9494"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "425252"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "192129"
+        },
+        {
+          "r": 115,
+          "g": 140,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "738c94"
+        },
+        {
+          "r": 90,
+          "g": 107,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "5a6b73"
+        },
+        {
+          "r": 58,
+          "g": 66,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "3a424a"
+        },
+        {
+          "r": 25,
+          "g": 25,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "191929"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "101919"
+        },
+        {
+          "r": 90,
+          "g": 107,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "5a6b7b"
+        },
+        {
+          "r": 33,
+          "g": 41,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "21293a"
+        },
+        {
+          "r": 148,
+          "g": 173,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "94adad"
+        },
+        {
+          "r": 41,
+          "g": 74,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "294a84"
+        },
+        {
+          "r": 49,
+          "g": 58,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "313a42"
+        },
+        {
+          "r": 82,
+          "g": 99,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "52636b"
+        },
+        {
+          "r": 41,
+          "g": 49,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "29313a"
+        },
+        {
+          "r": 115,
+          "g": 156,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "739c94"
+        },
+        {
+          "r": 49,
+          "g": 66,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "314263"
+        },
+        {
+          "r": 41,
+          "g": 58,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "293a4a"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "42525a"
+        },
+        {
+          "r": 107,
+          "g": 140,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "6b8c84"
+        },
+        {
+          "r": 66,
+          "g": 74,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "424a4a"
+        },
+        {
+          "r": 66,
+          "g": 90,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "425a84"
+        },
+        {
+          "r": 82,
+          "g": 107,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "526b6b"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 8,
+          "m": 255,
+          "a": 255,
+          "hex": "000008"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "081019"
+        },
+        {
+          "r": 0,
+          "g": 8,
+          "b": 8,
+          "m": 255,
+          "a": 255,
+          "hex": "000808"
+        },
+        {
+          "r": 0,
+          "g": 8,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "000810"
+        },
+        {
+          "r": 33,
+          "g": 41,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "212931"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "213142"
+        },
+        {
+          "r": 90,
+          "g": 123,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "5a7b7b"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "101921"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "101929"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "081021"
+        },
+        {
+          "r": 66,
+          "g": 66,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "424252"
+        },
+        {
+          "r": 33,
+          "g": 33,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "212131"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "081029"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "192131"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "101942"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "101931"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "192142"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "213173"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "19213a"
+        },
+        {
+          "r": 8,
+          "g": 8,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "080810"
+        },
+        {
+          "r": 8,
+          "g": 8,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "080819"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "081042"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "081010"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "192121"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "000010"
+        },
+        {
+          "r": 25,
+          "g": 41,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "19295a"
+        },
+        {
+          "r": 16,
+          "g": 33,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "102142"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 0,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 49,
+          "g": 66,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "314242"
+        },
+        {
+          "r": 33,
+          "g": 33,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "212129"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "10195a"
+        },
+        {
+          "r": 8,
+          "g": 8,
+          "b": 8,
+          "m": 255,
+          "a": 255,
+          "hex": "080808"
+        },
+        {
+          "r": 16,
+          "g": 16,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "101019"
+        },
+        {
+          "r": 181,
+          "g": 206,
+          "b": 189,
+          "m": 255,
+          "a": 255,
+          "hex": "b5cebd"
+        },
+        {
+          "r": 247,
+          "g": 239,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "f7eff7"
+        },
+        {
+          "r": 49,
+          "g": 58,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "313a3a"
+        },
+        {
+          "r": 41,
+          "g": 49,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "293131"
+        },
+        {
+          "r": 33,
+          "g": 58,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "213a94"
+        },
+        {
+          "r": 33,
+          "g": 41,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "212929"
+        },
+        {
+          "r": 25,
+          "g": 25,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "191921"
+        },
+        {
+          "r": 230,
+          "g": 247,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "e6f7f7"
+        },
+        {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "ffffff"
+        },
+        {
+          "r": 247,
+          "g": 247,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "f7f7ff"
+        },
+        {
+          "r": 189,
+          "g": 206,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "bdcece"
+        },
+        {
+          "r": 156,
+          "g": 189,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "9cbdb5"
+        },
+        {
+          "r": 107,
+          "g": 132,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "6b847b"
+        },
+        {
+          "r": 41,
+          "g": 49,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "293142"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "19216b"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "213184"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "213131"
+        },
+        {
+          "r": 41,
+          "g": 41,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "292931"
+        },
+        {
+          "r": 58,
+          "g": 66,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "3a4242"
+        },
+        {
+          "r": 206,
+          "g": 222,
+          "b": 222,
+          "m": 255,
+          "a": 255,
+          "hex": "cedede"
+        },
+        {
+          "r": 132,
+          "g": 132,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "84847b"
+        },
+        {
+          "r": 156,
+          "g": 189,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "9cbdad"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "21315a"
+        },
+        {
+          "r": 90,
+          "g": 82,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "5a5252"
+        },
+        {
+          "r": 41,
+          "g": 66,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "2942b5"
+        },
+        {
+          "r": 148,
+          "g": 156,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "949c8c"
+        },
+        {
+          "r": 181,
+          "g": 173,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "b5adad"
+        },
+        {
+          "r": 206,
+          "g": 247,
+          "b": 230,
+          "m": 255,
+          "a": 255,
+          "hex": "cef7e6"
+        },
+        {
+          "r": 239,
+          "g": 230,
+          "b": 230,
+          "m": 255,
+          "a": 255,
+          "hex": "efe6e6"
+        },
+        {
+          "r": 230,
+          "g": 230,
+          "b": 222,
+          "m": 255,
+          "a": 255,
+          "hex": "e6e6de"
+        },
+        {
+          "r": 165,
+          "g": 165,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "a5a594"
+        },
+        {
+          "r": 148,
+          "g": 140,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "948c84"
+        },
+        {
+          "r": 189,
+          "g": 181,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "bdb59c"
+        },
+        {
+          "r": 181,
+          "g": 173,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "b5ad94"
+        },
+        {
+          "r": 214,
+          "g": 206,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "d6cece"
+        },
+        {
+          "r": 189,
+          "g": 181,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "bdb5b5"
+        },
+        {
+          "r": 165,
+          "g": 156,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "a59c9c"
+        },
+        {
+          "r": 181,
+          "g": 173,
+          "b": 165,
+          "m": 255,
+          "a": 255,
+          "hex": "b5ada5"
+        },
+        {
+          "r": 230,
+          "g": 214,
+          "b": 230,
+          "m": 255,
+          "a": 255,
+          "hex": "e6d6e6"
+        },
+        {
+          "r": 197,
+          "g": 189,
+          "b": 189,
+          "m": 255,
+          "a": 255,
+          "hex": "c5bdbd"
+        },
+        {
+          "r": 255,
+          "g": 247,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "fff7ff"
+        },
+        {
+          "r": 214,
+          "g": 197,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "d6c5ce"
+        },
+        {
+          "r": 74,
+          "g": 74,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "4a4a4a"
+        },
+        {
+          "r": 49,
+          "g": 49,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "31313a"
+        },
+        {
+          "r": 58,
+          "g": 58,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "3a3a42"
+        },
+        {
+          "r": 16,
+          "g": 16,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "101021"
+        },
+        {
+          "r": 49,
+          "g": 49,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "313142"
+        },
+        {
+          "r": 41,
+          "g": 58,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "293a52"
+        },
+        {
+          "r": 49,
+          "g": 58,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "313a31"
+        },
+        {
+          "r": 41,
+          "g": 49,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "29314a"
+        },
+        {
+          "r": 41,
+          "g": 41,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "292929"
+        },
+        {
+          "r": 25,
+          "g": 25,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "191919"
+        },
+        {
+          "r": 41,
+          "g": 58,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "293a31"
+        },
+        {
+          "r": 16,
+          "g": 16,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "101010"
+        },
+        {
+          "r": 33,
+          "g": 33,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "21213a"
+        },
+        {
+          "r": 33,
+          "g": 41,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "212921"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "21314a"
+        },
+        {
+          "r": 173,
+          "g": 165,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "ada59c"
+        },
+        {
+          "r": 25,
+          "g": 25,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "191931"
+        },
+        {
+          "r": 33,
+          "g": 33,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "212121"
+        },
+        {
+          "r": 41,
+          "g": 41,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "29293a"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "101910"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 8,
+          "m": 255,
+          "a": 255,
+          "hex": "081008"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        }
+      ],
+      [
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 255,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 148,
+          "g": 181,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "94b5ff"
+        },
+        {
+          "r": 239,
+          "g": 173,
+          "b": 222,
+          "m": 255,
+          "a": 255,
+          "hex": "efadde"
+        },
+        {
+          "r": 189,
+          "g": 173,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "bdadd6"
+        },
+        {
+          "r": 90,
+          "g": 132,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "5a84d6"
+        },
+        {
+          "r": 140,
+          "g": 82,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "8c5273"
+        },
+        {
+          "r": 148,
+          "g": 90,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "945a94"
+        },
+        {
+          "r": 99,
+          "g": 82,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "63526b"
+        },
+        {
+          "r": 82,
+          "g": 74,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "524a52"
+        },
+        {
+          "r": 214,
+          "g": 140,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "d68c94"
+        },
+        {
+          "r": 132,
+          "g": 148,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "8494ef"
+        },
+        {
+          "r": 255,
+          "g": 255,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "ffffff"
+        },
+        {
+          "r": 58,
+          "g": 90,
+          "b": 197,
+          "m": 255,
+          "a": 255,
+          "hex": "3a5ac5"
+        },
+        {
+          "r": 58,
+          "g": 58,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "3a3a5a"
+        },
+        {
+          "r": 214,
+          "g": 148,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "d694b5"
+        },
+        {
+          "r": 181,
+          "g": 214,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "b5d6ef"
+        },
+        {
+          "r": 90,
+          "g": 132,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "5a84f7"
+        },
+        {
+          "r": 90,
+          "g": 115,
+          "b": 189,
+          "m": 255,
+          "a": 255,
+          "hex": "5a73bd"
+        },
+        {
+          "r": 58,
+          "g": 74,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "3a4a73"
+        },
+        {
+          "r": 58,
+          "g": 58,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "3a3a4a"
+        },
+        {
+          "r": 140,
+          "g": 123,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "8c7b84"
+        },
+        {
+          "r": 247,
+          "g": 239,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "f7eff7"
+        },
+        {
+          "r": 41,
+          "g": 41,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "292942"
+        },
+        {
+          "r": 66,
+          "g": 66,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "424252"
+        },
+        {
+          "r": 74,
+          "g": 74,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "4a4a5a"
+        },
+        {
+          "r": 255,
+          "g": 247,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "fff7ff"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "42527b"
+        },
+        {
+          "r": 49,
+          "g": 49,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "313142"
+        },
+        {
+          "r": 230,
+          "g": 214,
+          "b": 230,
+          "m": 255,
+          "a": 255,
+          "hex": "e6d6e6"
+        },
+        {
+          "r": 247,
+          "g": 230,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "f7e6f7"
+        },
+        {
+          "r": 74,
+          "g": 90,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "4a5a9c"
+        },
+        {
+          "r": 58,
+          "g": 66,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "3a4263"
+        },
+        {
+          "r": 82,
+          "g": 107,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "526bad"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "42529c"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "425284"
+        },
+        {
+          "r": 41,
+          "g": 74,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "294a84"
+        },
+        {
+          "r": 255,
+          "g": 255,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "fffff7"
+        },
+        {
+          "r": 230,
+          "g": 247,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "e6f7f7"
+        },
+        {
+          "r": 99,
+          "g": 90,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "635a94"
+        },
+        {
+          "r": 173,
+          "g": 132,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "ad848c"
+        },
+        {
+          "r": 82,
+          "g": 99,
+          "b": 165,
+          "m": 255,
+          "a": 255,
+          "hex": "5263a5"
+        },
+        {
+          "r": 41,
+          "g": 58,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "293a73"
+        },
+        {
+          "r": 49,
+          "g": 66,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "31426b"
+        },
+        {
+          "r": 74,
+          "g": 90,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "4a5a8c"
+        },
+        {
+          "r": 247,
+          "g": 239,
+          "b": 230,
+          "m": 255,
+          "a": 255,
+          "hex": "f7efe6"
+        },
+        {
+          "r": 239,
+          "g": 230,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "efe6ce"
+        },
+        {
+          "r": 197,
+          "g": 230,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "c5e6ff"
+        },
+        {
+          "r": 115,
+          "g": 148,
+          "b": 230,
+          "m": 255,
+          "a": 255,
+          "hex": "7394e6"
+        },
+        {
+          "r": 41,
+          "g": 58,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "293a63"
+        },
+        {
+          "r": 58,
+          "g": 74,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "3a4a6b"
+        },
+        {
+          "r": 247,
+          "g": 247,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "f7f7ff"
+        },
+        {
+          "r": 222,
+          "g": 214,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "ded6b5"
+        },
+        {
+          "r": 49,
+          "g": 66,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "314263"
+        },
+        {
+          "r": 214,
+          "g": 197,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "d6c5ce"
+        },
+        {
+          "r": 156,
+          "g": 181,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "9cb5d6"
+        },
+        {
+          "r": 239,
+          "g": 230,
+          "b": 230,
+          "m": 255,
+          "a": 255,
+          "hex": "efe6e6"
+        },
+        {
+          "r": 247,
+          "g": 239,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "f7efce"
+        },
+        {
+          "r": 255,
+          "g": 247,
+          "b": 222,
+          "m": 255,
+          "a": 255,
+          "hex": "fff7de"
+        },
+        {
+          "r": 148,
+          "g": 156,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "949cad"
+        },
+        {
+          "r": 173,
+          "g": 156,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "ad9cad"
+        },
+        {
+          "r": 156,
+          "g": 181,
+          "b": 197,
+          "m": 255,
+          "a": 255,
+          "hex": "9cb5c5"
+        },
+        {
+          "r": 115,
+          "g": 82,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "73525a"
+        },
+        {
+          "r": 132,
+          "g": 140,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "848cad"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "213184"
+        },
+        {
+          "r": 239,
+          "g": 255,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "efffff"
+        },
+        {
+          "r": 107,
+          "g": 132,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "6b84b5"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "213173"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "19216b"
+        },
+        {
+          "r": 107,
+          "g": 140,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "6b8cce"
+        },
+        {
+          "r": 25,
+          "g": 41,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "19295a"
+        },
+        {
+          "r": 33,
+          "g": 58,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "213a94"
+        },
+        {
+          "r": 255,
+          "g": 247,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "fff7f7"
+        },
+        {
+          "r": 255,
+          "g": 255,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "ffffef"
+        },
+        {
+          "r": 189,
+          "g": 181,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "bdb59c"
+        },
+        {
+          "r": 230,
+          "g": 222,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "e6deb5"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "21315a"
+        },
+        {
+          "r": 206,
+          "g": 247,
+          "b": 230,
+          "m": 255,
+          "a": 255,
+          "hex": "cef7e6"
+        },
+        {
+          "r": 41,
+          "g": 49,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "293152"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "10195a"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "425273"
+        },
+        {
+          "r": 90,
+          "g": 115,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "5a73ad"
+        },
+        {
+          "r": 123,
+          "g": 148,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "7b94ce"
+        },
+        {
+          "r": 49,
+          "g": 58,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "313a5a"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "192131"
+        },
+        {
+          "r": 82,
+          "g": 107,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "526b94"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "192142"
+        },
+        {
+          "r": 33,
+          "g": 33,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "212129"
+        },
+        {
+          "r": 41,
+          "g": 66,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "2942b5"
+        },
+        {
+          "r": 33,
+          "g": 41,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "212931"
+        },
+        {
+          "r": 33,
+          "g": 41,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "21293a"
+        },
+        {
+          "r": 148,
+          "g": 132,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "948494"
+        },
+        {
+          "r": 25,
+          "g": 25,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "191921"
+        },
+        {
+          "r": 58,
+          "g": 74,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "3a4a63"
+        },
+        {
+          "r": 66,
+          "g": 90,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "425a84"
+        },
+        {
+          "r": 25,
+          "g": 25,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "191919"
+        },
+        {
+          "r": 82,
+          "g": 99,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "52637b"
+        },
+        {
+          "r": 25,
+          "g": 25,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "191929"
+        },
+        {
+          "r": 206,
+          "g": 197,
+          "b": 189,
+          "m": 255,
+          "a": 255,
+          "hex": "cec5bd"
+        },
+        {
+          "r": 90,
+          "g": 132,
+          "b": 189,
+          "m": 255,
+          "a": 255,
+          "hex": "5a84bd"
+        },
+        {
+          "r": 33,
+          "g": 41,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "212942"
+        },
+        {
+          "r": 74,
+          "g": 90,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "4a5a7b"
+        },
+        {
+          "r": 90,
+          "g": 115,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "5a7394"
+        },
+        {
+          "r": 41,
+          "g": 49,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "29314a"
+        },
+        {
+          "r": 49,
+          "g": 58,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "313a42"
+        },
+        {
+          "r": 41,
+          "g": 58,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "293a52"
+        },
+        {
+          "r": 33,
+          "g": 33,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "212131"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "21314a"
+        },
+        {
+          "r": 41,
+          "g": 49,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "293142"
+        },
+        {
+          "r": 41,
+          "g": 41,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "29293a"
+        },
+        {
+          "r": 16,
+          "g": 16,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "101019"
+        },
+        {
+          "r": 123,
+          "g": 173,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "7badef"
+        },
+        {
+          "r": 99,
+          "g": 132,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "6384ad"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "101921"
+        },
+        {
+          "r": 33,
+          "g": 33,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "21213a"
+        },
+        {
+          "r": 16,
+          "g": 16,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "101010"
+        },
+        {
+          "r": 148,
+          "g": 181,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "94b5ef"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "19213a"
+        },
+        {
+          "r": 214,
+          "g": 206,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "d6cece"
+        },
+        {
+          "r": 189,
+          "g": 206,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "bdcece"
+        },
+        {
+          "r": 16,
+          "g": 33,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "102142"
+        },
+        {
+          "r": 41,
+          "g": 41,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "292931"
+        },
+        {
+          "r": 90,
+          "g": 123,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "5a7bad"
+        },
+        {
+          "r": 222,
+          "g": 214,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "ded6ce"
+        },
+        {
+          "r": 230,
+          "g": 230,
+          "b": 222,
+          "m": 255,
+          "a": 255,
+          "hex": "e6e6de"
+        },
+        {
+          "r": 181,
+          "g": 173,
+          "b": 165,
+          "m": 255,
+          "a": 255,
+          "hex": "b5ada5"
+        },
+        {
+          "r": 156,
+          "g": 148,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "9c9494"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "101942"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "192121"
+        },
+        {
+          "r": 189,
+          "g": 181,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "bdb5b5"
+        },
+        {
+          "r": 123,
+          "g": 115,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "7b736b"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "425252"
+        },
+        {
+          "r": 214,
+          "g": 206,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "d6ceb5"
+        },
+        {
+          "r": 107,
+          "g": 123,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "6b7b7b"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "101931"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "101929"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "192129"
+        },
+        {
+          "r": 49,
+          "g": 49,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "31313a"
+        },
+        {
+          "r": 58,
+          "g": 58,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "3a3a42"
+        },
+        {
+          "r": 148,
+          "g": 173,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "94adad"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "081029"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "101919"
+        },
+        {
+          "r": 90,
+          "g": 107,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "5a6b7b"
+        },
+        {
+          "r": 25,
+          "g": 25,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "191931"
+        },
+        {
+          "r": 173,
+          "g": 165,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "ada58c"
+        },
+        {
+          "r": 16,
+          "g": 33,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "102131"
+        },
+        {
+          "r": 90,
+          "g": 82,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "5a5252"
+        },
+        {
+          "r": 156,
+          "g": 148,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "9c947b"
+        },
+        {
+          "r": 74,
+          "g": 99,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "4a6373"
+        },
+        {
+          "r": 16,
+          "g": 16,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "101021"
+        },
+        {
+          "r": 181,
+          "g": 197,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "b5c5d6"
+        },
+        {
+          "r": 222,
+          "g": 214,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "ded6d6"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "081021"
+        },
+        {
+          "r": 49,
+          "g": 66,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "31425a"
+        },
+        {
+          "r": 74,
+          "g": 74,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "4a4a4a"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "213142"
+        },
+        {
+          "r": 41,
+          "g": 49,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "29313a"
+        },
+        {
+          "r": 41,
+          "g": 58,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "293a4a"
+        },
+        {
+          "r": 197,
+          "g": 189,
+          "b": 189,
+          "m": 255,
+          "a": 255,
+          "hex": "c5bdbd"
+        },
+        {
+          "r": 8,
+          "g": 8,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "080819"
+        },
+        {
+          "r": 165,
+          "g": 156,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "a59c9c"
+        },
+        {
+          "r": 222,
+          "g": 247,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "def7ff"
+        },
+        {
+          "r": 74,
+          "g": 90,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "4a5a63"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "081019"
+        },
+        {
+          "r": 173,
+          "g": 165,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "ada59c"
+        },
+        {
+          "r": 66,
+          "g": 82,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "42525a"
+        },
+        {
+          "r": 132,
+          "g": 189,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "84bdff"
+        },
+        {
+          "r": 148,
+          "g": 197,
+          "b": 247,
+          "m": 255,
+          "a": 255,
+          "hex": "94c5f7"
+        },
+        {
+          "r": 156,
+          "g": 214,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "9cd6ff"
+        },
+        {
+          "r": 165,
+          "g": 206,
+          "b": 239,
+          "m": 255,
+          "a": 255,
+          "hex": "a5ceef"
+        },
+        {
+          "r": 206,
+          "g": 247,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "cef7ff"
+        },
+        {
+          "r": 165,
+          "g": 230,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "a5e6ff"
+        },
+        {
+          "r": 148,
+          "g": 214,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "94d6ff"
+        },
+        {
+          "r": 181,
+          "g": 247,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "b5f7ff"
+        },
+        {
+          "r": 189,
+          "g": 255,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "bdffff"
+        },
+        {
+          "r": 206,
+          "g": 255,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "ceffff"
+        },
+        {
+          "r": 115,
+          "g": 107,
+          "b": 90,
+          "m": 255,
+          "a": 255,
+          "hex": "736b5a"
+        },
+        {
+          "r": 181,
+          "g": 230,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "b5e6ff"
+        },
+        {
+          "r": 123,
+          "g": 173,
+          "b": 206,
+          "m": 255,
+          "a": 255,
+          "hex": "7badce"
+        },
+        {
+          "r": 107,
+          "g": 173,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "6badff"
+        },
+        {
+          "r": 115,
+          "g": 148,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "7394ad"
+        },
+        {
+          "r": 132,
+          "g": 206,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "84ceff"
+        },
+        {
+          "r": 230,
+          "g": 255,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "e6ffff"
+        },
+        {
+          "r": 8,
+          "g": 8,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "080810"
+        },
+        {
+          "r": 181,
+          "g": 239,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "b5efff"
+        },
+        {
+          "r": 156,
+          "g": 222,
+          "b": 255,
+          "m": 255,
+          "a": 255,
+          "hex": "9cdeff"
+        },
+        {
+          "r": 107,
+          "g": 115,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "6b7373"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 8,
+          "m": 255,
+          "a": 255,
+          "hex": "000008"
+        },
+        {
+          "r": 0,
+          "g": 8,
+          "b": 8,
+          "m": 255,
+          "a": 255,
+          "hex": "000808"
+        },
+        {
+          "r": 132,
+          "g": 123,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "847b6b"
+        },
+        {
+          "r": 99,
+          "g": 123,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "637b94"
+        },
+        {
+          "r": 82,
+          "g": 107,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "526b73"
+        },
+        {
+          "r": 156,
+          "g": 197,
+          "b": 214,
+          "m": 255,
+          "a": 255,
+          "hex": "9cc5d6"
+        },
+        {
+          "r": 132,
+          "g": 173,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "84adad"
+        },
+        {
+          "r": 140,
+          "g": 181,
+          "b": 197,
+          "m": 255,
+          "a": 255,
+          "hex": "8cb5c5"
+        },
+        {
+          "r": 99,
+          "g": 115,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "63737b"
+        },
+        {
+          "r": 115,
+          "g": 156,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "739c94"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "081010"
+        },
+        {
+          "r": 107,
+          "g": 132,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "6b8494"
+        },
+        {
+          "r": 132,
+          "g": 156,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "849cad"
+        },
+        {
+          "r": 90,
+          "g": 123,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "5a7b7b"
+        },
+        {
+          "r": 115,
+          "g": 140,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "738c94"
+        },
+        {
+          "r": 58,
+          "g": 66,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "3a424a"
+        },
+        {
+          "r": 82,
+          "g": 107,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "526b6b"
+        },
+        {
+          "r": 132,
+          "g": 165,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "84a5ad"
+        },
+        {
+          "r": 33,
+          "g": 41,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "212929"
+        },
+        {
+          "r": 107,
+          "g": 140,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "6b8c84"
+        },
+        {
+          "r": 123,
+          "g": 148,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "7b9494"
+        },
+        {
+          "r": 33,
+          "g": 49,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "213131"
+        },
+        {
+          "r": 82,
+          "g": 99,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "52636b"
+        },
+        {
+          "r": 107,
+          "g": 132,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "6b848c"
+        },
+        {
+          "r": 49,
+          "g": 58,
+          "b": 58,
+          "m": 255,
+          "a": 255,
+          "hex": "313a3a"
+        },
+        {
+          "r": 206,
+          "g": 222,
+          "b": 222,
+          "m": 255,
+          "a": 255,
+          "hex": "cedede"
+        },
+        {
+          "r": 33,
+          "g": 41,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "212921"
+        },
+        {
+          "r": 49,
+          "g": 66,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "314242"
+        },
+        {
+          "r": 82,
+          "g": 99,
+          "b": 99,
+          "m": 255,
+          "a": 255,
+          "hex": "526363"
+        },
+        {
+          "r": 0,
+          "g": 8,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "000810"
+        },
+        {
+          "r": 8,
+          "g": 8,
+          "b": 8,
+          "m": 255,
+          "a": 255,
+          "hex": "080808"
+        },
+        {
+          "r": 66,
+          "g": 74,
+          "b": 74,
+          "m": 255,
+          "a": 255,
+          "hex": "424a4a"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 0,
+          "m": 0,
+          "a": 255,
+          "hex": "000000"
+        },
+        {
+          "r": 25,
+          "g": 41,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "192921"
+        },
+        {
+          "r": 25,
+          "g": 41,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "192929"
+        },
+        {
+          "r": 90,
+          "g": 107,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "5a6b73"
+        },
+        {
+          "r": 99,
+          "g": 115,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "63738c"
+        },
+        {
+          "r": 16,
+          "g": 33,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "102121"
+        },
+        {
+          "r": 41,
+          "g": 58,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "293a31"
+        },
+        {
+          "r": 123,
+          "g": 140,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "7b8c94"
+        },
+        {
+          "r": 25,
+          "g": 33,
+          "b": 25,
+          "m": 255,
+          "a": 255,
+          "hex": "192119"
+        },
+        {
+          "r": 16,
+          "g": 25,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "101910"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "081042"
+        },
+        {
+          "r": 33,
+          "g": 33,
+          "b": 33,
+          "m": 255,
+          "a": 255,
+          "hex": "212121"
+        },
+        {
+          "r": 107,
+          "g": 132,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "6b847b"
+        },
+        {
+          "r": 8,
+          "g": 16,
+          "b": 8,
+          "m": 255,
+          "a": 255,
+          "hex": "081008"
+        },
+        {
+          "r": 0,
+          "g": 0,
+          "b": 16,
+          "m": 255,
+          "a": 255,
+          "hex": "000010"
+        },
+        {
+          "r": 41,
+          "g": 49,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "293131"
+        },
+        {
+          "r": 58,
+          "g": 66,
+          "b": 66,
+          "m": 255,
+          "a": 255,
+          "hex": "3a4242"
+        },
+        {
+          "r": 49,
+          "g": 58,
+          "b": 49,
+          "m": 255,
+          "a": 255,
+          "hex": "313a31"
+        },
+        {
+          "r": 156,
+          "g": 189,
+          "b": 181,
+          "m": 255,
+          "a": 255,
+          "hex": "9cbdb5"
+        },
+        {
+          "r": 41,
+          "g": 41,
+          "b": 41,
+          "m": 255,
+          "a": 255,
+          "hex": "292929"
+        },
+        {
+          "r": 156,
+          "g": 189,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "9cbdad"
+        },
+        {
+          "r": 140,
+          "g": 165,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "8ca59c"
+        },
+        {
+          "r": 189,
+          "g": 222,
+          "b": 222,
+          "m": 255,
+          "a": 255,
+          "hex": "bddede"
+        },
+        {
+          "r": 181,
+          "g": 206,
+          "b": 189,
+          "m": 255,
+          "a": 255,
+          "hex": "b5cebd"
+        },
+        {
+          "r": 140,
+          "g": 156,
+          "b": 156,
+          "m": 255,
+          "a": 255,
+          "hex": "8c9c9c"
+        },
+        {
+          "r": 148,
+          "g": 156,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "949c8c"
+        },
+        {
+          "r": 132,
+          "g": 132,
+          "b": 123,
+          "m": 255,
+          "a": 255,
+          "hex": "84847b"
+        },
+        {
+          "r": 148,
+          "g": 140,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "948c84"
+        },
+        {
+          "r": 181,
+          "g": 173,
+          "b": 173,
+          "m": 255,
+          "a": 255,
+          "hex": "b5adad"
+        },
+        {
+          "r": 99,
+          "g": 90,
+          "b": 82,
+          "m": 255,
+          "a": 255,
+          "hex": "635a52"
+        },
+        {
+          "r": 197,
+          "g": 189,
+          "b": 165,
+          "m": 255,
+          "a": 255,
+          "hex": "c5bda5"
+        },
+        {
+          "r": 206,
+          "g": 197,
+          "b": 165,
+          "m": 255,
+          "a": 255,
+          "hex": "cec5a5"
+        },
+        {
+          "r": 181,
+          "g": 173,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "b5ad94"
+        },
+        {
+          "r": 165,
+          "g": 156,
+          "b": 132,
+          "m": 255,
+          "a": 255,
+          "hex": "a59c84"
+        },
+        {
+          "r": 181,
+          "g": 173,
+          "b": 140,
+          "m": 255,
+          "a": 255,
+          "hex": "b5ad8c"
+        },
+        {
+          "r": 165,
+          "g": 165,
+          "b": 148,
+          "m": 255,
+          "a": 255,
+          "hex": "a5a594"
+        },
+        {
+          "r": 140,
+          "g": 132,
+          "b": 107,
+          "m": 255,
+          "a": 255,
+          "hex": "8c846b"
+        },
+        {
+          "r": 148,
+          "g": 140,
+          "b": 115,
+          "m": 255,
+          "a": 255,
+          "hex": "948c73"
+        }
+      ]
+    ]
+  },
+  "background": {
+    "length": 78455,
+    "header": {
+      "zero1": 0,
+      "usePaddles": 1,
+      "activated": 1
+    },
+    "palette": {
+      "ignoreFirstPixel": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "tiles": {
+      "layer1": {
+        "width": 336,
+        "height": 248,
+        "tileCount": 40,
+        "depth": 1,
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      },
+      "layer2": {
+        "width": 640,
+        "height": 480,
+        "tileCount": 205,
+        "unknown": [
+          0,
+          0,
+          1,
+          0,
+          15,
+          0,
+          16,
+          0,
+          26,
+          0,
+          27,
+          0,
+          33,
+          0,
+          34,
+          0
+        ],
+        "tiles": "Omitted to reduce size",
+        "blank": 0,
+        "blank2": 0
+      }
+    },
+    "textures": {
+      "texture0": {
+        "textureId": 0,
+        "size": 0,
+        "depth": 1,
+        "data": "Omitted to reduce size"
+      }
+    }
   }
 }
